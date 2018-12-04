@@ -1,0 +1,8 @@
+package com.company.dts.info.impl;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class PlayerDAO {
+
+}
