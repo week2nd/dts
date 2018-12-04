@@ -8,9 +8,9 @@
 	</settings>
 		
 	<!-- Alias 설정 -->
-	<typeAliases>
+	<!-- <typeAliases>
 		<typeAlias alias="board" type="com.company.app.board.BoardVO" />
 		<typeAlias alias="user" type="com.company.app.user.UserVO" />
-	</typeAliases>
+	</typeAliases> -->
 	
 </configuration>
