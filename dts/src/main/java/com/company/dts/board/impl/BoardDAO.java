@@ -1,5 +1,5 @@
 package com.company.dts.board.impl;
 
-public class BoardDaoMybatis {
+public class BoardDAO {
 
 }
