@@ -9,6 +9,7 @@
 
 </head>
 <body>
+<h3>getUserList아아아아</h3>
 <!-- 
 	<c:if test="${empty sessionScope.login }">
 	<a href="loginForm">로그인</a>
