@@ -1,4 +1,4 @@
-package com.yedam.dts;
+package com.company.dts;
 
 import java.text.DateFormat;
 import java.util.Date;
