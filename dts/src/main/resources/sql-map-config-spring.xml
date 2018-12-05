@@ -9,8 +9,10 @@
 		
 	<!-- Alias 설정 -->
 	 <typeAliases>
+
 		<typeAlias alias="purchase" type="com.company.dts.purchase.PurchaseVO" />
 		
+
 	</typeAliases> 
 	
 </configuration>
