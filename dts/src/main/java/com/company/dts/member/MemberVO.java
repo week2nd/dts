@@ -1,17 +1,17 @@
 package com.company.dts.member;
 
 public class MemberVO {
-	private String uId;
-	private String uPw;
-	private String uName;
-	private String uAddress;
-	private String uPhone;
-	private int uMileage;
-	private String uGrant;
-	private String uBirth;
-	private String uDate;
-	private int uWin;
-	private int uLose;
+	private String uId;			// 유저 아이디
+	private String uPw;			// 유저 비밀번호
+	private String uName;		// 유저 이름
+	private String uAddress;	// 유저 주소
+	private String uPhone;		// 유저 폰번호
+	private int uMileage;		// 유저 마일리지
+	private String uGrant;		// 유저 권한
+	private String uBirth;		// 유저 생일
+	private String uDate;		// 유저 가입일
+	private int uWin;			// 유저 베팅 승리횟수
+	private int uLose;			// 유저 베팅 패배횟수
 		
 	private String searchCondition;
 	private String searchKeyword;
