@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
   <meta name="author" content="">
   <link rel="icon" href="">
 
-  <title>River News and Magazine template by grafreez</title>
+  <title>E-SPORT토토</title>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap core CSS -->
@@ -97,8 +98,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item active"> <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-            <li class="nav-item"> <a class="nav-link" href="#">게임구매</a> </li>
+            <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"> <a class="nav-link" href="getPurchaseList">게임구매</a> </li>
             <li class="nav-item"> <a class="nav-link" href="file:///C:/Users/User/Downloads/river-demo/khj.html">경기정보</a>
             </li>
             <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
@@ -124,8 +125,21 @@
     </nav>
   </section>
 
+======================================================
+======================================================
+======================================================
+======================================================
+
+<tiles:insertAttribute name="content" />
+
+======================================================
+======================================================
+======================================================
+======================================================
+
+
   <!-- Info Block-01 -->
-  <section class="banner-sec float-left w-100 pt-4 pb-5">
+  <!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-3">
@@ -170,14 +184,14 @@
         </div>
         <div class="col-md-6 top-slider">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+            Indicators
             <ol class="carousel-indicators">
               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
             </ol>
 
-            <!-- Wrapper for slides -->
+            Wrapper for slides
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
                 <div class="news-block">
@@ -219,7 +233,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- widget block -->
   <!-- <section class="widget-block flasher-sec float-left w-100">
