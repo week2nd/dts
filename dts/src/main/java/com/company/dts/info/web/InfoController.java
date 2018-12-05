@@ -17,6 +17,7 @@ public class InfoController {
 	@RequestMapping("/getPlayerList")
 	public String getPlayerList(Model model,PlayerVO vo) {
 		model.addAttribute("playerList", playerService.getPlayerList(vo));
+		System.out.println("Controller Info에서");
 		return "info/getPlayerList";
 	}
 }

@@ -17,6 +17,6 @@ public class PlayerDAOMybatis {
 	// 선수 전체 조회
 	public List<PlayerVO> getPlayerList(PlayerVO vo) {
 		System.out.println("PlayerService.java.mybatis jdbc getPlayerList");
-		return mybatis.selectList("player.getPlayerList");
+		return mybatis.selectList("player.getPlayerList", vo);
 	}
 }

@@ -34,6 +34,7 @@ public class PlayerServiceImpl implements PlayerService{
 //	전체 조회
 	@Override
 	public List<PlayerVO> getPlayerList(PlayerVO vo) {
+		System.out.println("PlayerServiceImpl getPlayerList 진행중" + '\n' + "=");
 		return dao.getPlayerList(vo);
 	}
 	
