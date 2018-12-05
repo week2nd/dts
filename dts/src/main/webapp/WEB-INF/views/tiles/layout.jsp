@@ -121,9 +121,10 @@
     </nav>
   </section>
   <section class="banner-sec float-left w-100 pt-4 pb-5">
-  <div class="row px-3">
-	<tiles:insertAttribute name="content" />
+	<div class="col-md-12">
+			<tiles:insertAttribute name="content" />
 	</div>
+
   </section>
 
 

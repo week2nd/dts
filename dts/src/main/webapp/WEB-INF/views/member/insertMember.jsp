@@ -124,36 +124,28 @@ function checkValue(){
 	<table style="width: 100%">
         <tr>            
             <td>아이디</td>
-            <td>${member.uId }</td>
+            <td><input type="text" name="oldpw" value="${member.uId }"></td>
             <td>*아이디는 변경하실 수 없습니다.</td>
         </tr>
         <tr>
-            <td>기존 비밀번호</td>
+            <td>비밀번호</td>
             <td><input type="password" name="oldpw" value="${member.uPw }"></td>
-        </tr>
+        </tr>        
         <tr>
-            <td>새 비밀번호</td>
-            <td><input type="password" name="newpw1" value="${member.uPw }"></td>
-        </tr>
-        <tr>
-            <td>새 비밀번호 확인</td>
+            <td>비밀번호 확인</td>
             <td><input type="password" name="newpw2" value="${member.uPw }"></td>
         </tr>
         <tr>
             <td>이름</td>
-            <td>${member.uName }</td>
+            <td><input type="text" name="oldpw" value="${member.uName }"></td>
             <td>*개명을 한경우 본인확인기관에서 등록된 정보로만 변경이 가능합니다.</td>
         </tr>
         <tr>
-            <td>주소</td>
-            <td>${member.uAddress }</td>
-        </tr>
-        <tr>
-        	<td></td>
+            <td>주소</td>       
             <td>
                 <input type="text" id="sample4_postcode" placeholder="우편번호">
                 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-                <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
+                <input type="text" id="sample4_roadAddress" placeholder="도로명주소" value="${member.uAddress }">
                 <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
                 <span id="guide" style="color:#999"></span>
             </td>
@@ -161,7 +153,7 @@ function checkValue(){
         <tr>
             <td>휴대폰번호</td>
             <td>
-                <select name="phone1">
+             <!--   <select name="phone1">
                     <option value="zero">010</option>
                     <option value="one">011</option>
                     <option value="two">012</option>
@@ -170,16 +162,16 @@ function checkValue(){
                     <option value="five">015</option>                        
                 </select>
                 -
-                <input type="text" name="phone2" value="${member.uPhone }"> -
+                <input type="text" name="phone2" value="${member.uPhone }"> -   -->
                 <input type="text" name="phone3" value="${member.uPhone }">
             </td>
         </tr>
             <td>생년월일</td>
-            <td>${member.uBirth}</td>
+            <td><input type="text" name="oldpw" value="${member.uBirth }"></td>
         </tr>        
         <tr>
             <td colspan="5"> 
-                <a href="getMemberList"><input type="button" value="수정"></a> 
+                <a href="getMemberList"><input type="button" value="가입"></a> 
                 <a href="getMemberList"><input type="button" value="취소"></a>
             </td>
             
