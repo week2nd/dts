@@ -100,7 +100,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item active"> <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a></li>
             <li class="nav-item"> <a class="nav-link" href="getPurchaseList">게임구매</a> </li>
             <li class="nav-item"> <a class="nav-link" href="file:///C:/Users/User/Downloads/river-demo/khj.html">경기정보</a>
             </li>
@@ -125,6 +125,13 @@
         </div>
       </div>
     </nav>
+  </section>
+  
+  <section class="banner-sec float-left w-100 pt-4 pb-5">
+	<div class="col-md-12">
+			
+	</div>
+
   </section>
 
 
