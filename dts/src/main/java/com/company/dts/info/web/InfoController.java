@@ -24,7 +24,7 @@ public class InfoController {
 	// 선수 단일 조회
 	@RequestMapping("/getPlayer")
 	public String getPlayer(Model model, PlayerVO vo) {
-		model.addAttribute("getplayer",playerService.getPlayer(vo));
+		model.addAttribute("player",playerService.getPlayer(vo));
 		return "info/getPlayer";
 	}
 }

@@ -27,6 +27,7 @@ public class PlayerServiceImpl implements PlayerService {
 	// 단건 조회
 	@Override
 	public PlayerVO getPlayer(PlayerVO vo) {
+		System.out.println("PlayerServiceImpl getPlayer"+'\n');
 		return dao.getPlayer(vo);
 	}
 
