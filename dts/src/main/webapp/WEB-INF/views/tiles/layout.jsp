@@ -105,9 +105,9 @@
             <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" aria-live="token">게시판</a>
               <div class="dropdown-menu" aria-labelledby="layouts">
-                <a class="dropdown-item" href="#">자유게시판</a>
-                <a class="dropdown-item" href="#">분석게시판</a>
-                <a class="dropdown-item" href="#">건의게시판</a>
+                <a class="dropdown-item" href="getBoardList">자유게시판</a>
+                <a class="dropdown-item" href="getBoardList">분석게시판</a>
+                <a class="dropdown-item" href="getBoardList">건의게시판</a>
               </div>
             </li>
             <li class="nav-item"> <a class="nav-link" href="#">공지사항</a> </li>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="board">
+
+ <!-- 전체유저조회 -->
+<select id="getBoardList" resultType="board">	
+
+	SELECT	 	*
+	FROM 		BOARD
+	<!--  WHERE 1=1 -->
+	<if test="searchKeyword != null and searchKeyword != ''">
+		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
+	</if> 
+<!-- <where>	
+	<choose>
+		<when test="searchCondition != null and searchCondition == 'title'">
+			and title like '%' || #{searchKeyword} || '%'
+		</when>
+		<when test="searchCondition != null and searchCondition == 'content'">
+			and content like '%' || #{searchKeyword} || '%'
+		</when>
+	</choose>
+	
+	</where>
+	--> 
+	<choose>
+		<when test="sortCol != null and sortCol != ''">
+			ORDER BY ${sortCol}	
+		</when>
+		<otherwise>
+			ORDER BY BOARD_NUMBER DESC
+		</otherwise>
+	</choose>
+
+</select>
+
+<!-- 단일유저조회 -->
+<select id="getBoard" parameterType="board" resultType="board">
+	SELECT 	*
+	FROM	BOARD
+	WHERE 	BOARD_NUMBER = #{boardNumber}
+	ORDER BY BOARD_NUMBER
+</select>
+
+
+<!-- <insert id ="insertBoard" parameterType="board">
+	<selectKey keyProperty="seq" resultType="integer" order="BEFORE">
+		SELECT nvl(MAX(UID),0)+1 FROM BOARD 
+	</selectKey>
+	INSERT INTO BOARD (	UID,
+						UPW,
+						UADDRESS,    
+						UPHONE, 
+						UMILEAGE,          
+						UGRANT,
+						UBIRTH,
+						UDATE,
+						UWIN,
+						ULOSE
+						
+						)
+				VALUES(
+					#{uid},
+					#{upw},
+					#{uname},
+					#{uaddress},
+					#{uphone},
+					0,
+					null,
+					#{ubirth},
+					sysdate,
+					0,
+					0
+				)
+</insert>
+
+<update id ="updateBoard" parameterType="board">
+	UPDATE BOARD SET 
+					UPW=#{upw},
+					UNAME=#{uname},    
+					UADDRESS=#{uaddress}					
+					UPHONE=#{uphone}
+					WHERE UID=#{uid}
+</update>
+
+<delete id ="deleteBoard" parameterType="int">
+	DELETE FROM BOARD WHERE UID = #{value}
+					
+</delete>
+<delete id ="deleteBoardList" parameterType="board">
+	DELETE FROM BOARD 
+	<if test="uidList != null and uidList.length>0">
+	WHERE UID in
+	<foreach collection="uidList" item="item" open="("  close=")" separator=",">
+		#{item}
+	</foreach>
+	</if>
+	<if test="uidList == null or not uidList.length>0">
+	WHERE UID = -1
+	</if>
+</delete>
+ -->
+
+</mapper> 
