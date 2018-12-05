@@ -14,7 +14,7 @@ public class MemberController {
 	@Autowired MemberService memberService;
 	
 	// 전체조회
-	@RequestMapping(value= {"/getMemberList", "/getListMemeber", "/getMember"}
+	@RequestMapping(value= {"/getMemberList", "/getListMemeber", "/getMembers"}
 					, method = RequestMethod.GET
 					)		//http://localhost:8081/app/getMemberList
 	public String getMemberList(Model model, MemberVO vo)  {

@@ -15,7 +15,15 @@ public class MemberVO {
 		
 	private String searchCondition;
 	private String searchKeyword;
+	private String sortCol;
+	private String[] uidList;
 	
+	public String[] getUidList() {
+		return uidList;
+	}
+	public void setUidList(String[] uidList) {
+		this.uidList = uidList;
+	}
 	public String getSearchCondition() {
 		return searchCondition;
 	}
