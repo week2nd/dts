@@ -2,6 +2,7 @@ package com.company.dts.info;
 
 public class PlayerVO {
 
+	//기본 정보
 	private String player_id;
 	private String nickname;
 	private String name;
@@ -16,6 +17,46 @@ public class PlayerVO {
 	private int lose;
 	private String attend;
 
+	// 통계정보
+	private int player_rank; // 선수 순위
+	private int match; // win + lose 경기수
+	private int winrate; // WIN/(WIN+LOSE) 승률
+	private int kda; // ROUND((KILL+ASSIST)/DEATH,1) KDA
+
+	//통계정보 get/set
+	public int getPlayer_rank() {
+		return player_rank;
+	}
+
+	public void setPlayer_rank(int player_rank) {
+		this.player_rank = player_rank;
+	}
+
+	public int getMatch() {
+		return match;
+	}
+
+	public void setMatch(int match) {
+		this.match = match;
+	}
+
+	public int getWinrate() {
+		return winrate;
+	}
+
+	public void setWinrate(int winrate) {
+		this.winrate = winrate;
+	}
+
+	public int getKda() {
+		return kda;
+	}
+
+	public void setKda(int kda) {
+		this.kda = kda;
+	}
+
+	// 기본 정보 get/set
 	public String getPlayer_id() {
 		return player_id;
 	}
