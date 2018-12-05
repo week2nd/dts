@@ -13,7 +13,7 @@ import com.company.dts.info.PlayerVO;
 public class PlayerServiceImpl implements PlayerService{
 	
 //	@Autowired PlayerDAO dao;
-	@Autowired PlayerDAOMybatis dao;
+	@Autowired PlayerDAO dao;
 
 	//등록
 	@Override

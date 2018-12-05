@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.company.dts.info.PlayerVO;
 
 @Repository
-public class PlayerDAOMybatis {
+public class PlayerDAO {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
