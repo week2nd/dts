@@ -30,15 +30,7 @@
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="js/lightbox-plus-jquery.min.js"></script>
   <script src="js/lity.min.js"></script>
-<!--   <script>
-  	function login(){
-  		var $id = document.getElementById("uId").value;
-  		var $pw = document.getElementById("uPw").value;
-  		console.log($id);
-  		console.log($pw);
-  		location.href = "login?uId="+$id+"&uPw="+$pw;
-  	}
-  </script> -->
+
 
 </head>
 
@@ -89,8 +81,8 @@
                 </div>
                 <button>로그인</button>
               </form>
-              <!-- <a href="javascript:void(0);" onclick="login();">로그인</a> -->
-              <a href="#">회원가입</a>
+
+              <a href="insertMember">회원가입</a>
             </nav>
           </div>
         </div>

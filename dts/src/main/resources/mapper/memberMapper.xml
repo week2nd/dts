@@ -37,9 +37,9 @@
 
 <!-- 단일유저조회 -->
 <select id="getMember" parameterType="member" resultType="member">
-	SELECT
-	U_ID,
-	U_PW
+	SELECT	*
+	
+
 	FROM	MEMBER
 	WHERE U_ID = #{uId}
 </select>
