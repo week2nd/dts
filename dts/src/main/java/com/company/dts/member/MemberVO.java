@@ -7,6 +7,9 @@ public class MemberVO {
 	private String uAddress;	// 유저 주소
 	private String uPhone;		// 유저 폰번호
 	private int uMileage;		// 유저 마일리지
+	
+	
+
 	private String uGrant;		// 유저 권한
 	private String uBirth;		// 유저 생일
 	private String uDate;		// 유저 가입일
@@ -18,6 +21,12 @@ public class MemberVO {
 	private String sortCol;
 	private String[] uidList;
 	
+	public String getSortCol() {
+		return sortCol;
+	}
+	public void setSortCol(String sortCol) {
+		this.sortCol = sortCol;
+	}
 	public String[] getUidList() {
 		return uidList;
 	}

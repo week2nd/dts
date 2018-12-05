@@ -9,8 +9,10 @@
 		
 	<!-- Alias 설정 -->
 	 <typeAliases>
-	<!--	<typeAlias alias="board" type="com.company.app.board.BoardVO" />-->
-		<typeAlias alias="member" type="com.company.dts.member.MemberVO" />
+
+		<typeAlias alias="purchase" type="com.company.dts.purchase.PurchaseVO" />
+		
+
 	</typeAliases> 
 	
 </configuration>
