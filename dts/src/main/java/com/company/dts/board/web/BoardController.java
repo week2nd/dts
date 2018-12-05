@@ -29,7 +29,7 @@ public class BoardController {
 		return "board/getBoard";
 	}
 
-/*	// 등록폼
+	// 등록폼
 	@RequestMapping(value="/insertBoard" , method = RequestMethod.GET)
 	public String insertBoardform() {
 		return "board/insertBoard";
@@ -65,5 +65,5 @@ public class BoardController {
 	public String deleteBoardList(BoardVO vo) {
 		boardService.deleteBoardList(vo);	//여러개 삭제처리
 		return "redirect:getBoardList";		//목록요청
-	}*/
+	}
 }

@@ -1,19 +1,19 @@
 package com.company.dts.board;
 
 public class BoardVO {
-	private int boardNumber;
-	private String boardTitle;
-	private String boardContent;
-	private String postDate;
-	private String boardHits;
-	private String boardLike;
-	private String uId;
-	private String boardType;
+	private int boardNumber;			//게시판번호
+	private String boardTitle;			//게시판제목
+	private String boardContent;		//게시판제목
+	private String postDate;			//작성일
+	private String boardHits;			//조회수
+	private String boardLike;			//추천수
+	private String uId;					//user아이디
+	private String boardType;			//게시판타입
 
-	private String searchCondition;
-	private String searchKeyword;
-	private String sortCol;
-	private String[] bnumberList;
+	private String searchCondition;		//속성검색
+	private String searchKeyword;		//단어검색
+	private String sortCol;				//정렬
+	private String[] bnumberList;		//값을 담는 배열
 	public int getBoardNumber() {
 		return boardNumber;
 	}

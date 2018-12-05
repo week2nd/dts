@@ -4,16 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>getUser.jsp</title>
+<title>getBoard.jsp</title>
 </head>
 <body>
-<h3>유저보기</h3>
-<!-- 	아이디 : ${user.id } 	<br>
-	비밀번호 : ${user.password} <br>
-	이름 : ${user.name } <br>
-	권한 : ${user.role } <br>
+<h3>게시판보기</h3><br><br><br><br><br><br>
+	게시판번호 : ${board.boardNumber } 
+	게시판제목 : ${board.boardTitle} 
+	게시판내용 : ${board.boardContent } 
+	작성일시 : ${board.postDate } 
+	조회수 : ${board.boardHits } 
+	추천수 : ${board.boardLike} 
+	아이디 : ${board.uId } 
+	게시판타입 : ${board.boardType } 
 	<a href="updateUserform?seq=${user.id}">수정</a> 
 	<a href="deleteUser?seq=${user.id }">삭제</a>
-	 -->
+	 
 </body>
 </html>

@@ -356,6 +356,7 @@ a.text-primary:hover,a.text-primary:focus{
 /*Banner Section*/
 
 .banner-sec {
+	min-height: 650px;
     /*background-color: #ebebeb;*/
 }
 .banner-sec .card-img-overlay {

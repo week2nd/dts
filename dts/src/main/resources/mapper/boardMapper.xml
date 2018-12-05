@@ -3,7 +3,7 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="board">
 
- <!-- 전체유저조회 -->
+ <!-- 전체게시판조회 -->
 <select id="getBoardList" resultType="board">	
 
 	SELECT	 	*
@@ -35,7 +35,8 @@
 
 </select>
 
-<!-- 단일유저조회 -->
+
+<!-- 단일게시판조회 -->
 <select id="getBoard" parameterType="board" resultType="board">
 	SELECT 	*
 	FROM	BOARD
@@ -44,37 +45,39 @@
 </select>
 
 
-<!-- <insert id ="insertBoard" parameterType="board">
+<!-- 게시판 입력 -->
+<insert id ="insertBoard" parameterType="board">
 	<selectKey keyProperty="seq" resultType="integer" order="BEFORE">
 		SELECT nvl(MAX(UID),0)+1 FROM BOARD 
 	</selectKey>
-	INSERT INTO BOARD (	UID,
-						UPW,
-						UADDRESS,    
-						UPHONE, 
-						UMILEAGE,          
-						UGRANT,
-						UBIRTH,
-						UDATE,
-						UWIN,
-						ULOSE
-						
+	INSERT INTO BOARD (	BOARD_NUMBER,		<!-- 게시판번호 -->
+						BOARD_TITLE,		<!-- 게시판제목 -->
+						BOARD_CONTENT,    	<!-- 게시판내용 -->
+						BOARD_DATE, 		<!-- 작성일 -->
+						BOARD_HITS,          <!-- 조회수 -->
+						BOARD_LIKE,			<!-- 추천수 -->
+						U_ID,				<!-- 아이디 -->
+						BOARD_TYPE,			<!-- 게시판타입 -->
 						)
 				VALUES(
-					#{uid},
-					#{upw},
-					#{uname},
-					#{uaddress},
-					#{uphone},
-					0,
-					null,
-					#{ubirth},
-					sysdate,
-					0,
-					0
+					#{boardNumber},			<!-- 게시판번호 -->
+					#{boardTitle},			<!-- 게시판제목 -->
+					#{boardContent},		<!-- 게시판내용 -->
+					sysdate,				<!-- 작성일 -->
+					0,						 <!-- 조회수 -->
+					0,						<!-- 추천수 -->
+					#{uId},					<!-- 아이디 -->
+					#{boardType}			<!-- 게시판타입 -->
 				)
 </insert>
 
+
+								
+								
+								<!-- 여기서부터 작업해야함 -->
+								
+								
+<!-- 게시판 업그레이드 -->
 <update id ="updateBoard" parameterType="board">
 	UPDATE BOARD SET 
 					UPW=#{upw},
@@ -84,6 +87,9 @@
 					WHERE UID=#{uid}
 </update>
 
+
+
+<!-- 게시판 삭제 -->
 <delete id ="deleteBoard" parameterType="int">
 	DELETE FROM BOARD WHERE UID = #{value}
 					
@@ -100,6 +106,6 @@
 	WHERE UID = -1
 	</if>
 </delete>
- -->
+
 
 </mapper> 
