@@ -10,7 +10,7 @@
  	<result property="uphone" 	column="UPHONE" />
  	<result property="umileage"	column="UMILEAGE" />
  	<result property="ugrant"	column="UGRANT" />
- 	<result property="ubirth"	column="UDATE" />
+ 	<result property="ubirth"	column="UBIRTH" />
  	<result property="udate"	column="UDATE" />
  	<result property="uwin"		column="UWIN" />
  	<result property="ulose"	column="ULOSE" />
@@ -19,17 +19,7 @@
  <!-- 전체유저조회 -->
 <select id="getMemberList" resultMap="memberResult">	
 
-	SELECT	 	UID,
-				UPW,
-				UNAME,    
-				UADDRESS, 
-				UPHONE,          
-				UMILEAGE,
-				UGRANT,
-				UBIRTH,
-				UDATE,
-				UWIN,
-				ULOSE
+	SELECT	 	*
 	FROM 		MEMBER
 	<!--  WHERE 1=1 -->
 	<if test="searchKeyword != null and searchKeyword != ''">
@@ -113,7 +103,7 @@
 					UPW=#{upw},
 					UNAME=#{uname},    
 					UADDRESS=#{uaddress}					
-					UADDRESS=#{uphone}
+					UPHONE=#{uphone}
 					WHERE UID=#{uid}
 </update>
 

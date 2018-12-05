@@ -111,7 +111,7 @@
               </div>
             </li>
             <li class="nav-item"> <a class="nav-link" href="#">공지사항</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">마이페이지</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="getMemberList">마이페이지</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>
           </ul>
           <form class="ml-auto">
