@@ -10,32 +10,31 @@ import com.company.dts.info.PlayerService;
 import com.company.dts.info.PlayerVO;
 
 @Service
-public class PlayerServiceImpl implements PlayerService{
-	
-//	@Autowired PlayerDAO dao;
-	@Autowired PlayerDAO dao;
+public class PlayerServiceImpl implements PlayerService {
 
-	//등록
+	@Autowired	PlayerDAO dao;
+
+	// 등록
 	@Override
-	public void insertPlayer() {
+	public void insertPlayer(PlayerVO vo) {
 	}
 
-	//수정
+	// 수정
 	@Override
-	public void updatePlayer() {
+	public void updatePlayer(PlayerVO vo) {
 	}
 
-	//단건 조회
+	// 단건 조회
 	@Override
-	public PlayerVO getPlayer() {
-		return null;
+	public PlayerVO getPlayer(PlayerVO vo) {
+		return dao.getPlayer(vo);
 	}
-	
+
 //	전체 조회
 	@Override
 	public List<PlayerVO> getPlayerList(PlayerVO vo) {
 		System.out.println("PlayerServiceImpl getPlayerList 진행중" + '\n' + "=");
 		return dao.getPlayerList(vo);
 	}
-	
+
 }

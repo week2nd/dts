@@ -20,7 +20,13 @@
 				ROUND((KILL+ASSIST)/DEATH,1) kda
 		FROM 	PLAYER
 	</select>
-
+	<select id="getPlayer"	parameterType="player" resultType="player">
+		SELECT	P.TEAM_ID||' '||NICKNAME, P.NAME, T.NAME
+		FROM	PLAYER P
+			JOIN	TEAM T
+		ON		P.TEAM_ID = T.TEAM_ID
+		WHERE	P.NICKNAME = #{nickname}
+	</select>
 
 
 </mapper> 

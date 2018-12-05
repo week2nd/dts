@@ -29,7 +29,7 @@
 			<tr>
 				<td>${player.playerRank}</td>
 				<td>${player.name}</td>
-				<td>${player.nickname}</td>
+				<td><a href="getPlayer">${player.nickname}</a></td>
 				<td>${player.teamId}</td>
 				<td>${player.match}</td>
 				<td>${player.win}</td>

@@ -13,11 +13,18 @@ public class InfoController {
 
 	@Autowired PlayerService playerService;
 	
-	// 전체 조회
+	// 선수 전체 조회
 	@RequestMapping("/getPlayerList")
 	public String getPlayerList(Model model,PlayerVO vo) {
 		model.addAttribute("playerList", playerService.getPlayerList(vo));
 		System.out.println("Controller Info에서");
 		return "info/getPlayerList";
+	}
+	
+	// 선수 단일 조회
+	@RequestMapping("/getPlayer")
+	public String getPlayer(Model model, PlayerVO vo) {
+		model.addAttribute("getplayer",playerService.getPlayer(vo));
+		return "info/getPlayer";
 	}
 }

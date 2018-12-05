@@ -19,4 +19,10 @@ public class PlayerDAO {
 		System.out.println("PlayerService.java.mybatis jdbc getPlayerList");
 		return mybatis.selectList("player.getPlayerList", vo);
 	}
+
+	// 선수 단일 조회
+	public PlayerVO getPlayer(PlayerVO vo) {
+		return mybatis.selectOne("player.getPlayer", vo);
+	}
+
 }
