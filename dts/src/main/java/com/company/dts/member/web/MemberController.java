@@ -18,7 +18,7 @@ public class MemberController {
 					, method = RequestMethod.GET
 					)		//http://localhost:8081/app/getMemberList
 	public String getMemberList(Model model, MemberVO vo)  {
-		model.addAttribute("memberList", MemberService.getMemberList(vo));
+		model.addAttribute("memberList", memberService.getMemberList(vo));
 		return "member/getMemberList";
 	}
 	
