@@ -6,16 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>getUserList.jsp</title>
-<script>
+<!-- <script>
  	function go_sort(sortCol){
  		document.frm.sortCol.value = sortCol;
  		document.frm.submit();
- 	}
-</script>
+ 	} 
+</script>-->
 </head>
 <body>
 <h3>getUserList아아아아</h3>
-<form action="deleteMemberList">	
+ <form action="deleteMemberList">	
 	<button>선택삭제</button>
 	<table border="1" >
 		<tr>
@@ -34,21 +34,21 @@
 		</tr>
 		<c:forEach items="${memberList }" var="member">
 			<tr>
-				<td><input type="checkbox" name="uidList" value="${member.uid}" /></td>
- 				<td><a href="./getMember?uid=${member.uid }">${member.uid }</a></td>
-				<td>${member.upw }</td>
-				<td>${member.uname }</td>
-				<td>${member.uaddress }</td>
-				<td>${member.uphone }</td>
-				<td>${member.umileage }</td>
-				<td>${member.ugrant }</td>
-				<td>${member.ubirth }</td>
-				<td>${member.udate }</td>
-				<td>${member.uwin }</td>
-				<td>${member.ulose }</td>
+				<td><input type="checkbox" name="uidList" value="${member.uId}" /></td>
+ 				<td><a href="./getMember?uId=${member.uId }">${member.uId }</a></td>
+				<td>${member.uPw }</td>
+				<td>${member.uName }</td>
+				<td>${member.uAddress }</td>
+				<td>${member.uPhone }</td>
+				<td>${member.uMileage }</td>
+				<td>${member.uGrant }</td>
+				<td>${member.uBirth }</td>
+				<td>${member.uDate }</td>
+				<td>${member.uWin }</td>
+				<td>${member.uLose }</td>
 			</tr>
-		</c:forEach>
+		</c:forEach> 
 	</table>
-</form>	
+</form>	 
 </body>
 </html>
