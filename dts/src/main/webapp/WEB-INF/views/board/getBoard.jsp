@@ -7,7 +7,7 @@
 <title>getBoard.jsp</title>
 </head>
 <body>
-<h3>게시판보기</h3><br>
+<h3>게시판보기</h3><br><br><br><br><br><br>
 	게시판번호 : ${board.boardNumber } 
 	게시판제목 : ${board.boardTitle} 
 	게시판내용 : ${board.boardContent } 

@@ -20,37 +20,44 @@ public class BoardServiceImpl implements BoardService{
 	 * deleteBoard(BoardVO vo) { dao.deleteBoard(vo); } public void
 	 * deleteBoardList(BoardVO vo) { dao.deleteBoardList(vo); }
 	 */
+	
+	//게시판 단건조회
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
 		return dao.getBoard(vo);
 	}
-
+	
+	//게시판 전체조회
 	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		return dao.getBoardList(vo);
 	}
-
+	
+	//게시판 입력	
 	@Override
 	public void insertBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-
+		dao.insertBoard(vo);
+		System.out.println("========== = " + vo.getBoardNumber());
 	}
-
+	
+	//게시판 업데이트
 	@Override
 	public void updateBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
+		dao.updateBoard(vo);
 
 	}
-
+	
+	//게시판 삭제
 	@Override
 	public void deleteBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
+		dao.deleteBoard(vo);
 
 	}
-
+	
+	//게시판 전체리스트 삭제
 	@Override
 	public void deleteBoardList(BoardVO vo) {
-		// TODO Auto-generated method stub
+		dao.deleteBoardList(vo);
 
 	}
 }
