@@ -121,61 +121,64 @@ function checkValue(){
 </head>
 <body>
 	<h3>회원가입</h3>
-	<table style="width: 100%">
-        <tr>            
-            <td>아이디</td>
-            <td><input type="text" name="oldpw" value="${member.uId }"></td>
-            <td>*아이디는 변경하실 수 없습니다.</td>
-        </tr>
-        <tr>
-            <td>비밀번호</td>
-            <td><input type="password" name="oldpw" value="${member.uPw }"></td>
-        </tr>        
-        <tr>
-            <td>비밀번호 확인</td>
-            <td><input type="password" name="newpw2" value="${member.uPw }"></td>
-        </tr>
-        <tr>
-            <td>이름</td>
-            <td><input type="text" name="oldpw" value="${member.uName }"></td>
-            <td>*개명을 한경우 본인확인기관에서 등록된 정보로만 변경이 가능합니다.</td>
-        </tr>
-        <tr>
-            <td>주소</td>       
-            <td>
-                <input type="text" id="sample4_postcode" placeholder="우편번호">
-                <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-                <input type="text" id="sample4_roadAddress" placeholder="도로명주소" value="${member.uAddress }">
-                <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
-                <span id="guide" style="color:#999"></span>
-            </td>
-        </tr>
-        <tr>
-            <td>휴대폰번호</td>
-            <td>
-             <!--   <select name="phone1">
-                    <option value="zero">010</option>
-                    <option value="one">011</option>
-                    <option value="two">012</option>
-                    <option value="three">013</option>
-                    <option value="four">014</option>
-                    <option value="five">015</option>                        
-                </select>
-                -
-                <input type="text" name="phone2" value="${member.uPhone }"> -   -->
-                <input type="text" name="phone3" value="${member.uPhone }">
-            </td>
-        </tr>
-            <td>생년월일</td>
-            <td><input type="text" name="oldpw" value="${member.uBirth }"></td>
-        </tr>        
-        <tr>
-            <td colspan="5"> 
-                <a href="getMemberList"><input type="button" value="가입"></a> 
-                <a href="getMemberList"><input type="button" value="취소"></a>
-            </td>
-            
-        </tr>
-    </table>
+	<form action="insertMember" method="post">
+		<table style="width: 100%">
+	        <tr>            
+	            <td>아이디</td>
+	            <td><input type="text" name="uId" value="${member.uId }"></td>
+	            <td>*아이디는 변경하실 수 없습니다.</td>
+	        </tr>
+	        <tr>
+	            <td>비밀번호</td>
+	            <td><input type="password" name="uPw" value="${member.uPw }"></td>
+	        </tr>        
+	        <tr>
+	            <td>비밀번호 확인</td>
+	            <td><input type="password" name="member" value="${member.uPw }"></td>
+	        </tr>
+	        <tr>
+	            <td>이름</td>
+	            <td><input type="text" name="uName" value="${member.uName }"></td>
+	            <td>*개명을 한경우 본인확인기관에서 등록된 정보로만 변경이 가능합니다.</td>
+	        </tr>
+	        <tr>
+	            <td>주소</td>       
+	            <td>
+	                <input type="text" id="sample4_postcode" placeholder="우편번호">
+	                <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+	                <input type="text" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }">
+	                <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+	                <span id="guide" style="color:#999"></span>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>휴대폰번호</td>
+	            <td>
+	             <!--   <select name="phone1">
+	                    <option value="zero">010</option>
+	                    <option value="one">011</option>
+	                    <option value="two">012</option>
+	                    <option value="three">013</option>
+	                    <option value="four">014</option>
+	                    <option value="five">015</option>                        
+	                </select>
+	                -
+	                <input type="text" name="member" value="${member.uPhone }"> -   -->
+	                <input type="text" name="uPhone" id="${member.uPhone }">
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>생년월일</td>
+	            <td><input type="text" name="uBirth" value="${member.uBirth }"></td>
+	        </tr>        
+	        <tr>
+	            <td colspan="5"> 
+	                <button>가입</button> 
+	                
+	            </td>
+	            
+	        </tr>
+	    </table>
+    </form>
 </body>
 </html>

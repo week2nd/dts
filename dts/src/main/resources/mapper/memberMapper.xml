@@ -46,5 +46,36 @@
 
 
 
+<insert id ="insertMember" parameterType="member">
+	<!--  <selectKey keyProperty="uId" resultType="string" order="BEFORE">
+		SELECT nvl(MAX(U_ID),0)+1 FROM MEMBER 
+	</selectKey>  --> 
+	INSERT INTO MEMBER (U_ID, U_PW, U_NAME, U_ADDRESS, U_PHONE, U_BIRTH)
+				VALUES(
+						#{uId},
+						#{uPw},
+						#{uName},
+						#{uAddress},
+						#{uPhone},
+						#{uBirth}
+						
+				)
+</insert>
+<!-- 
+<update id ="updateBoard" parameterType="board">
+	UPDATE BOARD SET 
+					TITLE=#{title},
+					WRITER=#{writer},    
+					CONTENT=#{content}					
+					WHERE SEQ=#{seq}
+</update>
+
+<delete id ="deleteBoard" parameterType="int">
+	DELETE FROM BOARD WHERE SEQ = #{value}
+					
+</delete>
+ -->
+
+
 
 </mapper> 
