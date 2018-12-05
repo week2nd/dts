@@ -12,6 +12,7 @@
 
 		<typeAlias alias="purchase" type="com.company.dts.purchase.PurchaseVO" />
 		<typeAlias alias="member" type="com.company.dts.member.MemberVO" />
+		<typeAlias alias="player" type="com.company.dts.info.PlayerVO" />
 
 	</typeAliases> 
 	

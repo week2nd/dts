@@ -28,8 +28,8 @@
 		<c:forEach items="${playerList}" var="player">
 			<tr>
 				<td>#</td>
-				<td>${player.name }</td>
-				<td>${player.nickname }</td>
+				<td>${player.name}</td>
+				<td>${player.nickname}</td>
 				<td>최근 소속</td>
 				<td align="center">#</td>
 				<td align="center">#</td>

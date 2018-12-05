@@ -5,7 +5,7 @@
 	<!-- <resultMap type="player" id="playerResult"></resultMap> -->
 
 	<!-- 선수 전체 보기 -->
-	<select id="getPlayerList" resultMap="playerResult">
+	<select id="getPlayerList" resultType="player">
 		SELECT	RANK() OVER(ORDER BY WIN DESC) 순위,
 				NAME 이름, 
 				NICKNAME 소환사명, 
@@ -18,7 +18,7 @@
 				DEATH TD, 
 				ASSIST TA, 
 				ROUND((KILL+ASSIST)/DEATH,1) KDA
-		FROM 	PLAYER;
+		FROM 	PLAYER
 	</select>
 
 
