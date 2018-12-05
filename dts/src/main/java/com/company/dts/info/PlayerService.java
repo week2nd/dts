@@ -11,5 +11,5 @@ public interface PlayerService {
 	// 단건조회
 	public PlayerVO getPlayer();
 	// 전체조회
-	public List<PlayerVO> getPlayerList();
+	public List<PlayerVO> getPlayerList(PlayerVO vo);
 }

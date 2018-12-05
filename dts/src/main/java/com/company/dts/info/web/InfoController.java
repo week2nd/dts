@@ -15,8 +15,8 @@ public class InfoController {
 	
 	// 전체 조회
 	@RequestMapping("/getPlayerList")
-	public String getPlayerList(Model model) {
-		model.addAttribute("playerList", playerService.getPlayerList());
+	public String getPlayerList(Model model,PlayerVO vo) {
+		model.addAttribute("playerList", playerService.getPlayerList(vo));
 		return "info/getPlayerList";
 	}
 }

@@ -31,10 +31,10 @@ public class PlayerServiceImpl implements PlayerService{
 		return null;
 	}
 	
-	//전체 조회
+//	전체 조회
 	@Override
-	public List<PlayerVO> getPlayerList() {
-		return dao.getPlayerList();
+	public List<PlayerVO> getPlayerList(PlayerVO vo) {
+		return dao.getPlayerList(vo);
 	}
 	
 }
