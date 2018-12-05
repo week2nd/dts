@@ -15,7 +15,7 @@ public class MemberDAO {
 	private SqlSessionTemplate mybatis;
 	
 	
-	/*// 등록
+	// 등록
 	public void insertMember(MemberVO vo) {
 		System.out.println("mybatis insertMember() 가능 처리");
 		mybatis.update("member.insertMember", vo);
@@ -35,7 +35,7 @@ public class MemberDAO {
 		System.out.println("mybatis deleteMemberList() 가능 처리");
 		mybatis.update("member.deleteMemberList", vo);
 	}
-	*/
+	
 	//전체조회
 	public List<MemberVO> getMemberList(MemberVO vo) {
 		System.out.println("mybatis getMemberList() 기능 처리");
