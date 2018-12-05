@@ -12,7 +12,6 @@
 
 		<typeAlias alias="purchase" type="com.company.dts.purchase.PurchaseVO" />
 		<typeAlias alias="member" type="com.company.dts.member.MemberVO" />
-		
 
 	</typeAliases> 
 	
