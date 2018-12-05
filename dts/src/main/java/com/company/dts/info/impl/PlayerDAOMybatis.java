@@ -15,8 +15,8 @@ public class PlayerDAOMybatis {
 	private SqlSessionTemplate mybatis;
 
 	// 선수 전체 조회
-	public List<PlayerVO> getPlayerList(PlayerVO vo) {
+	public List<PlayerVO> getPlayerList() {
 		System.out.println("PlayerService.java.mybatis jdbc getPlayerList");
-		return mybatis.selectList("player.getPlayerList", vo);
+		return mybatis.selectList("player.getPlayerList");
 	}
 }
