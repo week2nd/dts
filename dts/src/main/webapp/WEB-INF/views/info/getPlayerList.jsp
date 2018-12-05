@@ -27,18 +27,18 @@
 		</tr>
 		<c:forEach items="${playerList}" var="player">
 			<tr>
-				<td>#</td>
+				<td>${player.playerRank}</td>
 				<td>${player.name}</td>
 				<td>${player.nickname}</td>
-				<td>최근 소속</td>
-				<td align="center">#</td>
-				<td align="center">#</td>
-				<td align="center">#</td>
-				<td align="center">#%</td>
-				<td align="center">#</td>
-				<td align="center">#</td>
-				<td align="center">#</td>
-				<td align="center">#.#</td>
+				<td>${player.teamId}</td>
+				<td>${player.match}</td>
+				<td>${player.win}</td>
+				<td>${player.lose}</td>
+				<td>${player.winrate }%</td>
+				<td>${player.kill}</td>
+				<td>${player.death}</td>
+				<td>${player.assist}</td>
+				<td>${player.kda}</td>
 			</tr>
 		</c:forEach>
 	</table>

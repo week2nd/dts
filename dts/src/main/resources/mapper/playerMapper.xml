@@ -6,18 +6,18 @@
 
 	<!-- 선수 전체 보기 -->
 	<select id="getPlayerList" resultType="player">
-		SELECT	RANK() OVER(ORDER BY WIN DESC) 순위,
-				NAME 이름, 
-				NICKNAME 소환사명, 
-				TEAM_ID 최근소속팀,
-				WIN+LOSE M, 
-				WIN W, 
-				LOSE L, 
-				WIN/(WIN+LOSE) WINRATE,
-				KILL TK, 
-				DEATH TD, 
-				ASSIST TA, 
-				ROUND((KILL+ASSIST)/DEATH,1) KDA
+		SELECT	RANK() OVER(ORDER BY WIN DESC) playerRank,
+				NAME, 
+				NICKNAME, 
+				TEAM_ID,
+				WIN+LOSE match, 
+				WIN, 
+				LOSE, 
+				WIN/(WIN+LOSE) winrate,
+				KILL, 
+				DEATH, 
+				ASSIST, 
+				ROUND((KILL+ASSIST)/DEATH,1) kda
 		FROM 	PLAYER
 	</select>
 

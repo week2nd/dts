@@ -2,14 +2,14 @@ package com.company.dts.info;
 
 public class PlayerVO {
 
-	//기본 정보
-	private String player_id;
+	// 기본 정보
+	private String playerId;
 	private String nickname;
 	private String name;
 	private String birth;
 	private String line;
 	private String tier;
-	private String team_id;
+	private String teamId;
 	private int kill;
 	private int death;
 	private int assist;
@@ -18,18 +18,18 @@ public class PlayerVO {
 	private String attend;
 
 	// 통계정보
-	private int player_rank; // 선수 순위
+	private int playerRank; // 선수 순위
 	private int match; // win + lose 경기수
 	private int winrate; // WIN/(WIN+LOSE) 승률
 	private int kda; // ROUND((KILL+ASSIST)/DEATH,1) KDA
 
-	//통계정보 get/set
-	public int getPlayer_rank() {
-		return player_rank;
+	// 통계정보 get/set
+	public int getplayerRank() {
+		return playerRank;
 	}
 
-	public void setPlayer_rank(int player_rank) {
-		this.player_rank = player_rank;
+	public void setplayerRank(int playerRank) {
+		this.playerRank = playerRank;
 	}
 
 	public int getMatch() {
@@ -57,12 +57,12 @@ public class PlayerVO {
 	}
 
 	// 기본 정보 get/set
-	public String getPlayer_id() {
-		return player_id;
+	public String getPlayerId() {
+		return playerId;
 	}
 
-	public void setPlayer_id(String player_id) {
-		this.player_id = player_id;
+	public void setPlayerId(String playerId) {
+		this.playerId = playerId;
 	}
 
 	public String getNickname() {
@@ -105,12 +105,12 @@ public class PlayerVO {
 		this.tier = tier;
 	}
 
-	public String getTeam_id() {
-		return team_id;
+	public String getteamId() {
+		return teamId;
 	}
 
-	public void setTeam_id(String team_id) {
-		this.team_id = team_id;
+	public void setteamId(String teamId) {
+		this.teamId = teamId;
 	}
 
 	public int getKill() {
