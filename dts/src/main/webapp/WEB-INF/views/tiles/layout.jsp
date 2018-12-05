@@ -34,6 +34,9 @@
 </head>
 
 <body>
+<%
+		String id = (String) session.getAttribute("uid");				
+	%>
   <!-- Top small banner -->
   <header class="float-left w-100">
     <div class="small-top float-left w-100">
@@ -72,15 +75,8 @@
           <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
             <nav class="nav justify-content-end">
               <form method="post" action="" style="display: inline-block; margin-top: 0em;">
-                <div class="form-group" style="margin-top: 5px; display: inline-block">
-                  <input id="userid" class="form-control" type="text" placeholder="ID">
-                </div>
-                <div class="form-group" style="margin-top: 5px; display: inline-block">
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
+                <%=id%>
               </form>
-              <a href="#">로그인</a>&nbsp;&nbsp;&nbsp;
-              <a href="#">회원가입</a>
             </nav>
           </div>
         </div>

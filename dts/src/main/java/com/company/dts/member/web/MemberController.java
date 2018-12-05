@@ -80,7 +80,7 @@ public class MemberController {
 		} else if (! vo.getuPw().equals(membervo.getuPw())) { // ! <- not
 			return "home";
 		} else {
-			session.setAttribute("login", membervo);
+			session.setAttribute("uid", membervo.getuId());
 			return "redirect:getPurchaseList";
 		}
 	}
