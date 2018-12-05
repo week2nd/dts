@@ -13,7 +13,7 @@ public class BoardVO {
 	private String searchCondition;
 	private String searchKeyword;
 	private String sortCol;
-	private String[] bnumberList;
+	private String[] btitleList;
 	public int getBoardNumber() {
 		return boardNumber;
 	}
@@ -81,10 +81,10 @@ public class BoardVO {
 		this.sortCol = sortCol;
 	}
 	public String[] getBnumberList() {
-		return bnumberList;
+		return btitleList;
 	}
 	public void setBnumberList(String[] bnumberList) {
-		this.bnumberList = bnumberList;
+		this.btitleList = bnumberList;
 	}
 
 

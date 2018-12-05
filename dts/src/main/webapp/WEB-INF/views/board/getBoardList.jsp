@@ -32,9 +32,9 @@
 		</tr>
 		<c:forEach items="${boardList }" var="board">
 			<tr>
-				<td><input type="checkbox" name="bnumberList" value="${board.boardNumber}" /></td>
- 				<td><a href="./getBoard?boardNumber=${board.boardNumber }">${board.boardNumber }</a></td>
-				<td>${board.boardTitle }</td>
+				<td><input type="checkbox" name="btitleList" value="${board.boardTitle}" /></td>
+ 				<td>${board.boardNumber }</td>
+				<td><a href="./getBoard?boardNumber=${board.boardTitle }">${board.boardTitle }</a></td>
 				<td>${board.boardContent }</td>
 				<td>${board.postDate }</td>
 				<td>${board.boardHits }</td>
