@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>    
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,18 +124,12 @@
       </div>
     </nav>
   </section>
+  <section class="banner-sec float-left w-100 pt-4 pb-5">
+  <div class="row px-3">
+	<tiles:insertAttribute name="content" />
+	</div>
+  </section>
 
-======================================================
-======================================================
-======================================================
-======================================================
-
-<tiles:insertAttribute name="content" />
-
-======================================================
-======================================================
-======================================================
-======================================================
 
 
   <!-- Info Block-01 -->
