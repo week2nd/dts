@@ -10,7 +10,7 @@ import com.company.dts.member.MemberVO;
 @Service
 public class MemberServiceImpl {
 	@Autowired MemberDAO dao;
-	public void insertMember(MemberVO vo) {
+	/*public void insertMember(MemberVO vo) {
 		dao.insertMember(vo);
 		System.out.println("========= uId ="+vo.getuId());
 	}
@@ -22,7 +22,7 @@ public class MemberServiceImpl {
 	}
 	public void deleteMemberList(MemberVO vo) {
 		dao.deleteMemberList(vo);
-	}
+	}*/
 	public MemberVO getMember(MemberVO vo) {
 		return dao.getMember(vo);
 	}

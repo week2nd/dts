@@ -12,7 +12,7 @@ public class MemberDAO {
 	private SqlSessionTemplate mybatis;
 	
 	
-	// 등록
+	/*// 등록
 	public void insertMember(MemberVO vo) {
 		System.out.println("mybatis insertMember() 가능 처리");
 		mybatis.update("member.insertMember", vo);
@@ -32,15 +32,15 @@ public class MemberDAO {
 		System.out.println("mybatis deleteMemberList() 가능 처리");
 		mybatis.update("member.deleteMemberList", vo);
 	}
-	
+	*/
 	//전체조회
 	public List<MemberVO> getMemberList(MemberVO vo) {
-		System.out.println("mybatis getBaordList() 기능 처리");
+		System.out.println("mybatis getMemberList() 기능 처리");
 		return mybatis.selectList("member.getMemberList", vo);
 	}
 	//단건조회
 	public MemberVO getMember(MemberVO vo) {
-		System.out.println("mybatis getBaord() 기능 처리");
+		System.out.println("mybatis getMember() 기능 처리");
 		return mybatis.selectOne("member.getMember", vo);
 		
 	}

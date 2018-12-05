@@ -29,7 +29,7 @@ public class MemberController {
 		return "member/getMember";
 	}
 
-	// 등록폼
+/*	// 등록폼
 	@RequestMapping(value="/insertMember" , method = RequestMethod.GET)
 	public String insertMemberform() {
 		return "member/insertMember";
@@ -65,5 +65,5 @@ public class MemberController {
 	public String deleteMemberList(MemberVO vo) {
 		memberService.deleteMemberList(vo);	//여러개 삭제처리
 		return "redirect:getMemberList";		//목록요청
-	}
+	}*/
 }

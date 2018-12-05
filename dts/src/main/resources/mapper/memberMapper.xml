@@ -16,7 +16,8 @@
  	<result property="ulose"	column="ULOSE" />
  	
  </resultMap>
-<select id="getMemberList" resultMap="memberResult">
+ <!-- 전체유저조회 -->
+<select id="getMemberList" resultMap="memberResult">	
 
 	SELECT	 	UID,
 				UPW,
@@ -56,7 +57,27 @@
 	</choose>
 
 </select>
-<insert id ="insertMember" parameterType="member">
+
+<!-- 단일유저조회 -->
+<select id="getMember" parameterType="member" resultType="member">
+	SELECT 	UID,
+			UPW,
+			UNAME,    
+			UADDRESS, 
+			UPHONE,          
+			UMILEAGE,
+			UGRANT,
+			UBIRTH,
+			UDATE,
+			UWIN,
+			ULOSE
+	FROM	MEMBER
+	WHERE 	UID = #{uid}
+	ORDER BY UID
+</select>
+
+
+<!-- <insert id ="insertMember" parameterType="member">
 	<selectKey keyProperty="seq" resultType="integer" order="BEFORE">
 		SELECT nvl(MAX(UID),0)+1 FROM MEMBER 
 	</selectKey>
@@ -112,22 +133,6 @@
 	WHERE UID = -1
 	</if>
 </delete>
-
-<select id="getMember" parameterType="member" resultType="member">
-	SELECT 	UID,
-			UPW,
-			UNAME,    
-			UADDRESS, 
-			UPHONE,          
-			UMILEAGE,
-			UGRANT,
-			UBIRTH,
-			UDATE,
-			UWIN,
-			ULOSE
-	FROM	MEMBER
-	WHERE 	UID = #{uid}
-	ORDER BY UID
-</select>
+ -->
 
 </mapper> 
