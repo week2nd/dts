@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="game">
+
+	<select id="getGameList" resultType="game">
+		SELECT GAME_ID,
+		RESULT,
+		REDTEAMID,
+		STATE,
+		REDRATE,
+		BLUETEAMID,
+		BLUERATE,
+		GAMEDATE
+		FROM GAME
+		ORDER BY 1
+	</select>
+
+	<select id="getGame" parameterType="game"
+		resultType="game">
+		SELECT GAME_ID,
+		RESULT,
+		REDTEAMID,
+		STATE,
+		REDRATE,
+		BLUETEAMID,
+		BLUERATE,
+		GAMEDATE
+		FROM GAME
+		WHERE GAME_ID = #{gameId};
+	</select>
+	
+	<insert id="insertGame" parameterType="game">
+		<selectKey keyProperty="gameId" resultType="integer" order="BEFORE">
+		SELECT nvl(MAX(GAME_ID),0)+1 FROM GAME
+		</selectKey>
+		INSERT INTO GAME(GAME_ID,
+		REDTEAMID,
+		REDRATE,
+		BLUETEAMID,
+		BLUERATE,
+		GAMEDATE )
+		VALUES(#{gameId},
+		#{redTeamId},
+		#{redRate},
+		#{blueTeamId},
+		#{blueRate},
+		#{gameDate} )
+	</insert>
+
+</mapper>
