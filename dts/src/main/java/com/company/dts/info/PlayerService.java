@@ -12,4 +12,6 @@ public interface PlayerService {
 	public PlayerVO getPlayer(PlayerVO vo);
 	// 전체조회
 	public List<PlayerVO> getPlayerList(PlayerVO vo);
+	// 삭제
+	public void deletePlayer(PlayerVO vo);
 }

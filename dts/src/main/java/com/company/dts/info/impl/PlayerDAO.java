@@ -35,4 +35,9 @@ public class PlayerDAO {
 		System.out.println("DAO updatePlayer");
 		mybatis.update("player.updatePlayer", vo);
 	}
+	// 선수 삭제 
+	public void deletePlayer(PlayerVO vo) {
+		System.out.println("DAO deletePlayer");
+		mybatis.update("player.deletePlayer", vo);
+	}
 }

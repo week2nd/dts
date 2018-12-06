@@ -55,4 +55,11 @@ public class InfoController {
 		playerService.updatePlayer(vo);
 		return "redirect:getPlayerList";
 	}
-}
+	
+	// 선수 정보 삭제
+	@RequestMapping("/deletePlayer")
+	public String deletePlayer(PlayerVO vo) {
+		playerService.deletePlayer(vo);
+		return "redirect:getPlayerList";
+	}
+}	

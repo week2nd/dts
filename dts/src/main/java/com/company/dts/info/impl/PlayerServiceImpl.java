@@ -42,4 +42,10 @@ public class PlayerServiceImpl implements PlayerService {
 		return dao.getPlayerList(vo);
 	}
 
+	// 삭제
+	@Override
+	public void deletePlayer(PlayerVO vo) {
+		System.out.println("ServiceImpl deleteplayer");
+		dao.deletePlayer(vo);
+	}
 }
