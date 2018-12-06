@@ -14,26 +14,26 @@
 				TEAM_ID,
 				WIN+LOSE match, 
 				WIN, 
-				LOSE, 
-				WIN/(WIN+LOSE) winrate,
+				LOSE,			 
+				WIN/NULLIF((WIN+LOSE),0) * 100 winrate,
 				KILL, 
 				DEATH, 
 				ASSIST, 
-				ROUND((KILL+ASSIST)/DEATH,1) kda
+				ROUND((KILL+ASSIST)/NULLIF(DEATH,0),1) kda
 		FROM 	PLAYER
 	</select>
-<!-- 	<select id="getPlayer"	parameterType="player" resultType="player">
-		SELECT	P.TEAM_ID||' '||NICKNAME, P.NAME, T.NAME
+		<select id="getPlayer"	parameterType="player" resultType="player">
+		SELECT	P.TEAM_ID||' '||NICKNAME playerId, P.NAME name, T.NAME teamId
 		FROM	PLAYER P
 			JOIN	TEAM T
 		ON		P.TEAM_ID = T.TEAM_ID
 		WHERE	P.NICKNAME = #{nickname}
-	</select> -->
+	</select>
 	<!-- 단일 유저 조회 -->
- 	<select		id="getPlayer"	parameterType="player" resultType="player">
-		SELECT	NAME, NICKNAME
+<!--  	<select		id="getPlayer"	parameterType="player" resultType="player">
+		SELECT	*
 		FROM	PLAYER
 		WHERE	NICKNAME = #{nickname}
 	</select>
-
+ -->
 </mapper> 
