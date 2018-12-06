@@ -10,7 +10,8 @@
 	<h3>테이블 수정</h3>
 
 	<form action="./updateBoard" method="post">
-	<input type="hidden" name="BOARD_NUMBER" value="${board.boardNumber}">
+	<input type="hidden" name="boardNumber" value="${board.boardNumber}">
+		작성자<input type="text" name="uId" value="${board.uId}"><br>
 		제목<input type="text" name="boardTitle" value="${board.boardTitle}"><br>
 		내용<input type="text" name="boardContent" value="${board.boardContent}"><br>
 		<button>저장</button>

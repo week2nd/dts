@@ -65,7 +65,8 @@
 								
 <!-- 게시판 업그레이드 -->
 <update id ="updateBoard" parameterType="board">
-	UPDATE BOARD SET BOARD_TITLE=#{boardTitle},
+	UPDATE BOARD SET 
+					BOARD_TITLE=#{boardTitle},
 					BOARD_CONTENT=#{boardContent}   
 					WHERE BOARD_NUMBER=#{boardNumber}
 </update>
@@ -74,9 +75,11 @@
 
 <!-- 게시판 삭제 -->
 <delete id ="deleteBoard" parameterType="int">
-	DELETE FROM BOARD WHERE UID = #{value}
+	DELETE FROM BOARD WHERE BOARD_NUMBER = #{value}
 					
 </delete>
+
+<!-- 게시판리스트(단체) 삭제 -->
 <delete id ="deleteBoardList" parameterType="board">
 	DELETE FROM BOARD 
 	<if test="uidList != null and uidList.length>0">
