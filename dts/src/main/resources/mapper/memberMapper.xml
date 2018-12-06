@@ -62,7 +62,7 @@
 				)
 </insert>
 
-<update id ="updateBoard" parameterType="member">
+<update id ="updateMember" parameterType="member">
 	UPDATE MEMBER SET 
 					U_PW=#{uPw},
 					U_ADDRESS=#{uAddress},    
