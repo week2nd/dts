@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +9,9 @@
 </head>
 <body>
 
-	<h3>팀 통산 기록</h3>
+	<!-- <h3>팀 통산 기록</h3>
 	<div id="teamsearch">
-		<span>팀 검색</span> <span><input type="input"
+		<span>팀 검색</span> <span><input type="text"
 			placeholder="팀명을 입력하세요"></span>
 	</div>
 
@@ -24,8 +25,8 @@
 			<option>전체</option>
 			<option value="1">2018 Summer Champs</option>
 			<option value="1">2018 Spring Champs</option>
-		</select> </span>
-	</div>
+		</select>
+	</div> -->
 
 	<div>
 		<table border="1">
@@ -41,19 +42,20 @@
 				<td>TA</td>
 				<td>KDA</td>
 			</tr>
-			<tr>
-				<td>#</td>
-				<td>SKT T1</td>
-				<td>#</td>
-				<td>#</td>
-				<td>#</td>
-				<td>#%</td>
-				<td>#</td>
-				<td>#</td>
-				<td>#</td>
-				<td>#.#</td>
-			</tr>
-
+			<c:forEach items="${teamList}" var="team">
+				<tr>
+					<td></td>
+					<td>${team.teamId }</td>
+					<td>${team.director }</td>
+					<td>${team.headCoach}</td>
+					<td>${team.name}</td>
+					<td>${team.win }</td>
+					<td>${team.lose }</td>
+					<td>#</td>
+					<td>#</td>
+					<td>#.#</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 	<!-- 팀 전체 정보보기 끝-->

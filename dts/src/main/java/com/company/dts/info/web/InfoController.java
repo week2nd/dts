@@ -71,12 +71,13 @@ public class InfoController {
 //		
 //		팀
 	// 선수 전체 조회
-		@RequestMapping("/getPlayerList")
+		@RequestMapping("/getTeamList")
 		public String getTeamList(Model model, TeamVO vo) {
 			model.addAttribute("teamList", teamService.getTeamList(vo));
 			System.out.println("Controller Info에서");
-			return "info/getPlayerList";
+			return "info/getTeamList";
 		}
+
 
 //		// 선수 단일 조회
 //		@RequestMapping("/getPlayer")

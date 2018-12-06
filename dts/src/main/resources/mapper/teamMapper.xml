@@ -2,13 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="team">
-	<!-- <resultMap type="player" id="playerResult"></resultMap> -->
 
-
-
-	<!-- 선수 전체 보기 -->
-	<select id="getTeamList" resultType="team">
-		SELECT	*
+	<!-- 팀 전체 보기 -->
+	<select id="getTeamList" parameterType="team" resultType="team">
+		SELECT	TEAM_ID,
+				DIRECTOR,
+				HEAD_COACH,
+				NAME,
+				WIN,
+				LOSE,
+				RATE
 		FROM 	TEAM
 	</select>
 </mapper>
