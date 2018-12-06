@@ -14,9 +14,12 @@
 </script>-->
 </head>
 <body>
-<h3>getBoardList아아아아</h3><br><br><br><br><br><br>
+<h3>getBoardList아아아아
  <form action="deleteMemberList">	
 	<button>선택삭제</button>
+	
+	<a href="${pageContext.request.contextPath}/insertBoard">등록</a>
+	
 	<table border="1" >
 		<tr>
 			<td>선택</td>
