@@ -62,19 +62,30 @@
 				)
 </insert>
 
-<update id ="updateBoard" parameterType="member">
+<update id ="updateMember" parameterType="member">
 	UPDATE MEMBER SET 
 					U_PW=#{uPw},
 					U_ADDRESS=#{uAddress},    
 					U_PHONE=#{uPhone}					
 					WHERE U_ID=#{uId}
 </update>
-<!-- 
-<delete id ="deleteBoard" parameterType="int">
-	DELETE FROM BOARD WHERE SEQ = #{value}
+
+<delete id ="deleteMember" parameterType="member">
+	DELETE FROM MEMBER WHERE U_ID=#{uId}
 					
 </delete>
- -->
+<delete id ="deleteMemberList" parameterType="member">
+	DELETE FROM MEMBER 
+	<if test="uidList != null and uidList.length>0">
+	WHERE U_ID in
+	<foreach collection="uidList" item="item" open="("  close=")" separator=",">
+		#{item}
+	</foreach>
+	</if>
+	<if test="uidList == null or not uidList.length>0">
+	WHERE U_ID = -1
+	</if>
+</delete>
 
 
 

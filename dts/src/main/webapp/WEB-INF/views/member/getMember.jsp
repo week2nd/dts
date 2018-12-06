@@ -122,7 +122,8 @@ function checkValue(){
 </head>
 <body>
 <h3>유저보기</h3>
- 	
+ 	<form action="updateMember" method="post">
+ 	<input type="hidden" name="uId" value="${member.uId }" /> 
  	<table style="width: 100%">
         <tr>            
             <td>아이디</td>
@@ -131,7 +132,7 @@ function checkValue(){
         </tr>
         <tr>
             <td>기존 비밀번호</td>
-            <td><input type="password" name="oldpw" value="${member.uPw }"></td>
+            <td><input type="password" name="uPw" value="${member.uPw }"></td>
         </tr>
         <tr>
             <td>새 비밀번호</td>
@@ -155,7 +156,7 @@ function checkValue(){
             <td>
                 <input type="text" id="sample4_postcode" placeholder="우편번호">
                 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-                <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
+                <input type="text" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }">
                 <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
                 <span id="guide" style="color:#999"></span>
             </td>
@@ -172,22 +173,24 @@ function checkValue(){
                     <option value="five">015</option>                        
                 </select>
                 -
-                <input type="text" name="phone2" value="${member.uPhone }"> -
+                <input type="text" name="uPhone" value="${member.uPhone }"> -
                 <input type="text" name="phone3" value="${member.uPhone }">
             </td>
         </tr>
+        <tr>
             <td>생년월일</td>
             <td>${member.uBirth}</td>
         </tr>        
         <tr>
             <td colspan="5"> 
-                <a href="updateMemberform?uId=${member.uId }"><input type="button" value="수정"></a> 
+    <!--     <a href="updateMemberform?uId=${member.uId }"><input type="button" value="수정"></a> -->  
+      	   		<button>수정</button> 
                 <a href="deleteMember?uId=${member.uId }"><input type="button" value="삭제"></a>
                 <a href="getMemberList"><input type="button" value="취소"></a>
             </td>
             
         </tr>
     </table>
- 	
+ 	</form>
 </body>
 </html>

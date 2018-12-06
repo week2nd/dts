@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>getUserList.jsp</title>
-<!-- <script>
+<script>
  	function go_sort(sortCol){
  		document.frm.sortCol.value = sortCol;
  		document.frm.submit();
  	} 
-</script>-->
+</script>
 </head>
 <body>
 <h3>getUserList아아아아</h3>

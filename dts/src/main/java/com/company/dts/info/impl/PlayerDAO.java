@@ -25,4 +25,14 @@ public class PlayerDAO {
 		return mybatis.selectOne("player.getPlayer", vo);
 	}
 
+	// 선수 입력
+	public void insertPlayer(PlayerVO vo) {
+		mybatis.update("player.insertPlayer", vo);
+	}
+	
+	// 선수 정보 수정
+	public void updatePlayer(PlayerVO vo) {
+		System.out.println("DAO updatePlayer");
+		mybatis.update("player.updatePlayer", vo);
+	}
 }
