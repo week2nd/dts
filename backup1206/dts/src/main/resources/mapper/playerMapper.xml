@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="player">
+	<!-- <resultMap type="player" id="playerResult"></resultMap> -->
+
+
+
+	<!-- 선수 전체 보기 -->
+	<select id="getPlayerList" resultType="player">
+		SELECT	RANK() OVER(ORDER BY WIN DESC) playerRank,
+				NAME, 
+				NICKNAME, 
+				TEAM_ID,
+				WIN+LOSE match, 
+				WIN, 
+				LOSE, 
+				WIN/(WIN+LOSE) winrate,
+				KILL, 
+				DEATH, 
+				ASSIST, 
+				ROUND((KILL+ASSIST)/DEATH,1) kda
+		FROM 	PLAYER
+	</select>
+<!-- 	<select id="getPlayer"	parameterType="player" resultType="player">
+		SELECT	P.TEAM_ID||' '||NICKNAME, P.NAME, T.NAME
+		FROM	PLAYER P
+			JOIN	TEAM T
+		ON		P.TEAM_ID = T.TEAM_ID
+		WHERE	P.NICKNAME = #{nickname}
+	</select> -->
+	<!-- 단일 유저 조회 -->
+ 	<select		id="getPlayer"	parameterType="player" resultType="player">
+		SELECT	NAME, NICKNAME
+		FROM	PLAYER
+		WHERE	NICKNAME = #{nickname}
+	</select>
+
+</mapper> 
