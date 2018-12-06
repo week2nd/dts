@@ -61,15 +61,15 @@
 						
 				)
 </insert>
-<!-- 
-<update id ="updateBoard" parameterType="board">
-	UPDATE BOARD SET 
-					TITLE=#{title},
-					WRITER=#{writer},    
-					CONTENT=#{content}					
-					WHERE SEQ=#{seq}
-</update>
 
+<update id ="updateBoard" parameterType="member">
+	UPDATE MEMBER SET 
+					U_PW=#{uPw},
+					U_ADDRESS=#{uAddress},    
+					U_PHONE=#{uPhone}					
+					WHERE U_ID=#{uId}
+</update>
+<!-- 
 <delete id ="deleteBoard" parameterType="int">
 	DELETE FROM BOARD WHERE SEQ = #{value}
 					

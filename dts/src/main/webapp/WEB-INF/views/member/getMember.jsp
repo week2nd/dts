@@ -181,7 +181,8 @@ function checkValue(){
         </tr>        
         <tr>
             <td colspan="5"> 
-                <a href="insertMember"><input type="button" value="수정"></a> 
+                <a href="updateMemberform?uId=${member.uId }"><input type="button" value="수정"></a> 
+                <a href="deleteMember?uId=${member.uId }"><input type="button" value="삭제"></a>
                 <a href="getMemberList"><input type="button" value="취소"></a>
             </td>
             

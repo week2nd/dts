@@ -41,22 +41,22 @@ public class MemberController {
 	// 등록처리
 	@RequestMapping(value="insertMember", method = RequestMethod.POST)
 	public String insertMember(MemberVO vo) {	// 커맨드 객체
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		memberService.insertMember(vo);		//등록처리
-		System.out.println("@@@@@@@@@@@@@@@@@@@4@@@");
 		return "redirect:getMemberList";		//목록요청
 		
 	}
 	
-	//수정
+	//수정   updateMemberform변경
 	@RequestMapping("/updateMemberform")
 	public String updateMemberform(Model model, MemberVO vo) {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		model.addAttribute("member", memberService.getMember(vo));
-		return "member/updateMember";
+		return "member/getMember";
 	}
 	//수정처리
 	@RequestMapping("/updateMember")
 	public String updateMember(MemberVO vo) {
+		System.out.println("############################");
 		memberService.updateMember(vo);		//수정처리
 		return "redirect:getMemberList";		//목록요청
 	}
