@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="member">
+
+ <!-- 전체유저조회 -->
+<select id="getMemberList" resultType="member">	
+
+	SELECT	 	*
+	FROM 		MEMBER
+	<!--  WHERE 1=1 -->
+	<if test="searchKeyword != null and searchKeyword != ''">
+		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
+	</if> 
+<!-- <where>	
+	<choose>
+		<when test="searchCondition != null and searchCondition == 'title'">
+			and title like '%' || #{searchKeyword} || '%'
+		</when>
+		<when test="searchCondition != null and searchCondition == 'content'">
+			and content like '%' || #{searchKeyword} || '%'
+		</when>
+	</choose>
+	
+	</where>
+	--> 
+	<choose>
+		<when test="sortCol != null and sortCol != ''">
+			ORDER BY ${sortCol}	
+		</when>
+		<otherwise>
+			ORDER BY U_ID DESC
+		</otherwise>
+	</choose>
+
+</select>
+
+<!-- 단일유저조회 -->
+<select id="getMember" parameterType="member" resultType="member">
+	SELECT	*
+	
+
+	FROM	MEMBER
+	WHERE U_ID = #{uId}
+</select>
+
+
+
+<insert id ="insertMember" parameterType="member">
+	<!--  <selectKey keyProperty="uId" resultType="string" order="BEFORE">
+		SELECT nvl(MAX(U_ID),0)+1 FROM MEMBER 
+	</selectKey>  --> 
+	INSERT INTO MEMBER (U_ID, U_PW, U_NAME, U_ADDRESS, U_PHONE, U_BIRTH)
+				VALUES(
+						#{uId},
+						#{uPw},
+						#{uName},
+						#{uAddress},
+						#{uPhone},
+						#{uBirth}
+						
+				)
+</insert>
+<!-- 
+<update id ="updateBoard" parameterType="board">
+	UPDATE BOARD SET 
+					TITLE=#{title},
+					WRITER=#{writer},    
+					CONTENT=#{content}					
+					WHERE SEQ=#{seq}
+</update>
+
+<delete id ="deleteBoard" parameterType="int">
+	DELETE FROM BOARD WHERE SEQ = #{value}
+					
+</delete>
+ -->
+
+
+
+</mapper> 

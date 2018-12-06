@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="board">
+
+ <!-- 전체게시판조회 -->
+<select id="getBoardList" resultType="board">	
+
+	SELECT	 	*
+	FROM 		BOARD
+	<!--  WHERE 1=1 -->
+	<if test="searchKeyword != null and searchKeyword != ''">
+		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
+	</if> 
+<!-- <where>	
+	<choose>
+		<when test="searchCondition != null and searchCondition == 'title'">
+			and title like '%' || #{searchKeyword} || '%'
+		</when>
+		<when test="searchCondition != null and searchCondition == 'content'">
+			and content like '%' || #{searchKeyword} || '%'
+		</when>
+	</choose>
+	
+	</where>
+	--> 
+	<choose>
+		<when test="sortCol != null and sortCol != ''">
+			ORDER BY ${sortCol}	
+		</when>
+		<otherwise>
+			ORDER BY BOARD_NUMBER DESC
+		</otherwise>
+	</choose>
+
+</select>
+
+
+<!-- 단일게시판조회 -->
+<select id="getBoard" parameterType="board" resultType="board">
+	SELECT 	*
+	FROM	BOARD
+	WHERE 	BOARD_NUMBER = #{boardNumber}
+	ORDER BY BOARD_NUMBER
+</select>
+
+
+<!-- 게시판 입력 -->
+<insert id ="insertBoard" parameterType="board">
+	<selectKey keyProperty="seq" resultType="integer" order="BEFORE">
+		SELECT nvl(MAX(UID),0)+1 FROM BOARD 
+	</selectKey>
+	INSERT INTO BOARD (	BOARD_NUMBER,		<!-- 게시판번호 -->
+						BOARD_TITLE,		<!-- 게시판제목 -->
+						BOARD_CONTENT,    	<!-- 게시판내용 -->
+						BOARD_DATE, 		<!-- 작성일 -->
+						BOARD_HITS,          <!-- 조회수 -->
+						BOARD_LIKE,			<!-- 추천수 -->
+						U_ID,				<!-- 아이디 -->
+						BOARD_TYPE,			<!-- 게시판타입 -->
+						)
+				VALUES(
+					#{boardNumber},			<!-- 게시판번호 -->
+					#{boardTitle},			<!-- 게시판제목 -->
+					#{boardContent},		<!-- 게시판내용 -->
+					sysdate,				<!-- 작성일 -->
+					0,						 <!-- 조회수 -->
+					0,						<!-- 추천수 -->
+					#{uId},					<!-- 아이디 -->
+					#{boardType}			<!-- 게시판타입 -->
+				)
+</insert>
+
+
+								
+								
+								<!-- 여기서부터 작업해야함 -->
+								
+								
+<!-- 게시판 업그레이드 -->
+<update id ="updateBoard" parameterType="board">
+	UPDATE BOARD SET 
+					UPW=#{upw},
+					UNAME=#{uname},    
+					UADDRESS=#{uaddress}					
+					UPHONE=#{uphone}
+					WHERE UID=#{uid}
+</update>
+
+
+
+<!-- 게시판 삭제 -->
+<delete id ="deleteBoard" parameterType="int">
+	DELETE FROM BOARD WHERE UID = #{value}
+					
+</delete>
+<delete id ="deleteBoardList" parameterType="board">
+	DELETE FROM BOARD 
+	<if test="uidList != null and uidList.length>0">
+	WHERE UID in
+	<foreach collection="uidList" item="item" open="("  close=")" separator=",">
+		#{item}
+	</foreach>
+	</if>
+	<if test="uidList == null or not uidList.length>0">
+	WHERE UID = -1
+	</if>
+</delete>
+
+
+</mapper> 
