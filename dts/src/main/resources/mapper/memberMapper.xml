@@ -74,16 +74,16 @@
 	DELETE FROM MEMBER WHERE U_ID=#{uId}
 					
 </delete>
-<delete id ="deleteBoardList" parameterType="board">
-	DELETE FROM BOARD 
-	<if test="seqList != null and seqList.length>0">
-	WHERE SEQ in
-	<foreach collection="seqList" item="item" open="("  close=")" separator=",">
+<delete id ="deleteMemberList" parameterType="member">
+	DELETE FROM MEMBER 
+	<if test="uidList != null and uidList.length>0">
+	WHERE U_ID in
+	<foreach collection="uidList" item="item" open="("  close=")" separator=",">
 		#{item}
 	</foreach>
 	</if>
-	<if test="seqList == null or not seqList.length>0">
-	WHERE SEQ = -1
+	<if test="uidList == null or not uidList.length>0">
+	WHERE U_ID = -1
 	</if>
 </delete>
 
