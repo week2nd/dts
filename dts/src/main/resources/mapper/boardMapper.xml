@@ -47,17 +47,12 @@
 
 <!-- 게시판 입력 -->
 <insert id ="insertBoard" parameterType="board">
-	<selectKey keyProperty="boardNumber" resultType="integer" order="BEFORE">
+ <selectKey keyProperty="boardNumber" resultType="integer" order="BEFORE">
 		SELECT nvl(MAX(BOARD_NUMBER),0)+1 FROM BOARD 
 	</selectKey>
-	INSERT INTO BOARD (	BOARD_NUMBER,		<!-- 게시판번호 -->
-						BOARD_TITLE,		<!-- 게시판제목 -->
-						BOARD_CONTENT,    	<!-- 게시판내용 -->
-						U_ID,				<!-- 아이디 -->
-						BOARD_TYPE,			<!-- 게시판타입 -->
-						)
+	INSERT INTO BOARD (	BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, U_ID, BOARD_TYPE)
 				VALUES(
-					#{boardNumber},			<!-- 게시판번호 -->
+					#{boardNumber},	
 					#{boardTitle},			<!-- 게시판제목 -->
 					#{boardContent},		<!-- 게시판내용 -->
 					#{uId},					<!-- 아이디 -->
@@ -68,17 +63,11 @@
 
 								
 								
-								<!-- 여기서부터 작업해야함 -->
-								
-								
 <!-- 게시판 업그레이드 -->
 <update id ="updateBoard" parameterType="board">
-	UPDATE BOARD SET 
-					UPW=#{upw},
-					UNAME=#{uname},    
-					UADDRESS=#{uaddress}					
-					UPHONE=#{uphone}
-					WHERE UID=#{uid}
+	UPDATE BOARD SET BOARD_TITLE=#{boardTitle},
+					BOARD_CONTENT=#{boardContent}   
+					WHERE BOARD_NUMBER=#{boardNumber}
 </update>
 
 

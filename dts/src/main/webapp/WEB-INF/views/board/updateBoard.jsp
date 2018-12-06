@@ -7,15 +7,14 @@
 <title>updateUser.jsp</title>
 </head>
 <body>
-	<h3>유저 수정</h3>
-	<!-- 
-	<form action="./updateUser" method="post">
-	<input type="hidden" name="id" value="${user.id }">
-		비밀번호<input type="text" name="password" value="${user.password}"><br>
-		이름<input type="text" name="name" value="${user.name}"><br>
-		권한<input type="text" name="role" value="${user.role}"><br>
+	<h3>테이블 수정</h3>
+
+	<form action="./updateBoard" method="post">
+	<input type="hidden" name="BOARD_NUMBER" value="${board.boardNumber}">
+		제목<input type="text" name="boardTitle" value="${board.boardTitle}"><br>
+		내용<input type="text" name="boardContent" value="${board.boardContent}"><br>
 		<button>저장</button>
 	</form>
-	 -->
+
 </body>
 </html>
