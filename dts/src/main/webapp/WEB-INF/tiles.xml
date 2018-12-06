@@ -3,13 +3,13 @@
 2.1//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions> 
+<definition name="homeGuest" template="/WEB-INF/views/homeGuest.jsp"></definition>
+<definition name="homeAdmin" template="/WEB-INF/views/homeAdmin.jsp"></definition>
+<definition name="homeUser" template="/WEB-INF/views/homeUser.jsp"></definition>
+<!-- 유저 -->
 <definition name="mainTemplate" template="/WEB-INF/views/tiles/layout.jsp"> 
-<put-attribute name="header" value="yedam project" /> 
 <put-attribute name="content" value="/WEB-INF/views/tiles/content.jsp" /> 
-<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" /> 
 </definition> 
-<definition name="home" template="/WEB-INF/views/home.jsp">
-</definition>
 
 <definition name="*/*" extends="mainTemplate"> 
  <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />  
@@ -18,4 +18,30 @@
 <definition name="*/*/*" extends="mainTemplate">
 <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" /> 
 </definition> 
+<!-- 게스트 -->
+<definition name="guestTemplate" template="/WEB-INF/views/tiles/layout.jsp"> 
+<put-attribute name="content" value="/WEB-INF/views/tiles/content.jsp" /> 
+</definition> 
+
+<definition name="*/*" extends="userTemplate"> 
+ <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />  
+</definition> 
+
+<definition name="*/*/*" extends="userTemplate">
+<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" /> 
+</definition> 
+<!-- 관리자 -->
+<definition name="adminTemplate" template="/WEB-INF/views/tiles/layout.jsp"> 
+<put-attribute name="content" value="/WEB-INF/views/tiles/content.jsp" /> 
+</definition> 
+
+<definition name="*/*" extends="adminTemplate"> 
+ <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />  
+</definition> 
+
+<definition name="*/*/*" extends="adminTemplate">
+<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" /> 
+</definition> 
+
+
 </tiles-definitions>

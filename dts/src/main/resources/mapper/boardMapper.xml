@@ -47,15 +47,12 @@
 
 <!-- 게시판 입력 -->
 <insert id ="insertBoard" parameterType="board">
-	<selectKey keyProperty="seq" resultType="integer" order="BEFORE">
-		SELECT nvl(MAX(UID),0)+1 FROM BOARD 
+	<selectKey keyProperty="boardNumber" resultType="integer" order="BEFORE">
+		SELECT nvl(MAX(BOARD_NUMBER),0)+1 FROM BOARD 
 	</selectKey>
 	INSERT INTO BOARD (	BOARD_NUMBER,		<!-- 게시판번호 -->
 						BOARD_TITLE,		<!-- 게시판제목 -->
 						BOARD_CONTENT,    	<!-- 게시판내용 -->
-						BOARD_DATE, 		<!-- 작성일 -->
-						BOARD_HITS,          <!-- 조회수 -->
-						BOARD_LIKE,			<!-- 추천수 -->
 						U_ID,				<!-- 아이디 -->
 						BOARD_TYPE,			<!-- 게시판타입 -->
 						)
@@ -63,9 +60,6 @@
 					#{boardNumber},			<!-- 게시판번호 -->
 					#{boardTitle},			<!-- 게시판제목 -->
 					#{boardContent},		<!-- 게시판내용 -->
-					sysdate,				<!-- 작성일 -->
-					0,						 <!-- 조회수 -->
-					0,						<!-- 추천수 -->
 					#{uId},					<!-- 아이디 -->
 					#{boardType}			<!-- 게시판타입 -->
 				)
