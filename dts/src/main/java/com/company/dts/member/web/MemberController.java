@@ -47,11 +47,11 @@ public class MemberController {
 	}
 	
 	//수정   updateMemberform변경
-	@RequestMapping("/updateMemberform")
+/*	@RequestMapping("/updateMemberform")
 	public String updateMemberform(Model model, MemberVO vo) {
 		model.addAttribute("member", memberService.getMember(vo));
 		return "member/getMember";
-	}
+	}*/
 	//수정처리
 	@RequestMapping("/updateMember")
 	public String updateMember(MemberVO vo) {

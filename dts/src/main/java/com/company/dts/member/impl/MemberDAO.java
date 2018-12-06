@@ -28,7 +28,7 @@ public class MemberDAO {
 	// 삭제
 	public void deleteMember(MemberVO vo) {
 		System.out.println("mybatis deleteMember() 가능 처리");
-		mybatis.update("member.deleteMember", vo.getuId());
+		mybatis.update("member.deleteMember", vo);
 	}
 	// 여러개 삭제
 	public void deleteMemberList(MemberVO vo) {

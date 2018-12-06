@@ -156,7 +156,7 @@ function checkValue(){
             <td>
                 <input type="text" id="sample4_postcode" placeholder="우편번호">
                 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-                <input type="text" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소">
+                <input type="text" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }">
                 <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
                 <span id="guide" style="color:#999"></span>
             </td>
