@@ -82,13 +82,13 @@
 <!-- 게시판리스트(단체) 삭제 -->
 <delete id ="deleteBoardList" parameterType="board">
 	DELETE FROM BOARD 
-	<if test="uidList != null and uidList.length>0">
+	<if test="boardNumberList != null and uidList.length>0">
 	WHERE UID in
-	<foreach collection="uidList" item="item" open="("  close=")" separator=",">
+	<foreach collection="boardNumberList" item="item" open="("  close=")" separator=",">
 		#{item}
 	</foreach>
 	</if>
-	<if test="uidList == null or not uidList.length>0">
+	<if test="boardNumberList == null or not uidList.length>0">
 	WHERE UID = -1
 	</if>
 </delete>
