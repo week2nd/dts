@@ -47,16 +47,14 @@ public class MemberController {
 	}
 	
 	//수정   updateMemberform변경
-	@RequestMapping("/updateMemberform")
+/*	@RequestMapping("/updateMemberform")
 	public String updateMemberform(Model model, MemberVO vo) {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		model.addAttribute("member", memberService.getMember(vo));
 		return "member/getMember";
-	}
+	}*/
 	//수정처리
 	@RequestMapping("/updateMember")
 	public String updateMember(MemberVO vo) {
-		System.out.println("############################");
 		memberService.updateMember(vo);		//수정처리
 		return "redirect:getMemberList";		//목록요청
 	}
@@ -79,24 +77,19 @@ public class MemberController {
 		MemberVO membervo = memberService.getMember(vo);
 		// id가 있으면 패스워드 비교
 		if(membervo == null) { // id 없으면
-			return "homeGuest";
+			return "home";
 		} else if (! vo.getuPw().equals(membervo.getuPw())) { // ! <- not
-			return "homeGuest";
+			return "home";
 		} else {
 			session.setAttribute("uid", membervo.getuId());
-			session.setAttribute("ugrant", membervo.getuGrant());
-			if(membervo.getuGrant().equals("user")) {
-				return "homeUser";
-			} else {
-				return "homeAdmin";
-			}			
+			return "redirect:getPurchaseList";
 		}
 	}
 	// 로그아웃
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate(); // 세션 무효화 (로그아웃)
-		return "homeGuest";
+		return "home";
 	}
 	
 	
