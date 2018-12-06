@@ -11,7 +11,7 @@
   <meta name="author" content="">
   <link rel="icon" href="">
 
-  <title>E-SPORT토토</title>
+  <title>E-SPORT토토관리자메인</title>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap core CSS -->
@@ -35,6 +35,9 @@
 </head>
 
 <body>
+  <%
+		String id = (String) session.getAttribute("uid");				
+	%>
   <!-- Top small banner -->
   <header class="float-left w-100">
     <div class="small-top float-left w-100">
@@ -66,32 +69,24 @@
       <div class="container-fluid">
         <div class="row px-3">
           <div class="col-md-6 col-lg-4 mt-2">
-            <h1>E-Sports토토
+            <h1>E-Sports토토관리자페이지
               <!-- <small>1조최종프로젝트</small>  -->
             </h1>
           </div>
           <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
             <nav class="nav justify-content-end">
-              <form method="post" action="login" style="display: inline-block; margin-top: 0em;">
-                <div class="form-group" style="margin-top: 5px; display: inline-block">
-                  <input id="uId" type="text" class="form-control" placeholder="ID" name="uId">
-                </div>
-                <div class="form-group" style="margin-top: 5px; display: inline-block">
-                  <input id="uPw" type="password" class="form-control" placeholder="Password" name="uPw">
-                </div>
-                <button>로그인</button>
+              <form method="post" action="logout" style="display: inline-block; margin-top: 0em;">
+                <%=id%><button>로그아웃</button>
               </form>
-
-              <a href="insertMember">회원가입</a>
             </nav>
           </div>
         </div>
       </div>
     </div>
   </header>
-
+<h3>관리자메인</h3>
   <!-- Top Navigation -->
-  <section class="top-nav">
+  <!-- <section class="top-nav">
     <nav class="navbar navbar-expand-lg py-0">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -101,8 +96,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active"> <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a></li>
-            <li class="nav-item"> <a class="nav-link" href="getPurchaseList">게임구매</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="file:///C:/Users/User/Downloads/river-demo/khj.html">경기정보</a>
+            <li class="nav-item"> <a class="nav-link" href="#">게임구매</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">경기정보</a>
             </li>
             <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" aria-live="token">게시판</a>
@@ -125,17 +120,7 @@
         </div>
       </div>
     </nav>
-  </section>
-  
-  <section class="banner-sec float-left w-100 pt-4 pb-5">
-	<div class="col-md-12">
-			
-	</div>
-
-  </section>
-
-
-
+  </section> -->
 
   <!-- Info Block-01 -->
   <!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
