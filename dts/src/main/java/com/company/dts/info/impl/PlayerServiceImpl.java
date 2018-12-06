@@ -17,11 +17,15 @@ public class PlayerServiceImpl implements PlayerService {
 	// 등록
 	@Override
 	public void insertPlayer(PlayerVO vo) {
+		System.out.println("PlayerServiceImpl insertplayer"+ '\n');
+		dao.insertPlayer(vo);
 	}
 
 	// 수정
 	@Override
 	public void updatePlayer(PlayerVO vo) {
+		System.out.println("PlayerServiceImpl updateplayer"+ '\n');
+		dao.updatePlayer(vo);
 	}
 
 	// 단건 조회
