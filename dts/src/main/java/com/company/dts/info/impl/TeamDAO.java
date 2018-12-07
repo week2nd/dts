@@ -15,7 +15,6 @@ public class TeamDAO {
 	
 	// 팀 전체 조회
 	public List<TeamVO> getTeamList(TeamVO vo) {
-		System.out.println("TeamService.java.mybatis jdbc getTeamList");
 		return mybatis.selectList("team.getTeamList", vo);
 	}
 	// 팀 단일 조회
@@ -28,12 +27,10 @@ public class TeamDAO {
 	}
 	// 팀 정보 수정
 	public void updateTeam(TeamVO vo) {
-		System.out.println("DAO updateTeam");
 		mybatis.update("team.updateTeam", vo);
 	}
 	// 팀 삭제
 	public void deleteTeam(TeamVO vo) {
-		System.out.println("DAO deleteTeam");
 		mybatis.update("team.deleteTeam", vo);
 	}
 }

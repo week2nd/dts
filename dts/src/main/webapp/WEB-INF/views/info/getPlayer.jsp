@@ -32,7 +32,7 @@
 					<td><h3>${player.birth}</h3></td>
 					<td><h5>${player.name}</h5></td>
 					<td width="64%"></td>
-					<td align="right"><h4>${player.teamId }</h4></td>
+					<td align="right"><h4>${player.teamId }</h4></a></td>
 					<input type="hidden" value="${player.nickname}">
 					<input type="hidden" name="playerId" value="${player.playerId}">
 				</tr>
