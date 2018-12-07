@@ -83,13 +83,13 @@
 <delete id ="deleteBoardList" parameterType="board">
 	DELETE FROM BOARD 
 	<if test="boardNumberList != null and uidList.length>0">
-	WHERE UID in
+	WHERE boardNumber in
 	<foreach collection="boardNumberList" item="item" open="("  close=")" separator=",">
 		#{item}
 	</foreach>
 	</if>
 	<if test="boardNumberList == null or not uidList.length>0">
-	WHERE UID = -1
+	WHERE boardNumber = -1
 	</if>
 </delete>
 
