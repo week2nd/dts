@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comments">
+
+	<select id="getCommentsList" resultType="comments" parameterType="comments"> 
+		SELECT A.* FROM ( SELECT B.*, ROWNUM RN FROM ( 
+		SELECT COMMENTS_SEQ            
+			   ,COMMENTS_NAME         
+			   ,COMMENTS_CONTENT 
+			   ,COMMENT_DATE     
+			   ,BOARD_NUMBER
+			   ,BOARD_TYPE
+		  FROM COMMENTS  
+		 WHERE BOARD_NUMBER = #{boardNumber}
+		  <if test="commentsSeq != null and commentsSeq != ''">
+		  <![CDATA[ 
+		  	and commentsSeq > #{commentsSeq}
+		  ]]>
+		  </if>
+		 ORDER BY COMMENTSSEQ DESC 
+		 ) B ) A
+		  <![CDATA[ 
+		 WHERE RN <= #{pageUnit}
+		 ]]>
+	</select>
+	
+		<select id="getComments" resultType="comments" parameterType="comments"> 
+		SELECT COMMENTS_SEQ            
+			   ,COMMENTS_NAME         
+			   ,COMMENTS_CONTENT    
+			   ,COMMENT_DATE  
+			   ,BOARD_NUMBER
+			   ,BOARD_TYPE
+		  FROM COMMENTS  
+		 WHERE COMMENTS_SEQ = #{commentsSeq}
+	</select>
+	
+	<insert id="insertComments" parameterType="comments">
+		<selectKey keyProperty="commentsSeq" resultType="string" order="BEFORE">
+			select nvl(max(commentsSeq),0)+1 from comments
+		</selectKey>
+		INSERT INTO COMMENTS(
+				 COMMENTS_SEQ            
+			   ,COMMENTS_NAME         
+			   ,COMMENTS_CONTENT    
+			   ,COMMENT_DATE  
+			   ,BOARD_NUMBER
+			   ,BOARD_TYPE
+				) 
+			VALUES(
+				  #{commentsSeq}
+				, #{commentsName}
+				, #{commentsContent}
+				, SYSDATE
+				, #{boardNumber}
+				, #{boardType}
+				
+				)
+	</insert>
+	
+	<update id="updateComments" parameterType="comments">
+		update  COMMENTS SET 
+				COMMENTS_NAME = #{commentsName}
+			    ,COMMENTS_CONTENT = #{commentsContent} 
+	     where  COMMENTS_SEQ = #{commentsSeq}
+	</update>
+	
+	<delete id="deleteComments" parameterType="comments">
+		delete COMMENTS 
+		 <where> 
+		 	<choose>
+		 		<when test="boardNumber != null and boardNumber != ''">
+		 			BOARD_NUMBER = #{boardNumber}	
+		 		</when>
+		 		<otherwise>
+		 			COMMENTS_SEQ = #{commentsSeq}
+		 		</otherwise>
+		 	</choose>
+		 </where>
+	</delete>
+
+</mapper>

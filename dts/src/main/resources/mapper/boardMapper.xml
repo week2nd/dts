@@ -12,6 +12,8 @@
 	<if test="searchKeyword != null and searchKeyword != ''">
 		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
 	</if> 
+	
+	<!-- 검색할때사용할쿼리들 -->
 <!-- <where>	
 	<choose>
 		<when test="searchCondition != null and searchCondition == 'title'">
@@ -81,15 +83,15 @@
 
 <!-- 게시판리스트(단체) 삭제 -->
 <delete id ="deleteBoardList" parameterType="board">
-	DELETE FROM BOARD 
-	<if test="boardNumberList != null and uidList.length>0">
-	WHERE boardNumber in
-	<foreach collection="boardNumberList" item="item" open="("  close=")" separator=",">
+	DELETE BOARD 
+	<if test="bnumberList != null and bnumberList.length>0">			<!-- boardVO 안의 bnumberList 사용 -->
+	WHERE BOARD_NUMBER in
+	<foreach collection="bnumberList" item="item" open="("  close=")" separator=",">
 		#{item}
 	</foreach>
 	</if>
-	<if test="boardNumberList == null or not uidList.length>0">
-	WHERE boardNumber = -1
+	<if test="bnumberList == null or not bnumberList.length>0">
+	WHERE BOARD_NUMBER = -1
 	</if>
 </delete>
 
