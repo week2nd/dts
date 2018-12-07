@@ -30,9 +30,9 @@
 			<c:forEach items="${playerList}" var="player">
 				<tr>
 					<td>${player.playerRank}</td>
-					<td>${player.name}</td>
+					<td><a href="getPlayer?nickname=${player.nickname}">${player.name}</a></td>
 					<td><a href="getPlayer?nickname=${player.nickname}">${player.nickname}</a></td>
-					<td>${player.teamId}</td>
+					<td><a href="getTeam?teamId=${player.teamId }">${player.teamId }</a></td>
 					<td>${player.match}</td>
 					<td>${player.win}</td>
 					<td>${player.lose}</td>

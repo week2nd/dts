@@ -27,6 +27,7 @@
 			<option value="1">2018 Spring Champs</option>
 		</select>
 	</div> -->
+<a href="insertTeamForm"><button>새 팀 입력</button></a>
 
 	<div>
 		<table border="1">
@@ -45,7 +46,7 @@
 			<c:forEach items="${teamList}" var="team">
 				<tr>
 					<td></td>
-					<td>${team.teamId }</td>
+					<td><a href="getTeam?teamId=${team.teamId }">${team.teamId }</a></td>
 					<td>${team.director }</td>
 					<td>${team.headCoach}</td>
 					<td>${team.name}</td>
