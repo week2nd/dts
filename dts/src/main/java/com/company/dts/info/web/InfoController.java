@@ -70,7 +70,7 @@ public class InfoController {
 //		선수
 //		
 //		팀
-	// 선수 전체 조회
+	// 팀 전체 조회
 		@RequestMapping("/getTeamList")
 		public String getTeamList(Model model, TeamVO vo) {
 			model.addAttribute("teamList", teamService.getTeamList(vo));
@@ -79,41 +79,41 @@ public class InfoController {
 		}
 
 
-		// 선수 단일 조회
+		// 팀 단일 조회
 		@RequestMapping("/getTeam")
 		public String getTeam(Model model, TeamVO vo) {
 			model.addAttribute("team", teamService.getTeam(vo));
 			return "info/getTeam";
 		}
 
-		// 선수 입력 폼 이동
+		// 팀 입력 폼 이동
 		@RequestMapping("/insertTeamForm")
 		public String insertTeamForm() {
 			return "info/insertTeam";
 		}
 
-		// 선수 입력 처리
+		// 팀 입력 처리
 		@RequestMapping("/insertTeam")
 		public String insertTeam(TeamVO vo) {
 			teamService.insertTeam(vo);
 			return "redirect:getTeamList";
 		}
 
-//		// 선수 정보 수정 폼 이동
+//		// 팀 정보 수정 폼 이동
 //		@RequestMapping("/updateTeamForm")
 //		public String updateTeamForm(Model model, TeamVO vo) {
-//			model.addAttribute("player",teamService.getTeam(vo));
-//			return "info/updateTeam";
+//			model.addAttribute("team",teamService.getTeam(vo));
+//			return "info/insertTeam";
 //		}
-//		
-//		// 선수 정보 수정 처리
-//		@RequestMapping("/updateTeam")
-//		public String updateTeam(TeamVO vo) {
-//			teamService.updateTeam(vo);
-//			return "redirect:getTeamList";
-//		}
-//		
-//		// 선수 정보 삭제
+		
+		// 팀 정보 수정 처리
+		@RequestMapping("/updateTeam")
+		public String updateTeam(TeamVO vo) {
+			teamService.updateTeam(vo);
+			return "redirect:getTeamList";
+		}
+		
+//		// 팀 정보 삭제
 //		@RequestMapping("/deleteTeam")
 //		public String deleteTeam(TeamVO vo) {
 //			teamService.deleteTeam(vo);

@@ -9,7 +9,8 @@
 <body>
 
 	<div>
-		<form>
+		<form action="updateTeam">
+			<input type="submit" value="수정">
 			<table border="1">
 				<tr>
 					<td><h3>${team.teamId}</h3></td>
