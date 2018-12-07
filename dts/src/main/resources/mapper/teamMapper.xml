@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team">
+
+	<!-- 팀 전체 보기 -->
+	<select id="getTeamList" parameterType="team" resultType="team">
+		SELECT	TEAM_ID,
+				DIRECTOR,
+				HEAD_COACH,
+				NAME,
+				WIN,
+				LOSE,
+				RATE
+		FROM 	TEAM
+	</select>
+</mapper>

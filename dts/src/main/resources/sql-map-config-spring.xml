@@ -12,9 +12,10 @@
 
 		<typeAlias alias="purchase" type="com.company.dts.purchase.PurchaseVO" />
 		<typeAlias alias="member" type="com.company.dts.member.MemberVO" />
-		<typeAlias alias="player" type="com.company.dts.info.PlayerVO" />
 		<typeAlias alias="board" type="com.company.dts.board.BoardVO" />
 		<typeAlias alias="game" type="com.company.dts.game.GameVO" />
+		<typeAlias alias="player" type="com.company.dts.info.PlayerVO" />
+		<typeAlias alias="team" type="com.company.dts.info.TeamVO" />
 	</typeAliases> 
 	
 </configuration>
