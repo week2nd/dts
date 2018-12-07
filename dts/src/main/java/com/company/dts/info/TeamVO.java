@@ -1,20 +1,20 @@
 package com.company.dts.info;
 
 public class TeamVO {
-	private String team_id;
+	private String teamId;
 	private String director;
-	private String head_coach;
+	private String headCoach;
 	private String name;
 	private int win;
 	private int lose;
 	private int rate;
 
-	public String getTeam_id() {
-		return team_id;
+	public String getteamId() {
+		return teamId;
 	}
 
-	public void setTeam_id(String team_id) {
-		this.team_id = team_id;
+	public void setteamId(String teamId) {
+		this.teamId = teamId;
 	}
 
 	public String getDirector() {
@@ -25,12 +25,12 @@ public class TeamVO {
 		this.director = director;
 	}
 
-	public String getHead_coach() {
-		return head_coach;
+	public String getheadCoach() {
+		return headCoach;
 	}
 
-	public void setHead_coach(String head_coach) {
-		this.head_coach = head_coach;
+	public void setheadCoach(String headCoach) {
+		this.headCoach = headCoach;
 	}
 
 	public String getName() {
