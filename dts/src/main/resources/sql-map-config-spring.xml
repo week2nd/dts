@@ -16,6 +16,7 @@
 		<typeAlias alias="game" type="com.company.dts.game.GameVO" />
 		<typeAlias alias="player" type="com.company.dts.info.PlayerVO" />
 		<typeAlias alias="team" type="com.company.dts.info.TeamVO" />
+		<typeAlias alias="comments" type="com.company.dts.board.CommentsVO" />
 	</typeAliases> 
 	
 </configuration>

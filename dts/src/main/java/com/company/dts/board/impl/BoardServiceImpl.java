@@ -12,14 +12,6 @@ import com.company.dts.board.BoardVO;
 public class BoardServiceImpl implements BoardService{
 	@Autowired
 	BoardDAO dao;
-
-	/*
-	 * public void insertBoard(BoardVO vo) { dao.insertBoard(vo);
-	 * System.out.println("========= uId ="+vo.getuId()); } public void
-	 * updateBoard(BoardVO vo) { dao.updateBoard(vo); } public void
-	 * deleteBoard(BoardVO vo) { dao.deleteBoard(vo); } public void
-	 * deleteBoardList(BoardVO vo) { dao.deleteBoardList(vo); }
-	 */
 	
 	//게시판 단건조회
 	@Override

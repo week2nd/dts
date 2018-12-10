@@ -77,19 +77,19 @@ public class MemberController {
 		MemberVO membervo = memberService.getMember(vo);
 		// id가 있으면 패스워드 비교
 		if(membervo == null) { // id 없으면
-			return "home";
+			return "homeGuest";
 		} else if (! vo.getuPw().equals(membervo.getuPw())) { // ! <- not
-			return "home";
+			return "homeGuest";
 		} else {
 			session.setAttribute("uid", membervo.getuId());
-			return "redirect:getPurchaseList";
+			return "homeUser";
 		}
 	}
 	// 로그아웃
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate(); // 세션 무효화 (로그아웃)
-		return "home";
+		return "homeGuest";
 	}
 	
 	

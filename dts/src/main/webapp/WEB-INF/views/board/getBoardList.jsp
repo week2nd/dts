@@ -14,8 +14,8 @@
 </script>-->
 </head>
 <body>
-<h3>getBoardList아아아아
- <form action="deleteMemberList">	
+<h3>getBoardList아아아아</h3>
+ <form action="deleteBoardList">	
 	<button>선택삭제</button>
 	
 	<a href="${pageContext.request.contextPath}/insertBoard">등록</a>
@@ -35,7 +35,7 @@
 		</tr>
 		<c:forEach items="${boardList }" var="board">
 			<tr>
-				<td><input type="checkbox" name="bnumberList" value="${board.bnumberList}" /></td>
+				<td><input type="checkbox" name="bnumberList" value="${board.boardNumber}" /></td>
  				<td>${board.boardNumber }</td>
 				<td><a href="./getBoard?boardNumber=${board.boardNumber }">${board.boardTitle }</a></td>
 				<td>${board.boardContent }</td>
