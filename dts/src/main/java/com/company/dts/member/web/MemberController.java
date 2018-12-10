@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
@@ -71,25 +73,39 @@ public class MemberController {
 		return "redirect:getMemberList";		//목록요청
 	}
 	
+	// 아이디 중복 체크
+    @ResponseBody
+    @RequestMapping(value="checkId")
+    public boolean idCheck(Model model, MemberVO vo) {
+        System.out.println("Controller.idCheck() 호출");
+        boolean result=false;
+        MemberVO user = memberService.getMember(vo);
+        if(user!=null) result=true;
+        else System.out.println("아이디사용가능@@@@@@@@@@@@@@@@@");
+        return result;
+    }
+	
+	
+	
 	@RequestMapping("login")   // 
 	public String login(@ModelAttribute("member") MemberVO vo, HttpSession session) {
 		// id 단건조회
 		MemberVO membervo = memberService.getMember(vo);
 		// id가 있으면 패스워드 비교
 		if(membervo == null) { // id 없으면
-			return "homeGuest";
+			return "home";
 		} else if (! vo.getuPw().equals(membervo.getuPw())) { // ! <- not
-			return "homeGuest";
+			return "home";
 		} else {
 			session.setAttribute("uid", membervo.getuId());
-			return "homeUser";
+			return "redirect:getPurchaseList";
 		}
 	}
 	// 로그아웃
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate(); // 세션 무효화 (로그아웃)
-		return "homeGuest";
+		return "home";
 	}
 	
 	

@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>insertUser.jsp</title>
-
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <!-- 
 function checkValue(){
     var dmi = document.MuserUpdate;
@@ -53,7 +54,18 @@ function checkValue(){
     
 }
  -->
-   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+  <style>
+    body {
+        background: #f8f8f8;
+        padding: 60px 0;
+    }
+    
+    #login-form > div {
+        margin: 15px 0;
+    }
+ 
+</style>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
  <script>
      daum.postcode.load(function(){
@@ -120,7 +132,109 @@ function checkValue(){
      
      /////////////////////////////////////////////////////////////
      
-  
+      //아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+    var idCheck = 0;
+    var nickCheck = 0;
+    var pwdCheck = 0;
+    //아이디 체크하여 가입버튼 비활성화, 중복확인.
+    function checkId() {
+        var inputed = $('.id').val();
+        console.log(inputed);
+        $.ajax({
+            data : {
+                uId : inputed
+            },
+            url : "checkId",
+            success : function(data) {
+                if(inputed=="" && data==false) {
+             //       $(".signupbtn").prop("disabled", true);
+             //       $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#chkid").css("background-color", "#FFCECE");
+                    idCheck = 0;
+                } else if (data == false) {
+                    $("#chkid").css("background-color", "#B0F6AC");
+                    idCheck = 1;
+                    if(idCheck==1 && pwdCheck == 1) {
+               //         $(".signupbtn").prop("disabled", false);
+                //        $(".signupbtn").css("background-color", "#4CAF50");
+                    } 
+                } else if (data == true) {
+              //      $(".signupbtn").prop("disabled", true);
+               //     $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#chkid").css("background-color", "#FFCECE");
+                    idCheck = 0;
+                } 
+            }
+        });
+    }
+  //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
+    function checkPwd() {
+        var inputed = $('#chkpw1').val();
+        var reinputed = $('#chkpw2').val();
+        console.log(inputed);
+        console.log(reinputed);
+        if(reinputed=="" && (inputed != reinputed || inputed == reinputed)){
+            $(".signupbtn").prop("disabled", true);
+            $(".signupbtn").css("background-color", "#aaaaaa");
+            $("#chkpw1").css("background-color", "#FFCECE");
+            $("#chkpw2").css("background-color", "#FFCECE");
+        }
+        else if (inputed == reinputed) {
+            $("#chkpw1").css("background-color", "#B0F6AC");
+            $("#chkpw2").css("background-color", "#B0F6AC");
+            pwdCheck = 1;
+            if(idCheck==1 && pwdCheck == 1) {
+                $(".signupbtn").prop("disabled", false);
+                $(".signupbtn").css("background-color", "#4CAF50");
+            }
+        } else if (inputed != reinputed) {
+            pwdCheck = 0;
+            $(".signupbtn").prop("disabled", true);
+            $(".signupbtn").css("background-color", "#aaaaaa");
+            $("#chkpw1").css("background-color", "#FFCECE");
+            $("#chkpw2").css("background-color", "#FFCECE");
+            
+        }
+    }
+    //닉네임과 이메일 입력하지 않았을 경우 가입버튼 비활성화
+  /*  function checkNick() {
+        var nickname = $("#nickname").val();
+        console.log(nickname);
+        $.ajax({
+            data : {
+                nickName : nickname
+            },
+            url : "checkNickName.do",
+            success : function(data) {
+                if(nickname=="" && data=='0') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#nickname").css("background-color", "#FFCECE");
+                    nickCheck = 0;
+                } else if (data == '0') {
+                    $("#nickname").css("background-color", "#B0F6AC");
+                    nickCheck = 1;
+                    if(nickCheck ==1 && pwdCheck == 1) {
+                        $(".signupbtn").prop("disabled", false);
+                        $(".signupbtn").css("background-color", "#4CAF50");
+                    } 
+                } else if (data == '1') {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#nickname").css("background-color", "#FFCECE");
+                    nickCheck = 0;
+                } 
+            }
+        });
+    }*/
+    /*캔슬버튼 눌렀을 눌렀을시 인풋박스 클리어
+    $(".cancelbtn").click(function(){
+            $(".id").val(null);
+            $(".pass").val('');
+            $(".signupbtn").prop("disabled", true);
+            $(".signupbtn").css("background-color", "#aaaaaa");
+    });*/
+    
  
      
      
@@ -139,35 +253,42 @@ function checkValue(){
 <body>
 	<h3>회원가입</h3>
 	<form action="insertMember" method="post">
+	
 		<table style="width: 100%">
+			<tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>            
 	            <td>아이디</td>
-	            <td><input type="text" name="uId" value="${member.uId }"></td>
+	            <td><input type="text" class="form-control id" name="uId" id="chkid" placeholder="아이디" value="${member.uId }" oninput="checkId()" ></td>
 	            <td>*아이디는 변경하실 수 없습니다.</td>
 	        </tr>
+	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
 	            <td>비밀번호</td>
-	            <td><input type="password" name="uPw" value="${member.uPw }"></td>
-	        </tr>        
+	            <td><input type="password" class="form-control pass" name="uPw" id="chkpw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkPwd()"></td>
+	        </tr>
+	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>        
 	        <tr>
 	            <td>비밀번호 확인</td>
-	            <td><input type="password" name="member" value="${member.uPw }"></td>
+	            <td><input type="password" class="form-control pass" name="member" id="chkpw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkPwd()"></td>
 	        </tr>
+   	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
 	            <td>이름</td>
-	            <td><input type="text" name="uName" value="${member.uName }"></td>
+	            <td><input type="text" class="form-control name"  name="uName" placeholder="이름" value="${member.uName }"></td>
 	            <td>*개명을 한경우 본인확인기관에서 등록된 정보로만 변경이 가능합니다.</td>
 	        </tr>
+	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
 	            <td>주소</td>       
 	            <td>
-	                <input type="text" id="sample4_postcode" placeholder="우편번호">
-	                <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }">
-	                <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+	                <input type="text" class="form-control address" id="sample4_postcode" placeholder="우편번호">
+	                <input type="text" class="form-control address" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }">
+	                <input type="text" class="form-control address" id="sample4_jibunAddress" placeholder="지번주소">
 	                <span id="guide" style="color:#999"></span>
 	            </td>
 	        </tr>
+	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
 	            <td>휴대폰번호</td>
 	            <td>
@@ -181,15 +302,17 @@ function checkValue(){
 	                </select>
 	                -
 	                <input type="text" name="member" value="${member.uPhone }"> -   -->
-	                <input type="text" name="uPhone" id="${member.uPhone }">
+	                <input type="text" class="form-control phone" name="uPhone" placeholder="휴대폰번호" id="${member.uPhone }">
 	            </td>
 	        </tr>
+	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
 	            <td>생년월일</td>
 	            <td>
-	            	<input type="date" name="uBirth" value="${member.uBirth }">
+	            	<input type="date" class="form-control date" name="uBirth" value="${member.uBirth }">
 	            </td>
 	        </tr>        
+	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
 	            <td colspan="5"> 
 	                <button>가입</button> 
@@ -200,7 +323,34 @@ function checkValue(){
 	    </table>
     </form>
     
- 
+ <div class="container">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <div class="panel-title">환영합니다!</div>
+                </div>
+                <div class="panel-body">
+                    <form action="insertUser.do" id="login-form" method="post">
+                        <div>
+                            <input type="email" class="form-control id" name="id" placeholder="Email" oninput="checkId()" id="checkaa">
+                        </div>
+                        <div>
+                            <input type="password" class="form-control pass" name="pw" placeholder="Password" id="repwdd" oninput="checkPwd()">
+                        </div>
+                        <div>
+                            <input type="password" class="form-control pass" name="pwConfirm" placeholder="Confirm Password" id="repwd" oninput="checkPwd()">
+                        </div>
+                        <div>
+                            <input type="text" class="form-control nickname" name="nickName" id="nickname" placeholder="Your Nickname" oninput="checkNick()">
+                        </div>
+                        <div>
+                            <button type="submit" class="form-control btn btn-primary signupbtn" disabled="disabled">회원가입</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
