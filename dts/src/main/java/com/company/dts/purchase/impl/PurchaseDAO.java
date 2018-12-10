@@ -23,5 +23,9 @@ public class PurchaseDAO {
 	public PurchaseVO getPurchase(PurchaseVO vo) {
 		return mybatis.selectOne("purchase.getPurchase",vo);
 	}
+	// 게임구매
+	public void insertPurchase(PurchaseVO vo) {
+		mybatis.update("purchase.insertPurchase",vo);
+	}
 
 }

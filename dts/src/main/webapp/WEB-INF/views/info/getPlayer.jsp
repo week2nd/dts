@@ -29,12 +29,12 @@
 			<input type="submit" value="선수 삭제">
 			<table border="1">
 				<tr>
-					<td><h3>${player.birth}</h3></td>
+					<td><h3>${player.playerId} ${player.nickname }</h3></td>
 					<td><h5>${player.name}</h5></td>
 					<td width="64%"></td>
 					<td align="right"><h4>${player.teamId }</h4></a></td>
-					<input type="hidden" value="${player.nickname}">
-					<input type="hidden" name="playerId" value="${player.playerId}">
+					<%-- <input type="hidden" value="${player.nickname}">
+					<input type="hidden" name="playerId" value="${player.playerId}"> --%>
 				</tr>
 			</table>
 		</form>

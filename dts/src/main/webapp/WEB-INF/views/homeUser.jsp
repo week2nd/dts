@@ -96,7 +96,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active"> <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a></li>
-            <li class="nav-item"> <a class="nav-link" href="getPurchaseList">게임구매</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="getGameList">게임구매</a> </li>
             <li class="nav-item"> <a class="nav-link" href="file:///C:/Users/User/Downloads/river-demo/khj.html">경기정보</a>
             </li>
             <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"

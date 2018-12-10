@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="team">
+<mapper namespace="match">
 
-	<!-- 팀 전체 보기 -->
-	<select id="getTeamList" parameterType="team" resultType="team">
+	<!-- 경기 전체 보기 -->
+	<select id="getMatchList" parameterType="match" resultType="match">
 		SELECT	RANK() OVER(ORDER BY WIN DESC, LOSE ASC) rank,
 				TEAM_ID,
 				DIRECTOR,
@@ -16,7 +16,8 @@
 		FROM 	TEAM
 	</select>
 	
-	<select id="getTeam" parameterType="team" resultType="team">
+	
+	<select id="getMatch" parameterType="match" resultType="match">
 		SELECT 	*
 		FROM	(SELECT	RANK() OVER(ORDER BY WIN DESC, LOSE ASC) rank,	
 						TEAM_ID,
@@ -27,31 +28,31 @@
 						LOSE,
 						RATE
 				FROM 	TEAM)
-		WHERE	TEAM_ID = #{teamId}
+		WHERE	TEAM_ID = #{matchId}
 	</select>
 	
-	<insert id="insertTeam" parameterType="team">
+	<insert id="insertMatch" parameterType="match">
 		INSERT INTO TEAM(TEAM_ID, 
 						DIRECTOR, 
 						HEAD_COACH, 
 						NAME)
-  		VALUES			(#{teamId},
+  		VALUES			(#{matchId},
   						#{director},
   						#{headCoach},
   						#{name})
 	</insert>
 	
-	<update id="updateTeam" parameterType="team">
+	<update id="updateMatch" parameterType="match">
 		UPDATE	TEAM
-		SET		TEAM_ID = #{teamId},
+		SET		TEAM_ID = #{matchId},
 				DIRECTOR = #{director},
 				HEADCOACH = #{headCoach},
 				NAME = #{name}
-		WHERE	TEAM_ID = #{teamId}
+		WHERE	TEAM_ID = #{matchId}
 	</update>
 	
-	<delete id="deleteTeam" parameterType="team">
+	<delete id="deleteMatch" parameterType="match">
 		DELETE	TEAM
-		WHERE	TEAM_ID = #{teamId}
+		WHERE	TEAM_ID = #{matchId}
 	</delete>
 </mapper>

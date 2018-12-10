@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
@@ -70,6 +72,20 @@ public class MemberController {
 		memberService.deleteMemberList(vo);	//여러개 삭제처리
 		return "redirect:getMemberList";		//목록요청
 	}
+	
+	// 아이디 중복 체크
+    @ResponseBody
+    @RequestMapping(value="checkId")
+    public boolean idCheck(Model model, MemberVO vo) {
+        System.out.println("Controller.idCheck() 호출");
+        boolean result=false;
+        MemberVO user = memberService.getMember(vo);
+        if(user!=null) result=true;
+        else System.out.println("아이디사용가능@@@@@@@@@@@@@@@@@");
+        return result;
+    }
+	
+	
 	
 	@RequestMapping("login")   // 
 	public String login(@ModelAttribute("member") MemberVO vo, HttpSession session) {

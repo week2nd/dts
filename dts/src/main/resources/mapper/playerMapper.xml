@@ -23,8 +23,7 @@
 		FROM 	PLAYER
 	</select>
 		<select id="getPlayer"	parameterType="player" resultType="player">
-		SELECT	P.TEAM_ID||' '||NICKNAME BIRTH,
-				P.PLAYER_ID,
+		SELECT	P.TEAM_ID playerId,
 				P.NAME name, 
 				T.NAME teamId, 
 				P.NICKNAME nickname,

@@ -28,5 +28,23 @@
 		FROM PURCHASE
 		WHERE PURCHASE_NUM = #{PURCHASE_NUM};
 	</select>
+	
+	<insert id="insertPurchase" parameterType="purchase">
+		<selectKey keyProperty="gameId" resultType="integer" order="BEFORE">
+		SELECT nvl(MAX(GAME_ID),0)+1 FROM GAME
+		</selectKey>
+		INSERT INTO PURCHASE(PURCHASE_NUM,
+		U_ID,
+		GAME_ID,
+		BETMONEY,
+		BETDRATE,
+		CHOISE )
+		VALUES(#{purchaseNum},
+		#{uId},
+		#{gameId},
+		#{betMoney},
+		#{betDrate},
+		#{choise} )
+	</insert>
 
 </mapper>

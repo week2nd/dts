@@ -27,4 +27,11 @@ public class PurchaseController {
 		model.addAttribute("purchase", purchaseService.getPurchase(vo));
 		return "purchase/getPurchase";
 	}
+	
+	@RequestMapping("/insertPurchase")
+	public String insertPurchase(Model model, PurchaseVO vo) {
+		purchaseService.insertPurchase(vo);
+		model.addAttribute("purchaseList", purchaseService.getPurchaseList(vo));
+		return "game/getGameList";
+	}
 }
