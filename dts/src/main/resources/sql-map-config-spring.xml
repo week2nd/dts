@@ -10,13 +10,15 @@
 	<!-- Alias 설정 -->
 	 <typeAliases>
 
-		<typeAlias alias="purchase" type="com.company.dts.purchase.PurchaseVO" />
-		<typeAlias alias="member" type="com.company.dts.member.MemberVO" />
-		<typeAlias alias="board" type="com.company.dts.board.BoardVO" />
-		<typeAlias alias="game" type="com.company.dts.game.GameVO" />
-		<typeAlias alias="player" type="com.company.dts.info.PlayerVO" />
-		<typeAlias alias="team" type="com.company.dts.info.TeamVO" />
-		<typeAlias alias="comments" type="com.company.dts.board.CommentsVO" />
+		<typeAlias alias="purchase" 	type="com.company.dts.purchase.PurchaseVO" />
+		<typeAlias alias="member" 		type="com.company.dts.member.MemberVO" />
+		<typeAlias alias="board"		type="com.company.dts.board.BoardVO" />
+		<typeAlias alias="comments" 	type="com.company.dts.board.CommentsVO" />
+		<typeAlias alias="game" 		type="com.company.dts.game.GameVO" />
+		<typeAlias alias="player" 		type="com.company.dts.info.PlayerVO" />
+		<typeAlias alias="team" 		type="com.company.dts.info.TeamVO" />
+		<typeAlias alias="match" 		type="com.company.dts.info.MatchVO" />
+		
 	</typeAliases> 
 	
 </configuration>
