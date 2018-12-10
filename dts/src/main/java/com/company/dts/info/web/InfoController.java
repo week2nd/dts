@@ -99,12 +99,12 @@ public class InfoController {
 			return "redirect:getTeamList";
 		}
 
-//		// 팀 정보 수정 폼 이동
-//		@RequestMapping("/updateTeamForm")
-//		public String updateTeamForm(Model model, TeamVO vo) {
-//			model.addAttribute("team",teamService.getTeam(vo));
-//			return "info/insertTeam";
-//		}
+		// 팀 정보 수정 폼 이동
+		@RequestMapping("/updateTeamForm")
+		public String updateTeamForm(Model model, TeamVO vo) {
+			model.addAttribute("team",teamService.getTeam(vo));
+			return "info/insertTeam";
+		}
 		
 		// 팀 정보 수정 처리
 		@RequestMapping("/updateTeam")
@@ -113,10 +113,10 @@ public class InfoController {
 			return "redirect:getTeamList";
 		}
 		
-//		// 팀 정보 삭제
-//		@RequestMapping("/deleteTeam")
-//		public String deleteTeam(TeamVO vo) {
-//			teamService.deleteTeam(vo);
-//			return "redirect:getTeamList";
-//		}
+		// 팀 정보 삭제
+		@RequestMapping("/deleteTeam")
+		public String deleteTeam(TeamVO vo) {
+			teamService.deleteTeam(vo);
+			return "redirect:getTeamList";
+		}
 }	

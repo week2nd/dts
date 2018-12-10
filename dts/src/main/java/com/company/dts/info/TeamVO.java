@@ -9,12 +9,33 @@ public class TeamVO {
 	private int lose;
 	private int rate;
 
-	public String getteamId() {
+	// 통계
+	private int rank;
+	
+	
+	
+	public String getTeamId() {
 		return teamId;
 	}
 
-	public void setteamId(String teamId) {
+	public void setTeamId(String teamId) {
 		this.teamId = teamId;
+	}
+
+	public String getHeadCoach() {
+		return headCoach;
+	}
+
+	public void setHeadCoach(String headCoach) {
+		this.headCoach = headCoach;
+	}
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
 	public String getDirector() {
@@ -25,15 +46,7 @@ public class TeamVO {
 		this.director = director;
 	}
 
-	public String getheadCoach() {
-		return headCoach;
-	}
-
-	public void setheadCoach(String headCoach) {
-		this.headCoach = headCoach;
-	}
-
-	public String getName() {
+		public String getName() {
 		return name;
 	}
 
