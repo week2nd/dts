@@ -12,39 +12,55 @@
 <script>
 	$(function() {
 		$(".redcheck").click(function() {
-			
-			/* $(".redcheck").attr("checked", false); //uncheck all checkboxes
-			$(this).attr("checked", true);  */
-			
-			
+						
 			$('input[type="checkbox"]').not(this).prop("checked", false);
 			$("#gameBuytr").empty();
 			var a1 = $(this).closest('tr').find('.gameId').text();
 			var a2 = $(this).closest('tr').find('.gameDate').text();
 			var a3 = $(this).closest('tr').find('.redTeamId').text();
 			var a4 = $(this).closest('tr').find('.redRate').text();
-			var tr = "<td>" + a1 + "</td><td>" + a2 + "</td><td>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
-			+ " onchange='returnMoney(event)'></td><td class='returnmoney'></td>";
-			$(tr).appendTo("#gameBuytr");
-			
+			var tr = "<td class='gameId'>" + a1 + "</td><td class='gameDate'>" + a2 + "</td><td class='redTeamId'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
+			+ " onkeyup='returnMoney(event)'></td><td class='returnmoney'></td>";
+			$(tr).appendTo("#gameBuytr");			
 		});
 		
 		$(".bluecheck").click(function() {
+			$('input[type="checkbox"]').not(this).prop("checked", false);
 			$("#gameBuytr").empty();
 			var a1 = $(this).closest('tr').find('.gameId').text();
 			var a2 = $(this).closest('tr').find('.gameDate').text();
 			var a3 = $(this).closest('tr').find('.blueTeamId').text();
 			var a4 = $(this).closest('tr').find('.blueRate').text();
-			var tr = "<td>" + a1 + "</td><td>" + a2 + "</td><td>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
-			+ " onchange='returnMoney(event)'></td><td class='returnmoney'></td>";
+			var tr = "<td class='gameId'>" + a1 + "</td><td class='gameDate'>" + a2 + "</td><td class='blueTeamId'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
+			+ " onkeyup='returnMoney(event)'></td><td class='returnmoney'></td>";
 			$(tr).appendTo("#gameBuytr");
 		});	
+		
+		
+		$("#buy").click(function() {
+			var gameid = $("#gameBuytr").find('.gameId').text();
+			//var gamedate = $("#gameBuytr").find('.gameDate').text();
+			var team = $("#gameBuytr").find('.redTeamId').text();
+			var rate = $("#gameBuytr").find('.rate').text();
+			var betmoney = $("#gameBuytr").find('.betmoney').val();
+			//var returnmoney = $("#gameBuytr").find('.returnmoney').text();
+			document.gameBuy.gameId.value = gameid;
+			document.gameBuy.choise.value = team;
+			document.gameBuy.betDrate.value = rate;
+			document.gameBuy.betMoney.value = betmoney;
+			console.log(gameid);
+			console.log(team);
+			console.log(betmoney);
+			console.log(rate);
+			
+			document.gameBuy.submit();
+		}); 
 	});
 	function returnMoney(e) 
 	{ 
 	    var rate = $(e.target).closest('tr').find('.rate').text();
 	    var money = $(e.target).closest('tr').find('.betmoney').val();
-	    var rm = rate * money;
+	    var rm = parseInt(rate*money);
 	    $(e.target).closest('tr').find('.returnmoney').text(rm);		    
 	};
 	
@@ -53,7 +69,7 @@
 <body>
 
 	<h3>경기리스트</h3>
-	<button id="insertGame" class="btn">경기등록</button>
+	<button onclick="location.href='insertGame'" class="btn">경기등록</button>
 	<form id="gameList">
 		<table class="table">
 			<thead>
@@ -89,7 +105,9 @@
 		</table>
 	</form>
 	<h3>구매</h3>
-	<form id="gameBuy">
+	
+
+	<button type="button" class="btn" id="buy">구매하기</button>
 		<table class="table">
 			<thead>
 				<tr>
@@ -101,12 +119,16 @@
 					<th>예상적중금액</th>
 				</tr>
 			</thead>
-
 			<tr id="gameBuytr">
 			</tr>
-			<button id="gamebuy" class="btn">구매하기</button>
-
 		</table>
+		
+		
+	<form id="gameBuy" name="gameBuy" action="./buyGame" >
+		<input type="hidden" name="gameId"> 
+		<input type="hidden" name="betDrate"> 
+		<input type="hidden" name="betMoney"> 
+		<input type="hidden" name="choise"> 
 	</form>
 </body>
 </html>

@@ -18,7 +18,7 @@ $(".datepicker").datepicker();
 	<h3>경기등록</h3>
 	<form action="insertGame" method="post">
 	<button>경기등록</button>
-		<table style="width: 100%">
+		<table class="table">
 			<tr>
 				<td>레드팀</td>
 				<td><select name="redTeamId">
