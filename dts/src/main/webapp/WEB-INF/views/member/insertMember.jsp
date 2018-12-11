@@ -134,7 +134,6 @@ function checkValue(){
      
       //아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
     var idCheck = 0;
-    var nickCheck = 0;
     var pwdCheck = 0;
     //아이디 체크하여 가입버튼 비활성화, 중복확인.
    
