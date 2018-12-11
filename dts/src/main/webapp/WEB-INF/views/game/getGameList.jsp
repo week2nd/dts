@@ -69,7 +69,7 @@
 <body>
 
 	<h3>경기리스트</h3>
-	<button onclick="location.href='insertGame'" class="btn">경기등록</button>
+	<button type="button" onclick="location.href='insertGame'" class="btn">경기등록</button>
 	<form id="gameList">
 		<table class="table">
 			<thead>

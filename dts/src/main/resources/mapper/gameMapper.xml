@@ -11,8 +11,9 @@
 				REDRATE,
 				BLUETEAMID,
 				BLUERATE,
-				GAMEDATE,
-				(SELECT count(*) FROM PURCHASE b WHERE a.GAME_ID = b.GAME_ID AND b.U_ID = #{uId}) AS BUYCHECK
+				GAMEDATE
+				<if test="uId!=null and uId!=''">,
+				(SELECT count(*) FROM PURCHASE b WHERE a.GAME_ID = b.GAME_ID AND b.U_ID = #{uId}) AS BUYCHECK</if>
 		 FROM GAME a
 		ORDER BY 1
 	</select>
@@ -28,7 +29,7 @@
 		BLUERATE,
 		GAMEDATE
 		FROM GAME
-		WHERE GAME_ID = #{gameId};
+		WHERE GAME_ID = #{gameId}
 	</select>
 	
 	<insert id="insertGame" parameterType="game">

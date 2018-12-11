@@ -51,14 +51,14 @@ public class GameController {
 	@RequestMapping(value="/insertGame", method = RequestMethod.GET)
 	public String insertGameform(Model model, GameVO vo) {
 		model.addAttribute("gameList", gameService.getGameList(vo));
-		return "game/insertGame";
+		return "admin/game/insertGame";
 	}
 	//게임등록
 	@RequestMapping(value="insertGame", method = RequestMethod.POST)
 	public String insertGame(Model model, GameVO vo) {
 		gameService.insertGame(vo);
 		model.addAttribute("gameList", gameService.getGameList(vo));
-		return "game/getGameList";
+		return "admin/game/getGameList";
 	}
 	//게임구매
 	@RequestMapping(value="buyGame", method = RequestMethod.POST)

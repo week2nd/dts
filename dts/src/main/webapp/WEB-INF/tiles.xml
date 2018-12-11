@@ -11,6 +11,13 @@
  <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />  
 </definition> 
 
+<definition name="admin/*/*" extends="homeAdmin"> 
+ <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />  
+</definition> 
+
+
+
+
 <!-- 유저 -->
 <definition name="mainTemplate" template="/WEB-INF/views/tiles/layout.jsp"> 
 <put-attribute name="content" value="/WEB-INF/views/tiles/content.jsp" /> 

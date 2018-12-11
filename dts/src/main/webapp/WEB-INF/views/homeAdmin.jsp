@@ -76,7 +76,7 @@
           <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
             <nav class="nav justify-content-end">
               <form method="post" action="logout" style="display: inline-block; margin-top: 0em;">
-                <%=id%><button>로그아웃</button>
+                ${membersession.uId }<button>로그아웃</button>
               </form>
             </nav>
           </div>
@@ -85,6 +85,49 @@
     </div>
   </header>
 <h3>관리자메인</h3>
+<!-- Top Navigation -->
+  <section class="top-nav">
+    <nav class="navbar navbar-expand-lg py-0">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item active"> <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"> <a class="nav-link" href="./getGameList">게임구매</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="file:///C:/Users/User/Downloads/river-demo/khj.html">경기정보</a>
+            </li>
+            <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" aria-live="token">게시판</a>
+              <div class="dropdown-menu" aria-labelledby="layouts">
+                <a class="dropdown-item" href="#">자유게시판</a>
+                <a class="dropdown-item" href="#">분석게시판</a>
+                <a class="dropdown-item" href="#">건의게시판</a>
+              </div>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="#">공지사항</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">마이페이지</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>
+          </ul>
+          <form class="ml-auto">
+            <div class="search">
+              <input type="text" class="form-control" maxlength="64" placeholder="Search" />
+              <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </section>
+  
+  <section class="banner-sec float-left w-100 pt-4 pb-5">
+	<div class="col-md-12">
+			<tiles:insertAttribute name="content" />
+	</div>
+
+  </section>
   <!-- Top Navigation -->
   <!-- <section class="top-nav">
     <nav class="navbar navbar-expand-lg py-0">
