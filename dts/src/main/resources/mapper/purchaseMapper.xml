@@ -30,8 +30,8 @@
 	</select>
 	
 	<insert id="insertPurchase" parameterType="purchase">
-		<selectKey keyProperty="gameId" resultType="integer" order="BEFORE">
-		SELECT nvl(MAX(GAME_ID),0)+1 FROM GAME
+		<selectKey keyProperty="purchaseNum" resultType="integer" order="BEFORE">
+		SELECT nvl(MAX(PURCHASE_NUM),0)+1 FROM PURCHASE
 		</selectKey>
 		INSERT INTO PURCHASE(PURCHASE_NUM,
 		U_ID,

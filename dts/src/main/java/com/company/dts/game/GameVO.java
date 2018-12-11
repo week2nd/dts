@@ -9,6 +9,22 @@ public class GameVO {
 	private String blueTeamId;
 	private float blueRate;
 	private String gameDate;
+	private int buyCheck;
+	private String uId;
+	
+	
+	public String getuId() {
+		return uId;
+	}
+	public void setuId(String uId) {
+		this.uId = uId;
+	}
+	public int getBuyCheck() {
+		return buyCheck;
+	}
+	public void setBuyCheck(int buyCheck) {
+		this.buyCheck = buyCheck;
+	}
 	public int getGameId() {
 		return gameId;
 	}
@@ -61,7 +77,7 @@ public class GameVO {
 	public String toString() {
 		return "GameVO [gameId=" + gameId + ", result=" + result + ", redTeamId=" + redTeamId + ", state=" + state
 				+ ", redRate=" + redRate + ", blueTeamId=" + blueTeamId + ", blueRate=" + blueRate + ", gameDate="
-				+ gameDate + "]";
+				+ gameDate + ", buyCheck=" + buyCheck + "]";
 	}
 	
 	
