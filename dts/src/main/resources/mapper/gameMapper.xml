@@ -5,14 +5,15 @@
 
 	<select id="getGameList" resultType="game">
 		SELECT GAME_ID,
-		RESULT,
-		REDTEAMID,
-		STATE,
-		REDRATE,
-		BLUETEAMID,
-		BLUERATE,
-		GAMEDATE
-		FROM GAME
+				RESULT,
+				REDTEAMID,
+				STATE,
+				REDRATE,
+				BLUETEAMID,
+				BLUERATE,
+				GAMEDATE,
+				(SELECT count(*) FROM PURCHASE b WHERE a.GAME_ID = b.GAME_ID AND b.U_ID = #{uId}) AS BUYCHECK
+		 FROM GAME a
 		ORDER BY 1
 	</select>
 

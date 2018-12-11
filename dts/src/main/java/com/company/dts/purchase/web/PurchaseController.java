@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.company.dts.purchase.PurchaseService;
 import com.company.dts.purchase.PurchaseVO;
@@ -28,10 +29,10 @@ public class PurchaseController {
 		return "purchase/getPurchase";
 	}
 	
-	@RequestMapping("/insertPurchase")
+	// 구매완료등록
+	@RequestMapping(value="insertPurchase", method = RequestMethod.POST)
 	public String insertPurchase(Model model, PurchaseVO vo) {
 		purchaseService.insertPurchase(vo);
-		model.addAttribute("purchaseList", purchaseService.getPurchaseList(vo));
-		return "game/getGameList";
+		return "redirect:getGameList";
 	}
 }
