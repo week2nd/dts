@@ -2,6 +2,7 @@ package com.company.dts.info.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.company.dts.info.MatchService;
@@ -10,34 +11,40 @@ import com.company.dts.info.MatchVO;
 @Service
 public class MatchServiceImpl implements MatchService {
 
-	@Override
-	public List<MatchVO> getMatchList(MatchVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	@Autowired MatchDAO dao;
+	// 등록
+		@Override
+		public void insertMatch(MatchVO vo) {
+			System.out.println("MatchServiceImpl insertmatch"+ '\n');
+			dao.insertMatch(vo);
+		}
 
-	@Override
-	public MatchVO getMatch(MatchVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		// 수정
+		@Override
+		public void updateMatch(MatchVO vo) {
+			System.out.println("MatchServiceImpl updatematch"+ '\n');
+			dao.updateMatch(vo);
+		}
 
-	@Override
-	public void insertMatch(MatchVO vo) {
-		// TODO Auto-generated method stub
+		// 단건 조회
+		@Override
+		public MatchVO getMatch(MatchVO vo) {
+			System.out.println("MatchServiceImpl getMatch"+'\n');
+			return dao.getMatch(vo);
+		}
 
-	}
+//		전체 조회
+		@Override
+		public List<MatchVO> getMatchList(MatchVO vo) {
+			System.out.println("MatchServiceImpl getMatchList 진행중" + '\n' + "=");
+			return dao.getMatchList(vo);
+		}
 
-	@Override
-	public void updateMatch(MatchVO vo) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteMatch(MatchVO vo) {
-		// TODO Auto-generated method stub
-
-	}
+		// 삭제
+		@Override
+		public void deleteMatch(MatchVO vo) {
+			System.out.println("ServiceImpl deletematch");
+			dao.deleteMatch(vo);
+		}
 
 }

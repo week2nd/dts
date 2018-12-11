@@ -12,7 +12,7 @@ import com.company.dts.member.MemberVO;
 public class MemberServiceImpl implements MemberService {
 	@Autowired
 	MemberDAO dao;
-
+	
 	
 	public void insertMember(MemberVO vo) {
 		dao.insertMember(vo);
