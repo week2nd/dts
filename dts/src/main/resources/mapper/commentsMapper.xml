@@ -8,17 +8,17 @@
 		SELECT COMMENTS_SEQ            
 			   ,COMMENTS_NAME         
 			   ,COMMENTS_CONTENT 
-			   ,COMMENT_DATE     
+			   ,COMMENTS_DATE     
 			   ,BOARD_NUMBER
 			   ,BOARD_TYPE
 		  FROM COMMENTS  
 		 WHERE BOARD_NUMBER = #{boardNumber}
 		  <if test="commentsSeq != null and commentsSeq != ''">
 		  <![CDATA[ 
-		  	and commentsSeq > #{commentsSeq}
+		  	and COMMENTS_SEQ  > #{commentsSeq}
 		  ]]>
 		  </if>
-		 ORDER BY COMMENTSSEQ DESC 
+		 ORDER BY COMMENTS_SEQ DESC 
 		 ) B ) A
 		  <![CDATA[ 
 		 WHERE RN <= #{pageUnit}
@@ -37,8 +37,8 @@
 	</select>
 	
 	<insert id="insertComments" parameterType="comments">
-		<selectKey keyProperty="commentsSeq" resultType="string" order="BEFORE">
-			select nvl(max(commentsSeq),0)+1 from comments
+		<selectKey keyProperty="commentsSeq" resultType="integer" order="BEFORE">
+			select nvl(max(comments_Seq),0)+1 from comments
 		</selectKey>
 		INSERT INTO COMMENTS(
 				 COMMENTS_SEQ            

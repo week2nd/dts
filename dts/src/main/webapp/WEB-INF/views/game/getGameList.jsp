@@ -19,7 +19,7 @@
 			var a2 = $(this).closest('tr').find('.gameDate').text();
 			var a3 = $(this).closest('tr').find('.redTeamId').text();
 			var a4 = $(this).closest('tr').find('.redRate').text();
-			var tr = "<td class='gameId'>" + a1 + "</td><td class='gameDate'>" + a2 + "</td><td class='redTeamId'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
+			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
 			+ " onkeyup='returnMoney(event)'></td><td class='returnmoney'></td>";
 			$(tr).appendTo("#gameBuytr");			
 		});
@@ -31,16 +31,16 @@
 			var a2 = $(this).closest('tr').find('.gameDate').text();
 			var a3 = $(this).closest('tr').find('.blueTeamId').text();
 			var a4 = $(this).closest('tr').find('.blueRate').text();
-			var tr = "<td class='gameId'>" + a1 + "</td><td class='gameDate'>" + a2 + "</td><td class='blueTeamId'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
+			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
 			+ " onkeyup='returnMoney(event)'></td><td class='returnmoney'></td>";
 			$(tr).appendTo("#gameBuytr");
 		});	
 		
 		
 		$("#buy").click(function() {
-			var gameid = $("#gameBuytr").find('.gameId').text();
+			var gameid = $("#gameBuytr").find('.gameid').text();
 			//var gamedate = $("#gameBuytr").find('.gameDate').text();
-			var team = $("#gameBuytr").find('.redTeamId').text();
+			var team = $("#gameBuytr").find('.teamid').text();
 			var rate = $("#gameBuytr").find('.rate').text();
 			var betmoney = $("#gameBuytr").find('.betmoney').val();
 			//var returnmoney = $("#gameBuytr").find('.returnmoney').text();
@@ -95,11 +95,17 @@
 					<td class="state">${game.state}</td>
 					<td class="redTeamId">${game.redTeamId}</td>
 					<td class="redRate">${game.redRate}</td>
-					<td ><input class="redcheck" type="checkbox"></td>
-					<td class="blueTeamId">${game.blueTeamId}</td>
+					<c:if test="${game.buyCheck!=0}">
+					<td ><input class="redcheck" type="checkbox" disabled=true></td></c:if>
+					<c:if test="${game.buyCheck==0}">
+					<td ><input class="redcheck" type="checkbox"></td></c:if>
+					<td class="blueTeamId">${game.blueTeamId}</td>		
 					<td class="blueRate">${game.blueRate}</td>
-					<td ><input class="bluecheck" type="checkbox"></td>
-					<td class="result">${game.result}</td>
+					<c:if test="${game.buyCheck!=0}">	
+					<td ><input class="bluecheck" type="checkbox" disabled=true></td></c:if>
+					<c:if test="${game.buyCheck==0}">
+					<td ><input class="redcheck" type="checkbox"></td></c:if>
+					<td class="result">${game.result}</td>					
 				</tr>
 			</c:forEach>
 		</table>
@@ -124,7 +130,7 @@
 		</table>
 		
 		
-	<form id="gameBuy" name="gameBuy" action="./buyGame" >
+	<form id="gameBuy" name="gameBuy" action="./buyGame" method="post">
 		<input type="hidden" name="gameId"> 
 		<input type="hidden" name="betDrate"> 
 		<input type="hidden" name="betMoney"> 

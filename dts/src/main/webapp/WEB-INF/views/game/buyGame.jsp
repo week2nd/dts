@@ -11,12 +11,12 @@
 <%
 		String id = (String) session.getAttribute("uid");				
 	%>
-	<form action="/insertPurchase" method="post" name="gamebuy">
+	<form action="./insertPurchase" method="post" name="gamebuy" >
 	<input type="hidden" name="uId" value="<%=id%>">
-	게임번호<input type="text" name="gameid" value="${purchaseVO.gameId }">
-	선택팀<input type="text" name="choise" value="${purchaseVO.choise }">
-	배당률<input type="text" name="betDrate" value="${purchaseVO.betDrate }">
-	배팅금액<input type="text" name="betMoney" value="${purchaseVO.betMoney }">
+	게임번호<input type="text" name="gameId" value="${purchaseVO.gameId }" readonly>
+	선택팀<input type="text" name="choise" value="${purchaseVO.choise }" readonly >
+	배당률<input type="text" name="betDrate" value="${purchaseVO.betDrate }" readonly>
+	배팅금액<input type="text" name="betMoney" value="${purchaseVO.betMoney }" readonly>
 	<button>구매완료하기</button>
 </form>
 </body>
