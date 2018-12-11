@@ -22,7 +22,7 @@ public class MatchDAO {
 	// 단일 조회
 	
 	public MatchVO getMatch(MatchVO vo) {
-		return mybatis.selectOne("player.getPlayer", vo);
+		return mybatis.selectOne("match.getMatch", vo);
 	};
 	
 	// 등록
@@ -37,7 +37,7 @@ public class MatchDAO {
 	}
 	
 	// 삭제
-	public void deletePlayer(MatchVO vo) {
+	public void deleteMatch(MatchVO vo) {
 		mybatis.update("match.deleteMatch", vo);
 	}
 	

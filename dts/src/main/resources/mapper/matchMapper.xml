@@ -5,19 +5,12 @@
 
 	<!-- 경기 전체 보기 -->
 	<select id="getMatchList" parameterType="match" resultType="match">
-		SELECT	RANK() OVER(ORDER BY WIN DESC, LOSE ASC) rank,
-				TEAM_ID,
-				DIRECTOR,
-				HEAD_COACH,
-				NAME,
-				WIN,
-				LOSE,
-				RATE
+		SELECT	*
 		FROM 	TEAM
 	</select>
 	
 	
-	<select id="getMatch" parameterType="match" resultType="match">
+<!-- 	<select id="getMatch" parameterType="match" resultType="match">
 		SELECT 	*
 		FROM	(SELECT	RANK() OVER(ORDER BY WIN DESC, LOSE ASC) rank,	
 						TEAM_ID,
@@ -30,29 +23,74 @@
 				FROM 	TEAM)
 		WHERE	TEAM_ID = #{matchId}
 	</select>
-	
+ -->	
 	<insert id="insertMatch" parameterType="match">
-		INSERT INTO TEAM(TEAM_ID, 
-						DIRECTOR, 
-						HEAD_COACH, 
-						NAME)
-  		VALUES			(#{matchId},
-  						#{director},
-  						#{headCoach},
-  						#{name})
+		INSERT INTO	INGAME(MATCHINFO,
+							PLAYTIME,
+							BLUETEAMNAME,	REDTEAMNAME,
+							BLUERESULT,		REDSULT,
+							BLUEPICK1, 	BLUEPICK2, 	BLUEPICK3, 	BLUEPICK4, 	BLUEPICK5,
+							REDPICK1, 	REDPICK2, 	REDPICK3, 	REDPICK4, 	REDPICK5,
+							BLUEGAMER1, BLUEGAMER2, BLUEGAMER3, BLUEGAMER4, BLUEGAMER5,
+							REDGAMER1, REDGAMER2, REDGAMER3, REDGAMER4, REDGAMER5,
+							BLUEBAN1, BLUEBAN2, BLUEBAN3, BLUEBAN4, BLUEBAN5,
+							REDBAN1, REDBAN2, REDBAN3, REDBAN4, REDBAN5,
+							BLUEPICK1_SPELL1, BLUEPICK1_SPELL2,
+							BLUEPICK2_SPELL1, BLUEPICK2_SPELL2,
+							BLUEPICK3_SPELL1, BLUEPICK3_SPELL2,
+							BLUEPICK4_SPELL1, BLUEPICK4_SPELL2,
+							BLUEPICK5_SPELL1, BLUEPICK5_SPELL2,
+							REDPICK1_SPELL1, REDPICK1_SPELL2,
+							REDPICK2_SPELL1, REDPICK2_SPELL2,
+							REDPICK3_SPELL1, REDPICK3_SPELL2,
+							REDPICK4_SPELL1, REDPICK4_SPELL2,
+							REDPICK5_SPELL1, REDPICK5_SPELL2,
+							BLUEPICK1_KILL, BLUEPICK1_DEATH, BLUEPICK1_ASSIST,
+							BLUEPICK2_KILL, BLUEPICK2_DEATH, BLUEPICK2_ASSIST,
+							BLUEPICK3_KILL, BLUEPICK3_DEATH, BLUEPICK3_ASSIST,
+							BLUEPICK4_KILL, BLUEPICK4_DEATH, BLUEPICK4_ASSIST,
+							BLUEPICK5_KILL, BLUEPICK5_DEATH, BLUEPICK5_ASSIST,
+							REDPICK1_KILL, REDPICK1_DEATH, REDPICK1_ASSIST,
+							REDPICK2_KILL, REDPICK2_DEATH, REDPICK2_ASSIST,
+							REDPICK3_KILL, REDPICK3_DEATH, REDPICK3_ASSIST,
+							REDPICK4_KILL, REDPICK4_DEATH, REDPICK4_ASSIST,
+							REDPICK5_KILL, REDPICK5_DEATH, REDPICK5_ASSIST
+)		VALUES(		#{matchinfo},
+					#{playtime},
+					#{blueteamname},	#{redteamname},
+					#{blueresult},		#{redresult},
+					#{bluepick1}, 	#{bluepick2}, 	#{bluepick3}, 	#{bluepick4}, 	#{bluepick5},
+					#{redpick1}, 	#{redpick2}, 	#{redpick3}, 	#{redpick4}, 	#{redpick5},
+					#{bluegamer1},	#{bluegamer2},	#{bluegamer3}, 	#{bluegamer4},	#{bluegamer5},
+					#{redgamer1}, 	#{redgamer2}, 	#{redgamer3}, 	#{redgamer4}, 	#{redgamer5},
+					#{blueban1}, 	#{blueban2}, #{blueban3}, #{blueban4}, #{blueban5},
+					#{redban1}, #{redban2}, #{redban3}, #{redban4}, #{redban5},
+					#{bluepick1_spell1}, #{bluepick1_spell2},
+					#{bluepick2_spell1}, #{bluepick2_spell2},
+					#{bluepick3_spell1}, #{bluepick3_spell2},
+					#{bluepick4_spell1}, #{bluepick4_spell2},
+					#{bluepick5_spell1}, #{bluepick5_spell2},
+					#{redpick1_spell1}, #{redpick1_spell2},
+					#{redpick2_spell1}, #{redpick2_spell2},
+					#{redpick3_spell1}, #{redpick3_spell2},
+					#{redpick4_spell1}, #{redpick4_spell2},
+					#{redpick5_spell1}, #{redpick5_spell2},
+					#{bluepick1_kill}, #{bluepick1_death}, #{bluepick1_assist},
+					#{bluepick2_kill}, #{bluepick2_death}, #{bluepick2_assist},
+					#{bluepick3_kill}, #{bluepick3_death}, #{bluepick3_assist},
+					#{bluepick4_kill}, #{bluepick4_death}, #{bluepick4_assist},
+					#{bluepick5_kill}, #{bluepick5_death}, #{bluepick5_assist},
+					#{redpick1_kill}, #{redpick1_death}, #{redpick1_assist},
+					#{redpick2_kill}, #{redpick2_death}, #{redpick2_assist},
+					#{redpick3_kill}, #{redpick3_death}, #{redpick3_assist},
+					#{redpick4_kill}, #{redpick4_death}, #{redpick4_assist},
+					#{redpick5_kill}, #{redpick5_death}, #{redpick5_assist}
+			)								
 	</insert>
 	
-	<update id="updateMatch" parameterType="match">
-		UPDATE	TEAM
-		SET		TEAM_ID = #{matchId},
-				DIRECTOR = #{director},
-				HEADCOACH = #{headCoach},
-				NAME = #{name}
-		WHERE	TEAM_ID = #{matchId}
+<!-- 	<update id="updateMatch" parameterType="match">
 	</update>
 	
 	<delete id="deleteMatch" parameterType="match">
-		DELETE	TEAM
-		WHERE	TEAM_ID = #{matchId}
-	</delete>
+	</delete> -->
 </mapper>
