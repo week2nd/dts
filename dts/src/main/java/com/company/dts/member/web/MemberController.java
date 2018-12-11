@@ -102,15 +102,15 @@ public class MemberController {
 		} else if (! vo.getuPw().equals(membervo.getuPw())) { // ! <- not
 			return "home";
 		} else {
-			session.setAttribute("uid", membervo.getuId());
-			return "redirect:getPurchaseList";
+			session.setAttribute("member", membervo);
+			return "redirect:getGameList";
 		}
 	}
 	// 로그아웃
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate(); // 세션 무효화 (로그아웃)
-		return "home";
+		return "homeUser";
 	}
 	
 	
