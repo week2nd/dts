@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.company.dts.game.GameService;
 import com.company.dts.game.GameVO;
+import com.company.dts.purchase.PurchaseVO;
 
 @Controller
 public class GameController {
@@ -40,6 +41,11 @@ public class GameController {
 		gameService.insertGame(vo);
 		model.addAttribute("gameList", gameService.getGameList(vo));
 		return "game/getGameList";
+	}
+	//게임구매
+	@RequestMapping("/buyGame")
+	public String buyGameform(PurchaseVO vo) {
+		return "game/buyGame";
 	}
 
 }

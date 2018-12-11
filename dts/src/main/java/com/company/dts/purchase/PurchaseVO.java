@@ -5,7 +5,7 @@ public class PurchaseVO {
 	private String uId;
 	private int gameId;
 	private int betMoney;
-	private int betDrate;
+	private float betDrate;
 	private String accuracy;
 	private String betDate;
 	private String choise;
@@ -33,10 +33,10 @@ public class PurchaseVO {
 	public void setBetMoney(int betMoney) {
 		this.betMoney = betMoney;
 	}
-	public int getBetDrate() {
+	public float getBetDrate() {
 		return betDrate;
 	}
-	public void setBetDrate(int betDrate) {
+	public void setBetDrate(float betDrate) {
 		this.betDrate = betDrate;
 	}
 	public String getAccuracy() {
