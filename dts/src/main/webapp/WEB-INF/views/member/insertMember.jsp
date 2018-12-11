@@ -140,11 +140,7 @@ function checkValue(){
    
     function checkId() {
         var inputed = $('.id').val();
-        if(inputed ==''){
-        	document.all.labelidx.style.display="none";
-            document.all.labelido.style.display="none";
-        	return
-        }
+        
         console.log(inputed);
         $.ajax({
             data : {
@@ -152,12 +148,12 @@ function checkValue(){
             },
             url : "checkId",
             success : function(data) {
-                if(inputed=="" && data==false) {			// 아이디 값을 지웠을 경우
+                if(inputed=="" && data==false || inputed.length<4) {			// 아이디 값을 지웠을 경우
                     $(".joinbtn").prop("disabled", true);
                     $(".joinbtn").css("background-color", "#aaaaaa");
                     $("#chkid").css("background-color", "#FFCECE");
                     idCheck = 0;
-                    
+                    document.all.labelido.style.display="none";
                 } else if (data == false) {					// 사용가능한 아이디로 입력을 바꿨을때
                     $("#chkid").css("background-color", "#B0F6AC");
                     document.all.labelido.style.display="";
@@ -175,6 +171,13 @@ function checkValue(){
                     document.all.labelido.style.display="none";
                     document.all.labelidx.style.display="";
                 } 
+                if(inputed.length<4){
+                    console.log(inputed.length);
+                    document.all.countid.style.display="";
+                    $("#chkid").css("background-color", "#FFCECE");
+                 } else if(inputed.length>3){
+                    document.all.countid.style.display="none";
+                 }
             }
         });
     }
@@ -182,18 +185,22 @@ function checkValue(){
     function checkPwd() {
         var inputed = $('#chkpw1').val();
         var reinputed = $('#chkpw2').val();
-        console.log(inputed);
-        console.log(reinputed);
-        if(reinputed=="" && (inputed != reinputed || inputed == reinputed)){	//
-     //       $(".joinbtn").prop("disabled", true);
-     //       $(".joinbtn").css("background-color", "#aaaaaa");
+  //      console.log(inputed);
+  //      console.log(reinputed);
+        if(reinputed=="" || inputed=="" && (inputed != reinputed || inputed == reinputed)){ 	//
+            $(".joinbtn").prop("disabled", true);
+            $(".joinbtn").css("background-color", "#aaaaaa");
             $("#chkpw1").css("background-color", "#FFCECE");
             $("#chkpw2").css("background-color", "#FFCECE");
+            document.all.labelpwo.style.display="none";
+            document.all.labelpwx.style.display="none";
         }
         else if (inputed == reinputed) {		// 비밀번호 input색깔 초록색으로
             $("#chkpw1").css("background-color", "#B0F6AC");
             $("#chkpw2").css("background-color", "#B0F6AC");
             pwdCheck = 1;
+            document.all.labelpwo.style.display="none";
+            document.all.labelpwx.style.display="";
             if(idCheck==1 && pwdCheck == 1) {	// 비밀번호 맞으면 가입버튼 활성화
 	           $(".joinbtn").prop("disabled", false);
 	           $(".joinbtn").css("background-color", "#4CAF50");
@@ -204,58 +211,18 @@ function checkValue(){
             $(".joinbtn").css("background-color", "#aaaaaa");
             $("#chkpw1").css("background-color", "#FFCECE");
             $("#chkpw2").css("background-color", "#FFCECE");
-            
+            document.all.labelpwo.style.display="";
+            document.all.labelpwx.style.display="none";
         }
     }
-    //닉네임과 이메일 입력하지 않았을 경우 가입버튼 비활성화
-  /*  function checkNick() {
-        var nickname = $("#nickname").val();
-        console.log(nickname);
-        $.ajax({
-            data : {
-                nickName : nickname
-            },
-            url : "checkNickName.do",
-            success : function(data) {
-                if(nickname=="" && data=='0') {
-                    $(".signupbtn").prop("disabled", true);
-                    $(".signupbtn").css("background-color", "#aaaaaa");
-                    $("#nickname").css("background-color", "#FFCECE");
-                    nickCheck = 0;
-                } else if (data == '0') {
-                    $("#nickname").css("background-color", "#B0F6AC");
-                    nickCheck = 1;
-                    if(nickCheck ==1 && pwdCheck == 1) {
-                        $(".signupbtn").prop("disabled", false);
-                        $(".signupbtn").css("background-color", "#4CAF50");
-                    } 
-                } else if (data == '1') {
-                    $(".signupbtn").prop("disabled", true);
-                    $(".signupbtn").css("background-color", "#aaaaaa");
-                    $("#nickname").css("background-color", "#FFCECE");
-                    nickCheck = 0;
-                } 
-            }
-        });
-    }*/
-    /*캔슬버튼 눌렀을 눌렀을시 인풋박스 클리어
-    $(".cancelbtn").click(function(){
-            $(".id").val(null);
-            $(".pass").val('');
-            $(".signupbtn").prop("disabled", true);
-            $(".signupbtn").css("background-color", "#aaaaaa");
-    });*/
-    
- 
-     
-     
-     
-     
- 
-     
-     
-     
-     
+    function phoneSum() {				// 휴대폰번호 하이픈 합치는 함수
+    	var one = $('#phone1').val();
+    	var two = $('#phone2').val();
+    	var thr = $('#phone3').val();
+		var fou = one + "-" + two + "-" + thr;
+		document.all.uPhone.value = fou;
+       
+   }
  
  </script>
 
@@ -270,12 +237,17 @@ function checkValue(){
 	        <tr>            
 	            <td>아이디</td>
 	            <td><input type="text" class="form-control id" name="uId" id="chkid" placeholder="아이디" value="${member.uId }" oninput="checkId()" ></td>
-	            <td><span id="labelido" style="display: none">사용가능한 아이디 입니다.</span><span id="labelidx" style="display: none">중복 아이디 입니다.</span></td>
+	            <td><span id="labelido" style="display: none">사용가능한 아이디 입니다.</span>
+	            	<span id="labelidx" style="display: none">중복 아이디 입니다.</span>
+	            	<span id="countid">네글자 이상 아이디를 입력하세요.</span>
+	            </td>
 	        </tr>
 	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
 	            <td>비밀번호</td>
 	            <td><input type="password" class="form-control pass" name="uPw" id="chkpw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkPwd()"></td>
+	            <td><span id="labelpwo" style="display: none">비밀번호가 일치하지 않습니다.</span>
+              	<span id="labelpwx" style="display: none">비밀번호가 일치합니다.</span></td>
 	        </tr>
 	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>        
 	        <tr>
@@ -302,21 +274,23 @@ function checkValue(){
 	        </tr>
 	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
-	            <td>휴대폰번호</td>
-	            <td>
-	             <!--   <select name="phone1">
-	                    <option value="zero">010</option>
-	                    <option value="one">011</option>
-	                    <option value="two">012</option>
-	                    <option value="three">013</option>
-	                    <option value="four">014</option>
-	                    <option value="five">015</option>                        
-	                </select>
-	                -
-	                <input type="text" name="member" value="${member.uPhone }"> -   -->
-	                <input type="text" class="form-control phone" name="uPhone" placeholder="휴대폰번호" id="${member.uPhone }">
-	            </td>
-	        </tr>
+               <td>휴대폰번호</td>
+               <td>
+                   <select name="phone1" id="phone1" class="form-control phone" oninput="phoneSum()">
+                       <option value="010">010</option>
+                       <option value="011">011</option>
+                       <option value="012">012</option>
+                       <option value="016">016</option>
+                       <option value="017">017</option>
+                       <option value="018">018</option>
+                       <option value="019">019</option>                        
+                   </select>
+                   
+                   <input type="text" id="phone2" class="form-control phone" name="member" maxlength=4 placeholder="휴대폰번호 앞자리" value="${member.uPhone }" oninput="phoneSum()">
+                   <input type="text" id="phone3" class="form-control phone" maxlength=4 placeholder="휴대폰번호 뒷자리" id="${member.uPhone }" oninput="phoneSum()">
+                   <input type="hidden" name="uPhone" id="uPhone">
+               </td>
+           </tr>
 	        <tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>
 	            <td>생년월일</td>

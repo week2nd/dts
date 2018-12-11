@@ -9,4 +9,5 @@ public interface MemberService {
 	public void deleteMemberList(MemberVO vo);			// 다중선택삭제
 	public MemberVO getMember(MemberVO vo);				// 단일보기
 	public List<MemberVO> getMemberList(MemberVO vo);	// 다중보기
+	
 }
