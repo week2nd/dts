@@ -15,7 +15,7 @@
 </head>
 <body>
 <h3>getUserList아아아아</h3>
- <form action="deleteMemberList">	
+ <form action="deleteMemberList" class="table">	
 	<button>선택삭제</button>
 	<table border="1" >
 		<tr>

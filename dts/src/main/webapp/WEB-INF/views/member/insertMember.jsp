@@ -231,7 +231,7 @@ function checkValue(){
 	<h3>회원가입</h3>
 	<form action="insertMember" method="post">
 	
-		<table style="width: 70%" >
+		<table style="width: 70%" class="table">
 			<tr height="2" bgcolor="#FFC8C3"><td colspan="2"></td></tr>
 	        <tr>            
 	            <td>아이디</td>

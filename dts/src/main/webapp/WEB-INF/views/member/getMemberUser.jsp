@@ -47,8 +47,8 @@
         // 차트넓이
         width: 300, height: 300,
         chart: {
-        title: 'DTS king god',
-        subtitle: 'Lift is Good'
+ //       title: 'DTS king god',
+ //       subtitle: 'Lift is Good'
         },
         series: {
         0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
@@ -56,8 +56,8 @@
         },
         axes: {
         y: {
-            distance: {label: '아무거나22'}, // Left y-axis.
-            brightness: {side: 'right', label: '떼이귀22'} // Right y-axis.
+    //        distance: {label: '아무거나22'}, // Left y-axis.
+     //       brightness: {side: 'right', label: '떼이귀22'} // Right y-axis.
         }
         }
     };
@@ -136,11 +136,16 @@ function checkId() {
 <body>
 	<h3>유저보기</h3>
 	<form action="getMemberUser" method="post">
-		<input type="hidden" name="uId" value="${member.uId }" />
-		<table style="width: 70%">
+		<input type="hidden" class="form-control id" name="uId" value="${member.uId }" />
+		<input type="hidden" class="form-control pass" name="uPw" value="${member.uPw }" />
+		<input type="hidden" class="form-control name" name="uName" value="${member.uName }" />
+		<input type="hidden" class="form-control address" name="uAddress" value="${member.uAddress }" />
+		<input type="hidden" class="form-control phone" name="uPhone" value="${member.uPhone }" />
+		<input type="hidden" class="form-control date" name="uBirth" value="${member.uBirth }" />
+		<table style="width: 70%" class="table">
 			<tr>
 				<td><div style="width: 50px;">아이디</div></td>
-				<td>${member.uId }</td>
+				<td >${member.uId }</td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
@@ -170,10 +175,12 @@ function checkId() {
 		<table style="width: 30%">
 			<tr>
 				<td>
-					<button class="form-control">회원수정</button> <a href="deleteMember?uId=${member.uId }">
+					<a href="updateMember?uId=${member.uId }">
+					<button class="form-control btn update">회원수정</button></a>
 				</td>
 				<td>	
-					<input class="form-control" type="button" value="회원탈퇴"></a>
+					 <a href="deleteMember?uId=${member.uId }">
+					<input class="form-control btn delete" type="button" value="회원탈퇴"></a>
 				</td>
 			</tr>
 		</table>
