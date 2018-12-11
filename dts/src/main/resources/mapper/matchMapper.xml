@@ -6,7 +6,7 @@
 	<!-- 경기 전체 보기 -->
 	<select id="getMatchList" parameterType="match" resultType="match">
 		SELECT	*
-		FROM 	TEAM
+		FROM 	INGAME
 	</select>
 	
 	

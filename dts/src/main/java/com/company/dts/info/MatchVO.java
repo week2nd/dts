@@ -8,6 +8,8 @@ public class MatchVO {
 	private String playtime;
 	private String blueteamname;
 	private String redteamname;
+	private String blueresult;
+	private String redresult;
 	private String bluegamer1;
 	private String bluegamer2;
 	private String bluegamer3;
@@ -88,6 +90,22 @@ public class MatchVO {
 	private int redpick5_kill;
 	private int redpick5_death;
 	private int redpick5_assist;
+
+	public String getBlueresult() {
+		return blueresult;
+	}
+
+	public void setBlueresult(String blueresult) {
+		this.blueresult = blueresult;
+	}
+
+	public String getRedresult() {
+		return redresult;
+	}
+
+	public void setRedresult(String redresult) {
+		this.redresult = redresult;
+	}
 
 	public String getMatchdate() {
 		return matchdate;
