@@ -14,9 +14,23 @@
 </script>-->
 </head>
 <body>
-<h3>getBoardList아아아아</h3>
+<h3>게시판목록</h3>
+ <form action="">	
+	<button>공지사항</button>
+
+	<form action="">	
+	<button>건의게시판</button>
+
+	<form action="">	
+	<button>자유게시판</button>
+
+	<form action="">	
+	<button>분석글게시판</button><br><br>
+ 
  <form action="deleteBoardList">	
 	<button>선택삭제</button>
+	
+
 	
 	<a href="${pageContext.request.contextPath}/insertBoard">등록</a>
 	
