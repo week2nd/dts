@@ -8,11 +8,9 @@
 
 </head>
 <body>
-<%
-		String id = (String) session.getAttribute("uid");				
-	%>
+
 	<form action="./insertPurchase" method="post" name="gamebuy" >
-	<input type="hidden" name="uId" value="<%=id%>">
+	<input type="hidden" name="uId" value="${membersession.uId }">
 	게임번호<input type="text" name="gameId" value="${purchaseVO.gameId }" readonly>
 	선택팀<input type="text" name="choise" value="${purchaseVO.choise }" readonly >
 	배당률<input type="text" name="betDrate" value="${purchaseVO.betDrate }" readonly>

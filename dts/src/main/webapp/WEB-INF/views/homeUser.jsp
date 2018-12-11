@@ -74,7 +74,7 @@
           <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
             <nav class="nav justify-content-end">
               <form method="post" action="logout" style="display: inline-block; margin-top: 0em;">
-                ${member.uId}<button>로그아웃</button>
+                ${membersession.uId}<button>로그아웃</button>
               </form>
             </nav>
           </div>
@@ -94,7 +94,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active"> <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a></li>
-            <li class="nav-item"> <a class="nav-link" href="getGameList">게임구매</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="./getGameList">게임구매</a> </li>
             <li class="nav-item"> <a class="nav-link" href="file:///C:/Users/User/Downloads/river-demo/khj.html">경기정보</a>
             </li>
             <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
@@ -122,7 +122,7 @@
   
   <section class="banner-sec float-left w-100 pt-4 pb-5">
 	<div class="col-md-12">
-		<h3>유저메인</h3>			
+			<tiles:insertAttribute name="content" />
 	</div>
 
   </section>

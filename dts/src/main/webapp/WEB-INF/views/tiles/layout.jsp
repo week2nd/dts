@@ -34,9 +34,7 @@
 </head>
 
 <body>
-<%
-		String id = (String) session.getAttribute("uid");				
-	%>
+
   <!-- Top small banner -->
   <header class="float-left w-100">
     <div class="small-top float-left w-100">
@@ -75,7 +73,7 @@
           <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
             <nav class="nav justify-content-end">
               <form method="post" action="logout" style="display: inline-block; margin-top: 0em;">
-                <%=id%><button>로그아웃</button>
+                <button>로그아웃${membersession}-------</button>
               </form>
             </nav>
           </div>

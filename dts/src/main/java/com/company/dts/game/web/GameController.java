@@ -26,10 +26,10 @@ public class GameController {
 	//게임전체조회
 	@RequestMapping("/getGameList")
 	public String getGameList(Model model, GameVO vo, HttpSession session) {
-		String id = ((MemberVO)session.getAttribute("member")).getuId();
+		String id = ((MemberVO)session.getAttribute("membersession")).getuId();
 		vo.setuId(id);
 		model.addAttribute("gameList", gameService.getGameList(vo));
-		return "game/getGameList";
+		return "user/game/getGameList";
 	}
 	
 	/*@RequestMapping("/getGameList")
@@ -63,7 +63,7 @@ public class GameController {
 	//게임구매
 	@RequestMapping(value="buyGame", method = RequestMethod.POST)
 	public String buyGameform(PurchaseVO vo) {
-		return "game/buyGame";
+		return "user/game/buyGame";
 	}
 
 }

@@ -6,6 +6,11 @@
 <definition name="homeGuest" template="/WEB-INF/views/homeGuest.jsp"></definition>
 <definition name="homeAdmin" template="/WEB-INF/views/homeAdmin.jsp"></definition>
 <definition name="homeUser" template="/WEB-INF/views/homeUser.jsp"></definition>
+
+<definition name="user/*/*" extends="homeUser"> 
+ <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />  
+</definition> 
+
 <!-- 유저 -->
 <definition name="mainTemplate" template="/WEB-INF/views/tiles/layout.jsp"> 
 <put-attribute name="content" value="/WEB-INF/views/tiles/content.jsp" /> 
