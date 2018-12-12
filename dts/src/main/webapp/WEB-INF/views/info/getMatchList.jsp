@@ -95,6 +95,7 @@
 					<td>Champ</td>
 					<td>Spell</td>
 				</tr>
+				<!-- pick1 -->
 				<tr>
 					<td>${match.bluepick1_spell1}</td>
 					<td rowspan="2">${match.bluepick1}</td>
@@ -115,11 +116,91 @@
 					<td>#.#</td>
 					<td>${match.redpick1_spell2}</td>
 				</tr>
-					
-					
-					
-			
-			</table>
+				<!-- pick2 -->
+				<tr>
+					<td>${match.bluepick2_spell1}</td>
+					<td rowspan="2">${match.bluepick2}</td>
+					<td colspan="4">${match.bluegamer2}SKT T1 이상혁</td>
+					<td colspan="4">${match.redgamer2}</td>
+					<td rowspan="2">${match.redpick2}</td>
+					<td>${match.redpick2_spell1}</td>
+				</tr>
+				<tr>
+					<td>${match.bluepick2_spell2}</td>
+					<td>${match.bluepick2_kill}</td>
+					<td>${match.bluepick2_death}</td>
+					<td>${match.bluepick2_assist}</td>
+					<td>#.#</td> <!-- bluepick2_kda -->
+					<td>${match.redpick2_kill}</td>
+					<td>${match.redpick2_death}</td>
+					<td>${match.redpick2_assist}</td>
+					<td>#.#</td>
+					<td>${match.redpick2_spell2}</td>
+				</tr>
+			<!-- pick3 -->
+				<tr>
+					<td>${match.bluepick3_spell1}</td>
+					<td rowspan="2">${match.bluepick3}</td>
+					<td colspan="4">${match.bluegamer3}SKT T1 이상혁</td>
+					<td colspan="4">${match.redgamer3}</td>
+					<td rowspan="2">${match.redpick3}</td>
+					<td>${match.redpick3_spell1}</td>
+				</tr>
+				<tr>
+					<td>${match.bluepick3_spell2}</td>
+					<td>${match.bluepick3_kill}</td>
+					<td>${match.bluepick3_death}</td>
+					<td>${match.bluepick3_assist}</td>
+					<td>#.#</td> <!-- bluepick1_kda -->
+					<td>${match.redpick3_kill}</td>
+					<td>${match.redpick3_death}</td>
+					<td>${match.redpick3_assist}</td>
+					<td>#.#</td>
+					<td>${match.redpick3_spell2}</td>
+				</tr>
+				<!-- pick4 -->
+				<tr>
+					<td>${match.bluepick4_spell1}</td>
+					<td rowspan="2">${match.bluepick4}</td>
+					<td colspan="4">${match.bluegamer4}SKT T1 이상혁</td>
+					<td colspan="4">${match.redgamer4}</td>
+					<td rowspan="2">${match.redpick4}</td>
+					<td>${match.redpick4_spell1}</td>
+				</tr>
+				<tr>
+					<td>${match.bluepick4_spell2}</td>
+					<td>${match.bluepick4_kill}</td>
+					<td>${match.bluepick4_death}</td>
+					<td>${match.bluepick4_assist}</td>
+					<td>#.#</td> <!-- bluepick1_kda -->
+					<td>${match.redpick4_kill}</td>
+					<td>${match.redpick4_death}</td>
+					<td>${match.redpick4_assist}</td>
+					<td>#.#</td>
+					<td>${match.redpick4_spell2}</td>
+				</tr>
+				<!-- pick5 -->
+				<tr>
+					<td>${match.bluepick5_spell1}</td>
+					<td rowspan="2">${match.bluepick5}</td>
+					<td colspan="4">${match.bluegamer5}SKT T1 이상혁</td>
+					<td colspan="4">${match.redgamer5}</td>
+					<td rowspan="2">${match.redpick5}</td>
+					<td>${match.redpick5_spell1}</td>
+				</tr>
+				<tr>
+					<td>${match.bluepick5_spell2}</td>
+					<td>${match.bluepick5_kill}</td>
+					<td>${match.bluepick5_death}</td>
+					<td>${match.bluepick5_assist}</td>
+					<td>#.#</td> <!-- bluepick1_kda -->
+					<td>${match.redpick5_kill}</td>
+					<td>${match.redpick5_death}</td>
+					<td>${match.redpick5_assist}</td>
+					<td>#.#</td>
+					<td>${match.redpick5_spell2}</td>
+				</tr>
+				</table>
 		</c:forEach>
 	</form>
 
