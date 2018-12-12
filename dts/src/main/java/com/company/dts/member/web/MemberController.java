@@ -63,19 +63,19 @@ public class MemberController {
 	@RequestMapping("/updateMember")
 	public String updateMember(MemberVO vo) {
 		memberService.updateMember(vo);		//수정처리
-		return "user/member/getMemberList";		//목록요청
+		return "redirect:getMemberList";		//목록요청
 	}
 	// 관리자 맴버 단건 삭제처리
 	@RequestMapping("/deleteMember")
 	public String deleteMember(MemberVO vo) {
 		memberService.deleteMember(vo);		//삭제처리
-		return "user/member/getMemberList";		//목록요청
+		return "redirect:getMemberList";		//목록요청
 	}
 	// 관리자 맴버 여러개 삭제
 	@RequestMapping("/deleteMemberList")
 	public String deleteMemberList(MemberVO vo) {
 		memberService.deleteMemberList(vo);	//여러개 삭제처리
-		return "user/member/getMemberList";		//목록요청
+		return "redirect:getMemberList";		//목록요청
 	}
 	
 	// 회원가입 아이디 중복 체크

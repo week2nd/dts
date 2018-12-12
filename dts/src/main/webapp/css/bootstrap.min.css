@@ -1279,6 +1279,14 @@ pre code {
 	background-color: transparent
 }
 
+.minitable {
+	width: 75%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+	background-color: transparent
+}
+
+
 .table td, .table th {
 	padding: .75rem;
 	vertical-align: top;

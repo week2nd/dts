@@ -50,7 +50,7 @@ public class BoardController {
 	@RequestMapping(value="/insertBoard", method = RequestMethod.POST)
 	public String insertBoard(BoardVO vo) {	// 커맨드 객체
 		boardService.insertBoard(vo);		//등록처리
-		return "user/board/getBoardList";		//목록요청
+		return "redirect:getBoardList";		//목록요청
 	}
 	
 	//수정
@@ -69,12 +69,12 @@ public class BoardController {
 	@RequestMapping("/deleteBoard")
 	public String deleteBoard(BoardVO vo) {
 		boardService.deleteBoard(vo);		//삭제처리
-		return "user/board/getBoardList";		//목록요청
+		return "redirect:getBoardList";		//목록요청
 	}
 	// 여러개 삭제
 	@RequestMapping("/deleteBoardList")
 	public String deleteBoardList(BoardVO vo) {
 		boardService.deleteBoardList(vo);	//여러개 삭제처리
-		return "user/board/getBoardList";		//목록요청
+		return "redirect:getBoardList";		//목록요청
 	}
 }

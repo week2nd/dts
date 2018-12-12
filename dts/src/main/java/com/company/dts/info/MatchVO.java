@@ -40,76 +40,76 @@ public class MatchVO {
 	private String redban3;
 	private String redban4;
 	private String redban5;
-	private String bluepick1_spell1;
-	private String bluepick1_spell2;
-	private String bluepick2_spell1;
-	private String bluepick2_spell2;
-	private String bluepick3_spell1;
-	private String bluepick3_spell2;
-	private String bluepick4_spell1;
-	private String bluepick4_spell2;
-	private String bluepick5_spell1;
-	private String bluepick5_spell2;
-	private String redpick1_spell1;
-	private String redpick1_spell2;
-	private String redpick2_spell1;
-	private String redpick2_spell2;
-	private String redpick3_spell1;
-	private String redpick3_spell2;
-	private String redpick4_spell1;
-	private String redpick4_spell2;
-	private String redpick5_spell1;
-	private String redpick5_spell2;
-	private int bluepick1_kill;
-	private int bluepick1_death;
-	private int bluepick1_assist;
-	private int bluepick2_kill;
-	private int bluepick2_death;
-	private int bluepick2_assist;
-	private int bluepick3_kill;
-	private int bluepick3_death;
-	private int bluepick3_assist;
-	private int bluepick4_kill;
-	private int bluepick4_death;
-	private int bluepick4_assist;
-	private int bluepick5_kill;
-	private int bluepick5_death;
-	private int bluepick5_assist;
-	private int redpick1_kill;
-	private int redpick1_death;
-	private int redpick1_assist;
-	private int redpick2_kill;
-	private int redpick2_death;
-	private int redpick2_assist;
-	private int redpick3_kill;
-	private int redpick3_death;
-	private int redpick3_assist;
-	private int redpick4_kill;
-	private int redpick4_death;
-	private int redpick4_assist;
-	private int redpick5_kill;
-	private int redpick5_death;
-	private int redpick5_assist;
+	private String bluepick1Spell1;
+	private String bluepick1Spell2;
+	private String bluepick2Spell1;
+	private String bluepick2Spell2;
+	private String bluepick3Spell1;
+	private String bluepick3Spell2;
+	private String bluepick4Spell1;
+	private String bluepick4Spell2;
+	private String bluepick5Spell1;
+	private String bluepick5Spell2;
+	private String redpick1Spell1;
+	private String redpick1Spell2;
+	private String redpick2Spell1;
+	private String redpick2Spell2;
+	private String redpick3Spell1;
+	private String redpick3Spell2;
+	private String redpick4Spell1;
+	private String redpick4Spell2;
+	private String redpick5Spell1;
+	private String redpick5Spell2;
+	private int bluepick1Kill;
+	private int bluepick1Death;
+	private int bluepick1Assist;
+	private int bluepick2Kill;
+	private int bluepick2Death;
+	private int bluepick2Assist;
+	private int bluepick3Kill;
+	private int bluepick3Death;
+	private int bluepick3Assist;
+	private int bluepick4Kill;
+	private int bluepick4Death;
+	private int bluepick4Assist;
+	private int bluepick5Kill;
+	private int bluepick5Death;
+	private int bluepick5Assist;
+	private int redpick1Kill;
+	private int redpick1Death;
+	private int redpick1Assist;
+	private int redpick2Kill;
+	private int redpick2Death;
+	private int redpick2Assist;
+	private int redpick3Kill;
+	private int redpick3Death;
+	private int redpick3Assist;
+	private int redpick4Kill;
+	private int redpick4Death;
+	private int redpick4Assist;
+	private int redpick5Kill;
+	private int redpick5Death;
+	private int redpick5Assist;
 	
 	// 통계 데이터
-	private int bluepick1_kda;
-	private int bluepick2_kda;
-	private int bluepick3_kda;
-	private int bluepick4_kda;
-	private int bluepick5_kda;
-	private int redpick1_kda;
-	private int redpick2_kda;
-	private int redpick3_kda;
-	private int redpick4_kda;
-	private int redpick5_kda;
-	private int blueteam_killsum;
-	private int blueteam_deathsum;
-	private int blueteam_assistsum;
-	private int blueteam_kda;
-	private int redteam_killsum;
-	private int redteam_deathsum;
-	private int redteam_assistsum;
-	private int redteam_kda;
+	private int bluepick1Kda;
+	private int bluepick2Kda;
+	private int bluepick3Kda;
+	private int bluepick4Kda;
+	private int bluepick5Kda;
+	private int redpick1Kda;
+	private int redpick2Kda;
+	private int redpick3Kda;
+	private int redpick4Kda;
+	private int redpick5Kda;
+	private int blueteamKillsum;
+	private int blueteamDeathsum;
+	private int blueteamAssistsum;
+	private int blueteamKda;
+	private int redteamKillsum;
+	private int redteamDeathsum;
+	private int redteamAssistsum;
+	private int redteamKda;
 	
 	public String getBlueresult() {
 		return blueresult;
@@ -415,404 +415,404 @@ public class MatchVO {
 		this.redban5 = redban5;
 	}
 
-	public String getBluepick1_spell1() {
-		return bluepick1_spell1;
+	public String getBluepick1Spell1() {
+		return bluepick1Spell1;
 	}
 
-	public void setBluepick1_spell1(String bluepick1_spell1) {
-		this.bluepick1_spell1 = bluepick1_spell1;
+	public void setBluepick1Spell1(String bluepick1Spell1) {
+		this.bluepick1Spell1 = bluepick1Spell1;
 	}
 
-	public String getBluepick1_spell2() {
-		return bluepick1_spell2;
+	public String getBluepick1Spell2() {
+		return bluepick1Spell2;
 	}
 
-	public void setBluepick1_spell2(String bluepick1_spell2) {
-		this.bluepick1_spell2 = bluepick1_spell2;
+	public void setBluepick1Spell2(String bluepick1Spell2) {
+		this.bluepick1Spell2 = bluepick1Spell2;
 	}
 
-	public String getBluepick2_spell1() {
-		return bluepick2_spell1;
+	public String getBluepick2Spell1() {
+		return bluepick2Spell1;
 	}
 
-	public void setBluepick2_spell1(String bluepick2_spell1) {
-		this.bluepick2_spell1 = bluepick2_spell1;
+	public void setBluepick2Spell1(String bluepick2Spell1) {
+		this.bluepick2Spell1 = bluepick2Spell1;
 	}
 
-	public String getBluepick2_spell2() {
-		return bluepick2_spell2;
+	public String getBluepick2Spell2() {
+		return bluepick2Spell2;
 	}
 
-	public void setBluepick2_spell2(String bluepick2_spell2) {
-		this.bluepick2_spell2 = bluepick2_spell2;
+	public void setBluepick2Spell2(String bluepick2Spell2) {
+		this.bluepick2Spell2 = bluepick2Spell2;
 	}
 
-	public String getBluepick3_spell1() {
-		return bluepick3_spell1;
+	public String getBluepick3Spell1() {
+		return bluepick3Spell1;
 	}
 
-	public void setBluepick3_spell1(String bluepick3_spell1) {
-		this.bluepick3_spell1 = bluepick3_spell1;
+	public void setBluepick3Spell1(String bluepick3Spell1) {
+		this.bluepick3Spell1 = bluepick3Spell1;
 	}
 
-	public String getBluepick3_spell2() {
-		return bluepick3_spell2;
+	public String getBluepick3Spell2() {
+		return bluepick3Spell2;
 	}
 
-	public void setBluepick3_spell2(String bluepick3_spell2) {
-		this.bluepick3_spell2 = bluepick3_spell2;
+	public void setBluepick3Spell2(String bluepick3Spell2) {
+		this.bluepick3Spell2 = bluepick3Spell2;
 	}
 
-	public String getBluepick4_spell1() {
-		return bluepick4_spell1;
+	public String getBluepick4Spell1() {
+		return bluepick4Spell1;
 	}
 
-	public void setBluepick4_spell1(String bluepick4_spell1) {
-		this.bluepick4_spell1 = bluepick4_spell1;
+	public void setBluepick4Spell1(String bluepick4Spell1) {
+		this.bluepick4Spell1 = bluepick4Spell1;
 	}
 
-	public String getBluepick4_spell2() {
-		return bluepick4_spell2;
+	public String getBluepick4Spell2() {
+		return bluepick4Spell2;
 	}
 
-	public void setBluepick4_spell2(String bluepick4_spell2) {
-		this.bluepick4_spell2 = bluepick4_spell2;
+	public void setBluepick4Spell2(String bluepick4Spell2) {
+		this.bluepick4Spell2 = bluepick4Spell2;
 	}
 
-	public String getBluepick5_spell1() {
-		return bluepick5_spell1;
+	public String getBluepick5Spell1() {
+		return bluepick5Spell1;
 	}
 
-	public void setBluepick5_spell1(String bluepick5_spell1) {
-		this.bluepick5_spell1 = bluepick5_spell1;
+	public void setBluepick5Spell1(String bluepick5Spell1) {
+		this.bluepick5Spell1 = bluepick5Spell1;
 	}
 
-	public String getBluepick5_spell2() {
-		return bluepick5_spell2;
+	public String getBluepick5Spell2() {
+		return bluepick5Spell2;
 	}
 
-	public void setBluepick5_spell2(String bluepick5_spell2) {
-		this.bluepick5_spell2 = bluepick5_spell2;
+	public void setBluepick5Spell2(String bluepick5Spell2) {
+		this.bluepick5Spell2 = bluepick5Spell2;
 	}
 
-	public String getRedpick1_spell1() {
-		return redpick1_spell1;
+	public String getRedpick1Spell1() {
+		return redpick1Spell1;
 	}
 
-	public void setRedpick1_spell1(String redpick1_spell1) {
-		this.redpick1_spell1 = redpick1_spell1;
+	public void setRedpick1Spell1(String redpick1Spell1) {
+		this.redpick1Spell1 = redpick1Spell1;
 	}
 
-	public String getRedpick1_spell2() {
-		return redpick1_spell2;
+	public String getRedpick1Spell2() {
+		return redpick1Spell2;
 	}
 
-	public void setRedpick1_spell2(String redpick1_spell2) {
-		this.redpick1_spell2 = redpick1_spell2;
+	public void setRedpick1Spell2(String redpick1Spell2) {
+		this.redpick1Spell2 = redpick1Spell2;
 	}
 
-	public String getRedpick2_spell1() {
-		return redpick2_spell1;
+	public String getRedpick2Spell1() {
+		return redpick2Spell1;
 	}
 
-	public void setRedpick2_spell1(String redpick2_spell1) {
-		this.redpick2_spell1 = redpick2_spell1;
+	public void setRedpick2Spell1(String redpick2Spell1) {
+		this.redpick2Spell1 = redpick2Spell1;
 	}
 
-	public String getRedpick2_spell2() {
-		return redpick2_spell2;
+	public String getRedpick2Spell2() {
+		return redpick2Spell2;
 	}
 
-	public void setRedpick2_spell2(String redpick2_spell2) {
-		this.redpick2_spell2 = redpick2_spell2;
+	public void setRedpick2Spell2(String redpick2Spell2) {
+		this.redpick2Spell2 = redpick2Spell2;
 	}
 
-	public String getRedpick3_spell1() {
-		return redpick3_spell1;
+	public String getRedpick3Spell1() {
+		return redpick3Spell1;
 	}
 
-	public void setRedpick3_spell1(String redpick3_spell1) {
-		this.redpick3_spell1 = redpick3_spell1;
+	public void setRedpick3Spell1(String redpick3Spell1) {
+		this.redpick3Spell1 = redpick3Spell1;
 	}
 
-	public String getRedpick3_spell2() {
-		return redpick3_spell2;
+	public String getRedpick3Spell2() {
+		return redpick3Spell2;
 	}
 
-	public void setRedpick3_spell2(String redpick3_spell2) {
-		this.redpick3_spell2 = redpick3_spell2;
+	public void setRedpick3Spell2(String redpick3Spell2) {
+		this.redpick3Spell2 = redpick3Spell2;
 	}
 
-	public String getRedpick4_spell1() {
-		return redpick4_spell1;
+	public String getRedpick4Spell1() {
+		return redpick4Spell1;
 	}
 
-	public void setRedpick4_spell1(String redpick4_spell1) {
-		this.redpick4_spell1 = redpick4_spell1;
+	public void setRedpick4Spell1(String redpick4Spell1) {
+		this.redpick4Spell1 = redpick4Spell1;
 	}
 
-	public String getRedpick4_spell2() {
-		return redpick4_spell2;
+	public String getRedpick4Spell2() {
+		return redpick4Spell2;
 	}
 
-	public void setRedpick4_spell2(String redpick4_spell2) {
-		this.redpick4_spell2 = redpick4_spell2;
+	public void setRedpick4Spell2(String redpick4Spell2) {
+		this.redpick4Spell2 = redpick4Spell2;
 	}
 
-	public String getRedpick5_spell1() {
-		return redpick5_spell1;
+	public String getRedpick5Spell1() {
+		return redpick5Spell1;
 	}
 
-	public void setRedpick5_spell1(String redpick5_spell1) {
-		this.redpick5_spell1 = redpick5_spell1;
+	public void setRedpick5Spell1(String redpick5Spell1) {
+		this.redpick5Spell1 = redpick5Spell1;
 	}
 
-	public String getRedpick5_spell2() {
-		return redpick5_spell2;
+	public String getRedpick5Spell2() {
+		return redpick5Spell2;
 	}
 
-	public void setRedpick5_spell2(String redpick5_spell2) {
-		this.redpick5_spell2 = redpick5_spell2;
+	public void setRedpick5Spell2(String redpick5Spell2) {
+		this.redpick5Spell2 = redpick5Spell2;
 	}
 
-	public int getBluepick1_kill() {
-		return bluepick1_kill;
+	public int getBluepick1Kill() {
+		return bluepick1Kill;
 	}
 
-	public void setBluepick1_kill(int bluepick1_kill) {
-		this.bluepick1_kill = bluepick1_kill;
+	public void setBluepick1Kill(int bluepick1Kill) {
+		this.bluepick1Kill = bluepick1Kill;
 	}
 
-	public int getBluepick1_death() {
-		return bluepick1_death;
+	public int getBluepick1Death() {
+		return bluepick1Death;
 	}
 
-	public void setBluepick1_death(int bluepick1_death) {
-		this.bluepick1_death = bluepick1_death;
+	public void setBluepick1Death(int bluepick1Death) {
+		this.bluepick1Death = bluepick1Death;
 	}
 
-	public int getBluepick1_assist() {
-		return bluepick1_assist;
+	public int getBluepick1Assist() {
+		return bluepick1Assist;
 	}
 
-	public void setBluepick1_assist(int bluepick1_assist) {
-		this.bluepick1_assist = bluepick1_assist;
+	public void setBluepick1Assist(int bluepick1Assist) {
+		this.bluepick1Assist = bluepick1Assist;
 	}
 
-	public int getBluepick2_kill() {
-		return bluepick2_kill;
+	public int getBluepick2Kill() {
+		return bluepick2Kill;
 	}
 
-	public void setBluepick2_kill(int bluepick2_kill) {
-		this.bluepick2_kill = bluepick2_kill;
+	public void setBluepick2Kill(int bluepick2Kill) {
+		this.bluepick2Kill = bluepick2Kill;
 	}
 
-	public int getBluepick2_death() {
-		return bluepick2_death;
+	public int getBluepick2Death() {
+		return bluepick2Death;
 	}
 
-	public void setBluepick2_death(int bluepick2_death) {
-		this.bluepick2_death = bluepick2_death;
+	public void setBluepick2Death(int bluepick2Death) {
+		this.bluepick2Death = bluepick2Death;
 	}
 
-	public int getBluepick2_assist() {
-		return bluepick2_assist;
+	public int getBluepick2Assist() {
+		return bluepick2Assist;
 	}
 
-	public void setBluepick2_assist(int bluepick2_assist) {
-		this.bluepick2_assist = bluepick2_assist;
+	public void setBluepick2Assist(int bluepick2Assist) {
+		this.bluepick2Assist = bluepick2Assist;
 	}
 
-	public int getBluepick3_kill() {
-		return bluepick3_kill;
+	public int getBluepick3Kill() {
+		return bluepick3Kill;
 	}
 
-	public void setBluepick3_kill(int bluepick3_kill) {
-		this.bluepick3_kill = bluepick3_kill;
+	public void setBluepick3Kill(int bluepick3Kill) {
+		this.bluepick3Kill = bluepick3Kill;
 	}
 
-	public int getBluepick3_death() {
-		return bluepick3_death;
+	public int getBluepick3Death() {
+		return bluepick3Death;
 	}
 
-	public void setBluepick3_death(int bluepick3_death) {
-		this.bluepick3_death = bluepick3_death;
+	public void setBluepick3Death(int bluepick3Death) {
+		this.bluepick3Death = bluepick3Death;
 	}
 
-	public int getBluepick3_assist() {
-		return bluepick3_assist;
+	public int getBluepick3Assist() {
+		return bluepick3Assist;
 	}
 
-	public void setBluepick3_assist(int bluepick3_assist) {
-		this.bluepick3_assist = bluepick3_assist;
+	public void setBluepick3Assist(int bluepick3Assist) {
+		this.bluepick3Assist = bluepick3Assist;
 	}
 
-	public int getBluepick4_kill() {
-		return bluepick4_kill;
+	public int getBluepick4Kill() {
+		return bluepick4Kill;
 	}
 
-	public void setBluepick4_kill(int bluepick4_kill) {
-		this.bluepick4_kill = bluepick4_kill;
+	public void setBluepick4Kill(int bluepick4Kill) {
+		this.bluepick4Kill = bluepick4Kill;
 	}
 
-	public int getBluepick4_death() {
-		return bluepick4_death;
+	public int getBluepick4Death() {
+		return bluepick4Death;
 	}
 
-	public void setBluepick4_death(int bluepick4_death) {
-		this.bluepick4_death = bluepick4_death;
+	public void setBluepick4Death(int bluepick4Death) {
+		this.bluepick4Death = bluepick4Death;
 	}
 
-	public int getBluepick4_assist() {
-		return bluepick4_assist;
+	public int getBluepick4Assist() {
+		return bluepick4Assist;
 	}
 
-	public void setBluepick4_assist(int bluepick4_assist) {
-		this.bluepick4_assist = bluepick4_assist;
+	public void setBluepick4Assist(int bluepick4Assist) {
+		this.bluepick4Assist = bluepick4Assist;
 	}
 
-	public int getBluepick5_kill() {
-		return bluepick5_kill;
+	public int getBluepick5Kill() {
+		return bluepick5Kill;
 	}
 
-	public void setBluepick5_kill(int bluepick5_kill) {
-		this.bluepick5_kill = bluepick5_kill;
+	public void setBluepick5Kill(int bluepick5Kill) {
+		this.bluepick5Kill = bluepick5Kill;
 	}
 
-	public int getBluepick5_death() {
-		return bluepick5_death;
+	public int getBluepick5Death() {
+		return bluepick5Death;
 	}
 
-	public void setBluepick5_death(int bluepick5_death) {
-		this.bluepick5_death = bluepick5_death;
+	public void setBluepick5Death(int bluepick5Death) {
+		this.bluepick5Death = bluepick5Death;
 	}
 
-	public int getBluepick5_assist() {
-		return bluepick5_assist;
+	public int getBluepick5Assist() {
+		return bluepick5Assist;
 	}
 
-	public void setBluepick5_assist(int bluepick5_assist) {
-		this.bluepick5_assist = bluepick5_assist;
+	public void setBluepick5Assist(int bluepick5Assist) {
+		this.bluepick5Assist = bluepick5Assist;
 	}
 
-	public int getRedpick1_kill() {
-		return redpick1_kill;
+	public int getRedpick1Kill() {
+		return redpick1Kill;
 	}
 
-	public void setRedpick1_kill(int redpick1_kill) {
-		this.redpick1_kill = redpick1_kill;
+	public void setRedpick1Kill(int redpick1Kill) {
+		this.redpick1Kill = redpick1Kill;
 	}
 
-	public int getRedpick1_death() {
-		return redpick1_death;
+	public int getRedpick1Death() {
+		return redpick1Death;
 	}
 
-	public void setRedpick1_death(int redpick1_death) {
-		this.redpick1_death = redpick1_death;
+	public void setRedpick1Death(int redpick1Death) {
+		this.redpick1Death = redpick1Death;
 	}
 
-	public int getRedpick1_assist() {
-		return redpick1_assist;
+	public int getRedpick1Assist() {
+		return redpick1Assist;
 	}
 
-	public void setRedpick1_assist(int redpick1_assist) {
-		this.redpick1_assist = redpick1_assist;
+	public void setRedpick1Assist(int redpick1Assist) {
+		this.redpick1Assist = redpick1Assist;
 	}
 
-	public int getRedpick2_kill() {
-		return redpick2_kill;
+	public int getRedpick2Kill() {
+		return redpick2Kill;
 	}
 
-	public void setRedpick2_kill(int redpick2_kill) {
-		this.redpick2_kill = redpick2_kill;
+	public void setRedpick2Kill(int redpick2Kill) {
+		this.redpick2Kill = redpick2Kill;
 	}
 
-	public int getRedpick2_death() {
-		return redpick2_death;
+	public int getRedpick2Death() {
+		return redpick2Death;
 	}
 
-	public void setRedpick2_death(int redpick2_death) {
-		this.redpick2_death = redpick2_death;
+	public void setRedpick2Death(int redpick2Death) {
+		this.redpick2Death = redpick2Death;
 	}
 
-	public int getRedpick2_assist() {
-		return redpick2_assist;
+	public int getRedpick2Assist() {
+		return redpick2Assist;
 	}
 
-	public void setRedpick2_assist(int redpick2_assist) {
-		this.redpick2_assist = redpick2_assist;
+	public void setRedpick2Assist(int redpick2Assist) {
+		this.redpick2Assist = redpick2Assist;
 	}
 
-	public int getRedpick3_kill() {
-		return redpick3_kill;
+	public int getRedpick3Kill() {
+		return redpick3Kill;
 	}
 
-	public void setRedpick3_kill(int redpick3_kill) {
-		this.redpick3_kill = redpick3_kill;
+	public void setRedpick3Kill(int redpick3Kill) {
+		this.redpick3Kill = redpick3Kill;
 	}
 
-	public int getRedpick3_death() {
-		return redpick3_death;
+	public int getRedpick3Death() {
+		return redpick3Death;
 	}
 
-	public void setRedpick3_death(int redpick3_death) {
-		this.redpick3_death = redpick3_death;
+	public void setRedpick3Death(int redpick3Death) {
+		this.redpick3Death = redpick3Death;
 	}
 
-	public int getRedpick3_assist() {
-		return redpick3_assist;
+	public int getRedpick3Assist() {
+		return redpick3Assist;
 	}
 
-	public void setRedpick3_assist(int redpick3_assist) {
-		this.redpick3_assist = redpick3_assist;
+	public void setRedpick3Assist(int redpick3Assist) {
+		this.redpick3Assist = redpick3Assist;
 	}
 
-	public int getRedpick4_kill() {
-		return redpick4_kill;
+	public int getRedpick4Kill() {
+		return redpick4Kill;
 	}
 
-	public void setRedpick4_kill(int redpick4_kill) {
-		this.redpick4_kill = redpick4_kill;
+	public void setRedpick4Kill(int redpick4Kill) {
+		this.redpick4Kill = redpick4Kill;
 	}
 
-	public int getRedpick4_death() {
-		return redpick4_death;
+	public int getRedpick4Death() {
+		return redpick4Death;
 	}
 
-	public void setRedpick4_death(int redpick4_death) {
-		this.redpick4_death = redpick4_death;
+	public void setRedpick4Death(int redpick4Death) {
+		this.redpick4Death = redpick4Death;
 	}
 
-	public int getRedpick4_assist() {
-		return redpick4_assist;
+	public int getRedpick4Assist() {
+		return redpick4Assist;
 	}
 
-	public void setRedpick4_assist(int redpick4_assist) {
-		this.redpick4_assist = redpick4_assist;
+	public void setRedpick4Assist(int redpick4Assist) {
+		this.redpick4Assist = redpick4Assist;
 	}
 
-	public int getRedpick5_kill() {
-		return redpick5_kill;
+	public int getRedpick5Kill() {
+		return redpick5Kill;
 	}
 
-	public void setRedpick5_kill(int redpick5_kill) {
-		this.redpick5_kill = redpick5_kill;
+	public void setRedpick5Kill(int redpick5Kill) {
+		this.redpick5Kill = redpick5Kill;
 	}
 
-	public int getRedpick5_death() {
-		return redpick5_death;
+	public int getRedpick5Death() {
+		return redpick5Death;
 	}
 
-	public void setRedpick5_death(int redpick5_death) {
-		this.redpick5_death = redpick5_death;
+	public void setRedpick5Death(int redpick5Death) {
+		this.redpick5Death = redpick5Death;
 	}
 
-	public int getRedpick5_assist() {
-		return redpick5_assist;
+	public int getRedpick5Assist() {
+		return redpick5Assist;
 	}
 
-	public void setRedpick5_assist(int redpick5_assist) {
-		this.redpick5_assist = redpick5_assist;
+	public void setRedpick5Assist(int redpick5Assist) {
+		this.redpick5Assist = redpick5Assist;
 	}
 
 }
