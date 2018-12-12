@@ -44,6 +44,12 @@ public class BoardDAO {
 		System.out.println("mybatis jdbc getBoardList() 기능처리");
 		return mybatis.selectList("board.getBoardList", vo);
 	}
+	
+	// 자유게시판전체조회
+	public List<BoardVO> getFreeBoard(BoardVO vo) {
+		System.out.println("mybatis jdbc getFreeBoard() 기능처리");
+		return mybatis.selectList("board.getFreeBoard", vo);
+	}
 
 	// 단건조회
 	public BoardVO getBoard(BoardVO vo) {

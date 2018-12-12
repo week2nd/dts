@@ -22,6 +22,15 @@ public class BoardController {
 		return "board/getBoardList";
 	}
 	
+	// 자유게시판 전체조회
+	@RequestMapping(value= {"/getFreeBoard"}
+					, method = RequestMethod.GET
+					)		//http://localhost:8081/app/getBoardList
+	public String getFreeBoard(Model model, BoardVO vo)  {
+		model.addAttribute("FreeBoard", boardService.getFreeBoard(vo));
+		return "FreeBoard/getFreeBoard";
+	}
+	
 	// 단건조회
 	@RequestMapping("/getBoard")		//http://localhost:8081/app/getBoardList
 	public String getBoard(Model model, BoardVO vo) {
