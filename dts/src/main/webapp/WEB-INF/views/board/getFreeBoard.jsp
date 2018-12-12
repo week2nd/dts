@@ -36,7 +36,7 @@
 			<td>게시판타입<a href="#" onclick="go_sort('boardType')">▲</a></td>
 			
 		</tr>
-		<c:forEach items="${boardList }" var="board">
+		<c:forEach items="${board }" var="board">
 			<tr>
 				<td><input type="checkbox" name="bnumberList" value="${board.boardNumber}" /></td>
  				<td>${board.boardNumber }</td>
