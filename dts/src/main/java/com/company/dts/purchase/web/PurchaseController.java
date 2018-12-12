@@ -19,20 +19,20 @@ public class PurchaseController {
 	@RequestMapping("/getPurchaseList")
 	public String getPurchaseList(Model model, PurchaseVO vo) {
 		model.addAttribute("purchaseList", purchaseService.getPurchaseList(vo));
-		return "purchase/getPurchaseList";
+		return "user/purchase/getPurchaseList";
 	}
 	
 	// 단건조회
 	@RequestMapping("/getPurchase")
 	public String getPurchase(Model model, PurchaseVO vo) {
 		model.addAttribute("purchase", purchaseService.getPurchase(vo));
-		return "purchase/getPurchase";
+		return "user/purchase/getPurchase";
 	}
 	
 	// 구매완료등록
 	@RequestMapping(value="insertPurchase", method = RequestMethod.POST)
 	public String insertPurchase(Model model, PurchaseVO vo) {
 		purchaseService.insertPurchase(vo);
-		return "redirect:getGameList";
+		return "user/purchase/getGameList";
 	}
 }

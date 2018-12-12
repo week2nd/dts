@@ -45,20 +45,20 @@ public class GameController {
 	@RequestMapping("/getGame")
 	public String getGame(Model model, GameVO vo) {
 		model.addAttribute("game", gameService.getGame(vo));
-		return "game/getGame";
+		return "user/game/getGame";
 	}
 	//게임추가폼
 	@RequestMapping(value="/insertGame", method = RequestMethod.GET)
 	public String insertGameform(Model model, GameVO vo) {
 		model.addAttribute("gameList", gameService.getGameList(vo));
-		return "admin/game/insertGame";
+		return "user/game/insertGame";
 	}
 	//게임등록
 	@RequestMapping(value="insertGame", method = RequestMethod.POST)
 	public String insertGame(Model model, GameVO vo) {
 		gameService.insertGame(vo);
 		model.addAttribute("gameList", gameService.getGameList(vo));
-		return "admin/game/getGameList";
+		return "user/game/getGameList";
 	}
 	//게임구매
 	@RequestMapping(value="buyGame", method = RequestMethod.POST)
