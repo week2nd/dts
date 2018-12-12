@@ -22,26 +22,26 @@
 				<tr>
 					<td colspan="6">${match.blueteamname}</td>
 					<td align="center" colspan="2">${match.blueresult}</td>
-					<td>${match.bluepick1_kill}:${match.redpick1_kill}</td>
+					<td>${match.bluepick1Kill}:${match.redpick1Kill}</td>
 					<td align="center" colspan="2">${match.redresult}</td>
 					<td colspan="6">${match.redteamname}</td>
 				</tr>
 				<tr>
 					<td>K</td>
-					<td>${match.bluepick1_kill}</td>
+					<td>${match.bluepick1Kill}</td>
 					<td>D</td>
-					<td>${match.bluepick1_death}</td>
+					<td>${match.bluepick1Death}</td>
 					<td>A</td>
-					<td>${match.bluepick1_assist}</td>
+					<td>${match.bluepick1Assist}</td>
 					<td>KDA </td>
 					<td>#.#</td>
 					<td>Play Time</td>
 					<td>K</td>
-					<td>${match.redpick1_kill}</td>
+					<td>${match.redpick1Kill}</td>
 					<td>D</td>
-					<td>${match.redpick1_death}</td>
+					<td>${match.redpick1Death}</td>
 					<td>A</td>
-					<td>${match.redpick1_assist}</td>
+					<td>${match.redpick1Assist}</td>
 					<td>KDA </td>
 					<td>#.#</td>
 				</tr>
@@ -80,7 +80,7 @@
 					<td align="center" colspan="2">BAN</td>
 				</tr>
 			</table>
-			<table class="table">
+			<table border="1" class="table">
 				<tr>
 					<td>Spell</td>
 					<td>Champ</td>
@@ -97,108 +97,108 @@
 				</tr>
 				<!-- pick1 -->
 				<tr>
-					<td>${match.bluepick1_spell1}</td>
+					<td>${match.bluepick1Spell1}</td>
 					<td rowspan="2">${match.bluepick1}</td>
 					<td colspan="4">${match.bluegamer1}SKT T1 이상혁</td>
 					<td colspan="4">${match.redgamer1}</td>
 					<td rowspan="2">${match.redpick1}</td>
-					<td>${match.redpick1_spell1}</td>
+					<td>${match.redpick1Spell1}</td>
 				</tr>
 				<tr>
-					<td>${match.bluepick1_spell2}</td>
-					<td>${match.bluepick1_kill}</td>
-					<td>${match.bluepick1_death}</td>
-					<td>${match.bluepick1_assist}</td>
-					<td>#.#</td> <!-- bluepick1_kda -->
-					<td>${match.redpick1_kill}</td>
-					<td>${match.redpick1_death}</td>
-					<td>${match.redpick1_assist}</td>
+					<td>${match.bluepick1Spell2}</td>
+					<td>${match.bluepick1Kill}</td>
+					<td>${match.bluepick1Death}</td>
+					<td>${match.bluepick1Assist}</td>
+					<td>#.#</td> <!-- bluepick1Kda -->
+					<td>${match.redpick1Kill}</td>
+					<td>${match.redpick1Death}</td>
+					<td>${match.redpick1Assist}</td>
 					<td>#.#</td>
-					<td>${match.redpick1_spell2}</td>
+					<td>${match.redpick1Spell2}</td>
 				</tr>
 				<!-- pick2 -->
 				<tr>
-					<td>${match.bluepick2_spell1}</td>
+					<td>${match.bluepick2Spell1}</td>
 					<td rowspan="2">${match.bluepick2}</td>
 					<td colspan="4">${match.bluegamer2}SKT T1 이상혁</td>
 					<td colspan="4">${match.redgamer2}</td>
 					<td rowspan="2">${match.redpick2}</td>
-					<td>${match.redpick2_spell1}</td>
+					<td>${match.redpick2Spell1}</td>
 				</tr>
 				<tr>
-					<td>${match.bluepick2_spell2}</td>
-					<td>${match.bluepick2_kill}</td>
-					<td>${match.bluepick2_death}</td>
-					<td>${match.bluepick2_assist}</td>
-					<td>#.#</td> <!-- bluepick2_kda -->
-					<td>${match.redpick2_kill}</td>
-					<td>${match.redpick2_death}</td>
-					<td>${match.redpick2_assist}</td>
+					<td>${match.bluepick2Spell2}</td>
+					<td>${match.bluepick2Kill}</td>
+					<td>${match.bluepick2Death}</td>
+					<td>${match.bluepick2Assist}</td>
+					<td>#.#</td> <!-- bluepick2Kda -->
+					<td>${match.redpick2Kill}</td>
+					<td>${match.redpick2Death}</td>
+					<td>${match.redpick2Assist}</td>
 					<td>#.#</td>
-					<td>${match.redpick2_spell2}</td>
+					<td>${match.redpick2Spell2}</td>
 				</tr>
 			<!-- pick3 -->
 				<tr>
-					<td>${match.bluepick3_spell1}</td>
+					<td>${match.bluepick3Spell1}</td>
 					<td rowspan="2">${match.bluepick3}</td>
 					<td colspan="4">${match.bluegamer3}SKT T1 이상혁</td>
 					<td colspan="4">${match.redgamer3}</td>
 					<td rowspan="2">${match.redpick3}</td>
-					<td>${match.redpick3_spell1}</td>
+					<td>${match.redpick3Spell1}</td>
 				</tr>
 				<tr>
-					<td>${match.bluepick3_spell2}</td>
-					<td>${match.bluepick3_kill}</td>
-					<td>${match.bluepick3_death}</td>
-					<td>${match.bluepick3_assist}</td>
-					<td>#.#</td> <!-- bluepick1_kda -->
-					<td>${match.redpick3_kill}</td>
-					<td>${match.redpick3_death}</td>
-					<td>${match.redpick3_assist}</td>
+					<td>${match.bluepick3Spell2}</td>
+					<td>${match.bluepick3Kill}</td>
+					<td>${match.bluepick3Death}</td>
+					<td>${match.bluepick3Assist}</td>
+					<td>#.#</td> <!-- bluepick1Kda -->
+					<td>${match.redpick3Kill}</td>
+					<td>${match.redpick3Death}</td>
+					<td>${match.redpick3Assist}</td>
 					<td>#.#</td>
-					<td>${match.redpick3_spell2}</td>
+					<td>${match.redpick3Spell2}</td>
 				</tr>
 				<!-- pick4 -->
 				<tr>
-					<td>${match.bluepick4_spell1}</td>
+					<td>${match.bluepick4Spell1}</td>
 					<td rowspan="2">${match.bluepick4}</td>
 					<td colspan="4">${match.bluegamer4}SKT T1 이상혁</td>
 					<td colspan="4">${match.redgamer4}</td>
 					<td rowspan="2">${match.redpick4}</td>
-					<td>${match.redpick4_spell1}</td>
+					<td>${match.redpick4Spell1}</td>
 				</tr>
 				<tr>
-					<td>${match.bluepick4_spell2}</td>
-					<td>${match.bluepick4_kill}</td>
-					<td>${match.bluepick4_death}</td>
-					<td>${match.bluepick4_assist}</td>
-					<td>#.#</td> <!-- bluepick1_kda -->
-					<td>${match.redpick4_kill}</td>
-					<td>${match.redpick4_death}</td>
-					<td>${match.redpick4_assist}</td>
+					<td>${match.bluepick4Spell2}</td>
+					<td>${match.bluepick4Kill}</td>
+					<td>${match.bluepick4Death}</td>
+					<td>${match.bluepick4Assist}</td>
+					<td>#.#</td> <!-- bluepick1Kda -->
+					<td>${match.redpick4Kill}</td>
+					<td>${match.redpick4Death}</td>
+					<td>${match.redpick4Assist}</td>
 					<td>#.#</td>
-					<td>${match.redpick4_spell2}</td>
+					<td>${match.redpick4Spell2}</td>
 				</tr>
 				<!-- pick5 -->
 				<tr>
-					<td>${match.bluepick5_spell1}</td>
+					<td>${match.bluepick5Spell1}</td>
 					<td rowspan="2">${match.bluepick5}</td>
 					<td colspan="4">${match.bluegamer5}SKT T1 이상혁</td>
 					<td colspan="4">${match.redgamer5}</td>
 					<td rowspan="2">${match.redpick5}</td>
-					<td>${match.redpick5_spell1}</td>
+					<td>${match.redpick5Spell1}</td>
 				</tr>
 				<tr>
-					<td>${match.bluepick5_spell2}</td>
-					<td>${match.bluepick5_kill}</td>
-					<td>${match.bluepick5_death}</td>
-					<td>${match.bluepick5_assist}</td>
-					<td>#.#</td> <!-- bluepick1_kda -->
-					<td>${match.redpick5_kill}</td>
-					<td>${match.redpick5_death}</td>
-					<td>${match.redpick5_assist}</td>
+					<td>${match.bluepick5Spell2}</td>
+					<td>${match.bluepick5Kill}</td>
+					<td>${match.bluepick5Death}</td>
+					<td>${match.bluepick5Assist}</td>
+					<td>#.#</td> <!-- bluepick1Kda -->
+					<td>${match.redpick5Kill}</td>
+					<td>${match.redpick5Death}</td>
+					<td>${match.redpick5Assist}</td>
 					<td>#.#</td>
-					<td>${match.redpick5_spell2}</td>
+					<td>${match.redpick5Spell2}</td>
 				</tr>
 				</table>
 		</c:forEach>
