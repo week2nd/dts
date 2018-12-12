@@ -9,6 +9,11 @@
 		FROM 	INGAME
 	</select>
 	
+	<select id="getMatch" parameterType="match" resultType="match">
+		SELECT	*
+		FROM 	INGAME
+		WHERE	TEAMINFO = ${teaminfo}
+	</select>
 	
 <!-- 	<select id="getMatch" parameterType="match" resultType="match">
 		SELECT 	*
@@ -25,10 +30,12 @@
 	</select>
  -->	
 	<insert id="insertMatch" parameterType="match">
-		INSERT INTO	INGAME(MATCHINFO,
+		INSERT INTO	INGAME(	MATCHDATE,
+							MATCHNAME,
+							MATCHINFO,
 							PLAYTIME,
 							BLUETEAMNAME,	REDTEAMNAME,
-							BLUERESULT,		REDSULT,
+							BLUERESULT,		REDRESULT,
 							BLUEPICK1, 	BLUEPICK2, 	BLUEPICK3, 	BLUEPICK4, 	BLUEPICK5,
 							REDPICK1, 	REDPICK2, 	REDPICK3, 	REDPICK4, 	REDPICK5,
 							BLUEGAMER1, BLUEGAMER2, BLUEGAMER3, BLUEGAMER4, BLUEGAMER5,
@@ -55,8 +62,10 @@
 							REDPICK3_KILL, REDPICK3_DEATH, REDPICK3_ASSIST,
 							REDPICK4_KILL, REDPICK4_DEATH, REDPICK4_ASSIST,
 							REDPICK5_KILL, REDPICK5_DEATH, REDPICK5_ASSIST
-)		VALUES(		#{matchinfo},
-					#{playtime},
+)		VALUES(		sysdate,
+					#{matchname},
+					#{matchinfo},
+					to_char(to_date(#{playtime} ,':hh24:mi'),'hh24:mi'),
 					#{blueteamname},	#{redteamname},
 					#{blueresult},		#{redresult},
 					#{bluepick1}, 	#{bluepick2}, 	#{bluepick3}, 	#{bluepick4}, 	#{bluepick5},
@@ -65,26 +74,26 @@
 					#{redgamer1}, 	#{redgamer2}, 	#{redgamer3}, 	#{redgamer4}, 	#{redgamer5},
 					#{blueban1}, 	#{blueban2}, #{blueban3}, #{blueban4}, #{blueban5},
 					#{redban1}, #{redban2}, #{redban3}, #{redban4}, #{redban5},
-					#{bluepick1_spell1}, #{bluepick1_spell2},
-					#{bluepick2_spell1}, #{bluepick2_spell2},
-					#{bluepick3_spell1}, #{bluepick3_spell2},
-					#{bluepick4_spell1}, #{bluepick4_spell2},
-					#{bluepick5_spell1}, #{bluepick5_spell2},
-					#{redpick1_spell1}, #{redpick1_spell2},
-					#{redpick2_spell1}, #{redpick2_spell2},
-					#{redpick3_spell1}, #{redpick3_spell2},
-					#{redpick4_spell1}, #{redpick4_spell2},
-					#{redpick5_spell1}, #{redpick5_spell2},
-					#{bluepick1_kill}, #{bluepick1_death}, #{bluepick1_assist},
-					#{bluepick2_kill}, #{bluepick2_death}, #{bluepick2_assist},
-					#{bluepick3_kill}, #{bluepick3_death}, #{bluepick3_assist},
-					#{bluepick4_kill}, #{bluepick4_death}, #{bluepick4_assist},
-					#{bluepick5_kill}, #{bluepick5_death}, #{bluepick5_assist},
-					#{redpick1_kill}, #{redpick1_death}, #{redpick1_assist},
-					#{redpick2_kill}, #{redpick2_death}, #{redpick2_assist},
-					#{redpick3_kill}, #{redpick3_death}, #{redpick3_assist},
-					#{redpick4_kill}, #{redpick4_death}, #{redpick4_assist},
-					#{redpick5_kill}, #{redpick5_death}, #{redpick5_assist}
+					#{bluepick1Spell1}, #{bluepick1Spell2},
+					#{bluepick2Spell1}, #{bluepick2Spell2},
+					#{bluepick3Spell1}, #{bluepick3Spell2},
+					#{bluepick4Spell1}, #{bluepick4Spell2},
+					#{bluepick5Spell1}, #{bluepick5Spell2},
+					#{redpick1Spell1}, #{redpick1Spell2},
+					#{redpick2Spell1}, #{redpick2Spell2},
+					#{redpick3Spell1}, #{redpick3Spell2},
+					#{redpick4Spell1}, #{redpick4Spell2},
+					#{redpick5Spell1}, #{redpick5Spell2},
+					#{bluepick1Kill}, #{bluepick1Death}, #{bluepick1Assist},
+					#{bluepick2Kill}, #{bluepick2Death}, #{bluepick2Assist},
+					#{bluepick3Kill}, #{bluepick3Death}, #{bluepick3Assist},
+					#{bluepick4Kill}, #{bluepick4Death}, #{bluepick4Assist},
+					#{bluepick5Kill}, #{bluepick5Death}, #{bluepick5Assist},
+					#{redpick1Kill}, #{redpick1Death}, #{redpick1Assist},
+					#{redpick2Kill}, #{redpick2Death}, #{redpick2Assist},
+					#{redpick3Kill}, #{redpick3Death}, #{redpick3Assist},
+					#{redpick4Kill}, #{redpick4Death}, #{redpick4Assist},
+					#{redpick5Kill}, #{redpick5Death}, #{redpick5Assist}
 			)								
 	</insert>
 	

@@ -41,13 +41,13 @@
 	.badge {
 		border: 1px solid #000
 	}
-	.table {
+	.minitable {
 		border-collapse: collapse !important
 	}
-	.table td, .table th {
+	.minitable td, .minitable th {
 		background-color: #fff !important
 	}
-	.table-bordered td, .table-bordered th {
+	.minitable-bordered td, .minitable-bordered th {
 		border: 1px solid #ddd !important
 	}
 }
@@ -1278,14 +1278,6 @@ pre code {
 	margin-bottom: 1rem;
 	background-color: transparent
 }
-
-.minitable {
-	width: 75%;
-	max-width: 75%;
-	margin-bottom: 1rem;
-	background-color: transparent
-}
-
 
 .table td, .table th {
 	padding: .75rem;
@@ -8126,4 +8118,169 @@ a.text-dark:focus, a.text-dark:hover {
 .invisible {
 	visibility: hidden !important
 }
+
+.minitable {
+	width: 70%;
+	max-width: 70%;
+	margin-bottom: 1rem;
+	background-color: transparent
+}
+
+.minitable td, .minitable th {
+	padding: .75rem;
+	vertical-align: top;
+	border-top: 1px solid #e9ecef
+}
+
+.minitable thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #e9ecef
+}
+
+.minitable tbody+tbody {
+	border-top: 2px solid #e9ecef
+}
+
+.minitable .minitable {
+	background-color: #fff
+}
+
+.minitable-sm td, .minitable-sm th {
+	padding: .3rem
+}
+
+.minitable-bordered {
+	border: 1px solid #e9ecef
+}
+
+.minitable-bordered td, .minitable-bordered th {
+	border: 1px solid #e9ecef
+}
+
+.minitable-bordered thead td, .minitable-bordered thead th {
+	border-bottom-width: 2px
+}
+
+.minitable-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(0, 0, 0, .05)
+}
+
+.minitable-hover tbody tr:hover {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.minitable-primary, .minitable-primary>td, .minitable-primary>th {
+	background-color: #b8daff
+}
+
+.minitable-hover .minitable-primary:hover {
+	background-color: #9fcdff
+}
+
+.minitable-hover .minitable-primary:hover>td, .minitable-hover .minitable-primary:hover>th
+	{
+	background-color: #9fcdff
+}
+
+.minitable-secondary, .minitable-secondary>td, .minitable-secondary>th {
+	background-color: #dddfe2
+}
+
+.minitable-hover .minitable-secondary:hover {
+	background-color: #cfd2d6
+}
+
+.minitable-hover .minitable-secondary:hover>td, .minitable-hover .minitable-secondary:hover>th
+	{
+	background-color: #cfd2d6
+}
+
+.minitable-success, .minitable-success>td, .minitable-success>th {
+	background-color: #c3e6cb
+}
+
+.minitable-hover .minitable-success:hover {
+	background-color: #b1dfbb
+}
+
+.minitable-hover .minitable-success:hover>td, .minitable-hover .minitable-success:hover>th
+	{
+	background-color: #b1dfbb
+}
+
+.minitable-info, .minitable-info>td, .minitable-info>th {
+	background-color: #bee5eb
+}
+
+.minitable-hover .minitable-info:hover {
+	background-color: #abdde5
+}
+
+.minitable-hover .minitable-info:hover>td, .minitable-hover .minitable-info:hover>th {
+	background-color: #abdde5
+}
+
+.minitable-warning, .minitable-warning>td, .minitable-warning>th {
+	background-color: #ffeeba
+}
+
+.minitable-hover .minitable-warning:hover {
+	background-color: #ffe8a1
+}
+
+.minitable-hover .minitable-warning:hover>td, .minitable-hover .minitable-warning:hover>th
+	{
+	background-color: #ffe8a1
+}
+
+.minitable-danger, .minitable-danger>td, .minitable-danger>th {
+	background-color: #f5c6cb
+}
+
+.minitable-hover .minitable-danger:hover {
+	background-color: #f1b0b7
+}
+
+.minitable-hover .minitable-danger:hover>td, .minitable-hover .minitable-danger:hover>th
+	{
+	background-color: #f1b0b7
+}
+
+.minitable-light, .minitable-light>td, .minitable-light>th {
+	background-color: #fdfdfe
+}
+
+.minitable-hover .minitable-light:hover {
+	background-color: #ececf6
+}
+
+.minitable-hover .minitable-light:hover>td, .minitable-hover .minitable-light:hover>th {
+	background-color: #ececf6
+}
+
+.minitable-dark, .minitable-dark>td, .minitable-dark>th {
+	background-color: #c6c8ca
+}
+
+.minitable-hover .minitable-dark:hover {
+	background-color: #b9bbbe
+}
+
+.minitable-hover .minitable-dark:hover>td, .minitable-hover .minitable-dark:hover>th {
+	background-color: #b9bbbe
+}
+
+.minitable-active, .minitable-active>td, .minitable-active>th {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.minitable-hover .minitable-active:hover {
+	background-color: rgba(0, 0, 0, .075)
+}
+
+.minitable-hover .minitable-active:hover>td, .minitable-hover .minitable-active:hover>th
+	{
+	background-color: rgba(0, 0, 0, .075)
+}
+
 /*# sourceMappingURL=bootstrap.min.css.map */
