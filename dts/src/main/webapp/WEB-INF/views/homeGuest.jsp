@@ -127,8 +127,14 @@
     </nav>
   </section>
 <h3>게스트메인</h3>
+ <section class="banner-sec float-left w-100 pt-4 pb-5">
+	<div class="col-md-12">
+			<tiles:insertAttribute name="content" />
+	</div>
+
+  </section>
   <!-- Info Block-01 -->
-  <section class="banner-sec float-left w-100 pt-4 pb-5">
+  <!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-3">
@@ -222,7 +228,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- widget block -->
   <!-- <section class="widget-block flasher-sec float-left w-100">
