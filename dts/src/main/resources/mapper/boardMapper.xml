@@ -8,10 +8,14 @@
 
 	SELECT	 	*
 	FROM 		BOARD
+	<if test = "boardType='free'">
+	WHERE 		BOARD_TYPE = 'free'		
+	</if>
+
 	<!--  WHERE 1=1 -->
-	<if test="searchKeyword != null and searchKeyword != ''">
+	<!-- <if test="searchKeyword != null and searchKeyword != ''">
 		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
-	</if> 
+	</if>  -->
 	
 	<!-- 검색할때사용할쿼리들 -->
 <!-- <where>	
@@ -42,7 +46,7 @@
 <select id="getFreeBoard" parameterType="board" resultType="board">	
 	SELECT	 	*
 	FROM 		BOARD
-	WHERE		BOARD_TYPE='FREE';
+	WHERE		BOARD_TYPE=${free};
 </select>
 
 
@@ -50,7 +54,7 @@
 <select id="getAnalysisBoard" parameterType="board" resultType="board">	
 	SELECT	 	*
 	FROM 		BOARD
-	WHERE		BOARD_TYPE='analysis';
+	WHERE		BOARD_TYPE=${analysis};
 </select>
 
 
@@ -58,7 +62,7 @@
 <select id="getNoticeBoard" parameterType="board" resultType="board">	
 	SELECT	 	*
 	FROM 		BOARD
-	WHERE		BOARD_TYPE='notice';
+	WHERE		BOARD_TYPE=${notice};
 </select>
 
 
@@ -66,7 +70,7 @@
 <select id="getSuggestionBoard" parameterType="board" resultType="board">	
 	SELECT	 	*
 	FROM 		BOARD
-	WHERE		BOARD_TYPE='suggestion';
+	WHERE		BOARD_TYPE=${suggestion};
 </select>
 
 

@@ -18,18 +18,18 @@ public class BoardController {
 					, method = RequestMethod.GET
 					)		//http://localhost:8081/app/getBoardList
 	public String getBoardList(Model model, BoardVO vo)  {
+		/*vo.setBoardType(boardType);*/
 		model.addAttribute("boardList", boardService.getBoardList(vo));
 		return "user/board/getBoardList";
 	}
 	
 	
-	
 	// 자유게시판 전체조회
-	@RequestMapping(value= {"/getFreeBoard"}
-					, method = RequestMethod.GET
-					)		//http://localhost:8081/app/getBoardList
+	@RequestMapping("/getFreeBoard")
 	public String getFreeBoard(Model model, BoardVO vo)  {
-		model.addAttribute("FreeBoard", boardService.getBoardList(vo));
+		vo.setBoardType("free");
+		String checktype = vo.getBoardType();
+	model.addAttribute("boardList", boardService.getBoardList(vo));
 		return "user/board/getFreeBoard";
 	}
 	
