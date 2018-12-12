@@ -80,7 +80,7 @@
 					<td align="center" colspan="2">BAN</td>
 				</tr>
 			</table>
-			<table border="1" class="table">
+			<table class="minitable">
 				<tr>
 					<td>Spell</td>
 					<td>Champ</td>
