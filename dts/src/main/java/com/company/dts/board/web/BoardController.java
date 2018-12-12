@@ -29,7 +29,7 @@ public class BoardController {
 					, method = RequestMethod.GET
 					)		//http://localhost:8081/app/getBoardList
 	public String getFreeBoard(Model model, BoardVO vo)  {
-		model.addAttribute("FreeBoard", boardService.getFreeBoard(vo));
+		model.addAttribute("FreeBoard", boardService.getBoardList(vo));
 		return "user/board/getFreeBoard";
 	}
 	

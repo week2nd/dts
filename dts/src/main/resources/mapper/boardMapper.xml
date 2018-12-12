@@ -38,38 +38,35 @@
 </select>
 
 
- <!-- 전체게시판조회 -->
-<select id="getFreeBoard" resultType="board">	
-
+ <!-- 자유게시판 조회 -->
+<select id="getFreeBoard" parameterType="board" resultType="board">	
 	SELECT	 	*
 	FROM 		BOARD
-	<!--  WHERE 1=1 -->
-	<if test="searchKeyword != null and searchKeyword != ''">
-		WHERE ${searchCondition} like '자유게시판]' || #{searchKeyword} || '자유게시판'
-	</if> 
-	
-	<!-- 검색할때사용할쿼리들 -->
-<!-- <where>	
-	<choose>
-		<when test="searchCondition != null and searchCondition == 'title'">
-			and title like '%' || #{searchKeyword} || '%'
-		</when>
-		<when test="searchCondition != null and searchCondition == 'content'">
-			and content like '%' || #{searchKeyword} || '%'
-		</when>
-	</choose>
-	
-	</where>
-	--> 
-	<choose>
-		<when test="sortCol != null and sortCol != ''">
-			ORDER BY ${sortCol}	
-		</when>
-		<otherwise>
-			ORDER BY BOARD_NUMBER DESC
-		</otherwise>
-	</choose>
+	WHERE		BOARD_TYPE='FREE';
+</select>
 
+
+<!-- 분석게시판 조회 -->
+<select id="getAnalysisBoard" parameterType="board" resultType="board">	
+	SELECT	 	*
+	FROM 		BOARD
+	WHERE		BOARD_TYPE='analysis';
+</select>
+
+
+<!-- 공지게시판 조회 -->
+<select id="getNoticeBoard" parameterType="board" resultType="board">	
+	SELECT	 	*
+	FROM 		BOARD
+	WHERE		BOARD_TYPE='notice';
+</select>
+
+
+<!-- 건의게시판 조회 -->
+<select id="getSuggestionBoard" parameterType="board" resultType="board">	
+	SELECT	 	*
+	FROM 		BOARD
+	WHERE		BOARD_TYPE='suggestion';
 </select>
 
 
