@@ -44,7 +44,7 @@ public class MemberController {
 	@RequestMapping(value="insertMember", method = RequestMethod.POST)
 	public String insertMember(MemberVO vo) {	// 커맨드 객체
 		memberService.insertMember(vo);		//등록처리
-		return "/";		//목록요청
+		return "member/insertMember";		//목록요청
 		
 	}
 	// 개인 맴버 수정
