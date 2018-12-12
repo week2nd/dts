@@ -49,7 +49,7 @@ public class InfoController {
 	@RequestMapping("/insertPlayer")
 	public String insertPlayer(PlayerVO vo) {
 		playerService.insertPlayer(vo);
-		return "user/info/getPlayerList";
+		return "redirect:getPlayerList";
 	}
 
 	// 선수 정보 수정 폼 이동
@@ -63,14 +63,14 @@ public class InfoController {
 	@RequestMapping("/updatePlayer")
 	public String updatePlayer(PlayerVO vo) {
 		playerService.updatePlayer(vo);
-		return "user/info/getPlayerList";
+		return "redirect:getPlayerList";
 	}
 
 	// 선수 정보 삭제
 	@RequestMapping("/deletePlayer")
 	public String deletePlayer(PlayerVO vo) {
 		playerService.deletePlayer(vo);
-		return "user/info/getPlayerList";
+		return "redirect:getPlayerList";
 	}
 
 //		선수
@@ -101,7 +101,7 @@ public class InfoController {
 	@RequestMapping("/insertTeam")
 	public String insertTeam(TeamVO vo) {
 		teamService.insertTeam(vo);
-		return "user/info/getTeamList";
+		return "redirect:getTeamList";
 	}
 
 	// 팀 정보 수정 폼 이동
@@ -115,14 +115,14 @@ public class InfoController {
 	@RequestMapping("/updateTeam")
 	public String updateTeam(TeamVO vo) {
 		teamService.updateTeam(vo);
-		return "user/info/getTeamList";
+		return "redirect:getTeamList";
 	}
 
 	// 팀 정보 삭제
 	@RequestMapping("/deleteTeam")
 	public String deleteTeam(TeamVO vo) {
 		teamService.deleteTeam(vo);
-		return "user/info/getTeamList";
+		return "redirect:getTeamList";
 	}
 
 	// 팀
@@ -154,7 +154,7 @@ public class InfoController {
 	@RequestMapping("/insertMatch")
 	public String insertMatch(MatchVO vo) {
 		matchService.insertMatch(vo);
-		return "user/info/getMatchList";
+		return "redirect:getMatchList";
 	}
 
 	// 경기 정보 수정 폼 이동
@@ -168,13 +168,13 @@ public class InfoController {
 	@RequestMapping("/updateMatch")
 	public String updateMatch(MatchVO vo) {
 		matchService.updateMatch(vo);
-		return "user/info/getMatchList";
+		return "redirect:getMatchList";
 	}
 
 	// 경기 정보 삭제
 	@RequestMapping("/deleteMatch")
 	public String deleteMatch(MatchVO vo) {
 		matchService.deleteMatch(vo);
-		return "user/info/getMatchList";
+		return "redirect:getMatchList";
 	}
 }
