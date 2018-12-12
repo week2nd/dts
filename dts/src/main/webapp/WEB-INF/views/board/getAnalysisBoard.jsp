@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>getBoardList.jsp</title>
+<title>getAnalysisBoard.jsp</title>
 <!-- <script>
  	function go_sort(sortCol){
  		document.frm.sortCol.value = sortCol;
@@ -14,7 +14,7 @@
 </script>-->
 </head>
 <body>
-<h3>게시판목록</h3>
+<h3>분석게시판</h3>
  
  <form action="deleteBoardList">	
 	<button>선택삭제</button>

@@ -12,4 +12,5 @@ public interface BoardService {
 	public BoardVO getBoard(BoardVO vo);			//게시판단건조회
 	public List<BoardVO> getBoardList(BoardVO vo);	//게시판전체조회
 	public void deleteBoardList(BoardVO vo);		//게시판전체삭제
+	public List<BoardVO> getFreeBoard(BoardVO vo);	//게시판전체조회
 }
