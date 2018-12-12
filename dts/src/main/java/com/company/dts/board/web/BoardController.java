@@ -22,19 +22,43 @@ public class BoardController {
 		model.addAttribute("boardList", boardService.getBoardList(vo));
 		return "user/board/getBoardList";
 	}
+
 	
 	
 	// 자유게시판 전체조회
-	@RequestMapping("/getFreeBoard")
+	@RequestMapping(value= {"/getFreeBoard"}
+	, method = RequestMethod.GET)
 	public String getFreeBoard(Model model, BoardVO vo)  {
-		vo.setBoardType("free");
-		String checktype = vo.getBoardType();
-	model.addAttribute("boardList", boardService.getBoardList(vo));
+		System.out.println("getFreeBoard@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		model.addAttribute("board", boardService.getFreeBoard(vo));
 		return "user/board/getFreeBoard";
 	}
 	
+	// 분석게시판 전체조회
+	@RequestMapping("/getAnalysisBoard")
+	public String getAnalysisBoard(Model model, BoardVO vo)  {
+	model.addAttribute("board", boardService.getBoardList(vo));
+		return "user/board/getAnalysisBoard";
+	}
+	
+	// 건의게시판 전체조회
+	@RequestMapping("/getSuggestionBoard")
+	public String getSuggestionBoard(Model model, BoardVO vo)  {
+	model.addAttribute("board", boardService.getBoardList(vo));
+		return "user/board/getSuggestionBoard";
+	}
+	
+	// 공지사항 전체조회
+	@RequestMapping("/getNoticeBoard")
+	public String getNoticeBoard(Model model, BoardVO vo)  {
+	model.addAttribute("board", boardService.getBoardList(vo));
+		return "user/board/getNoticeBoard";
+	}
+	
+	
+	
 	// 단건조회
-	@RequestMapping("/getBoard")		//http://localhost:8081/app/getBoardList
+	@RequestMapping("/getBoard")		
 	public String getBoard(Model model, BoardVO vo) {
 		model.addAttribute("board", boardService.getBoard(vo));
 		return "user/board/getBoard";

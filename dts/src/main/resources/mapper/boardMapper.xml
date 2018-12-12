@@ -4,18 +4,18 @@
  <mapper namespace="board">
 
  <!-- 전체게시판조회 -->
-<select id="getBoardList" resultType="board">	
+ <select id="getBoardList" resultType="board">	
 
-	SELECT	 	*
-	FROM 		BOARD
-	<if test = "boardType='free'">
-	WHERE 		BOARD_TYPE = 'free'		
-	</if>
+ 		SELECT * 
+		FROM BOARD 
+	
 
 	<!--  WHERE 1=1 -->
-	<!-- <if test="searchKeyword != null and searchKeyword != ''">
-		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
-	</if>  -->
+	 <if test="searchKeyword != null and searchKeyword == 'free'">
+		WHERE ${searchCondition} like '%' || #{searchKeyword} || 'free'
+	</if>
+	<if test="searchKeyword == null or searchKeyword != 'free'">
+	</if> 
 	
 	<!-- 검색할때사용할쿼리들 -->
 <!-- <where>	
@@ -30,7 +30,7 @@
 	
 	</where>
 	--> 
-	<choose>
+ 	<choose>
 		<when test="sortCol != null and sortCol != ''">
 			ORDER BY ${sortCol}	
 		</when>
@@ -39,39 +39,42 @@
 		</otherwise>
 	</choose>
 
+</select> 
+
+
+
+<!-- 자유게시판조회 -->
+<select id="getFreeBoard" resultType="board">	
+		SELECT * 
+		FROM BOARD;
+
 </select>
 
 
- <!-- 자유게시판 조회 -->
-<select id="getFreeBoard" parameterType="board" resultType="board">	
-	SELECT	 	*
-	FROM 		BOARD
-	WHERE		BOARD_TYPE=${free};
+<!-- 분석게시판조회 -->
+<select id="getAnalysisBoard" parameterType="board" resultType="board">
+	SELECT 	*
+	FROM	BOARD
+	<if test = "boardType='analysis'">
+	WHERE 	BOARD_TYPE = 'analysis'
+	</if>
 </select>
 
 
-<!-- 분석게시판 조회 -->
-<select id="getAnalysisBoard" parameterType="board" resultType="board">	
-	SELECT	 	*
-	FROM 		BOARD
-	WHERE		BOARD_TYPE=${analysis};
+<!-- 건의게시판조회 -->
+<select id="getSuggestionBoard" parameterType="board" resultType="board">
+	SELECT 	*
+	FROM	BOARD
+	WHERE 	BOARD_TYPE = 'suggestion'
 </select>
 
-
-<!-- 공지게시판 조회 -->
-<select id="getNoticeBoard" parameterType="board" resultType="board">	
-	SELECT	 	*
-	FROM 		BOARD
-	WHERE		BOARD_TYPE=${notice};
+<!-- 공지게시판조회 -->
+<select id="getNoticeBoard" parameterType="board" resultType="board">
+	SELECT 	*
+	FROM	BOARD
+	WHERE 	BOARD_TYPE = 'notice'
 </select>
 
-
-<!-- 건의게시판 조회 -->
-<select id="getSuggestionBoard" parameterType="board" resultType="board">	
-	SELECT	 	*
-	FROM 		BOARD
-	WHERE		BOARD_TYPE=${suggestion};
-</select>
 
 
 <!-- 단일게시판조회 -->
@@ -81,6 +84,7 @@
 	WHERE 	BOARD_NUMBER = #{boardNumber}
 	ORDER BY BOARD_NUMBER
 </select>
+
 
 
 <!-- 게시판 입력 -->
