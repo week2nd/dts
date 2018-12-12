@@ -90,7 +90,27 @@ public class MatchVO {
 	private int redpick5_kill;
 	private int redpick5_death;
 	private int redpick5_assist;
-
+	
+	// 통계 데이터
+	private int bluepick1_kda;
+	private int bluepick2_kda;
+	private int bluepick3_kda;
+	private int bluepick4_kda;
+	private int bluepick5_kda;
+	private int redpick1_kda;
+	private int redpick2_kda;
+	private int redpick3_kda;
+	private int redpick4_kda;
+	private int redpick5_kda;
+	private int blueteam_killsum;
+	private int blueteam_deathsum;
+	private int blueteam_assistsum;
+	private int blueteam_kda;
+	private int redteam_killsum;
+	private int redteam_deathsum;
+	private int redteam_assistsum;
+	private int redteam_kda;
+	
 	public String getBlueresult() {
 		return blueresult;
 	}
