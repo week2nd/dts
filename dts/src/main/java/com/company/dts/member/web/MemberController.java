@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
+import com.company.dts.member.common.Paging;
 
 @Controller
 public class MemberController {
@@ -22,9 +22,30 @@ public class MemberController {
 	@RequestMapping(value= {"/getMemberList", "/getListMemeber", "/getMembers"}
 					, method = RequestMethod.GET
 					)		//http://localhost:8081/app/getMemberList
-	public String getMemberList(Model model, MemberVO vo)  {
-		model.addAttribute("memberList", memberService.getMemberList(vo));
-		return "user/member/getMemberList";
+	public ModelAndView getMemberList(MemberVO vo, Paging paging)  {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		// 페이징 처리
+		// 페이지번호 파라미터
+		if( paging.getPage() == null) {
+			paging.setPage(1); 
+		}
+		
+		//한페이지 출력할 레코드 건수
+		paging.setPageUnit(5);
+		
+		// 시작/마지막 레코드 번호
+		vo.setFirst(paging.getFirst());
+		vo.setLast(paging.getLast());
+		
+		// 전체 건수
+		paging.setTotalRecord(memberService.getCount(vo));
+		
+		mv.addObject("paging", paging);
+		mv.addObject("memberList", memberService.getMemberList(vo)); // 속성명, 값
+		mv.setViewName("user/member/getMemberList");
+		return mv;
 	}
 	
 	// 관리자 맴버 단건조회
