@@ -1,6 +1,6 @@
 package com.company.dts.game.web;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.company.dts.game.GameService;
 import com.company.dts.game.GameVO;
+import com.company.dts.info.TeamService;
+import com.company.dts.info.TeamVO;
 import com.company.dts.member.MemberVO;
 import com.company.dts.purchase.PurchaseVO;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class GameController {
 	
 	@Autowired
 	GameService gameService;
+	
+	@Autowired
+	TeamService teamService;
 	
 	//게임전체조회
 	@RequestMapping("/getGameList")
@@ -51,14 +52,17 @@ public class GameController {
 	@RequestMapping(value="/insertGame", method = RequestMethod.GET)
 	public String insertGameform(Model model, GameVO vo) {
 		model.addAttribute("gameList", gameService.getGameList(vo));
+		TeamVO vo1 = new TeamVO();
+		model.addAttribute("teamList", teamService.getTeamList(vo1));		
 		return "user/game/insertGame";
-	}
+	}	
+	
 	//게임등록
 	@RequestMapping(value="insertGame", method = RequestMethod.POST)
 	public String insertGame(Model model, GameVO vo) {
 		gameService.insertGame(vo);
 		model.addAttribute("gameList", gameService.getGameList(vo));
-		return "user/game/getGameList";
+		return "redirect:getGameList";
 	}
 	//게임구매
 	@RequestMapping(value="buyGame", method = RequestMethod.POST)

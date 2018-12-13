@@ -13,6 +13,9 @@
 		BETDATE,
 		CHOISE
 		FROM PURCHASE
+		<if test="uId!=null and uId!=''">
+		WHERE U_ID = #{uId}
+		</if>
 	</select>
 
 	<select id="getPurchase" parameterType="purchase"
@@ -26,7 +29,6 @@
 		BETDATE,
 		CHOISE
 		FROM PURCHASE
-		WHERE PURCHASE_NUM = #{PURCHASE_NUM};
 	</select>
 	
 	<insert id="insertPurchase" parameterType="purchase">
