@@ -93,7 +93,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item active"> <a class="nav-link" href="homeUser">Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
             <li class="nav-item"> <a class="nav-link" href="./getGameList">게임구매</a> </li>
             <li class="nav-item"> <a class="nav-link" href="./getMatchList">경기정보</a>
             </li>
@@ -106,7 +106,14 @@
               </div>
             </li>
             <li class="nav-item"> <a class="nav-link" href="#">공지사항</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="./getMemberList">마이페이지</a> </li>
+            <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" aria-live="token">마이페이지</a>
+              <div class="dropdown-menu" aria-labelledby="layouts">
+                <a class="dropdown-item" href="./getBoardList">내정보</a>
+                <a class="dropdown-item" href="./getPurchaseList">내구매목록</a>
+                <a class="dropdown-item" href="#">다른링크</a>
+              </div>
+            </li>
             <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>
           </ul>
           <form class="ml-auto">

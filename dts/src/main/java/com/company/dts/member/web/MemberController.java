@@ -119,9 +119,9 @@ public class MemberController {
 		MemberVO membervo = memberService.getMember(vo);
 		// id가 있으면 패스워드 비교
 		if(membervo == null) { // id 없으면
-			return "homeGuest";
+			return "guest/main/guestMain";
 		} else if (! vo.getuPw().equals(membervo.getuPw())) { // ! <- not
-			return "homeGuest";
+			return "guest/main/guestMain";
 		} else {
 			session.setAttribute("membersession", membervo);
 			if (membervo.getuGrant().equals("admin")) {
@@ -135,7 +135,7 @@ public class MemberController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate(); // 세션 무효화 (로그아웃)
-		return "homeGuest";
+		return "guest/main/guestMain";
 	}
 	
 	

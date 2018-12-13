@@ -104,7 +104,7 @@
 					<c:if test="${game.buyCheck!=0}">	
 					<td ><input class="bluecheck" type="checkbox" disabled=true></td></c:if>
 					<c:if test="${game.buyCheck==0}">
-					<td ><input class="redcheck" type="checkbox"></td></c:if>
+					<td ><input class="bluecheck" type="checkbox"></td></c:if>
 					<td class="result">${game.result}</td>					
 				</tr>
 			</c:forEach>

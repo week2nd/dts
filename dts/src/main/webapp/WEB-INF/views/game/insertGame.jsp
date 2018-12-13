@@ -22,9 +22,8 @@ $(".datepicker").datepicker();
 			<tr>
 				<td>레드팀</td>
 				<td><select name="redTeamId">
-						<c:forEach items="${gameList}" var="game">
-							<option value="${game.redTeamId}">${game.redTeamId}</option>
-							<option value="${game.blueTeamId}">${game.blueTeamId}</option>
+						<c:forEach items="${teamList}" var="team">
+							<option value="${team.teamId}">${team.teamId}</option>
 						</c:forEach>
 				</select></td>
 			</tr>
@@ -35,9 +34,8 @@ $(".datepicker").datepicker();
 			<tr>
 				<td>블루팀</td>
 				<td><select name="blueTeamId">
-						<c:forEach items="${gameList}" var="game">
-							<option value="${game.redTeamId}">${game.redTeamId}</option>
-							<option value="${game.blueTeamId}">${game.blueTeamId}</option>
+						<c:forEach items="${teamList}" var="team">
+							<option value="${team.teamId}">${team.teamId}</option>
 						</c:forEach>
 				</select></td>
 
