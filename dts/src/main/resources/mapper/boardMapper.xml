@@ -45,9 +45,9 @@
 
 <!-- 자유게시판조회 -->
 <select id="getFreeBoard" resultType="board">	
-		SELECT * 
-		FROM BOARD 
-		WHERE BOARD_TYPE='free'
+	SELECT 	*
+	FROM	BOARD
+	WHERE 	BOARD_TYPE='free'
 </select>
 
 
@@ -101,6 +101,7 @@
 </insert>
 
 
+
 								
 								
 <!-- 게시판 업그레이드 -->
@@ -115,7 +116,7 @@
 
 <!-- 게시판 삭제 -->
 <delete id ="deleteBoard" parameterType="int">
-	DELETE FROM BOARD WHERE BOARD_NUMBER = #{value}
+	DELETE FROM BOARD WHERE BOARD_NUMBER = #{boardNumber}
 					
 </delete>
 

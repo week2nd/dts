@@ -32,6 +32,7 @@ public class BoardController {
 		return "user/board/getFreeBoard";
 	}
 	
+	
 	// 분석게시판 전체조회
 	@RequestMapping("/getAnalysisBoard")
 	public String getAnalysisBoard(Model model, BoardVO vo)  {

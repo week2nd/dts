@@ -21,7 +21,7 @@
 	
 
 	
-	<a href="${pageContext.request.contextPath}/insertBoard">등록</a>
+	<a href="${pageContext.request.contextPath}/insertBoard?type=notice">등록</a>
 	
 	<table border="1" >
 		<tr>

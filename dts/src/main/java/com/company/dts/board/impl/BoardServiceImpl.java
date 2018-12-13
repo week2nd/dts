@@ -29,7 +29,8 @@ public class BoardServiceImpl implements BoardService{
 		@Override
 		public List<BoardVO> getFreeBoard(BoardVO vo) {
 			return dao.getFreeBoard(vo);
-		}
+		}		
+		
 		
 		//분석게시판 전체조회
 		@Override
