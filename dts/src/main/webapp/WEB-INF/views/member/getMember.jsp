@@ -5,53 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>getUser.jsp</title>
-<!-- 
-function checkValue(){
-    var dmi = document.MuserUpdate;
-    
-    
-    if(dmi.mPw.value==""){
-        alert("비밀번호를 입력하세요.");
-        dmi.mPw.focus();
-        return false;
-    }else if(dmi.mPw.value.length<4){
-        alert("비밀번호를 4글자 이상 입력하세요.");
-        dmi.mPw.focus();	
-        return false;
-    }
-    if(dmi.mPwchk.value==""){
-        alert("비밀번호 확인을 입력하세요.");
-        dmi.mPwchk.focus();
-        return false;
-    }       
-    // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
-    if(dmi.mPw.value != dmi.mPwchk.value ){
-        alert("비밀번호를 동일하게 입력하세요.");
-        dmi.mPw.focus();
-        return false;
-    }
-    if(dmi.mName.value==""){
-        alert("이름을 입력하세요");
-        dmi.mName.focus();
-        return false;
-    }else if(dmi.mName.value.length<2){
-        alert("이름를 2글자 이상 입력하세요.");
-        dmi.mName.focus();	
-        return false;
-    }
-    if(dmi.mPhone.value==""){
-        alert("휴대폰번호를 입력하세요");
-        dmi.mPhone.focus();
-        return false;
-    }else if(dmi.mPhone.value.length<12){
-        alert("휴대폰번호를 끝까지 입력하세요.");
-        dmi.mPhone.focus();	
-        return false;
-    }
-    
-    
-}
- -->
 
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
  <script>

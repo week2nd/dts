@@ -32,8 +32,10 @@
 	<c:set var="jsFunc" value="go_page"></c:set>
 </c:if>
 
-<a href="#">이전</a>
+
+<a href="#" >&laquo;</a>
 <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i">
+	
 	<c:if test="${i != paging.page}">
 		<a href="#" onclick="${jsFunc}(${i})">${i}</a>
 	</c:if>
@@ -42,6 +44,6 @@
 	</c:if>
 </c:forEach>
 
-<a href="#">다음</a>
+<a href="#">&raquo;</a>
 
 </div>

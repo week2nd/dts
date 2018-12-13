@@ -48,9 +48,7 @@ select b.* from(select a.*, rownum rn from(
 	
 
 	FROM	MEMBER
-	<if test="uId!=null and uId!=''">
 	WHERE U_ID = #{uId}
-	</if>
 </select>
 
 
