@@ -5,57 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>insertUser.jsp</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<!-- 
-function checkValue(){
-    var dmi = document.MuserUpdate;
-    
-    
-    if(dmi.mPw.value==""){
-        alert("비밀번호를 입력하세요.");
-        dmi.mPw.focus();
-        return false;
-    }else if(dmi.mPw.value.length<4){
-        alert("비밀번호를 4글자 이상 입력하세요.");
-        dmi.mPw.focus();	
-        return false;
-    }
-    if(dmi.mPwchk.value==""){
-        alert("비밀번호 확인을 입력하세요.");
-        dmi.mPwchk.focus();
-        return false;
-    }       
-    // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
-    if(dmi.mPw.value != dmi.mPwchk.value ){
-        alert("비밀번호를 동일하게 입력하세요.");
-        dmi.mPw.focus();
-        return false;
-    }
-    if(dmi.mName.value==""){
-        alert("이름을 입력하세요");
-        dmi.mName.focus();
-        return false;
-    }else if(dmi.mName.value.length<2){
-        alert("이름를 2글자 이상 입력하세요.");
-        dmi.mName.focus();	
-        return false;
-    }
-    if(dmi.mPhone.value==""){
-        alert("휴대폰번호를 입력하세요");
-        dmi.mPhone.focus();
-        return false;
-    }else if(dmi.mPhone.value.length<12){
-        alert("휴대폰번호를 끝까지 입력하세요.");
-        dmi.mPhone.focus();	
-        return false;
-    }
-    
-    
-}
- -->
+
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
-  
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script> <!-- 다음우편번호 스크립트 -->
  <script>
      daum.postcode.load(function(){					// 다음 우편번호 함수
@@ -117,7 +68,24 @@ function checkValue(){
      }).open();
  }
      
-     
+     // 휴대폰번호 숫자만 입력가능하게
+    function onlyNumber(event){		
+   	    event = event || window.event;
+   	    var keyID = (event.which) ? event.which : event.keyCode;
+   	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+   	        return;
+   	    else
+   	        return false;
+   	}
+   	 
+   	function removeChar(event) {
+   	    event = event || window.event;
+   	    var keyID = (event.which) ? event.which : event.keyCode;
+   	    if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+   	        return;
+   	    else
+   	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
+   	}
      
      
      /////////////////////////////////////////////////////////////
@@ -277,9 +245,9 @@ function checkValue(){
 	            <td>주소</td>       
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" class="form-control address" id="sample4_postcode" placeholder="우편번호">
-	                <input type="text" class="form-control address" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()">
-	                <input type="text" class="form-control address" id="sample4_jibunAddress" placeholder="지번주소">
+	                <input type="text" class="form-control address" id="sample4_postcode" placeholder="우편번호" readonly>
+	                <input type="text" class="form-control address" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
+	                <input type="text" class="form-control address" id="sample4_jibunAddress" placeholder="지번주소" readonly>
 	                <span id="guide" style="color:#999"></span>
 	            </td>
 	        </tr>
@@ -296,8 +264,8 @@ function checkValue(){
                        <option value="019">019</option>                        
                    </select>
                    
-                   <input type="text" id="phone2" class="form-control phone" name="member" maxlength=4 placeholder="휴대폰번호 앞자리" value="${member.uPhone }" oninput="checkPwd()">
-                   <input type="text" id="phone3" class="form-control phone" maxlength=4 placeholder="휴대폰번호 뒷자리" id="${member.uPhone }" oninput="checkPwd()">
+                   <input type="text" id="phone2" class="form-control phone" name="member" maxlength=4 placeholder="휴대폰번호 앞자리" value="${member.uPhone }" oninput="checkPwd()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
+                   <input type="text" id="phone3" class="form-control phone" maxlength=4 placeholder="휴대폰번호 뒷자리" id="${member.uPhone }" oninput="checkPwd()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
                    <input type="hidden" name="uPhone" id="uPhone" oninput="checkPwd()">
                </td>
            </tr>
@@ -312,6 +280,7 @@ function checkValue(){
 	                <button class="form-control btn btn-primary joinbtn" disabled="disabled">가입</button> 
 	            </td>
 	        </tr>
+	       
 	    </table>
     </form>
     
