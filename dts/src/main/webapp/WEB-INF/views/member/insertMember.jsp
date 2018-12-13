@@ -54,18 +54,8 @@ function checkValue(){
     
 }
  -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
-  <style>
-    body {
-        background: #f8f8f8;
-        padding: 60px 0;
-    }
-    
-    #login-form > div {
-        margin: 15px 0;
-    }
-
-</style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+  
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script> <!-- 다음우편번호 스크립트 -->
  <script>
      daum.postcode.load(function(){					// 다음 우편번호 함수

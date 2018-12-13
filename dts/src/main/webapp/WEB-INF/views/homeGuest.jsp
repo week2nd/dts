@@ -1,55 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%> 
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="">
 
-  <title>E-SPORT토토게스트</title>
+<title>E-SPORT토토게스트</title>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/new-style.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-  <link href="css/lightbox.min.css" rel="stylesheet">
-  <link href="css/lity.min.css" rel="stylesheet">
-  <!-- <link href="css/slidebars.css" rel="stylesheet"> -->
-  <link rel="stylesheet" type="text/css" href="css/loaders.css" />
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/core.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="js/lightbox-plus-jquery.min.js"></script>
-  <script src="js/lity.min.js"></script>
+<!-- Custom styles for this template -->
+<link href="css/new-style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+<link href="css/lightbox.min.css" rel="stylesheet">
+<link href="css/lity.min.css" rel="stylesheet">
+<!-- <link href="css/slidebars.css" rel="stylesheet"> -->
+<link rel="stylesheet" type="text/css" href="css/loaders.css" />
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/core.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="js/lightbox-plus-jquery.min.js"></script>
+<script src="js/lity.min.js"></script>
 
 
 </head>
 
 <body>
-  <!-- Top small banner -->
-  <header class="float-left w-100">
-    <div class="small-top float-left w-100">
-      <div class="container-fluid">
-        <div class="row px-3">
-          <div class="col-lg-4 date-sec">
-            <div id="Date" class="mt-1">
-              <script>
-                var today = new Date()
-                document.write(today.getFullYear(), "년 ",
-                  today.getMonth() + 1, "월 ", today.getDate(), "일") 
-              </script>
-            </div>
-          </div>
-          <!-- <div class="col-lg-3 ml-auto">
+	<!-- Top small banner -->
+	<header class="float-left w-100">
+		<div class="small-top float-left w-100">
+			<div class="container-fluid">
+				<div class="row px-3">
+					<div class="col-lg-4 date-sec">
+						<div id="Date" class="mt-1">
+							<script>
+								var today = new Date()
+								document.write(today.getFullYear(), "년 ", today
+										.getMonth() + 1, "월 ", today.getDate(),
+										"일")
+							</script>
+						</div>
+					</div>
+					<!-- <div class="col-lg-3 ml-auto">
             <div class="social-icon">
               <a href="#" class=" fa fa-facebook"></a>
               <a href="#" class=" fa fa-twitter"></a>
@@ -59,82 +61,95 @@
               <a href="#" class=" fa fa-vimeo-square"></a>
             </div>
           </div> -->
-        </div>
-      </div>
-    </div>
-    <div class="top-head left">
-      <div class="container-fluid">
-        <div class="row px-3">
-          <div class="col-md-6 col-lg-4 mt-2">
-            <h1>E-Sports토토게스트메인
-              <!-- <small>1조최종프로젝트</small>  -->
-            </h1>
-          </div>
-          <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
-            <nav class="nav justify-content-end">
-              <form method="post" action="login" style="display: inline-block; margin-top: 0em;">
-                <div class="form-group" style="margin-top: 5px; display: inline-block">
-                  <input id="uId" type="text" class="form-control" placeholder="ID" name="uId">
-                </div>
-                <div class="form-group" style="margin-top: 5px; display: inline-block">
-                  <input id="uPw" type="password" class="form-control" placeholder="Password" name="uPw">
-                </div>
-                <button>로그인</button>
-              </form>
+				</div>
+			</div>
+		</div>
+		<div class="top-head left">
+			<div class="container-fluid">
+				<div class="row px-3">
+					<div class="col-md-6 col-lg-4 mt-2">
+						<h1>
+							E-Sports토토게스트메인
+							<!-- <small>1조최종프로젝트</small>  -->
+						</h1>
+					</div>
+					<div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
+						<nav class="nav justify-content-end">
+							<form method="post" action="login"
+								style="display: inline-block; margin-top: 0em;">
+								<div class="form-group"
+									style="margin-top: 5px; display: inline-block">
+									<input id="uId" type="text" class="form-control"
+										placeholder="ID" name="uId">
+								</div>
+								<div class="form-group"
+									style="margin-top: 5px; display: inline-block">
+									<input id="uPw" type="password" class="form-control"
+										placeholder="Password" name="uPw">
+								</div>
+								<button>로그인</button>
+							</form>
 
-              <a href="insertMember">회원가입</a>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  
-  <!-- Top Navigation -->
-  <section class="top-nav">
-    <nav class="navbar navbar-expand-lg py-0">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item active"> <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a></li>
-            <li class="nav-item"> <a class="nav-link" href="#">게임구매</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">경기정보</a>
-            </li>
-            <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false" aria-live="token">게시판</a>
-              <div class="dropdown-menu" aria-labelledby="layouts">
-                <a class="dropdown-item" href="#">자유게시판</a>
-                <a class="dropdown-item" href="#">분석게시판</a>
-                <a class="dropdown-item" href="#">건의게시판</a>
-              </div>
-            </li>
-            <li class="nav-item"> <a class="nav-link" href="#">공지사항</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">마이페이지</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>
-          </ul>
-          <form class="ml-auto">
-            <div class="search">
-              <input type="text" class="form-control" maxlength="64" placeholder="Search" />
-              <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </section>
-<h3>게스트메인</h3>
- <section class="banner-sec float-left w-100 pt-4 pb-5">
-	<div class="col-md-12">
+							<a href="insertMember">회원가입</a>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Top Navigation -->
+	<section class="top-nav">
+		<nav class="navbar navbar-expand-lg py-0">
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<i class="fa fa-bars" aria-hidden="true"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						<li class="nav-item active"><a class="nav-link" href="./">Home
+								<span class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">게임구매</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">경기정보</a></li>
+						<li class="nav-item dropdown menu"><a
+							class="nav-link dropdown-toggle" href="#" id="layouts"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+							aria-live="token">게시판</a>
+							<div class="dropdown-menu" aria-labelledby="layouts">
+								<a class="dropdown-item" href="#">자유게시판</a> <a
+									class="dropdown-item" href="#">분석게시판</a> <a
+									class="dropdown-item" href="#">건의게시판</a>
+							</div></li>
+						<li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
+					</ul>
+					<form class="ml-auto">
+						<div class="search">
+							<input type="text" class="form-control" maxlength="64"
+								placeholder="Search" />
+							<button type="submit" class="btn btn-search">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</nav>
+	</section>
+
+	<section class="banner-sec float-left w-100 pt-4 pb-5">
+		<div class="col-md-12">
 			<tiles:insertAttribute name="content" />
-	</div>
+		</div>
 
-  </section>
-  <!-- Info Block-01 -->
-  <!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
+	</section>
+	<!-- Info Block-01 -->
+	<!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-3">
@@ -230,8 +245,8 @@
     </div>
   </section> -->
 
-  <!-- widget block -->
-  <!-- <section class="widget-block flasher-sec float-left w-100">
+	<!-- widget block -->
+	<!-- <section class="widget-block flasher-sec float-left w-100">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-2 pr-0">
@@ -281,8 +296,8 @@
     </div>
   </section> -->
 
-  <!-- Info Block-02 -->
-  <!-- <section class="section-01 float-left w-100 py-5">
+	<!-- Info Block-02 -->
+	<!-- <section class="section-01 float-left w-100 py-5">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-8">
@@ -350,8 +365,8 @@
             <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Featured</a> </li>
           </ul> -->
 
-  <!-- Tab panes -->
-  <!-- <div class="tab-content sidebar-tabing">
+	<!-- Tab panes -->
+	<!-- <div class="tab-content sidebar-tabing">
             <div class="tab-pane active" id="home" role="tabpanel">
               <div class="media"> <a href="#"><img class="d-flex mr-3" src="img/sport2.jpg" alt="Generic placeholder image"></a>
                 <div class="media-body">
@@ -444,8 +459,8 @@
     </div>
   </section> -->
 
-  <!-- widget block -->
-  <!-- <section class="widget-block widget-slider float-left w-100 py-4">
+	<!-- widget block -->
+	<!-- <section class="widget-block widget-slider float-left w-100 py-4">
     <div class="container-fluid">
       <div class="row px-5">
         <div class="col-md-12 px-0">
@@ -556,8 +571,8 @@
     </div>
   </section> -->
 
-  <!-- Info Block-03 -->
-  <!-- <section class="section-02 float-left w-100 py-5">
+	<!-- Info Block-03 -->
+	<!-- <section class="section-02 float-left w-100 py-5">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-12">
@@ -614,8 +629,8 @@
     </div>
   </section> -->
 
-  <!-- Video and Picture gallery -->
-  <!-- <section class="video-gallery-sec float-left w-100 py-5">
+	<!-- Video and Picture gallery -->
+	<!-- <section class="video-gallery-sec float-left w-100 py-5">
     <div class="container-fluid">
       <div class="row mb-3 px-3">
         <div class="col-md-12">
@@ -691,8 +706,8 @@
   </section> -->
 
 
-  <!-- Footer tabing section -->
-  <!-- <div class="sub-footer">
+	<!-- Footer tabing section -->
+	<!-- <div class="sub-footer">
     <div class="container">
       <h3 class="heading-large">Top Five Stories</h3>
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -714,9 +729,9 @@
                 </div>
               </div>
             </div> -->
-  <!-- End Item -->
+	<!-- End Item -->
 
-  <!-- <div class="carousel-item"> <img class="img-fluid" src="img/footer-col-3.jpg">
+	<!-- <div class="carousel-item"> <img class="img-fluid" src="img/footer-col-3.jpg">
               <div class="carousel-caption">
                 <div class="news-title">
                   <h2 class=" title-large"><a href="#">Key Republican Senator Says She Will Not Vote for former
@@ -724,26 +739,26 @@
                 </div>
               </div>
             </div> -->
-  <!-- End Item -->
+	<!-- End Item -->
 
-  <!-- <div class="carousel-item"> <img class="img-fluid" src="img/footer-col-4.jpg">
+	<!-- <div class="carousel-item"> <img class="img-fluid" src="img/footer-col-4.jpg">
               <div class="carousel-caption">
                 <div class="news-title">
                   <h2 class=" title-large"><a href="#">An Alternative Form of Mental Health Care Gains a Foothold</a></h2>
                 </div>
               </div>
             </div> -->
-  <!-- End Item -->
+	<!-- End Item -->
 
-  <!-- <div class="carousel-item"> <img class="img-fluid" src="img/footer-col-5.jpg">
+	<!-- <div class="carousel-item"> <img class="img-fluid" src="img/footer-col-5.jpg">
               <div class="carousel-caption">
                 <div class="news-title">
                   <h2 class=" title-large"><a href="#">Woman dies in prison drone police chase </a></h2>
                 </div>
               </div>
             </div> -->
-  <!-- End Item -->
-  <!-- </div>
+	<!-- End Item -->
+	<!-- </div>
           <ul class="list-group col-sm-4">
             <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active">
               <h4>Ray madison may struggle to get best from Paul in a 4-2-3-1 formation</h4>
@@ -766,72 +781,92 @@
     </div>
   </div> -->
 
-  <!-- Footer Section -->
-  <footer>
-    <div class="container-fluid">
-      <div class="row px-3">
-        <div class="col-lg-4 col-md-12">
-          <h6 class="heading-footer">ABOUT US</h6>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-          <p><i class="fa fa-phone"></i> <span>Call Us :</span> +91 9999 878 398</p>
-          <p><i class="fa fa-envelope"></i> <span>Send Email :</span> info@webenlance.com</p>
-        </div>
-        <div class="col-lg-2 col-md-4">
-          <h6 class="heading-footer">QUICK LINKS</h6>
-          <ul class="footer-ul">
-            <li><a href="#"> Career</a></li>
-            <li><a href="#"> Privacy Policy</a></li>
-            <li><a href="#"> Terms & Conditions</a></li>
-            <li><a href="#"> Client Gateway</a></li>
-            <li><a href="#"> Ranking</a></li>
-            <li><a href="#"> Case Studies</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <h6 class="heading-footer">LATEST NEWS</h6>
-          <div class="post">
-            <p>Key Republicans sign letter warning against candidate<span>August 3,2015</span></p>
-            <p>Obamacare Appears to Be Making People Healthie <span>August 3,2015</span></p>
-            <p>Syria war: Why the battle for Aleppo matters<span>August 3,2015</span></p>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-4 social-icons">
-          <h6 class="heading-footer">FOLLOW</h6>
-          <ul class="footer-ul">
-            <li><a href="#"><i class=" fa fa-facebook"></i> Facebook</a></li>
-            <li><a href="#"><i class=" fa fa-twitter"></i> Twitter</a></li>
-            <li><a href="#"><i class=" fa fa-google-plus"></i> Google+</a></li>
-            <li><a href="#"><i class=" fa fa-linkedin"></i> Linkedin</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+	<!-- Footer Section -->
+	<footer>
+		<div class="container-fluid">
+			<div class="row px-3">
+				<div class="col-lg-4 col-md-12">
+					<h6 class="heading-footer">ABOUT US</h6>
+					<p>Lorem Ipsum is simply dummy text of the printing and
+						typesetting industry. Lorem Ipsum has been the industry's standard
+						dummy text ever since the 1500s, when an unknown printer took a
+						galley.</p>
+					<p>
+						<i class="fa fa-phone"></i> <span>Call Us :</span> +91 9999 878
+						398
+					</p>
+					<p>
+						<i class="fa fa-envelope"></i> <span>Send Email :</span>
+						info@webenlance.com
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<h6 class="heading-footer">QUICK LINKS</h6>
+					<ul class="footer-ul">
+						<li><a href="#"> Career</a></li>
+						<li><a href="#"> Privacy Policy</a></li>
+						<li><a href="#"> Terms & Conditions</a></li>
+						<li><a href="#"> Client Gateway</a></li>
+						<li><a href="#"> Ranking</a></li>
+						<li><a href="#"> Case Studies</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-4">
+					<h6 class="heading-footer">LATEST NEWS</h6>
+					<div class="post">
+						<p>
+							Key Republicans sign letter warning against candidate<span>August
+								3,2015</span>
+						</p>
+						<p>
+							Obamacare Appears to Be Making People Healthie <span>August
+								3,2015</span>
+						</p>
+						<p>
+							Syria war: Why the battle for Aleppo matters<span>August
+								3,2015</span>
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4 social-icons">
+					<h6 class="heading-footer">FOLLOW</h6>
+					<ul class="footer-ul">
+						<li><a href="#"><i class=" fa fa-facebook"></i> Facebook</a></li>
+						<li><a href="#"><i class=" fa fa-twitter"></i> Twitter</a></li>
+						<li><a href="#"><i class=" fa fa-google-plus"></i>
+								Google+</a></li>
+						<li><a href="#"><i class=" fa fa-linkedin"></i> Linkedin</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
-  <!-- Copy footer start from here-->
-  <div class="copyright">
-    <div class="container-fluid">
-      <div class="row px-3">
-        <div class="col-lg-6 col-md-4">
-          <p>© 2016 - <a href="http://grafreez.com">Grafreez.com</a></p>
-        </div>
-        <div class="col-lg-6 col-md-8">
-          <ul class="bottom_ul">
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Faq's</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Site Map</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+	<!-- Copy footer start from here-->
+	<div class="copyright">
+		<div class="container-fluid">
+			<div class="row px-3">
+				<div class="col-lg-6 col-md-4">
+					<p>
+						© 2016 - <a href="http://grafreez.com">Grafreez.com</a>
+					</p>
+				</div>
+				<div class="col-lg-6 col-md-8">
+					<ul class="bottom_ul">
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Faq's</a></li>
+						<li><a href="#">Contact us</a></li>
+						<li><a href="#">Site Map</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <!-- Bootstrap core JavaScript
+	<!-- Bootstrap core JavaScript
     ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
+	<!-- Placed at the end of the document so the pages load faster -->
 </body>
 
 </html>

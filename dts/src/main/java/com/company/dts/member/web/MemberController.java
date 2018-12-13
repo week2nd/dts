@@ -50,7 +50,7 @@ public class MemberController {
 	
 	// 관리자 맴버 단건조회
 	@RequestMapping("/getMember")		//http://localhost:8081/app/getMemberList
-	public String getMember(Model model, MemberVO vo) {
+	public String getMember(Model model, MemberVO vo) {		
 		model.addAttribute("member", memberService.getMember(vo));
 		return "user/member/getMember";
 	}
@@ -58,19 +58,21 @@ public class MemberController {
 	// 회원가입 등록폼
 	@RequestMapping(value="/insertMember" , method = RequestMethod.GET)
 	public String insertMemberform() {
-		return "guest/member/insertMember";
+		return "user/member/insertMember";
 	}
 		
 	// 회원가입 등록처리
 	@RequestMapping(value="insertMember", method = RequestMethod.POST)
 	public String insertMember(MemberVO vo) {	// 커맨드 객체
 		memberService.insertMember(vo);		//등록처리
-		return "member/insertMember";		//목록요청
+		return "home";		//목록요청
 		
 	}
 	// 개인 맴버 수정
 	@RequestMapping("/getMemberUser")
-	public String getMemberUser(Model model, MemberVO vo) {
+	public String getMemberUser(Model model, MemberVO vo, HttpSession session) {
+		String id = ((MemberVO)session.getAttribute("membersession")).getuId();
+		vo.setuId(id);
 		model.addAttribute("member", memberService.getMember(vo));
 		return "user/member/getMemberUser";
 	}

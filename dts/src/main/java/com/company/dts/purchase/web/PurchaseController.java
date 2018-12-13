@@ -51,6 +51,6 @@ public class PurchaseController {
 	@RequestMapping(value="insertPurchase", method = RequestMethod.POST)
 	public String insertPurchase(Model model, PurchaseVO vo) {
 		purchaseService.insertPurchase(vo);
-		return "user/purchase/getPurchaseList";
+		return "redirect:getPurchaseList";
 	}
 }
