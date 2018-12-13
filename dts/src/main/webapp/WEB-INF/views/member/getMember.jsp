@@ -132,7 +132,7 @@ function checkValue(){
         </tr>
         <tr>
             <td>기존 비밀번호</td>
-            <td><input type="password" name="uPw" value="${member.uPw }"></td>
+            <td><input type="password" name="uPw" value="${member.uPw }" readonly></td>
         </tr>
         <tr>
             <td>새 비밀번호</td>

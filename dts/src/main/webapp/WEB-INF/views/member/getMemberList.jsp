@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,10 @@
  		document.frm.sortCol.value = sortCol;
  		document.frm.submit();
  	} 
+ 	function go_page(page){
+		document.frm.page.value=page;
+		document.frm.submit();			// 검색폼
+	}
 </script>
 </head>
 <body>
@@ -50,5 +55,6 @@
 		</c:forEach> 
 	</table>
 </form>	 
+<my:paging paging="${paging}" jsFunc="go_page"/>
 </body>
 </html>

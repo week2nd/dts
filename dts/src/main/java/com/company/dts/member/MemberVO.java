@@ -20,7 +20,22 @@ public class MemberVO {
 	private String searchKeyword;
 	private String sortCol;
 	private String[] uidList;
+	private int first;			// 페이지 목록
+	private int last;			// 페이지 목록
 	
+	
+	public int getFirst() {
+		return first;
+	}
+	public void setFirst(int first) {
+		this.first = first;
+	}
+	public int getLast() {
+		return last;
+	}
+	public void setLast(int last) {
+		this.last = last;
+	}
 	public String getSortCol() {
 		return sortCol;
 	}
