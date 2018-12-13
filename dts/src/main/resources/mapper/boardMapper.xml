@@ -46,18 +46,16 @@
 <!-- 자유게시판조회 -->
 <select id="getFreeBoard" resultType="board">	
 		SELECT * 
-		FROM BOARD;
-
+		FROM BOARD 
+		WHERE BOARD_TYPE='free'
 </select>
 
 
 <!-- 분석게시판조회 -->
-<select id="getAnalysisBoard" parameterType="board" resultType="board">
+<select id="getAnalysisBoard" resultType="board">
 	SELECT 	*
 	FROM	BOARD
-	<if test = "boardType='analysis'">
-	WHERE 	BOARD_TYPE = 'analysis'
-	</if>
+	WHERE 	BOARD_TYPE='analysis'
 </select>
 
 
@@ -65,14 +63,14 @@
 <select id="getSuggestionBoard" parameterType="board" resultType="board">
 	SELECT 	*
 	FROM	BOARD
-	WHERE 	BOARD_TYPE = 'suggestion'
+	WHERE 	BOARD_TYPE='suggestion'
 </select>
 
 <!-- 공지게시판조회 -->
 <select id="getNoticeBoard" parameterType="board" resultType="board">
 	SELECT 	*
 	FROM	BOARD
-	WHERE 	BOARD_TYPE = 'notice'
+	WHERE 	BOARD_TYPE='notice'
 </select>
 
 

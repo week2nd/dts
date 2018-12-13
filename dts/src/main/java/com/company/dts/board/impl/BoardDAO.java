@@ -50,8 +50,25 @@ public class BoardDAO {
 			System.out.println("mybatis jdbc getFreeBoard() 기능처리");
 			return mybatis.selectList("board.getFreeBoard", vo);
 		}
+		
+		// 분석게시판전체조회
+		public List<BoardVO> getAnalysisBoard(BoardVO vo) {
+			System.out.println("mybatis jdbc getAnalysisBoard() 기능처리");
+			return mybatis.selectList("board.getAnalysisBoard", vo);
+		}
 	
-
+		// 건의게시판전체조회
+		public List<BoardVO> getSuggestionBoard(BoardVO vo) {
+			System.out.println("mybatis jdbc getSuggestionBoard() 기능처리");
+			return mybatis.selectList("board.getSuggestionBoard", vo);
+		}
+		
+		// 공지사항전체조회
+				public List<BoardVO> getNoticeBoard(BoardVO vo) {
+					System.out.println("mybatis jdbc getNoticeBoard() 기능처리");
+					return mybatis.selectList("board.getNoticeBoard", vo);
+				}
+		
 	// 단건조회
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("spring jdbc getBoard() 기능처리");
