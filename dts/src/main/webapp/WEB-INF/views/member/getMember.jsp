@@ -129,10 +129,31 @@
                 <input type="text" name="phone3" value="${member.uPhone }">
             </td>
         </tr>
-        <tr>
-            <td>생년월일</td>
-            <td>${member.uBirth}</td>
-        </tr>        
+        
+		<tr>
+			<td>마일리지</td>
+			<td>${member.uMileage}</td>
+		</tr>
+		<tr>
+			<td>권한</td>
+			<td>${member.uGrant}</td>
+		</tr>
+		<tr>
+			<td>생년월일</td>
+			<td>${member.uBirth}</td>
+		</tr>
+		<tr>
+			<td>가입일시</td>
+			<td>${member.uDate}</td>
+		</tr>
+		<tr>
+			<td>맞춘횟수</td>
+			<td>${member.uWin}</td>
+		</tr>
+		<tr>
+			<td>틀린횟수</td>
+			<td>${member.uLose}</td>
+		</tr>
         <tr>
             <td colspan="5"> 
     <!--     <a href="updateMemberform?uId=${member.uId }"><input type="button" value="수정"></a> -->  
