@@ -13,14 +13,17 @@
  		document.frm.submit();
  	} 
  	function go_page(page){
-		document.frm.page.value=page;
-		document.frm.submit();			// 검색폼
+ 		location.href="getMemberList?page="+page;
+		//document.frm.page.value=page;
+		//document.frm.submit();			// 검색폼
 	}
 </script>
 </head>
 <body>
 <h3>getUserList아아아아</h3>
- <form action="deleteMemberList" class="table">	
+
+ <form action="deleteMemberList" class="table" name="frm">	
+
 	<button>선택삭제</button>
 	<table border="1" >
 		<tr>

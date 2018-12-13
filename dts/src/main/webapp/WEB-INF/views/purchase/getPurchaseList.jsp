@@ -11,7 +11,7 @@
 </head>
 <body>
     <form>
-        <table>
+        <table class="table">
         <thead>
             <tr>                
                 <th>구매번호</th>

@@ -23,25 +23,14 @@
 
  <!-- 전체유저조회 -->
 <select id="getMemberList" resultType="member">	
-
+select b.* from(select a.*, rownum rn from(
 	SELECT	 	*
 	FROM 		MEMBER
 	<!--  WHERE 1=1 -->
 	<if test="searchKeyword != null and searchKeyword != ''">
 		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
 	</if> 
-<!-- <where>	
-	<choose>
-		<when test="searchCondition != null and searchCondition == 'title'">
-			and title like '%' || #{searchKeyword} || '%'
-		</when>
-		<when test="searchCondition != null and searchCondition == 'content'">
-			and content like '%' || #{searchKeyword} || '%'
-		</when>
-	</choose>
-	
-	</where>
-	--> 
+
 	<choose>
 		<when test="sortCol != null and sortCol != ''">
 			ORDER BY ${sortCol}	
@@ -50,7 +39,7 @@
 			ORDER BY U_ID DESC
 		</otherwise>
 	</choose>
-
+  )a ) b where rn between #{first} and #{last}
 </select>
 
 <!-- 단일유저조회 -->
@@ -59,7 +48,9 @@
 	
 
 	FROM	MEMBER
+	<if test="uId!=null and uId!=''">
 	WHERE U_ID = #{uId}
+	</if>
 </select>
 
 

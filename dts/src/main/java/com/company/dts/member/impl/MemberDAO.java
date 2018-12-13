@@ -48,7 +48,9 @@ public class MemberDAO {
 	}
 	// 페이지 목록 건수조회
 	public int getCount(MemberVO vo) {
+		System.out.println("mybatis getMember() 기능 처리");
 		return mybatis.selectOne("member.getCount", vo);
 	}
+	
 	
 }
