@@ -73,7 +73,7 @@ public class BoardController {
 	@RequestMapping(value="/insertBoard", method = RequestMethod.POST)
 	public String insertBoard(BoardVO vo) {	// 커맨드 객체
 		boardService.insertBoard(vo);		//등록처리
-		return "redirect:getBoardList";		//목록요청
+		return "redirect:getFreeBoard";		//목록요청
 	}
 	
 	//수정
