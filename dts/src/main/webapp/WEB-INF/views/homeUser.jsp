@@ -76,10 +76,16 @@
 					</div>
 					<div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
 						<nav class="nav justify-content-end">
-							<form method="post" action="logout"
+							<form method="post" 
 								style="display: inline-block; margin-top: 0em;">
-								${membersession.uId}
-								<button>로그아웃</button>
+								<div class="form-group"
+									style="margin-top: 5px; display: inline-block">
+								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}</p>
+								</div>
+								<div class="form-group"
+									style="margin-top: 5px; display: inline-block">
+								<a href="logout">로그아웃</a>
+								</div>
 							</form>
 						</nav>
 					</div>

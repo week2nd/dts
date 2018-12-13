@@ -86,11 +86,16 @@
 									style="margin-top: 5px; display: inline-block">
 									<input id="uPw" type="password" class="form-control"
 										placeholder="Password" name="uPw">
+								
 								</div>
-								<button>로그인</button>
-							</form>
+								<div class="form-group"
+									style="margin-top: 5px; display: inline-block"><button type="submit">로그인</button></div>
 
-							<a href="insertMember">회원가입</a>
+							</form>
+							<div class="form-group"
+									style="margin-top: 13px; margin-left: 5px display: inline-block">
+							<button onclick="window.location.href='insertMember'">회원가입</button></div>
+							
 						</nav>
 					</div>
 				</div>

@@ -58,7 +58,7 @@ public class MemberController {
 	// 회원가입 등록폼
 	@RequestMapping(value="/insertMember" , method = RequestMethod.GET)
 	public String insertMemberform() {
-		return "user/member/insertMember";
+		return "guest/member/insertMember";
 	}
 		
 	// 회원가입 등록처리
