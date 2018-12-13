@@ -5,20 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>getMemberUser.jsp</title>
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-	google.charts.load('current', {
-		'packages' : [ 'corechart', 'bar' ]
-	});
-	google.charts.setOnLoadCallback(drawStuff);
 
-	// 원형차트1번
-	google.charts.load("current", {
-		packages : [ "corechart" ]
-	});
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+	google.charts.load('current', {'packages':['corechart']});
 	google.charts.setOnLoadCallback(drawChart);
-	    
 	//원형차트
 	function drawChart() {
 		
@@ -27,11 +18,13 @@
 		var lose =$('#lose').val();
 		
 		var data = google.visualization.arrayToDataTable([
-				[ '가', '나' ], [ '적중', $('#win').val() ],
-				[ '실패', $('#lose').val() ] ]);
+				[ '가', '나' ], 
+				[ '적중', 3 ],
+				[ '실패', 5 ],
+				[ '마일리지', 6 ] ]);
 
 		var options = {
-			title : 'OOO님 적중률'
+			title : $('#username').val()+'님 적중률'
 		};
 
 		var chart = new google.visualization.PieChart(document
@@ -40,58 +33,12 @@
 		chart.draw(data, options);
           
 	//	console.log(mileage);
-		console.log(win);
-		console.log(lose);
+		console.log($('#win').val());
+		console.log($('#lose').val());
 	
 		
 	}
 
-	//원형차트
-
-	function drawStuff() {
-		
-		var chartDiv4 = document.getElementById('chart_div4');
-	//	var data4 = google.visualization.arrayToDataTable([
-		//		[ '탈출', '하자', '예담' ], [ '1번', 580, 5 ], [ '2번', 400, 5 ] ]);
-
-		var materialOptions4 = {
-			// 차트넓이
-			width : 300,
-			height : 300,
-			chart : {
-			//       title: 'DTS king god',
-			//       subtitle: 'Lift is Good'
-			},
-			series : {
-				0 : {
-					axis : 'distance'
-				}, // Bind series 0 to an axis named 'distance'.
-				1 : {
-					axis : 'brightness'
-				}
-			// Bind series 1 to an axis named 'brightness'.
-			},
-			axes : {
-				y : {
-				//        distance: {label: '아무거나22'}, // Left y-axis.
-				//       brightness: {side: 'right', label: '떼이귀22'} // Right y-axis.
-				}
-			}
-		};
-
-		function drawMaterialChart4() {
-			var materialChart = new google.charts.Bar(chartDiv4);
-			materialChart.draw(data4, google.charts.Bar
-					.convertOptions(materialOptions4));
-
-		}
-		function drawClassicChart4() {
-			var classicChart = new google.visualization.ColumnChart(chartDiv4);
-			classicChart.draw(data4, classicOptions);
-		}
-
-	//	drawMaterialChart4();
-	};
 
 	/////////////////////////////////////////////////////////////
 
@@ -158,11 +105,8 @@
 		<input type="hidden" id="mileage" value="${member.uMileage }">
 		<input type="hidden" id="win" value="${member.uWin }">
 		<input type="hidden" id="lose" value="${member.uLose }">
-		<%-- 	<input type="hidden" class="form-control pass" name="uPw" value="${member.uPw }" />
-		<input type="hidden" class="form-control name" name="uName" value="${member.uName }" />
-		<input type="hidden" class="form-control address" name="uAddress" value="${member.uAddress }" />
-		<input type="hidden" class="form-control phone" name="uPhone" value="${member.uPhone }" />
-		<input type="hidden" class="form-control date" name="uBirth" value="${member.uBirth }" /> --%>
+		<input type="hidden" id="username" value="${member.uName }">
+		
 		<table style="width: 70%">
 			<tr>
 				<td><div style="width: 50px;">아이디</div></td>

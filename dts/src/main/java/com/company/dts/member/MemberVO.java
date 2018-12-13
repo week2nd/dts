@@ -23,7 +23,7 @@ public class MemberVO {
 	private int first;			// 페이지 목록
 	private int last;			// 페이지 목록
 	
-	
+
 	public int getFirst() {
 		return first;
 	}

@@ -283,13 +283,7 @@
 	       
 	    </table>
     </form>
-    
-    <input type="number"
-                id="usernumber" name="usernumber"
-                value="100"
-                step="10"
-                min="0"
-                max="1000">
+
     
 </body>
 </html>
