@@ -14,7 +14,7 @@
 		CHOISE
 		FROM PURCHASE
 		<if test="uId!=null and uId!=''">
-		WHERE U_ID = #{uId}
+			WHERE U_ID = #{uId}
 		</if>
 	</select>
 
@@ -30,10 +30,11 @@
 		CHOISE
 		FROM PURCHASE
 	</select>
-	
-	<insert id="insertPurchase" parameterType="purchase">
-		<selectKey keyProperty="purchaseNum" resultType="integer" order="BEFORE">
-		SELECT nvl(MAX(PURCHASE_NUM),0)+1 FROM PURCHASE
+
+	<!-- <insert id="insertPurchase" parameterType="purchase">
+		<selectKey keyProperty="purchaseNum" resultType="integer"
+			order="BEFORE">
+			SELECT nvl(MAX(PURCHASE_NUM),0)+1 FROM PURCHASE
 		</selectKey>
 		INSERT INTO PURCHASE(PURCHASE_NUM,
 		U_ID,
@@ -47,6 +48,19 @@
 		#{betMoney},
 		#{betDrate},
 		#{choise} )
+	</insert> -->
+
+	<insert id="insertPurchase" statementType="CALLABLE"
+		parameterType="purchase">
+		{ call PROC_BETMONEY(
+		#{purchaseNum},
+		#{uId},
+		#{gameId},
+		#{betMoney},
+		#{betDrate},
+		#{choise} )
+		
 	</insert>
+
 
 </mapper>
