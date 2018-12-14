@@ -7,12 +7,13 @@
 	<select id="getMatchList" parameterType="match" resultType="match">
 		SELECT	*
 		FROM 	INGAME
+		ORDER BY	MATCHDATE DESC
 	</select>
 	
 	<select id="getMatch" parameterType="match" resultType="match">
 		SELECT	*
 		FROM 	INGAME
-		WHERE	TEAMINFO = ${teaminfo}
+		WHERE	MATCH_ID = #{matchId}
 	</select>
 	
 <!-- 	<select id="getMatch" parameterType="match" resultType="match">
@@ -30,7 +31,13 @@
 	</select>
  -->	
 	<insert id="insertMatch" parameterType="match">
-		INSERT INTO	INGAME(	MATCHDATE,
+	<selectKey keyProperty="matchId" resultType="integer"
+			order="BEFORE">
+		SELECT 		MAX(MATCH_ID)+1
+		FROM 		INGAME			
+		</selectKey>
+		INSERT INTO	INGAME(	MATCH_ID,
+							MATCHDATE,
 							MATCHNAME,
 							MATCHINFO,
 							PLAYTIME,
@@ -62,10 +69,11 @@
 							REDPICK3_KILL, REDPICK3_DEATH, REDPICK3_ASSIST,
 							REDPICK4_KILL, REDPICK4_DEATH, REDPICK4_ASSIST,
 							REDPICK5_KILL, REDPICK5_DEATH, REDPICK5_ASSIST
-)		VALUES(		sysdate,
+)		VALUES(		#{matchId},
+					sysdate,
 					#{matchname},
 					#{matchinfo},
-					to_char(to_date(#{playtime} ,':hh24:mi'),'hh24:mi'),
+					to_char(to_date(#{playtime} ,':mi:ss'),'mi:ss'),
 					#{blueteamname},	#{redteamname},
 					#{blueresult},		#{redresult},
 					#{bluepick1}, 	#{bluepick2}, 	#{bluepick3}, 	#{bluepick4}, 	#{bluepick5},
@@ -97,9 +105,45 @@
 			)								
 	</insert>
 	
-<!-- 	<update id="updateMatch" parameterType="match">
+	<update id="updateMatch" parameterType="match">
+		UPDATE	INGAME
+		SET		MATCHDATE=#{matchdate},
+				MATCHNAME=#{matchname},
+				MATCHINFO=#{matchinfo},
+				PLAYTIME=to_char(to_date(#{playtime} ,':mi:ss'),'mi:ss'),
+				BLUETEAMNAME=#{blueteamname},	REDTEAMNAME=#{redteamname},
+				BLUERESULT=#{blueresult},		REDRESULT=#{redresult},
+				BLUEPICK1=#{bluepick1}, 	BLUEPICK2=#{bluepick2}, 	BLUEPICK3=#{bluepick3}, 	BLUEPICK4=#{bluepick4}, 	BLUEPICK5=#{bluepick5},
+				REDPICK1=#{redpick1}, 	REDPICK2=#{redpick2}, 	REDPICK3=#{redpick3}, 	REDPICK4=#{redpick4}, 	REDPICK5=#{redpick5},
+				BLUEGAMER1=#{bluegamer1}, BLUEGAMER2=#{bluegamer2}, BLUEGAMER3=#{bluegamer3}, BLUEGAMER4=#{bluegamer4}, BLUEGAMER5=#{bluegamer5},
+				REDGAMER1=#{redgamer1}, REDGAMER2=#{redgamer2}, REDGAMER3=#{redgamer3}, REDGAMER4=#{redgamer4}, REDGAMER5=#{redgamer5},
+				BLUEBAN1=#{blueban1}, BLUEBAN2=#{blueban2}, BLUEBAN3=#{blueban3}, BLUEBAN4=#{blueban4}, BLUEBAN5=#{blueban5},
+				REDBAN1=#{redban1}, REDBAN2=#{redban2}, REDBAN3=#{redban3}, REDBAN4=#{redban4}, REDBAN5=#{redban5},
+				BLUEPICK1_SPELL1=#{bluepick1Spell1}, BLUEPICK1_SPELL2=#{bluepick1Spell2},
+				BLUEPICK2_SPELL1=#{bluepick2Spell1}, BLUEPICK2_SPELL2=#{bluepick2Spell2},
+				BLUEPICK3_SPELL1=#{bluepick3Spell1}, BLUEPICK3_SPELL2=#{bluepick3Spell2},
+				BLUEPICK4_SPELL1=#{bluepick4Spell1}, BLUEPICK4_SPELL2=#{bluepick4Spell2},
+				BLUEPICK5_SPELL1=#{bluepick5Spell1}, BLUEPICK5_SPELL2=#{bluepick5Spell2},
+				REDPICK1_SPELL1=#{redpick1Spell1}, REDPICK1_SPELL2=#{redpick1Spell2},
+				REDPICK2_SPELL1=#{redpick2Spell1}, REDPICK2_SPELL2=#{redpick2Spell2},
+				REDPICK3_SPELL1=#{redpick3Spell1}, REDPICK3_SPELL2=#{redpick3Spell2},
+				REDPICK4_SPELL1=#{redpick4Spell1}, REDPICK4_SPELL2=#{redpick4Spell2},
+				REDPICK5_SPELL1=#{redpick5Spell1}, REDPICK5_SPELL2=#{redpick5Spell2},
+				BLUEPICK1_KILL=#{bluepick1Kill}, BLUEPICK1_DEATH=#{bluepick1Death}, BLUEPICK1_ASSIST=#{bluepick1Assist},
+				BLUEPICK2_KILL=#{bluepick2Kill}, BLUEPICK2_DEATH=#{bluepick2Death}, BLUEPICK2_ASSIST=#{bluepick2Assist},
+				BLUEPICK3_KILL=#{bluepick3Kill}, BLUEPICK3_DEATH=#{bluepick3Death}, BLUEPICK3_ASSIST=#{bluepick3Assist},
+				BLUEPICK4_KILL=#{bluepick4Kill}, BLUEPICK4_DEATH=#{bluepick4Death}, BLUEPICK4_ASSIST=#{bluepick4Assist},
+				BLUEPICK5_KILL=#{bluepick5Kill}, BLUEPICK5_DEATH=#{bluepick5Death}, BLUEPICK5_ASSIST=#{bluepick5Assist},
+				REDPICK1_KILL=#{redpick1Kill}, REDPICK1_DEATH=#{redpick1Death}, REDPICK1_ASSIST=#{redpick1Assist},
+				REDPICK2_KILL=#{redpick2Kill}, REDPICK2_DEATH=#{redpick2Death}, REDPICK2_ASSIST=#{redpick2Assist},
+				REDPICK3_KILL=#{redpick3Kill}, REDPICK3_DEATH=#{redpick3Death}, REDPICK3_ASSIST=#{redpick3Assist},
+				REDPICK4_KILL=#{redpick4Kill}, REDPICK4_DEATH=#{redpick4Death}, REDPICK4_ASSIST=#{redpick4Assist},
+				REDPICK5_KILL=#{redpick5Kill}, REDPICK5_DEATH=#{redpick5Death}, REDPICK5_ASSIST=#{redpick5Assist}
+		WHERE	MATCH_ID=#{matchId}
 	</update>
 	
 	<delete id="deleteMatch" parameterType="match">
-	</delete> -->
+		DELETE	INGAME
+		WHERE	MATCH_ID=${matchId}	
+	</delete>
 </mapper>

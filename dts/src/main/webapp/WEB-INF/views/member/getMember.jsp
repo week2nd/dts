@@ -74,7 +74,7 @@
 
 </head>
 <body>
-<h3>유저보기</h3>
+<h3>관리자가 단일유저 정보보기</h3>
  	<form action="updateMember" method="post">
  	<input type="hidden" name="uId" value="${member.uId }" /> 
  	<table style="width: 100%" class="table">
@@ -84,16 +84,8 @@
             <td colspan="2"><div style="visibility: hidden">빈공간입니당.빈공간입니당.빈공간입니당.빈공간입니당.</div></td>
         </tr>
         <tr>
-            <td>기존 비밀번호</td>
+            <td>비밀번호</td>
             <td><input type="password" name="uPw" value="${member.uPw }" readonly></td>
-        </tr>
-        <tr>
-            <td>새 비밀번호</td>
-            <td><input type="password" name="newpw1" value="${member.uPw }"></td>
-        </tr>
-        <tr>
-            <td>새 비밀번호 확인</td>
-            <td><input type="password" name="newpw2" value="${member.uPw }"></td>
         </tr>
         <tr>
             <td>이름</td>
@@ -101,16 +93,13 @@
         </tr>
         <tr>
             <td>주소</td>
-            <td>${member.uAddress }</td>
-        </tr>
-        <tr>
-        	<td></td>
             <td>
-                <input type="text" id="sample4_postcode" placeholder="우편번호">
-                <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-                <input type="text" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }">
-                <input type="text" id="sample4_jibunAddress" placeholder="지번주소">
-                <span id="guide" style="color:#999"></span>
+           	   <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+               <input type="text" class="form-control address" id="sample4_roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
+               <input type="text" class="form-control address" id="sample4_detail" placeholder="상세주소 입력창" oninput="checkPwd()">
+               <input type="hidden" id="uAddress" name="uAddress">
+               <span id="guide" style="color:#999"></span>
+
             </td>
         </tr>
         <tr>

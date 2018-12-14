@@ -47,9 +47,7 @@
              }
  
              // 우편번호와 주소 정보를 해당 필드에 넣는다.
-             document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
              document.getElementById('sample4_roadAddress').value = fullRoadAddr;
-             document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
  
              // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
              if(data.autoRoadAddress) {
@@ -147,9 +145,15 @@
         var nameinputed = $('#chkname').val();
         var phoneinputed1 = $('#phone2').val();
         var phoneinputed2 = $('#phone3').val();
-        var addressinputed = $('#sample4_roadAddress').val();
+        
+        
         var birthinputed = $('#chkbirth').val();
         
+        
+        var addressinputed1 = $('#sample4_roadAddress').val();		// 주소와 상세주소 합치는 과정
+        var addressinputed2 = $('#sample4_detail').val();
+        var addresssum = addressinputed1 + "-" + addressinputed2
+        document.all.uAddress.value = addresssum;
         
         var one = $('#phone1').val();			// 휴대폰번호 하이픈 합치는 과정
     	var two = $('#phone2').val();
@@ -157,10 +161,11 @@
 		var fou = one + "-" + two + "-" + thr;		
 		document.all.uPhone.value = fou;
         
-  //      console.log(inputed);
-  //      console.log(reinputed);
+  //      console.log(addressinputed1);
+  //      console.log(addressinputed2);
+  //      console.log(addresssum);
 			
-		if(nameinputed == "" || addressinputed == "" || 
+		if(nameinputed == "" || addressinputed1 == "" || addressinputed2 == "" ||
 				birthinputed == "" || phoneinputed1.length < 3 || phoneinputed2.length < 4){		// 이름, 주소, 휴대폰번호, 생년월일 입력삭제 시 가입버튼 비활성화
 			$(".joinbtn").prop("disabled", true);													// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
             $(".joinbtn").css("background-color", "#aaaaaa");
@@ -181,7 +186,7 @@
             document.all.labelpwo.style.display="none";
             document.all.labelpwx.style.display="";
             if(idCheck==1 && pwdCheck == 1 
-            		&& nameinputed != "" && addressinputed != "" && birthinputed != "" 
+            		&& nameinputed != "" && addressinputed1 != "" && addressinputed2 != "" && birthinputed != "" 
             		&&  phoneinputed1.length > 2 && phoneinputed2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일) 맞으면 가입버튼 활성화
 	           $(".joinbtn").prop("disabled", false);								// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 	           $(".joinbtn").css("background-color", "#4CAF50");
@@ -199,7 +204,7 @@
       			
         	
    //     console.log(nameinputed);
-	//	console.log(addressinputed);
+	//	console.log(addressinputed1);
 	//	console.log(phoneinputed);
 	//	console.log(birthinputed);
 		
@@ -245,9 +250,9 @@
 	            <td>주소</td>       
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" class="form-control address" id="sample4_postcode" placeholder="우편번호" readonly>
-	                <input type="text" class="form-control address" id="sample4_roadAddress" name="uAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
-	                <input type="text" class="form-control address" id="sample4_jibunAddress" placeholder="지번주소" readonly>
+	                <input type="text" class="form-control address" id="sample4_roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
+	                <input type="text" class="form-control address" id="sample4_detail" placeholder="상세주소 입력창" oninput="checkPwd()">
+	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>
 	            </td>
 	        </tr>

@@ -2,6 +2,9 @@ package com.company.dts.info;
 
 public class MatchVO {
 
+	private int matchId;
+	
+	
 	private String matchdate;
 	private String matchname;
 	private String matchinfo;
@@ -110,6 +113,16 @@ public class MatchVO {
 	private int redteamDeathsum;
 	private int redteamAssistsum;
 	private int redteamKda;
+	
+
+	public int getMatchId() {
+		return matchId;
+	}
+
+	public void setMatchId(int matchId) {
+		this.matchId = matchId;
+	}
+
 	
 	public String getBlueresult() {
 		return blueresult;
