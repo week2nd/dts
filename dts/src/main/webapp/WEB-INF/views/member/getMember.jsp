@@ -46,9 +46,7 @@
              }
  
              // 우편번호와 주소 정보를 해당 필드에 넣는다.
-             document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
              document.getElementById('sample4_roadAddress').value = fullRoadAddr;
-             document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
  
              // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
              if(data.autoRoadAddress) {
@@ -66,7 +64,45 @@
          }
      }).open();
  }
- 
+ 	function sum(){
+ 		var addressinputed1 = $('#sample4_roadAddress').val();		// 주소와 상세주소 합치는 과정
+        var addressinputed2 = $('#sample4_detail').val();
+        var addresssum = addressinputed1 + "-" + addressinputed2
+        document.all.uAddress.value = addresssum;
+        
+//        console.log(addressinputed1);
+//        console.log(addressinputed2);
+//        console.log(addresssum);
+        
+        var one = $('#phone1').val();			// 휴대폰번호 하이픈 합치는 과정
+    	var two = $('#phone2').val();
+    	var three = $('#phone3').val();
+		var four = one + "-" + two + "-" + three;		
+		document.all.uPhone.value = four;
+		
+		console.log(two);
+        console.log(three);
+        console.log(four);
+		
+        
+ 	}
+ 	$(function(){
+ 		var addresssplit=$('#uAddress').val().split('-');			// 주소 '-'(하이픈)만 제외하고 넣기
+ 	//	console.log($('#uAddress').val());
+ 	//	console.log(addresssplit[0]);
+ 		document.all.sample4_roadAddress.value = addresssplit[0];
+ 		document.all.sample4_detail.value = addresssplit[1];
+ 	
+ 		
+ 		var phonesplit=$('#uPhone').val().split('-');			// 주소 '-'(하이픈)만 제외하고 넣기
+ 		console.log($('#uPhone').val());
+ 		console.log(phonesplit[1]);
+ 		console.log(phonesplit[2]);
+ 		document.all.phone2.value = phonesplit[1];
+ 		document.all.phone3.value = phonesplit[2];
+ 	});
+     
+     
  </script>
 
 
@@ -85,7 +121,7 @@
         </tr>
         <tr>
             <td>비밀번호</td>
-            <td><input type="password" name="uPw" value="${member.uPw }" readonly></td>
+            <td><input type="password" name="uPw" value="${member.uPw }" ></td>
         </tr>
         <tr>
             <td>이름</td>
@@ -95,9 +131,9 @@
             <td>주소</td>
             <td>
            	   <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-               <input type="text" class="form-control address" id="sample4_roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
-               <input type="text" class="form-control address" id="sample4_detail" placeholder="상세주소 입력창" oninput="checkPwd()">
-               <input type="hidden" id="uAddress" name="uAddress">
+               <input type="text" class="form-control address" id="sample4_roadAddress" placeholder="도로명주소" oninput="sum()" >
+               <input type="text" class="form-control address" id="sample4_detail" placeholder="상세주소 입력창" oninput="sum()">
+               <input type="hidden" id="uAddress" name="uAddress" value="${member.uAddress }">  
                <span id="guide" style="color:#999"></span>
 
             </td>
@@ -105,17 +141,18 @@
         <tr>
             <td>휴대폰번호</td>
             <td>
-                <select name="phone1">
-                    <option value="zero">010</option>
-                    <option value="one">011</option>
-                    <option value="two">012</option>
-                    <option value="three">013</option>
-                    <option value="four">014</option>
-                    <option value="five">015</option>                        
+                <select name="phone1" id="phone1" oninput="sum()">
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="012">012</option>
+                    <option value="013">013</option>
+                    <option value="014">014</option>
+                    <option value="015">015</option>                        
                 </select>
                 -
-                <input type="text" name="uPhone" value="${member.uPhone }"> -
-                <input type="text" name="phone3" value="${member.uPhone }">
+                <input type="text" name="phone2" id="phone2" oninput="sum()"> -
+                <input type="text" name="phone3" id="phone3" oninput="sum()">
+                <input type="hidden" name="uPhone" id="uPhone" value="${member.uPhone }">
             </td>
         </tr>
         

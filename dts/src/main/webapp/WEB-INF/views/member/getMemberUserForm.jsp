@@ -140,17 +140,21 @@
 
 	}
 	
-	$(function(){
+	$(function (){
 		
-		var tempphone2 =  $('#member.uPhone').val();
-		var tempphone3 =  $('#member.uPhone').val();
-		
+		var tempphone2 =  $('#uPhone').val().substring(4,8);
+		var tempphone3 =  $('#uPhone').val().substring(9,13);
+				
 		document.all.phone2.value = tempphone2;
 		document.all.phone3.value = tempphone3;
 		
+		var tempphone4 = "010"+ "-" + tempphone2 + "-" + tempphone3;
+		document.all.uPhone.value = tempphone4;
+		
 		console.log(tempphone2);
 		console.log(tempphone3);
-		console.log($('#member.uPhone').val());
+		console.log(tempphone4);
+		
 	});
 </script>
 
@@ -160,9 +164,11 @@
 </head>
 <body>
 	<h3>단일유저 정보 수정폼</h3>
-	<form action="getMemberUser" method="post">
-		<input type="hidden" name="uId" value="${member.uId }" /> <input
-			type="hidden" name="uPw" value="${member.uPw }" />
+	<form action="updateMemberUser" method="post">
+		<input type="hidden" name="uId" value="${member.uId }" /> 
+		<input type="hidden" name="uPw" value="${member.uPw }" />
+		<input type="hidden" id="uAddress" name="uAddress">
+		<input type="hidden" id="uPhone" name="uPhone" value="${member.uPhone }">
 		<table class="table">
 			<tr>
 				<td>아이디</td>
@@ -193,9 +199,9 @@
 				<td></td>
 				<td>
 				<input type="button" onclick="sample4_execDaumPostcode()"value="우편번호 찾기"><br>
-				<input type="text" class="form-control address" id="sample4_roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly> 
-				<input type="text" class="form-control address" id="sample4_detail"	placeholder="상세주소 입력창" oninput="checkPwd()"> 
-				<input type="hidden" id="uAddress" name="uAddress"> 
+				<input type="text" class="form-control address" id="sample4_roadAddress" placeholder="도로명주소" value="${member.uAddress }"  readonly> 
+				<input type="text" class="form-control address" id="sample4_detail"	placeholder="상세주소 입력창" > 
+				 
 				<span id="guide" style="color: #999"></span></td>
 			</tr>
 			<tr>
@@ -207,9 +213,9 @@
 						<option value="three">013</option>
 						<option value="four">014</option>
 						<option value="five">015</option>
-				</select> - <input type="text" name="phone2">
-					- <input type="text" name="phone3" >
-					<input type="hidden" id="uPhone" name="uPhone" value="${member.uPhone }"> 
+				</select> - <input type="text" name="phone2" id="phone2">
+					- <input type="text" name="phone3"  id="phone3">
+					 
 				</td>
 			</tr>
 

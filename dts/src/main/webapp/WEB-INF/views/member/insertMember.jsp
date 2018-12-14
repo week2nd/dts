@@ -161,9 +161,9 @@
 		var fou = one + "-" + two + "-" + thr;		
 		document.all.uPhone.value = fou;
         
-  //      console.log(addressinputed1);
-  //      console.log(addressinputed2);
-  //      console.log(addresssum);
+        console.log($('#uAddress').val());
+        console.log(addressinputed2);
+        console.log(addresssum);
 			
 		if(nameinputed == "" || addressinputed1 == "" || addressinputed2 == "" ||
 				birthinputed == "" || phoneinputed1.length < 3 || phoneinputed2.length < 4){		// 이름, 주소, 휴대폰번호, 생년월일 입력삭제 시 가입버튼 비활성화

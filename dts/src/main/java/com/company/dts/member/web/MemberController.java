@@ -68,7 +68,7 @@ public class MemberController {
 		return "home";		//목록요청
 		
 	}
-	// 개인 맴버 수정
+	// 개인 맴버 정보확인 (수정폼 전)
 	@RequestMapping("/getMemberUser")
 	public String getMemberUser(Model model, MemberVO vo, HttpSession session) {
 		String id = ((MemberVO)session.getAttribute("membersession")).getuId();
@@ -76,12 +76,20 @@ public class MemberController {
 		model.addAttribute("member", memberService.getMember(vo));
 		return "user/member/getMemberUser";
 	}
-	//수정   updateMemberform변경
+	// 개인 맴버 수정폼   updateMemberform변경
 	@RequestMapping("/updateMemberForm")
 	public String updateMemberForm(Model model, MemberVO vo) {
 		model.addAttribute("member", memberService.getMember(vo));
 		return "user/member/getMemberUserForm";
 	}
+	// 개인 맴버 수정처리
+	@RequestMapping("/updateMemberUser")
+	public String updateMemberUser(MemberVO vo) {
+		memberService.updateMember(vo);		//수정처리
+		return "redirect:getMemberUser";		//목록요청
+	}
+	
+	
 	// 관리자 맴버 수정처리
 	@RequestMapping("/updateMember")
 	public String updateMember(MemberVO vo) {
