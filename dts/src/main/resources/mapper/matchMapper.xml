@@ -12,7 +12,7 @@
 	<select id="getMatch" parameterType="match" resultType="match">
 		SELECT	*
 		FROM 	INGAME
-		WHERE	TEAMINFO = ${teaminfo}
+		WHERE	MATCH_ID = #{matchId}
 	</select>
 	
 <!-- 	<select id="getMatch" parameterType="match" resultType="match">
@@ -30,7 +30,8 @@
 	</select>
  -->	
 	<insert id="insertMatch" parameterType="match">
-		INSERT INTO	INGAME(	MATCHDATE,
+		INSERT INTO	INGAME(	MATCH_ID,
+							MATCHDATE,
 							MATCHNAME,
 							MATCHINFO,
 							PLAYTIME,
@@ -62,7 +63,8 @@
 							REDPICK3_KILL, REDPICK3_DEATH, REDPICK3_ASSIST,
 							REDPICK4_KILL, REDPICK4_DEATH, REDPICK4_ASSIST,
 							REDPICK5_KILL, REDPICK5_DEATH, REDPICK5_ASSIST
-)		VALUES(		sysdate,
+)		VALUES(		#{matchId}
+					sysdate,
 					#{matchname},
 					#{matchinfo},
 					to_char(to_date(#{playtime} ,':hh24:mi'),'hh24:mi'),

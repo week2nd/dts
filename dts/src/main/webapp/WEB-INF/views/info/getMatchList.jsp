@@ -10,19 +10,22 @@
 <body>
 
 
-<button type="button" onclick="location.href='insertMatchForm'" class="btn">경기등록</button>
+	<button type="button" onclick="location.href='insertMatchForm'"
+		class="btn">경기등록</button>
 
 
-	<h3>경기 결과 보기</h3> 
-	<form action="updateMatchForm">
-		<c:forEach items="${matchList}" var="match">
+	<h3>경기 결과 보기</h3>
+
+	<c:forEach items="${matchList}" var="match">
+		<form action="updateMatchForm">
 			<div align="center">
 				<table class="table">
+				<input type="hidden" name="matchId" value="${match.matchId}">
 					<tr>
 						<th colspan="8">${match.matchdate}</th>
 						<th align="center">${match.matchname}</th>
 						<th colspan="6"></th>
-						<th align="right" colspan="2">${match.matchinfo}</th>
+						<th align="right" colspan="2" name="matchinfo">${match.matchinfo}</th>
 					</tr>
 					<tr>
 						<td colspan="6">${match.blueteamname}</td>
@@ -86,7 +89,7 @@
 					</tr>
 				</table>
 				<div align="center">
-					<table class="minitable" >
+					<table class="minitable">
 						<tr>
 							<td>Spell</td>
 							<td>Champ</td>
@@ -212,13 +215,15 @@
 							<td>${match.redpick5Spell2}</td>
 						</tr>
 						<tr>
-						<td><input type="button" value="test"></td></tr>
+							<td><input type="submit" value="수정"></td>
+						</tr>
 					</table>
 				</div>
 			</div>
-		</c:forEach>
+		</form>
+	</c:forEach>
 
-	</form>
+
 
 </body>
 </html>
