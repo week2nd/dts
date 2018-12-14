@@ -1,5 +1,8 @@
 package com.company.dts.info.web;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -151,10 +154,13 @@ public class InfoController {
 	}
 
 	// 경기 입력 처리
-	@RequestMapping("/insertMatch")
-	public String insertMatch(MatchVO vo) {
+	@RequestMapping("/insertMatch22")
+	public void insertMatch(MatchVO vo, HttpServletRequest request, HttpServletResponse response) {
+		
+		System.out.println("#####");
+		
 		matchService.insertMatch(vo);
-		return "redirect:getMatchList";
+		//return "redirect:getMatchList";
 	}
 
 	// 경기 정보 수정 폼 이동

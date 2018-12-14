@@ -2,7 +2,7 @@ package com.company.dts.info;
 
 public class MatchVO {
 
-	private int matchId;
+	private int matchId = 0;
 	
 	
 	private String matchdate;
@@ -63,56 +63,56 @@ public class MatchVO {
 	private String redpick4Spell2;
 	private String redpick5Spell1;
 	private String redpick5Spell2;
-	private int bluepick1Kill;
-	private int bluepick1Death;
-	private int bluepick1Assist;
-	private int bluepick2Kill;
-	private int bluepick2Death;
-	private int bluepick2Assist;
-	private int bluepick3Kill;
-	private int bluepick3Death;
-	private int bluepick3Assist;
-	private int bluepick4Kill;
-	private int bluepick4Death;
-	private int bluepick4Assist;
-	private int bluepick5Kill;
-	private int bluepick5Death;
-	private int bluepick5Assist;
-	private int redpick1Kill;
-	private int redpick1Death;
-	private int redpick1Assist;
-	private int redpick2Kill;
-	private int redpick2Death;
-	private int redpick2Assist;
-	private int redpick3Kill;
-	private int redpick3Death;
-	private int redpick3Assist;
-	private int redpick4Kill;
-	private int redpick4Death;
-	private int redpick4Assist;
-	private int redpick5Kill;
-	private int redpick5Death;
-	private int redpick5Assist;
+	private int bluepick1Kill = 0;
+	private int bluepick1Death = 0;
+	private int bluepick1Assist = 0;
+	private int bluepick2Kill = 0;
+	private int bluepick2Death = 0;
+	private int bluepick2Assist = 0;
+	private int bluepick3Kill = 0;
+	private int bluepick3Death = 0;
+	private int bluepick3Assist = 0;
+	private int bluepick4Kill = 0;
+	private int bluepick4Death = 0;
+	private int bluepick4Assist = 0;
+	private int bluepick5Kill = 0;
+	private int bluepick5Death = 0;
+	private int bluepick5Assist = 0;
+	private int redpick1Kill = 0;
+	private int redpick1Death = 0;
+	private int redpick1Assist = 0;
+	private int redpick2Kill = 0;
+	private int redpick2Death = 0;
+	private int redpick2Assist = 0;
+	private int redpick3Kill = 0;
+	private int redpick3Death = 0;
+	private int redpick3Assist = 0;
+	private int redpick4Kill = 0;
+	private int redpick4Death = 0;
+	private int redpick4Assist = 0;
+	private int redpick5Kill = 0;
+	private int redpick5Death = 0;
+	private int redpick5Assist = 0;
 	
 	// 통계 데이터
-	private int bluepick1Kda;
-	private int bluepick2Kda;
-	private int bluepick3Kda;
-	private int bluepick4Kda;
-	private int bluepick5Kda;
-	private int redpick1Kda;
-	private int redpick2Kda;
-	private int redpick3Kda;
-	private int redpick4Kda;
-	private int redpick5Kda;
-	private int blueteamKillsum;
-	private int blueteamDeathsum;
-	private int blueteamAssistsum;
-	private int blueteamKda;
-	private int redteamKillsum;
-	private int redteamDeathsum;
-	private int redteamAssistsum;
-	private int redteamKda;
+	private int bluepick1Kda = 0;
+	private int bluepick2Kda = 0;
+	private int bluepick3Kda = 0;
+	private int bluepick4Kda = 0;
+	private int bluepick5Kda = 0;
+	private int redpick1Kda = 0;
+	private int redpick2Kda = 0;
+	private int redpick3Kda = 0;
+	private int redpick4Kda = 0;
+	private int redpick5Kda = 0;
+	private int blueteamKillsum = 0;
+	private int blueteamDeathsum = 0;
+	private int blueteamAssistsum = 0;
+	private int blueteamKda = 0;
+	private int redteamKillsum = 0;
+	private int redteamDeathsum = 0;
+	private int redteamAssistsum = 0;
+	private int redteamKda = 0;
 	
 
 	public int getMatchId() {

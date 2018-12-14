@@ -13,7 +13,7 @@
 	<select id="getMatch" parameterType="match" resultType="match">
 		SELECT	*
 		FROM 	INGAME
-		WHERE	MATCH_ID = #{matchId}
+		WHERE	GAME_ID = #{matchId}
 	</select>
 	
 <!-- 	<select id="getMatch" parameterType="match" resultType="match">
@@ -31,12 +31,13 @@
 	</select>
  -->	
 	<insert id="insertMatch" parameterType="match">
-	<selectKey keyProperty="matchId" resultType="integer"
+<!-- 	<selectKey keyProperty="matchId" resultType="integer"
 			order="BEFORE">
-		SELECT 		MAX(MATCH_ID)+1
+		SELECT 		MAX(GAME_ID)+1
 		FROM 		INGAME			
-		</selectKey>
-		INSERT INTO	INGAME(	MATCH_ID,
+	</selectKey>
+	 -->	
+		INSERT INTO	INGAME(	GAME_ID,
 							MATCHDATE,
 							MATCHNAME,
 							MATCHINFO,
@@ -73,7 +74,7 @@
 					sysdate,
 					#{matchname},
 					#{matchinfo},
-					to_char(to_date(#{playtime} ,':mi:ss'),'mi:ss'),
+					to_char(to_date('#{playtime}' ,'mi:ss'),'mi:ss'),
 					#{blueteamname},	#{redteamname},
 					#{blueresult},		#{redresult},
 					#{bluepick1}, 	#{bluepick2}, 	#{bluepick3}, 	#{bluepick4}, 	#{bluepick5},
@@ -139,11 +140,11 @@
 				REDPICK3_KILL=#{redpick3Kill}, REDPICK3_DEATH=#{redpick3Death}, REDPICK3_ASSIST=#{redpick3Assist},
 				REDPICK4_KILL=#{redpick4Kill}, REDPICK4_DEATH=#{redpick4Death}, REDPICK4_ASSIST=#{redpick4Assist},
 				REDPICK5_KILL=#{redpick5Kill}, REDPICK5_DEATH=#{redpick5Death}, REDPICK5_ASSIST=#{redpick5Assist}
-		WHERE	MATCH_ID=#{matchId}
+		WHERE	GAME_ID=#{matchId}
 	</update>
 	
 	<delete id="deleteMatch" parameterType="match">
 		DELETE	INGAME
-		WHERE	MATCH_ID=${matchId}	
+		WHERE	GAME_ID=${matchId}	
 	</delete>
 </mapper>

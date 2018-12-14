@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,32 @@
 </head>
 <body>
 
+
+
+
+<script>
+function insert(){
+	var data = $('#param').serialize();
+	
+	$.ajax({
+		method : 'post',
+		async:false,
+		url : '/app/insertMatch22',
+		data : data,
+		dataType : 'json',
+		success : function(result){
+			alert(result);
+		}
+	});
+	
+}
+</script>
+
+
  <!--  ctrl + shift + f 자동정렬 하지마세요! -->
 
-<form action="insertMatch">
+<form id="param" action="/insertMatch" method="post">
+
 <input type="text" name="matchId" value="${match.matchId}" readonly="readonly">
 	<div align="center">
 		<table class="table">
@@ -212,9 +236,12 @@
 			</table>
 		</div>
 	</div>
-		<input type="submit" value="경기 입력"><br>
+	
+		<Button onclick="javascript:insert();">입력</Button>
+		
+		<!-- <input type="submit" value="경기 입력"><br> -->
 	<div>
-		<input type="reset" id="resetBtn"value="취소"></a>
+		<!-- <input type="reset" id="resetBtn"value="취소"> -->
 	</div>
 </form>
 
