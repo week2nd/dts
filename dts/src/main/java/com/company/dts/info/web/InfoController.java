@@ -161,7 +161,7 @@ public class InfoController {
 	@RequestMapping("/updateMatchForm")
 	public String updateMatchForm(Model model, MatchVO vo) {
 		model.addAttribute("match", matchService.getMatch(vo));
-		return "user/info/insertMatch";
+		return "user/info/updateMatch";
 	}
 
 	// 경기 정보 수정 처리

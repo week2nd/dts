@@ -4,14 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
+<title>updateMatch</title>
+<script>
+$("#deleteMatchBtn").click(function() {
+	var delcon = confirm("삭제하시겠습니까?");
+	if(delcon == true) {
+		document.write("삭제했습니다.")
+	} else if(delcon == false) {
+		document.write("취소했습니다.")
+	}
+	
+});
+</script>
 </head>
 <body>
 
  <!--  ctrl + shift + f 자동정렬 하지마세요! -->
 
-<form action="insertMatch">
+<form action="updateMatch">
 <input type="text" name="matchId" value="${match.matchId}" readonly="readonly">
 	<div align="center">
 		<table class="table">
@@ -81,7 +91,7 @@
 				<td align="center" colspan="2">BAN</td>
 			</tr>
 			<tr>
-			<td colspan="17" align="center"> 칸 나누기</td></tr>
+			<td><input type="button" value="butt"></td></tr>
 		</table>
 		<div align="center">
 			<table class="minitable">
@@ -212,9 +222,9 @@
 			</table>
 		</div>
 	</div>
-		<input type="submit" value="경기 입력"><br>
-	<div>
-		<input type="reset" id="resetBtn"value="취소"></a>
+		<input type="submit" value="경기 수정"><br>
+	<div id="deleteMatch">
+		<a href="deleteMatch?matchId=${match.matchId }"><input type="button" id="deleteMatchBtn"value="삭제"></a>
 	</div>
 </form>
 
