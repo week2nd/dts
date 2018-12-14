@@ -1,5 +1,8 @@
 package com.company.dts.board.web;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.catalina.filters.RequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +15,7 @@ import com.company.dts.board.BoardVO;
 @Controller
 public class BoardController {
 @Autowired BoardService boardService;
-	
+
 	// 전체조회
 	@RequestMapping(value= {"/getBoardList"}
 					, method = RequestMethod.GET
@@ -25,22 +28,24 @@ public class BoardController {
 
 	
 	
-	// 자유게시판 전체조회
+/*	// 자유게시판 전체조회
 	@RequestMapping("/getFreeBoard")
 	public String getFreeBoard(Model model, BoardVO vo)  {
 		model.addAttribute("board", boardService.getFreeBoard(vo));
 		return "user/board/getFreeBoard";
-	}
+	}*/
 	
 	
 	// 분석게시판 전체조회
 	@RequestMapping("/getAnalysisBoard")
-	public String getAnalysisBoard(Model model, BoardVO vo)  {
-	model.addAttribute("board", boardService.getAnalysisBoard(vo));
+	public String getAnalysisBoard(Model model, BoardVO vo, HttpServletRequest request)  {
+		vo.setBoardType(request.getParameter("type"));
+		
+		model.addAttribute("board", boardService.getAnalysisBoard(vo));
 		return "user/board/getAnalysisBoard";
 	}
 	
-	// 건의게시판 전체조회
+/*	// 건의게시판 전체조회
 	@RequestMapping("/getSuggestionBoard")
 	public String getSuggestionBoard(Model model, BoardVO vo)  {
 	model.addAttribute("board", boardService.getSuggestionBoard(vo));
@@ -52,7 +57,7 @@ public class BoardController {
 	public String getNoticeBoard(Model model, BoardVO vo)  {
 	model.addAttribute("board", boardService.getNoticeBoard(vo));
 		return "user/board/getNoticeBoard";
-	}
+	}*/
 	
 	
 	
@@ -71,9 +76,23 @@ public class BoardController {
 		
 	// 등록처리
 	@RequestMapping(value="/insertBoard", method = RequestMethod.POST)
-	public String insertBoard(BoardVO vo) {	// 커맨드 객체
+	public String insertBoard(BoardVO vo ) {	// 커맨드 객체
 		boardService.insertBoard(vo);		//등록처리
-		return "redirect:getFreeBoard";		//목록요청
+		
+		String type = vo.getBoardType();
+		
+		String map = "";
+		if(type.equals("free")) {
+			map = "user/board/getNoticeBoard";
+		} else if(type.equals("analysis")) {
+			
+		} else if(type.equals("suggestion")) {
+			
+		} else if(type.equals("notice")) {
+			
+		} 
+				
+		return map;
 	}
 	
 	//수정

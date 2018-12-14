@@ -118,9 +118,9 @@
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 							aria-live="token">게시판</a>
 							<div class="dropdown-menu" aria-labelledby="layouts">
-								<a class="dropdown-item" href="./getFreeBoard?type=free">자유게시판</a> <a
-									class="dropdown-item" href="./getAnalysisBoard">분석게시판</a> <a
-									class="dropdown-item" href="./getSuggestionBoard">건의게시판</a>
+								<a class="dropdown-item" href="./getAnalysisBoard?type=free">자유게시판</a> <a
+									class="dropdown-item" href="./getAnalysisBoard?type=analysis">분석게시판</a> <a
+									class="dropdown-item" href="./getAnalysisBoard?type=suggestion">건의게시판</a>
 							</div></li>
 						<li class="nav-item"><a class="nav-link" href="getNoticeBoard">공지사항</a></li>
 						<li class="nav-item dropdown menu"><a

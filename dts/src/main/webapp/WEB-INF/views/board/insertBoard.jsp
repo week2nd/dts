@@ -8,8 +8,7 @@
 </head>
 <body>
 	<h3>게시판 등록</h3>
- <%String type = request.getParameter("type");
- %>
+ <%String type = request.getParameter("type"); %>
 
 	
 	<form action="./insertBoard" method="post">

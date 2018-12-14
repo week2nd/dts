@@ -43,35 +43,35 @@
 
 
 
-<!-- 자유게시판조회 -->
-<select id="getFreeBoard" resultType="board">	
+ <!-- 자유게시판조회 -->
+<!-- <select id="getFreeBoard" resultType="board">	
 	SELECT 	*
 	FROM	BOARD
 	WHERE 	BOARD_TYPE='free'
-</select>
+</select> -->
 
 
 <!-- 분석게시판조회 -->
-<select id="getAnalysisBoard" resultType="board">
+<select id="getAnalysisBoard" parameterType="com.company.dts.board.BoardVO" resultType="board">
 	SELECT 	*
 	FROM	BOARD
-	WHERE 	BOARD_TYPE='analysis'
+	WHERE 	BOARD_TYPE= #{boardType}
 </select>
 
 
-<!-- 건의게시판조회 -->
-<select id="getSuggestionBoard" parameterType="board" resultType="board">
+ <!-- 건의게시판조회 -->
+<!-- <select id="getSuggestionBoard" parameterType="board" resultType="board">
 	SELECT 	*
 	FROM	BOARD
 	WHERE 	BOARD_TYPE='suggestion'
-</select>
+</select> -->
 
 <!-- 공지게시판조회 -->
-<select id="getNoticeBoard" parameterType="board" resultType="board">
+<!-- <select id="getNoticeBoard" parameterType="board" resultType="board">
 	SELECT 	*
 	FROM	BOARD
 	WHERE 	BOARD_TYPE='notice'
-</select>
+</select>  -->
 
 
 
