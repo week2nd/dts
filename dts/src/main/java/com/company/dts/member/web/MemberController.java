@@ -77,11 +77,11 @@ public class MemberController {
 		return "user/member/getMemberUser";
 	}
 	//수정   updateMemberform변경
-/*	@RequestMapping("/updateMemberform")
-	public String updateMemberform(Model model, MemberVO vo) {
+	@RequestMapping("/updateMemberForm")
+	public String updateMemberForm(Model model, MemberVO vo) {
 		model.addAttribute("member", memberService.getMember(vo));
-		return "member/getMember";
-	}*/
+		return "user/member/getMemberUserForm";
+	}
 	// 관리자 맴버 수정처리
 	@RequestMapping("/updateMember")
 	public String updateMember(MemberVO vo) {
