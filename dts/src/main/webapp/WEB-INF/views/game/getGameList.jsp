@@ -20,7 +20,7 @@
 			var a3 = $(this).closest('tr').find('.redTeamId').text();
 			var a4 = $(this).closest('tr').find('.redRate').text();
 			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
-			+ " onkeyup='returnMoney(event)'></td><td class='returnmoney'></td>";
+			+ " onkeyup='returnMoney(event);removeChar(event)' onkeydown='return onlyNumber(event)'></td><td class='returnmoney' ></td>";
 			$(tr).appendTo("#gameBuytr");			
 		});
 		
@@ -32,7 +32,7 @@
 			var a3 = $(this).closest('tr').find('.blueTeamId').text();
 			var a4 = $(this).closest('tr').find('.blueRate').text();
 			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
-			+ " onkeyup='returnMoney(event)'></td><td class='returnmoney'></td>";
+			+ " onkeyup='returnMoney(event);removeChar(event)' onkeydown='return onlyNumber(event)'></td><td class='returnmoney' ></td>";
 			$(tr).appendTo("#gameBuytr");
 		});	
 		
@@ -62,6 +62,22 @@
 	    var money = $(e.target).closest('tr').find('.betmoney').val();
 	    var rm = parseInt(rate*money);
 	    $(e.target).closest('tr').find('.returnmoney').text(rm);		    
+	};
+	function onlyNumber(event){		
+	    event = event || window.event;
+	    var keyID = (event.which) ? event.which : event.keyCode;
+	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+	        return;
+	    else
+	        return false;
+	};
+	function removeChar(event) {
+	    event = event || window.event;
+	    var keyID = (event.which) ? event.which : event.keyCode;
+	    if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+	        return;
+	    else
+	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
 	};
 	
 </script>
