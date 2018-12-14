@@ -155,12 +155,12 @@ public class InfoController {
 
 	// 경기 입력 처리
 	@RequestMapping("/insertMatch22")
-	public void insertMatch(MatchVO vo, HttpServletRequest request, HttpServletResponse response) {
+	public String insertMatch(MatchVO vo, HttpServletRequest request, HttpServletResponse response) {
 		
 		System.out.println("#####");
 		
 		matchService.insertMatch(vo);
-		//return "redirect:getMatchList";
+		return "redirect:getMatchList";
 	}
 
 	// 경기 정보 수정 폼 이동

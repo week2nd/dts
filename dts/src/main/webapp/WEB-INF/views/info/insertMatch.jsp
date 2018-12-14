@@ -20,7 +20,7 @@ function insert(){
 	$.ajax({
 		method : 'post',
 		async:false,
-		url : '/app/insertMatch22',
+		url : '/app/insertMatch',
 		data : data,
 		dataType : 'json',
 		success : function(result){
@@ -34,7 +34,7 @@ function insert(){
 
  <!--  ctrl + shift + f 자동정렬 하지마세요! -->
 
-<form id="param" action="/insertMatch" method="post">
+<form id="param" action="./insertMatch" method="post">
 
 <input type="text" name="matchId" value="${match.matchId}" readonly="readonly">
 	<div align="center">

@@ -2,830 +2,830 @@ package com.company.dts.info;
 
 public class MatchVO {
 
-	private int matchId = 0;
+	private int gameId = 0;
 	
 	
-	private String matchdate;
-	private String matchname;
-	private String matchinfo;
-	private String playtime;
-	private String blueteamname;
-	private String redteamname;
-	private String blueresult;
-	private String redresult;
-	private String bluegamer1;
-	private String bluegamer2;
-	private String bluegamer3;
-	private String bluegamer4;
-	private String bluegamer5;
-	private String redgamer1;
-	private String redgamer2;
-	private String redgamer3;
-	private String redgamer4;
-	private String redgamer5;
-	private String bluepick1;
-	private String bluepick2;
-	private String bluepick3;
-	private String bluepick4;
-	private String bluepick5;
-	private String redpick1;
-	private String redpick2;
-	private String redpick3;
-	private String redpick4;
-	private String redpick5;
-	private String blueban1;
-	private String blueban2;
-	private String blueban3;
-	private String blueban4;
-	private String blueban5;
-	private String redban1;
-	private String redban2;
-	private String redban3;
-	private String redban4;
-	private String redban5;
-	private String bluepick1Spell1;
-	private String bluepick1Spell2;
-	private String bluepick2Spell1;
-	private String bluepick2Spell2;
-	private String bluepick3Spell1;
-	private String bluepick3Spell2;
-	private String bluepick4Spell1;
-	private String bluepick4Spell2;
-	private String bluepick5Spell1;
-	private String bluepick5Spell2;
-	private String redpick1Spell1;
-	private String redpick1Spell2;
-	private String redpick2Spell1;
-	private String redpick2Spell2;
-	private String redpick3Spell1;
-	private String redpick3Spell2;
-	private String redpick4Spell1;
-	private String redpick4Spell2;
-	private String redpick5Spell1;
-	private String redpick5Spell2;
-	private int bluepick1Kill = 0;
-	private int bluepick1Death = 0;
-	private int bluepick1Assist = 0;
-	private int bluepick2Kill = 0;
-	private int bluepick2Death = 0;
-	private int bluepick2Assist = 0;
-	private int bluepick3Kill = 0;
-	private int bluepick3Death = 0;
-	private int bluepick3Assist = 0;
-	private int bluepick4Kill = 0;
-	private int bluepick4Death = 0;
-	private int bluepick4Assist = 0;
-	private int bluepick5Kill = 0;
-	private int bluepick5Death = 0;
-	private int bluepick5Assist = 0;
-	private int redpick1Kill = 0;
-	private int redpick1Death = 0;
-	private int redpick1Assist = 0;
-	private int redpick2Kill = 0;
-	private int redpick2Death = 0;
-	private int redpick2Assist = 0;
-	private int redpick3Kill = 0;
-	private int redpick3Death = 0;
-	private int redpick3Assist = 0;
-	private int redpick4Kill = 0;
-	private int redpick4Death = 0;
-	private int redpick4Assist = 0;
-	private int redpick5Kill = 0;
-	private int redpick5Death = 0;
-	private int redpick5Assist = 0;
+	private String gameDate;
+	private String gameName;
+	private String gameInfo;
+	private String playTime;
+	private String blueTeamName;
+	private String redTeamName;
+	private String blueResult;
+	private String redResult;
+	private String blueGamer1;
+	private String blueGamer2;
+	private String blueGamer3;
+	private String blueGamer4;
+	private String blueGamer5;
+	private String redGamer1;
+	private String redGamer2;
+	private String redGamer3;
+	private String redGamer4;
+	private String redGamer5;
+	private String bluePick1;
+	private String bluePick2;
+	private String bluePick3;
+	private String bluePick4;
+	private String bluePick5;
+	private String redPick1;
+	private String redPick2;
+	private String redPick3;
+	private String redPick4;
+	private String redPick5;
+	private String blueBan1;
+	private String blueBan2;
+	private String blueBan3;
+	private String blueBan4;
+	private String blueBan5;
+	private String redBan1;
+	private String redBan2;
+	private String redBan3;
+	private String redBan4;
+	private String redBan5;
+	private String bluePick1Spell1;
+	private String bluePick1Spell2;
+	private String bluePick2Spell1;
+	private String bluePick2Spell2;
+	private String bluePick3Spell1;
+	private String bluePick3Spell2;
+	private String bluePick4Spell1;
+	private String bluePick4Spell2;
+	private String bluePick5Spell1;
+	private String bluePick5Spell2;
+	private String redPick1Spell1;
+	private String redPick1Spell2;
+	private String redPick2Spell1;
+	private String redPick2Spell2;
+	private String redPick3Spell1;
+	private String redPick3Spell2;
+	private String redPick4Spell1;
+	private String redPick4Spell2;
+	private String redPick5Spell1;
+	private String redPick5Spell2;
+	private int bluePick1Kill = 0;
+	private int bluePick1Death = 0;
+	private int bluePick1Assist = 0;
+	private int bluePick2Kill = 0;
+	private int bluePick2Death = 0;
+	private int bluePick2Assist = 0;
+	private int bluePick3Kill = 0;
+	private int bluePick3Death = 0;
+	private int bluePick3Assist = 0;
+	private int bluePick4Kill = 0;
+	private int bluePick4Death = 0;
+	private int bluePick4Assist = 0;
+	private int bluePick5Kill = 0;
+	private int bluePick5Death = 0;
+	private int bluePick5Assist = 0;
+	private int redPick1Kill = 0;
+	private int redPick1Death = 0;
+	private int redPick1Assist = 0;
+	private int redPick2Kill = 0;
+	private int redPick2Death = 0;
+	private int redPick2Assist = 0;
+	private int redPick3Kill = 0;
+	private int redPick3Death = 0;
+	private int redPick3Assist = 0;
+	private int redPick4Kill = 0;
+	private int redPick4Death = 0;
+	private int redPick4Assist = 0;
+	private int redPick5Kill = 0;
+	private int redPick5Death = 0;
+	private int redPick5Assist = 0;
 	
 	// 통계 데이터
-	private int bluepick1Kda = 0;
-	private int bluepick2Kda = 0;
-	private int bluepick3Kda = 0;
-	private int bluepick4Kda = 0;
-	private int bluepick5Kda = 0;
-	private int redpick1Kda = 0;
-	private int redpick2Kda = 0;
-	private int redpick3Kda = 0;
-	private int redpick4Kda = 0;
-	private int redpick5Kda = 0;
-	private int blueteamKillsum = 0;
-	private int blueteamDeathsum = 0;
-	private int blueteamAssistsum = 0;
-	private int blueteamKda = 0;
-	private int redteamKillsum = 0;
-	private int redteamDeathsum = 0;
-	private int redteamAssistsum = 0;
-	private int redteamKda = 0;
+	private int bluePick1Kda = 0;
+	private int bluePick2Kda = 0;
+	private int bluePick3Kda = 0;
+	private int bluePick4Kda = 0;
+	private int bluePick5Kda = 0;
+	private int redPick1Kda = 0;
+	private int redPick2Kda = 0;
+	private int redPick3Kda = 0;
+	private int redPick4Kda = 0;
+	private int redPick5Kda = 0;
+	private int blueTeamKillsum = 0;
+	private int blueTeamDeathsum = 0;
+	private int blueTeamAssistsum = 0;
+	private int blueTeamKda = 0;
+	private int redTeamKillsum = 0;
+	private int redTeamDeathsum = 0;
+	private int redTeamAssistsum = 0;
+	private int redTeamKda = 0;
 	
 
-	public int getMatchId() {
-		return matchId;
+	public int getgameId() {
+		return gameId;
 	}
 
-	public void setMatchId(int matchId) {
-		this.matchId = matchId;
+	public void setgameId(int gameId) {
+		this.gameId = gameId;
 	}
 
 	
-	public String getBlueresult() {
-		return blueresult;
+	public String getBlueResult() {
+		return blueResult;
 	}
 
-	public void setBlueresult(String blueresult) {
-		this.blueresult = blueresult;
+	public void setBlueResult(String blueResult) {
+		this.blueResult = blueResult;
 	}
 
-	public String getRedresult() {
-		return redresult;
+	public String getRedResult() {
+		return redResult;
 	}
 
-	public void setRedresult(String redresult) {
-		this.redresult = redresult;
+	public void setRedResult(String redResult) {
+		this.redResult = redResult;
 	}
 
-	public String getMatchdate() {
-		return matchdate;
+	public String getgameDate() {
+		return gameDate;
 	}
 
-	public void setMatchdate(String matchdate) {
-		this.matchdate = matchdate;
+	public void setgameDate(String gameDate) {
+		this.gameDate = gameDate;
 	}
 
-	public String getMatchname() {
-		return matchname;
+	public String getgameName() {
+		return gameName;
 	}
 
-	public void setMatchname(String matchname) {
-		this.matchname = matchname;
+	public void setgameName(String gameName) {
+		this.gameName = gameName;
 	}
 
-	public String getMatchinfo() {
-		return matchinfo;
+	public String getgameInfo() {
+		return gameInfo;
 	}
 
-	public void setMatchinfo(String matchinfo) {
-		this.matchinfo = matchinfo;
+	public void setgameInfo(String gameInfo) {
+		this.gameInfo = gameInfo;
 	}
 
-	public String getPlaytime() {
-		return playtime;
+	public String getPlayTime() {
+		return playTime;
 	}
 
-	public void setPlaytime(String playtime) {
-		this.playtime = playtime;
+	public void setPlayTime(String playTime) {
+		this.playTime = playTime;
 	}
 
-	public String getBlueteamname() {
-		return blueteamname;
+	public String getBlueTeamName() {
+		return blueTeamName;
 	}
 
-	public void setBlueteamname(String blueteamname) {
-		this.blueteamname = blueteamname;
+	public void setBlueTeamName(String blueTeamName) {
+		this.blueTeamName = blueTeamName;
 	}
 
-	public String getRedteamname() {
-		return redteamname;
+	public String getRedTeamName() {
+		return redTeamName;
 	}
 
-	public void setRedteamname(String redteamname) {
-		this.redteamname = redteamname;
+	public void setRedTeamName(String redTeamName) {
+		this.redTeamName = redTeamName;
 	}
 
-	public String getBluegamer1() {
-		return bluegamer1;
+	public String getBlueGamer1() {
+		return blueGamer1;
 	}
 
-	public void setBluegamer1(String bluegamer1) {
-		this.bluegamer1 = bluegamer1;
+	public void setBlueGamer1(String blueGamer1) {
+		this.blueGamer1 = blueGamer1;
 	}
 
-	public String getBluegamer2() {
-		return bluegamer2;
+	public String getBlueGamer2() {
+		return blueGamer2;
 	}
 
-	public void setBluegamer2(String bluegamer2) {
-		this.bluegamer2 = bluegamer2;
+	public void setBlueGamer2(String blueGamer2) {
+		this.blueGamer2 = blueGamer2;
 	}
 
-	public String getBluegamer3() {
-		return bluegamer3;
+	public String getBlueGamer3() {
+		return blueGamer3;
 	}
 
-	public void setBluegamer3(String bluegamer3) {
-		this.bluegamer3 = bluegamer3;
+	public void setBlueGamer3(String blueGamer3) {
+		this.blueGamer3 = blueGamer3;
 	}
 
-	public String getBluegamer4() {
-		return bluegamer4;
+	public String getBlueGamer4() {
+		return blueGamer4;
 	}
 
-	public void setBluegamer4(String bluegamer4) {
-		this.bluegamer4 = bluegamer4;
+	public void setBlueGamer4(String blueGamer4) {
+		this.blueGamer4 = blueGamer4;
 	}
 
-	public String getBluegamer5() {
-		return bluegamer5;
+	public String getBlueGamer5() {
+		return blueGamer5;
 	}
 
-	public void setBluegamer5(String bluegamer5) {
-		this.bluegamer5 = bluegamer5;
+	public void setBlueGamer5(String blueGamer5) {
+		this.blueGamer5 = blueGamer5;
 	}
 
-	public String getRedgamer1() {
-		return redgamer1;
+	public String getRedGamer1() {
+		return redGamer1;
 	}
 
-	public void setRedgamer1(String redgamer1) {
-		this.redgamer1 = redgamer1;
+	public void setRedGamer1(String redGamer1) {
+		this.redGamer1 = redGamer1;
 	}
 
-	public String getRedgamer2() {
-		return redgamer2;
+	public String getRedGamer2() {
+		return redGamer2;
 	}
 
-	public void setRedgamer2(String redgamer2) {
-		this.redgamer2 = redgamer2;
+	public void setRedGamer2(String redGamer2) {
+		this.redGamer2 = redGamer2;
 	}
 
-	public String getRedgamer3() {
-		return redgamer3;
+	public String getRedGamer3() {
+		return redGamer3;
 	}
 
-	public void setRedgamer3(String redgamer3) {
-		this.redgamer3 = redgamer3;
+	public void setRedGamer3(String redGamer3) {
+		this.redGamer3 = redGamer3;
 	}
 
-	public String getRedgamer4() {
-		return redgamer4;
+	public String getRedGamer4() {
+		return redGamer4;
 	}
 
-	public void setRedgamer4(String redgamer4) {
-		this.redgamer4 = redgamer4;
+	public void setRedGamer4(String redGamer4) {
+		this.redGamer4 = redGamer4;
 	}
 
-	public String getRedgamer5() {
-		return redgamer5;
+	public String getRedGamer5() {
+		return redGamer5;
 	}
 
-	public void setRedgamer5(String redgamer5) {
-		this.redgamer5 = redgamer5;
+	public void setRedGamer5(String redGamer5) {
+		this.redGamer5 = redGamer5;
 	}
 
-	public String getBluepick1() {
-		return bluepick1;
+	public String getBluePick1() {
+		return bluePick1;
 	}
 
-	public void setBluepick1(String bluepick1) {
-		this.bluepick1 = bluepick1;
+	public void setBluePick1(String bluePick1) {
+		this.bluePick1 = bluePick1;
 	}
 
-	public String getBluepick2() {
-		return bluepick2;
+	public String getBluePick2() {
+		return bluePick2;
 	}
 
-	public void setBluepick2(String bluepick2) {
-		this.bluepick2 = bluepick2;
+	public void setBluePick2(String bluePick2) {
+		this.bluePick2 = bluePick2;
 	}
 
-	public String getBluepick3() {
-		return bluepick3;
+	public String getBluePick3() {
+		return bluePick3;
 	}
 
-	public void setBluepick3(String bluepick3) {
-		this.bluepick3 = bluepick3;
+	public void setBluePick3(String bluePick3) {
+		this.bluePick3 = bluePick3;
 	}
 
-	public String getBluepick4() {
-		return bluepick4;
+	public String getBluePick4() {
+		return bluePick4;
 	}
 
-	public void setBluepick4(String bluepick4) {
-		this.bluepick4 = bluepick4;
+	public void setBluePick4(String bluePick4) {
+		this.bluePick4 = bluePick4;
 	}
 
-	public String getBluepick5() {
-		return bluepick5;
+	public String getBluePick5() {
+		return bluePick5;
 	}
 
-	public void setBluepick5(String bluepick5) {
-		this.bluepick5 = bluepick5;
+	public void setBluePick5(String bluePick5) {
+		this.bluePick5 = bluePick5;
 	}
 
-	public String getRedpick1() {
-		return redpick1;
+	public String getRedPick1() {
+		return redPick1;
 	}
 
-	public void setRedpick1(String redpick1) {
-		this.redpick1 = redpick1;
+	public void setRedPick1(String redPick1) {
+		this.redPick1 = redPick1;
 	}
 
-	public String getRedpick2() {
-		return redpick2;
+	public String getRedPick2() {
+		return redPick2;
 	}
 
-	public void setRedpick2(String redpick2) {
-		this.redpick2 = redpick2;
+	public void setRedPick2(String redPick2) {
+		this.redPick2 = redPick2;
 	}
 
-	public String getRedpick3() {
-		return redpick3;
+	public String getRedPick3() {
+		return redPick3;
 	}
 
-	public void setRedpick3(String redpick3) {
-		this.redpick3 = redpick3;
+	public void setRedPick3(String redPick3) {
+		this.redPick3 = redPick3;
 	}
 
-	public String getRedpick4() {
-		return redpick4;
+	public String getRedPick4() {
+		return redPick4;
 	}
 
-	public void setRedpick4(String redpick4) {
-		this.redpick4 = redpick4;
+	public void setRedPick4(String redPick4) {
+		this.redPick4 = redPick4;
 	}
 
-	public String getRedpick5() {
-		return redpick5;
+	public String getRedPick5() {
+		return redPick5;
 	}
 
-	public void setRedpick5(String redpick5) {
-		this.redpick5 = redpick5;
+	public void setRedPick5(String redPick5) {
+		this.redPick5 = redPick5;
 	}
 
-	public String getBlueban1() {
-		return blueban1;
+	public String getBlueBan1() {
+		return blueBan1;
 	}
 
-	public void setBlueban1(String blueban1) {
-		this.blueban1 = blueban1;
+	public void setBlueBan1(String blueBan1) {
+		this.blueBan1 = blueBan1;
 	}
 
-	public String getBlueban2() {
-		return blueban2;
+	public String getBlueBan2() {
+		return blueBan2;
 	}
 
-	public void setBlueban2(String blueban2) {
-		this.blueban2 = blueban2;
+	public void setBlueBan2(String blueBan2) {
+		this.blueBan2 = blueBan2;
 	}
 
-	public String getBlueban3() {
-		return blueban3;
+	public String getBlueBan3() {
+		return blueBan3;
 	}
 
-	public void setBlueban3(String blueban3) {
-		this.blueban3 = blueban3;
+	public void setBlueBan3(String blueBan3) {
+		this.blueBan3 = blueBan3;
 	}
 
-	public String getBlueban4() {
-		return blueban4;
+	public String getBlueBan4() {
+		return blueBan4;
 	}
 
-	public void setBlueban4(String blueban4) {
-		this.blueban4 = blueban4;
+	public void setBlueBan4(String blueBan4) {
+		this.blueBan4 = blueBan4;
 	}
 
-	public String getBlueban5() {
-		return blueban5;
+	public String getBlueBan5() {
+		return blueBan5;
 	}
 
-	public void setBlueban5(String blueban5) {
-		this.blueban5 = blueban5;
+	public void setBlueBan5(String blueBan5) {
+		this.blueBan5 = blueBan5;
 	}
 
-	public String getRedban1() {
-		return redban1;
+	public String getRedBan1() {
+		return redBan1;
 	}
 
-	public void setRedban1(String redban1) {
-		this.redban1 = redban1;
+	public void setRedBan1(String redBan1) {
+		this.redBan1 = redBan1;
 	}
 
-	public String getRedban2() {
-		return redban2;
+	public String getRedBan2() {
+		return redBan2;
 	}
 
-	public void setRedban2(String redban2) {
-		this.redban2 = redban2;
+	public void setRedBan2(String redBan2) {
+		this.redBan2 = redBan2;
 	}
 
-	public String getRedban3() {
-		return redban3;
+	public String getRedBan3() {
+		return redBan3;
 	}
 
-	public void setRedban3(String redban3) {
-		this.redban3 = redban3;
+	public void setRedBan3(String redBan3) {
+		this.redBan3 = redBan3;
 	}
 
-	public String getRedban4() {
-		return redban4;
+	public String getRedBan4() {
+		return redBan4;
 	}
 
-	public void setRedban4(String redban4) {
-		this.redban4 = redban4;
+	public void setRedBan4(String redBan4) {
+		this.redBan4 = redBan4;
 	}
 
-	public String getRedban5() {
-		return redban5;
+	public String getRedBan5() {
+		return redBan5;
 	}
 
-	public void setRedban5(String redban5) {
-		this.redban5 = redban5;
+	public void setRedBan5(String redBan5) {
+		this.redBan5 = redBan5;
 	}
 
-	public String getBluepick1Spell1() {
-		return bluepick1Spell1;
+	public String getBluePick1Spell1() {
+		return bluePick1Spell1;
 	}
 
-	public void setBluepick1Spell1(String bluepick1Spell1) {
-		this.bluepick1Spell1 = bluepick1Spell1;
+	public void setBluePick1Spell1(String bluePick1Spell1) {
+		this.bluePick1Spell1 = bluePick1Spell1;
 	}
 
-	public String getBluepick1Spell2() {
-		return bluepick1Spell2;
+	public String getBluePick1Spell2() {
+		return bluePick1Spell2;
 	}
 
-	public void setBluepick1Spell2(String bluepick1Spell2) {
-		this.bluepick1Spell2 = bluepick1Spell2;
+	public void setBluePick1Spell2(String bluePick1Spell2) {
+		this.bluePick1Spell2 = bluePick1Spell2;
 	}
 
-	public String getBluepick2Spell1() {
-		return bluepick2Spell1;
+	public String getBluePick2Spell1() {
+		return bluePick2Spell1;
 	}
 
-	public void setBluepick2Spell1(String bluepick2Spell1) {
-		this.bluepick2Spell1 = bluepick2Spell1;
+	public void setBluePick2Spell1(String bluePick2Spell1) {
+		this.bluePick2Spell1 = bluePick2Spell1;
 	}
 
-	public String getBluepick2Spell2() {
-		return bluepick2Spell2;
+	public String getBluePick2Spell2() {
+		return bluePick2Spell2;
 	}
 
-	public void setBluepick2Spell2(String bluepick2Spell2) {
-		this.bluepick2Spell2 = bluepick2Spell2;
+	public void setBluePick2Spell2(String bluePick2Spell2) {
+		this.bluePick2Spell2 = bluePick2Spell2;
 	}
 
-	public String getBluepick3Spell1() {
-		return bluepick3Spell1;
+	public String getBluePick3Spell1() {
+		return bluePick3Spell1;
 	}
 
-	public void setBluepick3Spell1(String bluepick3Spell1) {
-		this.bluepick3Spell1 = bluepick3Spell1;
+	public void setBluePick3Spell1(String bluePick3Spell1) {
+		this.bluePick3Spell1 = bluePick3Spell1;
 	}
 
-	public String getBluepick3Spell2() {
-		return bluepick3Spell2;
+	public String getBluePick3Spell2() {
+		return bluePick3Spell2;
 	}
 
-	public void setBluepick3Spell2(String bluepick3Spell2) {
-		this.bluepick3Spell2 = bluepick3Spell2;
+	public void setBluePick3Spell2(String bluePick3Spell2) {
+		this.bluePick3Spell2 = bluePick3Spell2;
 	}
 
-	public String getBluepick4Spell1() {
-		return bluepick4Spell1;
+	public String getBluePick4Spell1() {
+		return bluePick4Spell1;
 	}
 
-	public void setBluepick4Spell1(String bluepick4Spell1) {
-		this.bluepick4Spell1 = bluepick4Spell1;
+	public void setBluePick4Spell1(String bluePick4Spell1) {
+		this.bluePick4Spell1 = bluePick4Spell1;
 	}
 
-	public String getBluepick4Spell2() {
-		return bluepick4Spell2;
+	public String getBluePick4Spell2() {
+		return bluePick4Spell2;
 	}
 
-	public void setBluepick4Spell2(String bluepick4Spell2) {
-		this.bluepick4Spell2 = bluepick4Spell2;
+	public void setBluePick4Spell2(String bluePick4Spell2) {
+		this.bluePick4Spell2 = bluePick4Spell2;
 	}
 
-	public String getBluepick5Spell1() {
-		return bluepick5Spell1;
+	public String getBluePick5Spell1() {
+		return bluePick5Spell1;
 	}
 
-	public void setBluepick5Spell1(String bluepick5Spell1) {
-		this.bluepick5Spell1 = bluepick5Spell1;
+	public void setBluePick5Spell1(String bluePick5Spell1) {
+		this.bluePick5Spell1 = bluePick5Spell1;
 	}
 
-	public String getBluepick5Spell2() {
-		return bluepick5Spell2;
+	public String getBluePick5Spell2() {
+		return bluePick5Spell2;
 	}
 
-	public void setBluepick5Spell2(String bluepick5Spell2) {
-		this.bluepick5Spell2 = bluepick5Spell2;
+	public void setBluePick5Spell2(String bluePick5Spell2) {
+		this.bluePick5Spell2 = bluePick5Spell2;
 	}
 
-	public String getRedpick1Spell1() {
-		return redpick1Spell1;
+	public String getRedPick1Spell1() {
+		return redPick1Spell1;
 	}
 
-	public void setRedpick1Spell1(String redpick1Spell1) {
-		this.redpick1Spell1 = redpick1Spell1;
+	public void setRedPick1Spell1(String redPick1Spell1) {
+		this.redPick1Spell1 = redPick1Spell1;
 	}
 
-	public String getRedpick1Spell2() {
-		return redpick1Spell2;
+	public String getRedPick1Spell2() {
+		return redPick1Spell2;
 	}
 
-	public void setRedpick1Spell2(String redpick1Spell2) {
-		this.redpick1Spell2 = redpick1Spell2;
+	public void setRedPick1Spell2(String redPick1Spell2) {
+		this.redPick1Spell2 = redPick1Spell2;
 	}
 
-	public String getRedpick2Spell1() {
-		return redpick2Spell1;
+	public String getRedPick2Spell1() {
+		return redPick2Spell1;
 	}
 
-	public void setRedpick2Spell1(String redpick2Spell1) {
-		this.redpick2Spell1 = redpick2Spell1;
+	public void setRedPick2Spell1(String redPick2Spell1) {
+		this.redPick2Spell1 = redPick2Spell1;
 	}
 
-	public String getRedpick2Spell2() {
-		return redpick2Spell2;
+	public String getRedPick2Spell2() {
+		return redPick2Spell2;
 	}
 
-	public void setRedpick2Spell2(String redpick2Spell2) {
-		this.redpick2Spell2 = redpick2Spell2;
+	public void setRedPick2Spell2(String redPick2Spell2) {
+		this.redPick2Spell2 = redPick2Spell2;
 	}
 
-	public String getRedpick3Spell1() {
-		return redpick3Spell1;
+	public String getRedPick3Spell1() {
+		return redPick3Spell1;
 	}
 
-	public void setRedpick3Spell1(String redpick3Spell1) {
-		this.redpick3Spell1 = redpick3Spell1;
+	public void setRedPick3Spell1(String redPick3Spell1) {
+		this.redPick3Spell1 = redPick3Spell1;
 	}
 
-	public String getRedpick3Spell2() {
-		return redpick3Spell2;
+	public String getRedPick3Spell2() {
+		return redPick3Spell2;
 	}
 
-	public void setRedpick3Spell2(String redpick3Spell2) {
-		this.redpick3Spell2 = redpick3Spell2;
+	public void setRedPick3Spell2(String redPick3Spell2) {
+		this.redPick3Spell2 = redPick3Spell2;
 	}
 
-	public String getRedpick4Spell1() {
-		return redpick4Spell1;
+	public String getRedPick4Spell1() {
+		return redPick4Spell1;
 	}
 
-	public void setRedpick4Spell1(String redpick4Spell1) {
-		this.redpick4Spell1 = redpick4Spell1;
+	public void setRedPick4Spell1(String redPick4Spell1) {
+		this.redPick4Spell1 = redPick4Spell1;
 	}
 
-	public String getRedpick4Spell2() {
-		return redpick4Spell2;
+	public String getRedPick4Spell2() {
+		return redPick4Spell2;
 	}
 
-	public void setRedpick4Spell2(String redpick4Spell2) {
-		this.redpick4Spell2 = redpick4Spell2;
+	public void setRedPick4Spell2(String redPick4Spell2) {
+		this.redPick4Spell2 = redPick4Spell2;
 	}
 
-	public String getRedpick5Spell1() {
-		return redpick5Spell1;
+	public String getRedPick5Spell1() {
+		return redPick5Spell1;
 	}
 
-	public void setRedpick5Spell1(String redpick5Spell1) {
-		this.redpick5Spell1 = redpick5Spell1;
+	public void setRedPick5Spell1(String redPick5Spell1) {
+		this.redPick5Spell1 = redPick5Spell1;
 	}
 
-	public String getRedpick5Spell2() {
-		return redpick5Spell2;
+	public String getRedPick5Spell2() {
+		return redPick5Spell2;
 	}
 
-	public void setRedpick5Spell2(String redpick5Spell2) {
-		this.redpick5Spell2 = redpick5Spell2;
+	public void setRedPick5Spell2(String redPick5Spell2) {
+		this.redPick5Spell2 = redPick5Spell2;
 	}
 
-	public int getBluepick1Kill() {
-		return bluepick1Kill;
+	public int getBluePick1Kill() {
+		return bluePick1Kill;
 	}
 
-	public void setBluepick1Kill(int bluepick1Kill) {
-		this.bluepick1Kill = bluepick1Kill;
+	public void setBluePick1Kill(int bluePick1Kill) {
+		this.bluePick1Kill = bluePick1Kill;
 	}
 
-	public int getBluepick1Death() {
-		return bluepick1Death;
+	public int getBluePick1Death() {
+		return bluePick1Death;
 	}
 
-	public void setBluepick1Death(int bluepick1Death) {
-		this.bluepick1Death = bluepick1Death;
+	public void setBluePick1Death(int bluePick1Death) {
+		this.bluePick1Death = bluePick1Death;
 	}
 
-	public int getBluepick1Assist() {
-		return bluepick1Assist;
+	public int getBluePick1Assist() {
+		return bluePick1Assist;
 	}
 
-	public void setBluepick1Assist(int bluepick1Assist) {
-		this.bluepick1Assist = bluepick1Assist;
+	public void setBluePick1Assist(int bluePick1Assist) {
+		this.bluePick1Assist = bluePick1Assist;
 	}
 
-	public int getBluepick2Kill() {
-		return bluepick2Kill;
+	public int getBluePick2Kill() {
+		return bluePick2Kill;
 	}
 
-	public void setBluepick2Kill(int bluepick2Kill) {
-		this.bluepick2Kill = bluepick2Kill;
+	public void setBluePick2Kill(int bluePick2Kill) {
+		this.bluePick2Kill = bluePick2Kill;
 	}
 
-	public int getBluepick2Death() {
-		return bluepick2Death;
+	public int getBluePick2Death() {
+		return bluePick2Death;
 	}
 
-	public void setBluepick2Death(int bluepick2Death) {
-		this.bluepick2Death = bluepick2Death;
+	public void setBluePick2Death(int bluePick2Death) {
+		this.bluePick2Death = bluePick2Death;
 	}
 
-	public int getBluepick2Assist() {
-		return bluepick2Assist;
+	public int getBluePick2Assist() {
+		return bluePick2Assist;
 	}
 
-	public void setBluepick2Assist(int bluepick2Assist) {
-		this.bluepick2Assist = bluepick2Assist;
+	public void setBluePick2Assist(int bluePick2Assist) {
+		this.bluePick2Assist = bluePick2Assist;
 	}
 
-	public int getBluepick3Kill() {
-		return bluepick3Kill;
+	public int getBluePick3Kill() {
+		return bluePick3Kill;
 	}
 
-	public void setBluepick3Kill(int bluepick3Kill) {
-		this.bluepick3Kill = bluepick3Kill;
+	public void setBluePick3Kill(int bluePick3Kill) {
+		this.bluePick3Kill = bluePick3Kill;
 	}
 
-	public int getBluepick3Death() {
-		return bluepick3Death;
+	public int getBluePick3Death() {
+		return bluePick3Death;
 	}
 
-	public void setBluepick3Death(int bluepick3Death) {
-		this.bluepick3Death = bluepick3Death;
+	public void setBluePick3Death(int bluePick3Death) {
+		this.bluePick3Death = bluePick3Death;
 	}
 
-	public int getBluepick3Assist() {
-		return bluepick3Assist;
+	public int getBluePick3Assist() {
+		return bluePick3Assist;
 	}
 
-	public void setBluepick3Assist(int bluepick3Assist) {
-		this.bluepick3Assist = bluepick3Assist;
+	public void setBluePick3Assist(int bluePick3Assist) {
+		this.bluePick3Assist = bluePick3Assist;
 	}
 
-	public int getBluepick4Kill() {
-		return bluepick4Kill;
+	public int getBluePick4Kill() {
+		return bluePick4Kill;
 	}
 
-	public void setBluepick4Kill(int bluepick4Kill) {
-		this.bluepick4Kill = bluepick4Kill;
+	public void setBluePick4Kill(int bluePick4Kill) {
+		this.bluePick4Kill = bluePick4Kill;
 	}
 
-	public int getBluepick4Death() {
-		return bluepick4Death;
+	public int getBluePick4Death() {
+		return bluePick4Death;
 	}
 
-	public void setBluepick4Death(int bluepick4Death) {
-		this.bluepick4Death = bluepick4Death;
+	public void setBluePick4Death(int bluePick4Death) {
+		this.bluePick4Death = bluePick4Death;
 	}
 
-	public int getBluepick4Assist() {
-		return bluepick4Assist;
+	public int getBluePick4Assist() {
+		return bluePick4Assist;
 	}
 
-	public void setBluepick4Assist(int bluepick4Assist) {
-		this.bluepick4Assist = bluepick4Assist;
+	public void setBluePick4Assist(int bluePick4Assist) {
+		this.bluePick4Assist = bluePick4Assist;
 	}
 
-	public int getBluepick5Kill() {
-		return bluepick5Kill;
+	public int getBluePick5Kill() {
+		return bluePick5Kill;
 	}
 
-	public void setBluepick5Kill(int bluepick5Kill) {
-		this.bluepick5Kill = bluepick5Kill;
+	public void setBluePick5Kill(int bluePick5Kill) {
+		this.bluePick5Kill = bluePick5Kill;
 	}
 
-	public int getBluepick5Death() {
-		return bluepick5Death;
+	public int getBluePick5Death() {
+		return bluePick5Death;
 	}
 
-	public void setBluepick5Death(int bluepick5Death) {
-		this.bluepick5Death = bluepick5Death;
+	public void setBluePick5Death(int bluePick5Death) {
+		this.bluePick5Death = bluePick5Death;
 	}
 
-	public int getBluepick5Assist() {
-		return bluepick5Assist;
+	public int getBluePick5Assist() {
+		return bluePick5Assist;
 	}
 
-	public void setBluepick5Assist(int bluepick5Assist) {
-		this.bluepick5Assist = bluepick5Assist;
+	public void setBluePick5Assist(int bluePick5Assist) {
+		this.bluePick5Assist = bluePick5Assist;
 	}
 
-	public int getRedpick1Kill() {
-		return redpick1Kill;
+	public int getRedPick1Kill() {
+		return redPick1Kill;
 	}
 
-	public void setRedpick1Kill(int redpick1Kill) {
-		this.redpick1Kill = redpick1Kill;
+	public void setRedPick1Kill(int redPick1Kill) {
+		this.redPick1Kill = redPick1Kill;
 	}
 
-	public int getRedpick1Death() {
-		return redpick1Death;
+	public int getRedPick1Death() {
+		return redPick1Death;
 	}
 
-	public void setRedpick1Death(int redpick1Death) {
-		this.redpick1Death = redpick1Death;
+	public void setRedPick1Death(int redPick1Death) {
+		this.redPick1Death = redPick1Death;
 	}
 
-	public int getRedpick1Assist() {
-		return redpick1Assist;
+	public int getRedPick1Assist() {
+		return redPick1Assist;
 	}
 
-	public void setRedpick1Assist(int redpick1Assist) {
-		this.redpick1Assist = redpick1Assist;
+	public void setRedPick1Assist(int redPick1Assist) {
+		this.redPick1Assist = redPick1Assist;
 	}
 
-	public int getRedpick2Kill() {
-		return redpick2Kill;
+	public int getRedPick2Kill() {
+		return redPick2Kill;
 	}
 
-	public void setRedpick2Kill(int redpick2Kill) {
-		this.redpick2Kill = redpick2Kill;
+	public void setRedPick2Kill(int redPick2Kill) {
+		this.redPick2Kill = redPick2Kill;
 	}
 
-	public int getRedpick2Death() {
-		return redpick2Death;
+	public int getRedPick2Death() {
+		return redPick2Death;
 	}
 
-	public void setRedpick2Death(int redpick2Death) {
-		this.redpick2Death = redpick2Death;
+	public void setRedPick2Death(int redPick2Death) {
+		this.redPick2Death = redPick2Death;
 	}
 
-	public int getRedpick2Assist() {
-		return redpick2Assist;
+	public int getRedPick2Assist() {
+		return redPick2Assist;
 	}
 
-	public void setRedpick2Assist(int redpick2Assist) {
-		this.redpick2Assist = redpick2Assist;
+	public void setRedPick2Assist(int redPick2Assist) {
+		this.redPick2Assist = redPick2Assist;
 	}
 
-	public int getRedpick3Kill() {
-		return redpick3Kill;
+	public int getRedPick3Kill() {
+		return redPick3Kill;
 	}
 
-	public void setRedpick3Kill(int redpick3Kill) {
-		this.redpick3Kill = redpick3Kill;
+	public void setRedPick3Kill(int redPick3Kill) {
+		this.redPick3Kill = redPick3Kill;
 	}
 
-	public int getRedpick3Death() {
-		return redpick3Death;
+	public int getRedPick3Death() {
+		return redPick3Death;
 	}
 
-	public void setRedpick3Death(int redpick3Death) {
-		this.redpick3Death = redpick3Death;
+	public void setRedPick3Death(int redPick3Death) {
+		this.redPick3Death = redPick3Death;
 	}
 
-	public int getRedpick3Assist() {
-		return redpick3Assist;
+	public int getRedPick3Assist() {
+		return redPick3Assist;
 	}
 
-	public void setRedpick3Assist(int redpick3Assist) {
-		this.redpick3Assist = redpick3Assist;
+	public void setRedPick3Assist(int redPick3Assist) {
+		this.redPick3Assist = redPick3Assist;
 	}
 
-	public int getRedpick4Kill() {
-		return redpick4Kill;
+	public int getRedPick4Kill() {
+		return redPick4Kill;
 	}
 
-	public void setRedpick4Kill(int redpick4Kill) {
-		this.redpick4Kill = redpick4Kill;
+	public void setRedPick4Kill(int redPick4Kill) {
+		this.redPick4Kill = redPick4Kill;
 	}
 
-	public int getRedpick4Death() {
-		return redpick4Death;
+	public int getRedPick4Death() {
+		return redPick4Death;
 	}
 
-	public void setRedpick4Death(int redpick4Death) {
-		this.redpick4Death = redpick4Death;
+	public void setRedPick4Death(int redPick4Death) {
+		this.redPick4Death = redPick4Death;
 	}
 
-	public int getRedpick4Assist() {
-		return redpick4Assist;
+	public int getRedPick4Assist() {
+		return redPick4Assist;
 	}
 
-	public void setRedpick4Assist(int redpick4Assist) {
-		this.redpick4Assist = redpick4Assist;
+	public void setRedPick4Assist(int redPick4Assist) {
+		this.redPick4Assist = redPick4Assist;
 	}
 
-	public int getRedpick5Kill() {
-		return redpick5Kill;
+	public int getRedPick5Kill() {
+		return redPick5Kill;
 	}
 
-	public void setRedpick5Kill(int redpick5Kill) {
-		this.redpick5Kill = redpick5Kill;
+	public void setRedPick5Kill(int redPick5Kill) {
+		this.redPick5Kill = redPick5Kill;
 	}
 
-	public int getRedpick5Death() {
-		return redpick5Death;
+	public int getRedPick5Death() {
+		return redPick5Death;
 	}
 
-	public void setRedpick5Death(int redpick5Death) {
-		this.redpick5Death = redpick5Death;
+	public void setRedPick5Death(int redPick5Death) {
+		this.redPick5Death = redPick5Death;
 	}
 
-	public int getRedpick5Assist() {
-		return redpick5Assist;
+	public int getRedPick5Assist() {
+		return redPick5Assist;
 	}
 
-	public void setRedpick5Assist(int redpick5Assist) {
-		this.redpick5Assist = redpick5Assist;
+	public void setRedPick5Assist(int redPick5Assist) {
+		this.redPick5Assist = redPick5Assist;
 	}
 
 }

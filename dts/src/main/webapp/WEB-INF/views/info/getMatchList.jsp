@@ -20,71 +20,71 @@
 		<form action="updateMatchForm">
 			<div align="center">
 				<table class="table">
-				<input type="hidden" name="matchId" value="${match.matchId}">
+				<input type="hidden" name="matchId" value="${match.gameId}">
 					<tr>
-						<th colspan="8">${match.matchdate}</th>
-						<th align="center">${match.matchname}</th>
+						<th colspan="8">${match.gameDate}</th>
+						<th align="center">${match.gameName}</th>
 						<th colspan="6"></th>
-						<th align="right" colspan="2" name="matchinfo">${match.matchinfo}</th>
+						<th align="right" colspan="2" name="matchinfo">${match.gameInfo}</th>
 					</tr>
 					<tr>
-						<td colspan="6">${match.blueteamname}</td>
-						<td align="center" colspan="2">${match.blueresult}</td>
-						<td align="center">${match.bluepick1Kill}:${match.redpick1Kill}</td>
-						<td align="center" colspan="2">${match.redresult}</td>
-						<td align="right" colspan="6">${match.redteamname}</td>
+						<td colspan="6">${match.blueTeamName}</td>
+						<td align="center" colspan="2">${match.blueResult}</td>
+						<td align="center">${match.bluePick1Kill}:${match.redPick1Kill}</td>
+						<td align="center" colspan="2">${match.redResult}</td>
+						<td align="right" colspan="6">${match.redTeamName}</td>
 					</tr>
 					<tr>
 						<td>K</td>
-						<td>${match.bluepick1Kill}</td>
+						<td>${match.bluePick1Kill}</td>
 						<td>D</td>
-						<td>${match.bluepick1Death}</td>
+						<td>${match.bluePick1Death}</td>
 						<td>A</td>
-						<td>${match.bluepick1Assist}</td>
+						<td>${match.bluePick1Assist}</td>
 						<td>KDA</td>
 						<td>#.#</td>
 						<td align="center">Play Time</td>
 						<td>K</td>
-						<td>${match.redpick1Kill}</td>
+						<td>${match.redPick1Kill}</td>
 						<td>D</td>
-						<td>${match.redpick1Death}</td>
+						<td>${match.redPick1Death}</td>
 						<td>A</td>
-						<td>${match.redpick1Assist}</td>
+						<td>${match.redPick1Assist}</td>
 						<td>KDA</td>
 						<td>#.#</td>
 					</tr>
 					<tr>
 						<td align="center" colspan="2">PICK</td>
-						<td>${match.bluepick1}</td>
-						<td>${match.bluepick2}</td>
-						<td>${match.bluepick3}</td>
-						<td>${match.bluepick4}</td>
-						<td>${match.bluepick5}</td>
+						<td>${match.bluePick1}</td>
+						<td>${match.bluePick2}</td>
+						<td>${match.bluePick3}</td>
+						<td>${match.bluePick4}</td>
+						<td>${match.bluePick5}</td>
 						<td></td>
-						<td align="center">${match.playtime}</td>
+						<td align="center">${match.playTime}</td>
 						<td></td>
-						<td>${match.redpick5}</td>
-						<td>${match.redpick4}</td>
-						<td>${match.redpick3}</td>
-						<td>${match.redpick2}</td>
-						<td>${match.redpick1}</td>
+						<td>${match.redPick5}</td>
+						<td>${match.redPick4}</td>
+						<td>${match.redPick3}</td>
+						<td>${match.redPick2}</td>
+						<td>${match.redPick1}</td>
 						<td align="center" colspan="2">PICK</td>
 					</tr>
 					<tr>
 						<td align="center" colspan="2">BAN</td>
-						<td>${match.blueban1}</td>
-						<td>${match.blueban2}</td>
-						<td>${match.blueban3}</td>
-						<td>${match.blueban4}</td>
-						<td>${match.blueban5}</td>
+						<td>${match.blueBan1}</td>
+						<td>${match.blueBan2}</td>
+						<td>${match.blueBan3}</td>
+						<td>${match.blueBan4}</td>
+						<td>${match.blueBan5}</td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td>${match.redban5}</td>
-						<td>${match.redban4}</td>
-						<td>${match.redban3}</td>
-						<td>${match.redban2}</td>
-						<td>${match.redban1}</td>
+						<td>${match.redBan5}</td>
+						<td>${match.redBan4}</td>
+						<td>${match.redBan3}</td>
+						<td>${match.redBan2}</td>
+						<td>${match.redBan1}</td>
 						<td align="center" colspan="2">BAN</td>
 					</tr>
 				</table>
@@ -104,115 +104,115 @@
 							<td>Champ</td>
 							<td>Spell</td>
 						</tr>
-						<!-- pick1 -->
+						<!-- Pick1 -->
 						<tr>
-							<td>${match.bluepick1Spell1}</td>
-							<td rowspan="2">${match.bluepick1}</td>
-							<td colspan="4">${match.bluegamer1}</td>
-							<td colspan="4">${match.redgamer1}</td>
-							<td rowspan="2">${match.redpick1}</td>
-							<td>${match.redpick1Spell1}</td>
+							<td>${match.bluePick1Spell1}</td>
+							<td rowspan="2">${match.bluePick1}</td>
+							<td colspan="4">${match.blueGamer1}</td>
+							<td colspan="4">${match.redGamer1}</td>
+							<td rowspan="2">${match.redPick1}</td>
+							<td>${match.redPick1Spell1}</td>
 						</tr>
 						<tr>
-							<td>${match.bluepick1Spell2}</td>
-							<td>${match.bluepick1Kill}</td>
-							<td>${match.bluepick1Death}</td>
-							<td>${match.bluepick1Assist}</td>
+							<td>${match.bluePick1Spell2}</td>
+							<td>${match.bluePick1Kill}</td>
+							<td>${match.bluePick1Death}</td>
+							<td>${match.bluePick1Assist}</td>
 							<td>#.#</td>
-							<!-- bluepick1Kda -->
-							<td>${match.redpick1Kill}</td>
-							<td>${match.redpick1Death}</td>
-							<td>${match.redpick1Assist}</td>
+							<!-- bluePick1Kda -->
+							<td>${match.redPick1Kill}</td>
+							<td>${match.redPick1Death}</td>
+							<td>${match.redPick1Assist}</td>
 							<td>#.#</td>
-							<td>${match.redpick1Spell2}</td>
+							<td>${match.redPick1Spell2}</td>
 						</tr>
-						<!-- pick2 -->
+						<!-- Pick2 -->
 						<tr>
-							<td>${match.bluepick2Spell1}</td>
-							<td rowspan="2">${match.bluepick2}</td>
-							<td colspan="4">${match.bluegamer2}</td>
-							<td colspan="4">${match.redgamer2}</td>
-							<td rowspan="2">${match.redpick2}</td>
-							<td>${match.redpick2Spell1}</td>
-						</tr>
-						<tr>
-							<td>${match.bluepick2Spell2}</td>
-							<td>${match.bluepick2Kill}</td>
-							<td>${match.bluepick2Death}</td>
-							<td>${match.bluepick2Assist}</td>
-							<td>#.#</td>
-							<!-- bluepick2Kda -->
-							<td>${match.redpick2Kill}</td>
-							<td>${match.redpick2Death}</td>
-							<td>${match.redpick2Assist}</td>
-							<td>#.#</td>
-							<td>${match.redpick2Spell2}</td>
-						</tr>
-						<!-- pick3 -->
-						<tr>
-							<td>${match.bluepick3Spell1}</td>
-							<td rowspan="2">${match.bluepick3}</td>
-							<td colspan="4">${match.bluegamer3}</td>
-							<td colspan="4">${match.redgamer3}</td>
-							<td rowspan="2">${match.redpick3}</td>
-							<td>${match.redpick3Spell1}</td>
+							<td>${match.bluePick2Spell1}</td>
+							<td rowspan="2">${match.bluePick2}</td>
+							<td colspan="4">${match.blueGamer2}</td>
+							<td colspan="4">${match.redGamer2}</td>
+							<td rowspan="2">${match.redPick2}</td>
+							<td>${match.redPick2Spell1}</td>
 						</tr>
 						<tr>
-							<td>${match.bluepick3Spell2}</td>
-							<td>${match.bluepick3Kill}</td>
-							<td>${match.bluepick3Death}</td>
-							<td>${match.bluepick3Assist}</td>
+							<td>${match.bluePick2Spell2}</td>
+							<td>${match.bluePick2Kill}</td>
+							<td>${match.bluePick2Death}</td>
+							<td>${match.bluePick2Assist}</td>
 							<td>#.#</td>
-							<!-- bluepick1Kda -->
-							<td>${match.redpick3Kill}</td>
-							<td>${match.redpick3Death}</td>
-							<td>${match.redpick3Assist}</td>
+							<!-- bluePick2Kda -->
+							<td>${match.redPick2Kill}</td>
+							<td>${match.redPick2Death}</td>
+							<td>${match.redPick2Assist}</td>
 							<td>#.#</td>
-							<td>${match.redpick3Spell2}</td>
+							<td>${match.redPick2Spell2}</td>
 						</tr>
-						<!-- pick4 -->
+						<!-- Pick3 -->
 						<tr>
-							<td>${match.bluepick4Spell1}</td>
-							<td rowspan="2">${match.bluepick4}</td>
-							<td colspan="4">${match.bluegamer4}</td>
-							<td colspan="4">${match.redgamer4}</td>
-							<td rowspan="2">${match.redpick4}</td>
-							<td>${match.redpick4Spell1}</td>
-						</tr>
-						<tr>
-							<td>${match.bluepick4Spell2}</td>
-							<td>${match.bluepick4Kill}</td>
-							<td>${match.bluepick4Death}</td>
-							<td>${match.bluepick4Assist}</td>
-							<td>#.#</td>
-							<!-- bluepick1Kda -->
-							<td>${match.redpick4Kill}</td>
-							<td>${match.redpick4Death}</td>
-							<td>${match.redpick4Assist}</td>
-							<td>#.#</td>
-							<td>${match.redpick4Spell2}</td>
-						</tr>
-						<!-- pick5 -->
-						<tr>
-							<td>${match.bluepick5Spell1}</td>
-							<td rowspan="2">${match.bluepick5}</td>
-							<td colspan="4">${match.bluegamer5}</td>
-							<td colspan="4">${match.redgamer5}</td>
-							<td rowspan="2">${match.redpick5}</td>
-							<td>${match.redpick5Spell1}</td>
+							<td>${match.bluePick3Spell1}</td>
+							<td rowspan="2">${match.bluePick3}</td>
+							<td colspan="4">${match.blueGamer3}</td>
+							<td colspan="4">${match.redGamer3}</td>
+							<td rowspan="2">${match.redPick3}</td>
+							<td>${match.redPick3Spell1}</td>
 						</tr>
 						<tr>
-							<td>${match.bluepick5Spell2}</td>
-							<td>${match.bluepick5Kill}</td>
-							<td>${match.bluepick5Death}</td>
-							<td>${match.bluepick5Assist}</td>
+							<td>${match.bluePick3Spell2}</td>
+							<td>${match.bluePick3Kill}</td>
+							<td>${match.bluePick3Death}</td>
+							<td>${match.bluePick3Assist}</td>
 							<td>#.#</td>
-							<!-- bluepick1Kda -->
-							<td>${match.redpick5Kill}</td>
-							<td>${match.redpick5Death}</td>
-							<td>${match.redpick5Assist}</td>
+							<!-- bluePick1Kda -->
+							<td>${match.redPick3Kill}</td>
+							<td>${match.redPick3Death}</td>
+							<td>${match.redPick3Assist}</td>
 							<td>#.#</td>
-							<td>${match.redpick5Spell2}</td>
+							<td>${match.redPick3Spell2}</td>
+						</tr>
+						<!-- Pick4 -->
+						<tr>
+							<td>${match.bluePick4Spell1}</td>
+							<td rowspan="2">${match.bluePick4}</td>
+							<td colspan="4">${match.blueGamer4}</td>
+							<td colspan="4">${match.redGamer4}</td>
+							<td rowspan="2">${match.redPick4}</td>
+							<td>${match.redPick4Spell1}</td>
+						</tr>
+						<tr>
+							<td>${match.bluePick4Spell2}</td>
+							<td>${match.bluePick4Kill}</td>
+							<td>${match.bluePick4Death}</td>
+							<td>${match.bluePick4Assist}</td>
+							<td>#.#</td>
+							<!-- bluePick1Kda -->
+							<td>${match.redPick4Kill}</td>
+							<td>${match.redPick4Death}</td>
+							<td>${match.redPick4Assist}</td>
+							<td>#.#</td>
+							<td>${match.redPick4Spell2}</td>
+						</tr>
+						<!-- Pick5 -->
+						<tr>
+							<td>${match.bluePick5Spell1}</td>
+							<td rowspan="2">${match.bluePick5}</td>
+							<td colspan="4">${match.blueGamer5}</td>
+							<td colspan="4">${match.redGamer5}</td>
+							<td rowspan="2">${match.redPick5}</td>
+							<td>${match.redPick5Spell1}</td>
+						</tr>
+						<tr>
+							<td>${match.bluePick5Spell2}</td>
+							<td>${match.bluePick5Kill}</td>
+							<td>${match.bluePick5Death}</td>
+							<td>${match.bluePick5Assist}</td>
+							<td>#.#</td>
+							<!-- bluePick1Kda -->
+							<td>${match.redPick5Kill}</td>
+							<td>${match.redPick5Death}</td>
+							<td>${match.redPick5Assist}</td>
+							<td>#.#</td>
+							<td>${match.redPick5Spell2}</td>
 						</tr>
 						<tr>
 							<td><input type="submit" value="수정"></td>
