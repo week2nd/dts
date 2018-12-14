@@ -24,8 +24,19 @@ public class GameServiceImpl implements GameService{
 	}
 	
 	@Override
+	public List<GameVO> getGameListAd(GameVO vo) {
+		return dao.getGameListAd(vo);
+	}
+	
+	
+	@Override
 	public void insertGame(GameVO vo) {
 		dao.insertGame(vo);
+	}
+	
+	@Override
+	public List<GameVO> updateResult(GameVO vo) {
+		return dao.updateResult(vo);
 	}
 
 }

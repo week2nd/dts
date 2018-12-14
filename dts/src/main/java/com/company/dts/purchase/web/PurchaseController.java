@@ -21,8 +21,8 @@ public class PurchaseController {
 	// 전체조회
 	@RequestMapping("/getPurchaseList")
 	public String getPurchaseList(Model model, PurchaseVO vo, HttpSession session) {
-		String id = ((MemberVO)session.getAttribute("membersession")).getuId();
-		vo.setuId(id);
+		String uId = ((MemberVO)session.getAttribute("membersession")).getuId();
+		vo.setuId(uId);
 		model.addAttribute("purchaseList", purchaseService.getPurchaseList(vo));
 		return "user/purchase/getPurchaseList";
 	}

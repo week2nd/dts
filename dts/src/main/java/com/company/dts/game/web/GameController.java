@@ -1,5 +1,8 @@
 package com.company.dts.game.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +72,33 @@ public class GameController {
 	public String buyGameform(PurchaseVO vo) {
 		return "user/game/buyGame";
 	}
+	
+	// 관리자게임조회
+	@RequestMapping("/getGameListAd")
+	public String getGameListAd(Model model, GameVO vo) {
+		List<GameVO> li = new ArrayList<GameVO>();
+		li = gameService.getGameListAd(vo);
+		
+		System.out.println("####"+li.size());
+		
+		for(GameVO v : li) {
+			System.out.println(v.getGameDate());
+			System.out.println(v.getState());
+			System.out.println(v.getRedTeamId());
+			
+		}
+		
+		
+		
+		model.addAttribute("gameListAd", gameService.getGameListAd(vo));
+		return "user/game/getGameListAd";
+	}
+	
+	// 돈지급페이지
+		@RequestMapping("/getGameListAd11")
+		public String updateResult(Model model, GameVO vo) {
+			model.addAttribute("gameList", gameService.getGameList(vo));
+			return "redirect:getGameListAd";
+		}
 
 }

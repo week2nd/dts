@@ -99,7 +99,6 @@
 					<th>블루팀</th>
 					<th>블루팀배당률</th>
 					<th>선택</th>
-					<th>결과</th>
 
 				</tr>
 			</thead>
@@ -121,7 +120,6 @@
 					<td ><input class="bluecheck" type="checkbox" disabled=true></td></c:if>
 					<c:if test="${game.buyCheck==0}">
 					<td ><input class="bluecheck" type="checkbox"></td></c:if>
-					<td class="result">${game.result}</td>					
 				</tr>
 			</c:forEach>
 		</table>

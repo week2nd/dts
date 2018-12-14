@@ -5,7 +5,6 @@
 
 	<select id="getGameList" resultType="game">
 		SELECT GAME_ID,
-				RESULT,
 				REDTEAMID,
 				STATE,
 				REDRATE,
@@ -17,11 +16,20 @@
 		 FROM GAME a
 		ORDER BY 1
 	</select>
+	
+	<select id="getGameListAd" resultType="game">
+		SELECT 	GAME_ID AS gameid,
+				MATCHDATE AS gamedate,
+				GAMESTATUS AS state,
+				REDTEAMNAME AS redteamid,			
+				BLUETEAMNAME AS blueteamid								
+		 FROM INGAME 
+		ORDER BY 1
+	</select>
 
 	<select id="getGame" parameterType="game"
 		resultType="game">
 		SELECT GAME_ID,
-		RESULT,
 		REDTEAMID,
 		STATE,
 		REDRATE,
@@ -32,22 +40,13 @@
 		WHERE GAME_ID = #{gameId}
 	</select>
 	
-	<insert id="insertGame" parameterType="game">
-		<selectKey keyProperty="gameId" resultType="integer" order="BEFORE">
-		SELECT nvl(MAX(GAME_ID),0)+1 FROM GAME
-		</selectKey>
-		INSERT INTO GAME(GAME_ID,
-		REDTEAMID,
-		REDRATE,
-		BLUETEAMID,
-		BLUERATE,
-		GAMEDATE )
-		VALUES(#{gameId},
-		#{redTeamId},
-		#{redRate},
-		#{blueTeamId},
-		#{blueRate},
-		#{gameDate} )
+	<insert id="updateResult" parameterType="game"
+		statementType="CALLABLE">		
+		{ call PROC_PAYMENTS(
+		#{gameId}
+		)
 	</insert>
+	
+	
 
 </mapper>

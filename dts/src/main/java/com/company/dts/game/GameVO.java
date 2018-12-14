@@ -2,7 +2,6 @@ package com.company.dts.game;
 
 public class GameVO {
 	private int gameId;
-	private String result;
 	private String redTeamId;
 	private String state;
 	private float redRate;
@@ -30,12 +29,6 @@ public class GameVO {
 	}
 	public void setGameId(int gameId) {
 		this.gameId = gameId;
-	}
-	public String getResult() {
-		return result;
-	}
-	public void setResult(String result) {
-		this.result = result;
 	}
 	public String getRedTeamId() {
 		return redTeamId;
@@ -75,11 +68,9 @@ public class GameVO {
 	}
 	@Override
 	public String toString() {
-		return "GameVO [gameId=" + gameId + ", result=" + result + ", redTeamId=" + redTeamId + ", state=" + state
-				+ ", redRate=" + redRate + ", blueTeamId=" + blueTeamId + ", blueRate=" + blueRate + ", gameDate="
-				+ gameDate + ", buyCheck=" + buyCheck + "]";
-	}
-	
-	
+		return "GameVO [gameId=" + gameId + ", redTeamId=" + redTeamId + ", state=" + state + ", redRate=" + redRate
+				+ ", blueTeamId=" + blueTeamId + ", blueRate=" + blueRate + ", gameDate=" + gameDate + ", buyCheck="
+				+ buyCheck + ", uId=" + uId + "]";
+	}	
 	
 }
