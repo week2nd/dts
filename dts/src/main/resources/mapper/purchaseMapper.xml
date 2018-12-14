@@ -18,7 +18,7 @@
 		</if>
 	</select>
 
-	<select id="getPurchase" parameterType="purchase"
+	<select id="getPurchaseListAd" parameterType="purchase"
 		resultType="purchase">
 		SELECT PURCHASE_NUM,
 		U_ID,
