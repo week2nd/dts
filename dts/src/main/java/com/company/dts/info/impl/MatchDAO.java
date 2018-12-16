@@ -19,6 +19,12 @@ public class MatchDAO {
 	public List<MatchVO> getMatchList(MatchVO vo) {
 		return mybatis.selectList("match.getMatchList", vo);
 	}
+	
+	// 전체구매페이지리스트조회
+	public List<MatchVO> buyMatchList(MatchVO vo) {
+		return mybatis.selectList("match.buyMatchList", vo);
+	}
+	
 	// 단일 조회
 	
 	public MatchVO getMatch(MatchVO vo) {

@@ -147,4 +147,19 @@
 		DELETE	INGAME
 		WHERE	GAME_ID=${gameId}	
 	</delete>
+	
+	<!-- 경기구매 전체경기리스트 -->
+	<select id="buyMatchList" resultType="match">
+		SELECT GAME_ID,
+				REDTEAMNAME,
+				STATUS,
+				REDRATE,
+				BLUETEAMNAME,
+				BLUERATE,
+				MATCHDATE
+				<if test="uId!=null and uId!=''">,
+				(SELECT count(*) FROM PURCHASE b WHERE a.GAME_ID = b.GAME_ID AND b.U_ID = #{uId}) AS BUYCHECK</if>
+		 FROM INGAME a
+		ORDER BY 1
+	</select>
 </mapper>

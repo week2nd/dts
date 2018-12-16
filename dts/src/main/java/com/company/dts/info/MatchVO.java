@@ -3,8 +3,12 @@ package com.company.dts.info;
 public class MatchVO {
 
 	private int gameId = 0;
+	private String uId;
 	
-	
+	private float redRate;
+	private float blueRate;
+	private String gameStatus;
+	private int buyCheck;
 	private String gameDate;
 	private String gameName;
 	private String gameInfo;
@@ -114,6 +118,21 @@ public class MatchVO {
 	private int redTeamAssistsum = 0;
 	private int redTeamKda = 0;
 	
+	public int getBuyCheck() {
+		return buyCheck;
+	}
+
+	public void setBuyCheck(int buyCheck) {
+		this.buyCheck = buyCheck;
+	}
+
+	public String getGameStatus() {
+		return gameStatus;
+	}
+
+	public void setGameStatus(String gameStatus) {
+		this.gameStatus = gameStatus;
+	}
 
 	public int getgameId() {
 		return gameId;
@@ -122,7 +141,30 @@ public class MatchVO {
 	public void setgameId(int gameId) {
 		this.gameId = gameId;
 	}
+		
+	public String getuId() {
+		return uId;
+	}
 
+	public void setuId(String uId) {
+		this.uId = uId;
+	}
+	
+	public float getRedRate() {
+		return redRate;
+	}
+
+	public void setRedRate(float redRate) {
+		this.redRate = redRate;
+	}
+
+	public float getBlueRate() {
+		return blueRate;
+	}
+
+	public void setBlueRate(float blueRate) {
+		this.blueRate = blueRate;
+	}
 	
 	public String getBlueResult() {
 		return blueResult;

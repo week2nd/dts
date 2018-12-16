@@ -7,6 +7,9 @@ public interface MatchService {
 	// 모든 경기 검색
 	public List<MatchVO> getMatchList(MatchVO vo);
 	
+	// 구매리스트경기검색
+	public List<MatchVO> buyMatchList(MatchVO vo);
+		
 	// 단일 경기 검색
 	public MatchVO getMatch(MatchVO vo);
 	

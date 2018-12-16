@@ -39,6 +39,11 @@ public class MatchServiceImpl implements MatchService {
 			System.out.println("MatchServiceImpl getMatchList 진행중" + '\n' + "=");
 			return dao.getMatchList(vo);
 		}
+		
+		// 구매페이지 전체조회
+		public List<MatchVO> buyMatchList(MatchVO vo) {
+			return dao.buyMatchList(vo);
+		}
 
 		// 삭제
 		@Override
