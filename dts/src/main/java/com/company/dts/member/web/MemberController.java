@@ -88,6 +88,12 @@ public class MemberController {
 		memberService.updateMember(vo);		//수정처리
 		return "redirect:getMemberUser";		//목록요청
 	}
+	// 개인 맴버 단건 삭제처리
+	@RequestMapping("/deleteMemberUser")
+	public String deleteMemberUser(MemberVO vo) {
+		memberService.deleteMember(vo);		//삭제처리
+		return "home";		//목록요청
+	}
 	
 	
 	// 관리자 맴버 수정처리
