@@ -10,6 +10,14 @@
     <title>Document</title>
 </head>
 <body>
+	<form name="frm">
+		<select name="searchCondition">
+			<option value="GAME_ID">게임번호
+			<option value="U_Id">아이디
+		</select> <input type="text" name="searchKeyword">
+		<button>검색</button>
+	</form>
+
     <form>
         <table class="table">
         <thead>
