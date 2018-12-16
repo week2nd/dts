@@ -152,11 +152,11 @@
 	<select id="buyMatchList" resultType="match">
 		SELECT GAME_ID,
 				REDTEAMNAME,
-				STATUS,
+				GAMESTATUS,
 				REDRATE,
 				BLUETEAMNAME,
 				BLUERATE,
-				MATCHDATE
+				MATCHDATE AS GAMEDATE
 				<if test="uId!=null and uId!=''">,
 				(SELECT count(*) FROM PURCHASE b WHERE a.GAME_ID = b.GAME_ID AND b.U_ID = #{uId}) AS BUYCHECK</if>
 		 FROM INGAME a
