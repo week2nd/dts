@@ -98,6 +98,29 @@ public class MatchVO {
 	private int redPick5Death = 0;
 	private int redPick5Assist = 0;
 
+	// match로 안하면 호출이 안된다.
+	private String matchDate;
+	private String matchName;
+	private String matchInfo;
+	
+	public String getMatchDate() {
+		return matchDate;
+	}
+	public void setMatchDate(String matchDate) {
+		this.matchDate = matchDate;
+	}
+	public String getMatchName() {
+		return matchName;
+	}
+	public void setMatchName(String matchName) {
+		this.matchName = matchName;
+	}
+	public String getMatchInfo() {
+		return matchInfo;
+	}
+	public void setMatchInfo(String matchInfo) {
+		this.matchInfo = matchInfo;
+	}
 	// 통계 데이터
 	private int bluePick1Kda;
 	private int bluePick2Kda = 0;
