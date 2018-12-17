@@ -15,4 +15,6 @@ public interface PurchaseService {
 	public PurchaseVO getPurchase(PurchaseVO vo);
 	
 	public void insertPurchase(PurchaseVO vo);
+	
+	public int getCount(PurchaseVO vo);
 }
