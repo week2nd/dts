@@ -41,5 +41,35 @@
 	</div>
 
 
+	<div>
+		<table class="table">
+			<tr>
+				<th>일자</th>
+				<th>경기정보</th>
+				<th>소환사명</th>
+				<th>챔피언</th>
+				<th>소환주문</th>
+				<th>결과</th>
+				<th>K</th>
+				<th>D</th>
+				<th>A</th>
+				<th>KDA</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		
+	</div>
+
 </body>
 </html>

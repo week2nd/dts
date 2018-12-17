@@ -29,11 +29,11 @@
 					<td>${match.gameId}</td>
 					<td>${match.matchDate}17:00</td>
 					<td>${match.matchInfo}</td>
-					<td>${match.blueTeamName }</td>
-					<td>${match.blueTeamKillsum }</td>
-					<td>${match.gameStatus }</td>
-					<td>${match.redTeamKillsum }</td>
-					<td>${match.redTeamName }</td>
+					<td><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
+					<td>${match.blueTeamKillsum}</td>
+					<td>${match.gameStatus}</td>
+					<td>${match.redTeamKillsum}</td>
+					<td><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
 					<td></td>
 					<td><a href="getMatch?gameId=${match.gameId}">결과확인</a></td>
 					<td><input type="button" value="구매"></td>

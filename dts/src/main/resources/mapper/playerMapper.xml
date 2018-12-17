@@ -7,7 +7,7 @@
 
 
 	<!-- 선수 전체 보기 -->
-	<select id="getPlayerList" resultType="player">
+	<select id="getPlayerList" parameterType="player" resultType="player">
 		SELECT	RANK() OVER(ORDER BY WIN DESC) playerRank,
 				NAME, 
 				NICKNAME, 
@@ -18,11 +18,12 @@
 				WIN/NULLIF((WIN+LOSE),0) * 100 winrate,
 				KILL, 
 				DEATH, 
-				ASSIST, 
-				ROUND((KILL+ASSIST)/NULLIF(DEATH,0),1) kda
+				ASSIST,
+				FUNC_PLAYERKDA(NICKNAME) kda
 		FROM 	PLAYER
 	</select>
-		<select id="getPlayer"	parameterType="player" resultType="player">
+	
+	<select id="getPlayer"	parameterType="player" resultType="player">
 		SELECT	P.TEAM_ID playerId,
 				P.NAME name, 
 				T.NAME teamId, 
@@ -31,12 +32,14 @@
 			    P.LOSE lose, 
 			    P.KILL kill,
 			    P.DEATH death, 
-			    P.ASSIST assist
+			    P.ASSIST assist,
+			    FUNC_PLAYERKDA('${nickname}') kda
 		FROM	PLAYER P
 			JOIN	TEAM T
 		ON		P.TEAM_ID = T.TEAM_ID
 		WHERE	P.NICKNAME = #{nickname}
 	</select>
+	
 	
  	<insert id="insertPlayer" parameterType="player">
  		INSERT INTO PLAYER(PLAYER_ID, 
