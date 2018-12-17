@@ -42,4 +42,9 @@ public class PurchaseDAO {
 	public List<PurchaseVO> setMoney(PurchaseVO vo) {
 		return mybatis.selectList("purchase.setMoney", vo);
 	}
+	// 건수
+	public int getCount(PurchaseVO vo) {
+		return mybatis.selectOne("purchase.getCount", vo);
+	}
+	
 }
