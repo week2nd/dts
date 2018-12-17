@@ -91,6 +91,24 @@
  		document.all.phone3.value = phoneSplit[2];
  	});
      
+ 	
+    function onlyNumber(event){		
+   	    event = event || window.event;
+   	    var keyID = (event.which) ? event.which : event.keyCode;
+   	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 || keyID == 9 ) 
+   	        return;
+   	    else
+   	        return false;
+   	}
+   	 
+   	function removeChar(event) {
+   	    event = event || window.event;
+   	    var keyID = (event.which) ? event.which : event.keyCode;
+   	    if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+   	        return;
+   	    else
+   	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
+   	}
      
  </script>
 
@@ -110,7 +128,7 @@
         </tr>
         <tr>
             <td>비밀번호</td>
-            <td><input type="password" name="uPw" value="${member.uPw }" ></td>
+            <td><input type="password" name="uPw" id="uPw" class="form-control pass" value="${member.uPw }" ></td>
         </tr>
         <tr>
             <td>이름</td>
@@ -130,7 +148,7 @@
         <tr>
             <td>휴대폰번호</td>
             <td>
-                <select name="phone1" id="phone1" oninput="sum()">
+                <select name="phone1" id="phone1" class="form-control phone" oninput="sum()">
                     <option value="010">010</option>
                     <option value="011">011</option>
                     <option value="012">012</option>
@@ -139,9 +157,9 @@
                     <option value="018">018</option>
                     <option value="019">019</option>                         
                 </select>
-                -
-                <input type="text" name="phone2" id="phone2" oninput="sum()" maxlength=4> -
-                <input type="text" name="phone3" id="phone3" oninput="sum()" maxlength=4>
+                
+                <input type="text" name="phone2" id="phone2" class="form-control phone" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'> 
+                <input type="text" name="phone3" id="phone3" class="form-control phone" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
                 <input type="hidden" name="uPhone" id="uPhone" value="${member.uPhone }">
             </td>
         </tr>
@@ -170,16 +188,34 @@
 			<td>틀린횟수</td>
 			<td>${member.uLose}</td>
 		</tr>
-        <tr>
-            <td colspan="5"> 
-    <!--     <a href="updateMemberform?uId=${member.uId }"><input type="button" value="수정"></a> -->  
-      	   		<button>수정</button> 
-                <a href="deleteMember?uId=${member.uId }"><input type="button" value="삭제"></a>
-                <a href="getMemberList"><input type="button" value="취소"></a>
+  <!--      <tr >
+            <td colspan="5" > 
+    <!--     <a href="updateMemberform?uId=${member.uId }"><input type="button" value="수정"></a> 
+      	   		<button class="form-control btn btn-primary updatebtn">수정</button> 
+                <a href="deleteMember?uId=${member.uId }"><input type="button" class="form-control btn btn-primary deletebtn" value="삭제"></a>
+                <a href="getMemberList"><input type="button" class="form-control btn btn-primary cancelbtn" value="취소"></a>
             </td>
             
-        </tr>
+        </tr> --> 
     </table>
+    
+    <table style="width: 30%">
+		<tr>
+			<td>
+				<a href="updateMember?uId=${member.uId }">
+				<button	class="form-control btn btn-primary joinbtn" >회원수정</button></a>
+			</td>
+			<td>
+				<a href="deleteMember?uId=${member.uId }">
+				<input type="button" value="회원탈퇴"	class="form-control btn btn-primary deletebtn" ></button>
+				</a>
+			</td>
+			<td>
+				<a href="getMemberList"><input type="button" class="form-control btn btn-primary cancelbtn" value="&nbsp;취 소&nbsp;"></a>
+			</td>
+		</tr>
+	</table>
  	</form>
+ 	
 </body>
 </html>
