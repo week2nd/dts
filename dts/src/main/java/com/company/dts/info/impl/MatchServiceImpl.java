@@ -44,6 +44,11 @@ public class MatchServiceImpl implements MatchService {
 		public List<MatchVO> buyMatchList(MatchVO vo) {
 			return dao.buyMatchList(vo);
 		}
+		
+		// 관리자경기전체조회
+		public List<MatchVO> getMatchListAd(MatchVO vo) {
+			return dao.getMatchListAd(vo);
+		}
 
 		// 삭제
 		@Override

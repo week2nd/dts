@@ -159,8 +159,8 @@ public class InfoController {
 	}
 
 	// 경기 입력 처리
-	@RequestMapping("/insertMatch22")
-	public String insertMatch(MatchVO vo, HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping("/insertMatch")
+	public String insertMatch(MatchVO vo) {
 		
 		System.out.println("#####");
 		
@@ -199,8 +199,15 @@ public class InfoController {
 	}
 	
 	// 게임구매확인
-		@RequestMapping(value="buyGame", method = RequestMethod.POST)
-		public String buyGameform(PurchaseVO vo) {
-			return "user/info/buyMatchCheck";
-		}
+	@RequestMapping(value="buyGame", method = RequestMethod.POST)
+	public String buyGameform(PurchaseVO vo) {
+		return "user/info/buyMatchCheck";
+	}
+		
+	// 관리자경기전체조회
+	@RequestMapping("/getMatchListAd")
+	public String getMatchListAd(Model model, MatchVO vo) {
+		model.addAttribute("matchListAd", matchService.getMatchListAd(vo));
+		return "admin/info/getMatchListAd";
+	}
 }
