@@ -145,6 +145,6 @@
 	
 	<delete id="deleteMatch" parameterType="match">
 		DELETE	INGAME
-		WHERE	GAME_ID=${gameId}	
+		WHERE	GAME_ID=#{gameId}
 	</delete>
 </mapper>

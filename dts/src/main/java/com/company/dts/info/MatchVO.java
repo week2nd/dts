@@ -2,7 +2,7 @@ package com.company.dts.info;
 
 public class MatchVO {
 
-	private int gameId = 0;
+	private int gameId;
 	
 	
 	private String gameDate;
