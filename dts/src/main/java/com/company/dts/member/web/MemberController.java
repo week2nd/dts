@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
-import com.company.dts.member.common.Paging;
+import com.company.dts.common.Paging;
 
 @Controller
 public class MemberController {

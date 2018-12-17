@@ -14,17 +14,18 @@
 	function drawChart() {
 		
 	//	var mileage = $('#mileage').val();
-		var win = $('#win').val();
-		var lose =$('#lose').val();
-		
+		var win = $('#uWin').val();
+		var lose =$('#uLose').val();
+		console.log($('#uWin').val());
+		console.log($('#uLose').val());
 		var data = google.visualization.arrayToDataTable([
 				[ '가', '나' ], 
-				[ '적중', 3 ],
-				[ '실패', 5 ],
-				[ '마일리지', 6 ] ]);
+				[ '적중', Number($('#uWin').val()) ],
+				[ '실패', Number($('#uLose').val()) ],
+				 ]);
 
 		var options = {
-			title : $('#username').val()+'님 적중률'
+			title : $('#uName').val()+'님 적중률'
 		};
 
 		var chart = new google.visualization.PieChart(document
@@ -33,8 +34,7 @@
 		chart.draw(data, options);
           
 	//	console.log(mileage);
-		console.log($('#win').val());
-		console.log($('#lose').val());
+		
 	
 		
 	}
@@ -77,6 +77,26 @@
  		if(addresssplit[1]!=null){									// 상세주소 입력 되어 있을 경우 두개 붙이기 (막아놨는데)
  			document.all.tempAddress.value = addresssplit[0] + addresssplit[1];
  		} 
+ 		
+ 		$(".deletebtn").click(function(){
+ 			if (confirm("정말 삭제하시겠습니까??") == true){ 
+ 				
+ 			}else{
+ 				return false;
+ 			}
+
+ 		});
+		$(".updatebtn").click(function(){
+			if( $('#chkpw2').val() != $('#chkpw1').val()){
+				alert("비밀번호를 확인해주세요.");
+				return false;
+			}else{
+				document.all.chkPw.focus();
+		        document.all.uPw.value = $('#newPw1').val();	 
+	   			alert("수정 완료 되었습니다.");
+			}
+    	});
+ 		
 	});
 	
 </script>
@@ -100,7 +120,10 @@
 	<form action="updateMemberForm" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" />
 		<input type="hidden" id="chkpw2" value="${member.uPw }">
+		<input type="hidden" id="uName" value="${member.uName }">
 		<input type="hidden" id="uAddress" value="${member.uAddress }">
+		<input type="hidden" id="uWin" value="${member.uWin}">
+		<input type="hidden" id="uLose" value="${member.uLose}">
 		<table style="width: 70%" class="table">
 			<tr>
 				<td><div style="width: 50px;">아이디</div></td>
@@ -108,7 +131,7 @@
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="text" name="uPw" id="chkpw1" class="form-control pass" oninput="checkPwd()"></td>
+				<td><input type="password" name="uPw" id="chkpw1" class="form-control pass" oninput="checkPwd()" autofocus></td>
 			</tr>
 			<tr>
 				<td>이름</td>
@@ -150,7 +173,7 @@
 		<table style="width: 30%">
 			<tr>
 				<td><a href="updateMember?uId=${member.uId }">
-					<button	class="form-control btn btn-primary joinbtn" >회원수정</button></a>
+					<button	class="form-control btn btn-primary updatebtn" >회원수정</button></a>
 				</td>
 				<td><a href="deleteMember?uId=${member.uId }">
 					<input type="button" value="회원탈퇴"	class="form-control btn btn-primary deletebtn" ></button>

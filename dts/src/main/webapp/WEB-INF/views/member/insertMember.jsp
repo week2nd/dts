@@ -70,7 +70,7 @@
     function onlyNumber(event){		
    	    event = event || window.event;
    	    var keyID = (event.which) ? event.which : event.keyCode;
-   	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+   	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 || keyID == 9 ) 
    	        return;
    	    else
    	        return false;
@@ -84,6 +84,26 @@
    	    else
    	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
    	}
+   	
+   	
+    // 휴대폰번호 숫자만 입력가능하게
+    function onlyVarchar2(event){		
+   	    event = event || window.event;
+   	    var keyID = (event.which) ? event.which : event.keyCode;
+   	    if ( (keyID >= 65 && keyID <= 90) || (keyID >= 97 && keyID <= 122) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 || keyID == 9 ) 
+   	        return;
+   	    else
+   	        return false;
+   	}
+   	 
+   	function removeVarchar2(event) {
+   	    event = event || window.event;
+   	    var keyID = (event.which) ? event.which : event.keyCode;
+   	    if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+   	        return;
+   	    else
+   	        event.target.value = event.target.value.replace(/[^a-z0-9]/gi,"");
+   	}
      
      
      /////////////////////////////////////////////////////////////
@@ -95,7 +115,7 @@
    
     function checkId() {
         var inputId = $('.id').val();
-        
+        var isid = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{4,20}$/;
         
         $.ajax({
             data : {
@@ -103,6 +123,7 @@
             },
             url : "checkId",
             success : function(data) {
+            	
                 if(inputId=="" && data==false || inputId.length<4) {			// 아이디 값을 지웠을 경우
                     $(".joinbtn").prop("disabled", true);
                     $(".joinbtn").css("background-color", "#aaaaaa");
@@ -111,6 +132,8 @@
                     document.all.spanIdO.style.display="none";
                     document.all.spanIdX.style.display="none";
                 } else if (data == false) {					// 사용가능한 아이디로 입력을 바꿨을때
+//                	console.log(isid+"@@@"); 
+//                	console.log(inputId+"###");
                     $("#chkId").css("background-color", "#B0F6AC");
                     document.all.spanIdO.style.display="";
                     document.all.spanIdX.style.display="none";
@@ -192,9 +215,25 @@
             document.all.spanPwO.style.display="none";
         }
     }
+    $(function(){
+    	$(".joinbtn").click(function(){
+    		alert($('#chkName').val()+"님 DTS E-sport토토 가입을 환영합니다.");
+    	});
+    });
     
- 
+    
+    $(document).ready(function(){
+    	  //한글입력 안되게 처리
+    	  $("input[name=uId]").keyup(function(event){ 
+    	   if (!(event.keyCode >=37 && event.keyCode<=40)) {
+    	    var inputVal = $(this).val();
+    	    $(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+    	   }
+    	  });
+    	});
+
  </script>
+
 
 
 </head>
@@ -205,7 +244,7 @@
 		<table style="width: 70%" class="table">
 	        <tr>            
 	            <td>아이디</td>
-	            <td><input type="text" class="form-control id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()" ><br>&nbsp;
+	            <td><input type="text" class="form-control id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
 	            	<span id="spanIdO" style="display: none">사용가능한 아이디 입니다.</span>
 	            	<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>
 	            	<span id="countId">네글자 이상 아이디를 입력하세요.</span>
@@ -275,7 +314,7 @@
 	       
 	    </table>
     </form>
+<input type="text" name="aaa" />
 
-    
 </body>
 </html>

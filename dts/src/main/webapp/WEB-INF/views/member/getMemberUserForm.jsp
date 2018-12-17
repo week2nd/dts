@@ -72,7 +72,7 @@
 	}
 
 	/////////////////////////////////
-	var dbPwCheck = 0;
+//	var dbPwCheck = 0;
 	var pwdCheck = 0;
 	  //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
     function checkPwd() {
@@ -89,35 +89,36 @@
         document.all.uAddress.value = addressSum;
         
         // 휴대폰번호 하이픈 합치는 과정
-		var four = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;		
-		document.all.uPhone.value = four;
+		var temp = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;		
+		document.all.uPhone.value = temp;
+		
 		if(inputAddress1 == "" || inputAddress2 == "" || dbPw == "" || origInputed2 == "" ||
 				 inputPhone1.length < 3 || inputPhone2.length < 4){		// 이름, 주소, 휴대폰번호,  입력삭제 시 가입버튼 비활성화, 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 			$(".updatebtn").prop("disabled", true);													
             $(".updatebtn").css("background-color", "#aaaaaa");
 		}
-		if( dbPw == origInputed2){							// 해당 유저 기존 비밀번호와 같은 경우
-			$("#chkPw").css("background-color", "#B0F6AC");
-        	dbPwCheck = 1;
+/* 		if( dbPw == origInputed2){							// 해당 유저 기존 비밀번호와 같은 경우
+//			$("#chkPw").css("background-color", "#B0F6AC");
+			dbPwCheck = 1;
+    
         } else if(dbPw != origInputed2){					// 새 비밀번호와 새 비밀번호 확인과 다를 경우
-        	$("#chkPw").css("background-color", "#FFCECE");
+//        	$("#chkPw").css("background-color", "#FFCECE");
         	dbPwCheck = 0;
         } else if(origInputed2==""){								// 기존 비밀번호 텍스트박스가 null일 경우
-        	$("#chkPw").css("background-color", "#FFCECE");
+//        	$("#chkPw").css("background-color", "#FFCECE");
         	dbPwCheck = 0;
-        }
-        if(inputPw2=="" || inputPw1==""){ 	//
+        } */
+        if( inputPw2=="" || inputPw1==""){ 	//
             $(".updatebtn").prop("disabled", true);
             $(".updatebtn").css("background-color", "#aaaaaa");
             $("#newPw1").css("background-color", "#FFCECE");
             $("#newPw2").css("background-color", "#FFCECE");
             document.all.spanPwX.style.display="none";
             document.all.spanPwO.style.display="none";
-        }
-        else if (inputPw1 == inputPw2) {		// 비밀번호 input색깔 초록색으로
+        } 
+        else if ( inputPw1 == inputPw2) {		// 비밀번호 input색깔 초록색으로
             $("#newPw1").css("background-color", "#B0F6AC");
             $("#newPw2").css("background-color", "#B0F6AC");
-            document.all.uPw.value = inputPw1;
             pwdCheck = 1;
             document.all.spanPwX.style.display="none";
             document.all.spanPwO.style.display="";
@@ -126,6 +127,7 @@
             		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일) 맞으면 가입버튼 활성화
 	           $(".updatebtn").prop("disabled", false);								// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 	           $(".updatebtn").css("background-color", "#4CAF50");
+	
             }
         } else if (inputPw1 != inputPw2 ) {		// 비밀번호 틀리면 가입버튼 비활성화 및 비밀번호 input색깔 붉은색으로
             pwdCheck = 0;
@@ -136,6 +138,9 @@
             document.all.spanPwX.style.display="";
             document.all.spanPwO.style.display="none";
         }
+  /*       console.log(dbPw+"디비패스워드");
+        console.log(origInputed2+"입력한 기존 패스워드");
+        console.log($('#chkPw').val()+"텍스트 박스 입력한 기존 패스워드"); */
     }
 	
 
@@ -155,6 +160,17 @@
 		
 		var tempPhone = phoneSplit[0] + "-" + phoneSplit[1] + "-" + phoneSplit[2];
 		document.all.uPhone.value = tempPhone;
+		
+		$(".updatebtn").click(function(){
+			if( $('#uPw').val() != $('#chkPw').val()){
+				alert("기존 비밀번호를 확인해주세요.");
+				document.all.chkPw.focus();
+				return false;
+			}else{
+		        document.all.uPw.value = $('#newPw1').val();	 
+	   			alert("수정 완료 되었습니다.");
+			}
+    	});
 
 	});
 </script>
@@ -178,19 +194,19 @@
 			</tr>
 			<tr>
 				<td>기존 비밀번호</td>
-				<td><input type="password" id="chkPw" oninput="checkPwd()"></td>
+				<td><input type="password" class="form-control pass1" id="chkPw" oninput="checkPwd()" autofocus></td>
 			</tr>
 			<tr>
 				<td>새 비밀번호</td>
 				<td>
-					<input type="password" id="newPw1" oninput="checkPwd()"><br>&nbsp;
+					<input type="password" class="form-control pass2" id="newPw1" oninput="checkPwd()"><br>&nbsp;
 					<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
               		<span id="spanPwO" style="display: none">비밀번호가 일치합니다.</span>
 				</td>
 			</tr>
 			<tr>
 				<td>새 비밀번호 확인</td>
-				<td><input type="password" id="newPw2" oninput="checkPwd()"></td>
+				<td><input type="password" class="form-control pass3" id="newPw2" oninput="checkPwd()"></td>
 			</tr>
 			<tr>
 				<td>이름</td>
@@ -208,7 +224,7 @@
 			</tr>
 			<tr>
 				<td>휴대폰번호</td>
-				<td><select id="phone1" name="phone1" oninput="checkPwd()">
+				<td><select id="phone1" name="phone1" class="form-control phone" oninput="checkPwd()">
 					   <option value="010">010</option>
                        <option value="011">011</option>
                        <option value="012">012</option>
@@ -216,8 +232,8 @@
                        <option value="017">017</option>
                        <option value="018">018</option>
                        <option value="019">019</option> 
-				</select> - <input type="text" name="phone2" id="phone2" maxlength=4 oninput="checkPwd()">
-					- <input type="text" name="phone3"  id="phone3" maxlength=4 oninput="checkPwd()">
+				</select>  <input type="text" name="phone2" id="phone2" class="form-control phone" maxlength=4 oninput="checkPwd()">
+					 <input type="text" name="phone3"  id="phone3" class="form-control phone" maxlength=4 oninput="checkPwd()">
 					 
 				</td>
 			</tr>

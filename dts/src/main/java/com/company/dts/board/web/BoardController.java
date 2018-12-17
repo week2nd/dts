@@ -29,35 +29,18 @@ public class BoardController {
 	}
 
 	
-	
-	// 자유게시판 전체조회
-/*	@RequestMapping("/getFreeBoard")
-	public String getFreeBoard(Model model, BoardVO vo)  {
-		model.addAttribute("board", boardService.getFreeBoard(vo));
-		return "user/board/getFreeBoard";
-	}*/
-
-	/*	// 건의게시판 전체조회
-	@RequestMapping("/getSuggestionBoard")
-	public String getSuggestionBoard(Model model, BoardVO vo)  {
-	model.addAttribute("board", boardService.getSuggestionBoard(vo));
-		return "user/board/getSuggestionBoard";
+	// 단건조회
+	@RequestMapping("/getBoard")		
+	public String getBoard(Model model, BoardVO vo) {
+		model.addAttribute("board", boardService.getBoard(vo));
+		return "user/board/getBoard";
 	}
-	
-	// 공지사항 전체조회
-	@RequestMapping("/getNoticeBoard")
-	public String getNoticeBoard(Model model, BoardVO vo)  {
-	model.addAttribute("board", boardService.getNoticeBoard(vo));
-		return "user/board/getNoticeBoard";
-	}*/
-	
-	
 	
 	// 분석게시판 전체조회
 	@RequestMapping("/getAnalysisBoard")
 	public String getAnalysisBoard(Model model, BoardVO vo, HttpServletRequest request)  {
-		vo.setBoardType(request.getParameter("type"));		//homeuser의 타입을 받아온다.
 		
+		vo.setBoardType(request.getParameter("type"));		//homeuser의 타입을 받아온다.		
 		
 		model.addAttribute("type", request.getParameter("type"));
 		model.addAttribute("board", boardService.getAnalysisBoard(vo));
@@ -75,45 +58,50 @@ public class BoardController {
 	}
 		
 	// 등록처리
-	@RequestMapping(value="/insertBoard", method = RequestMethod.POST)
-	public String insertBoard(BoardVO vo ) {	// 커맨드 객체
-		boardService.insertBoard(vo);		//등록처리
+		@RequestMapping( value="/insertBoard", method = RequestMethod.POST)
+		public String insertBoard(Model model, BoardVO vo ) {	// 커맨드 객체
+			boardService.insertBoard(vo);		//등록처리
+			
+			String type = vo.getBoardType();	
+			String map = "";
+			model.addAttribute("board", boardService.getAnalysisBoard(vo));			//모델객체를 view에 전달
+			if(type.equals("free")) {
+				map = "user/board/getAnalysisBoard";
+			} else if(type.equals("analysis")) {
+				map = "user/board/getAnalysisBoard";
+			} else if(type.equals("suggestion")) {
+				map = "user/board/getAnalysisBoard";
+			} else if(type.equals("notice")) {
+				map = "user/board/getAnalysisBoard";
+			} 
+					
+			return map;
+		}
+	
+	
+	
 		
-		String type = vo.getBoardType();	
-		String map = "";
-		if(type.equals("free")) {
-			map = "user/board/getAnalysisBoard";
-		} else if(type.equals("analysis")) {
-			map = "user/board/getAnalysisBoard";
-		} else if(type.equals("suggestion")) {
-			map = "user/board/getAnalysisBoard";
-		} else if(type.equals("notice")) {
-			map = "user/board/getAnalysisBoard";
-		} 
-				
-		return map;
-	}
-	
-	
-	// 단건조회
-	@RequestMapping("/getBoard")		
-	public String getBoard(Model model, BoardVO vo) {
-		model.addAttribute("board", boardService.getBoard(vo));
-		return "user/board/getBoard";
-	}
 	
 	//수정
 	@RequestMapping("/updateBoardform")
 	public String updateBoardform(Model model, BoardVO vo) {
+	
 		model.addAttribute("board", boardService.getBoard(vo));
 		return "user/board/updateBoard";
 	}
+	
 	//수정처리
 	@RequestMapping("/updateBoard")
 	public String updateBoard(BoardVO vo) {
 		boardService.updateBoard(vo);		//수정처리
-		return "user/board/getBoardList";		//목록요청
+		return "user/board/getAnalysisBoard";		//목록요청
 	}
+	
+	
+	
+	
+	
+	
 	// 단건 삭제처리
 	@RequestMapping("/deleteBoard")
 	public String deleteBoard(BoardVO vo) {

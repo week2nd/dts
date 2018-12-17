@@ -32,4 +32,19 @@ public class PurchaseServiceImpl implements PurchaseService {
 	public void insertPurchase(PurchaseVO vo) {
 		dao.insertPurchase(vo);
 	}
+	
+	@Override
+	public List<PurchaseVO> setResult(PurchaseVO vo) {
+		return dao.setResult(vo);
+	}
+	
+	@Override
+	public List<PurchaseVO> setMoney(PurchaseVO vo) {
+		return dao.setMoney(vo);
+	}
+	
+	@Override
+	public int getCount(PurchaseVO vo) {
+		return dao.getCount(vo);
+	}
 }

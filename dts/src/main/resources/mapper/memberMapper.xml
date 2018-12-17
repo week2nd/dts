@@ -74,7 +74,7 @@ select b.* from(select a.*, rownum rn from(
 					U_ADDRESS=#{uAddress},    
 					U_PHONE=#{uPhone}					
 					WHERE U_ID=#{uId}
-</update>
+</update> 
 
 <delete id ="deleteMember" parameterType="member">
 	DELETE FROM MEMBER WHERE U_ID=#{uId}

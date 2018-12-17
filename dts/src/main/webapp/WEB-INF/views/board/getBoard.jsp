@@ -76,8 +76,8 @@
 	추천수 : ${board.boardLike} 
 	아이디 : ${board.uId } 
 	게시판타입 : ${board.boardType } 
-	<a href="updateBoardform?seq=${board.uId}">수정</a> 
-	<a href="deleteBoard?seq=${board.uId}">삭제</a>
+	<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a> 
+	<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
 	 
 	 <hr>
 	<h3>댓글</h3>

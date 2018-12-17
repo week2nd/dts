@@ -8,7 +8,13 @@ public interface PurchaseService {
 	
 	public List<PurchaseVO> getPurchaseListAd(PurchaseVO vo);
 	
+	public List<PurchaseVO> setResult(PurchaseVO vo);
+	
+	public List<PurchaseVO> setMoney(PurchaseVO vo);
+	
 	public PurchaseVO getPurchase(PurchaseVO vo);
 	
 	public void insertPurchase(PurchaseVO vo);
+	
+	public int getCount(PurchaseVO vo);
 }
