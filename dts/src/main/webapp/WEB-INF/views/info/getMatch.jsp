@@ -16,11 +16,11 @@
 
 	<h3>경기 결과 보기</h3>
 
-	<c:forEach items="${matchList}" var="match">
+	<%-- <c:forEach items="${matchList}" var="match"> --%>
 		<form action="updateMatchForm">
 			<div align="center">
 				<table class="table">
-				<input type="hidden" name="gameId" value="${match.gameId}">
+				<input type="hidden" name="matchId" value="${match.gameId}">
 					<tr>
 						<th colspan="8">${match.gameDate}</th>
 						<th align="center">${match.gameName}</th>
@@ -221,7 +221,7 @@
 				</div>
 			</div>
 		</form>
-	</c:forEach>
+	<%-- </c:forEach> --%>
 
 
 
