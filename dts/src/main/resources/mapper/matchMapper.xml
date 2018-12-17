@@ -145,7 +145,7 @@
 	
 	<delete id="deleteMatch" parameterType="match">
 		DELETE	INGAME
-		WHERE	GAME_ID=${gameId}	
+		WHERE	GAME_ID=#{gameId}
 	</delete>
 	
 	<!-- 경기구매 전체경기리스트 -->
