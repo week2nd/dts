@@ -99,7 +99,7 @@ public class MatchVO {
    private int redPick5Assist = 0;
    
    // 통계 데이터
-   private int bluePick1Kda = 0;
+   private int bluePick1Kda;
    private int bluePick2Kda = 0;
    private int bluePick3Kda = 0;
    private int bluePick4Kda = 0;
@@ -118,7 +118,186 @@ public class MatchVO {
    private int redTeamAssistsum = 0;
    private int redTeamKda = 0;
    
-   public int getBuyCheck() {
+   
+   
+   
+   public int getGameId() {
+	return gameId;
+}
+
+public void setGameId(int gameId) {
+	this.gameId = gameId;
+}
+
+public String getGameDate() {
+	return gameDate;
+}
+
+public void setGameDate(String gameDate) {
+	this.gameDate = gameDate;
+}
+
+public String getGameName() {
+	return gameName;
+}
+
+public void setGameName(String gameName) {
+	this.gameName = gameName;
+}
+
+public String getGameInfo() {
+	return gameInfo;
+}
+
+public void setGameInfo(String gameInfo) {
+	this.gameInfo = gameInfo;
+}
+
+public int getBluePick1Kda() {
+	return bluePick1Kda;
+}
+
+public void setBluePick1Kda(int bluePick1Kda) {
+	this.bluePick1Kda = bluePick1Kda;
+}
+
+public int getBluePick2Kda() {
+	return bluePick2Kda;
+}
+
+public void setBluePick2Kda(int bluePick2Kda) {
+	this.bluePick2Kda = bluePick2Kda;
+}
+
+public int getBluePick3Kda() {
+	return bluePick3Kda;
+}
+
+public void setBluePick3Kda(int bluePick3Kda) {
+	this.bluePick3Kda = bluePick3Kda;
+}
+
+public int getBluePick4Kda() {
+	return bluePick4Kda;
+}
+
+public void setBluePick4Kda(int bluePick4Kda) {
+	this.bluePick4Kda = bluePick4Kda;
+}
+
+public int getBluePick5Kda() {
+	return bluePick5Kda;
+}
+
+public void setBluePick5Kda(int bluePick5Kda) {
+	this.bluePick5Kda = bluePick5Kda;
+}
+
+public int getRedPick1Kda() {
+	return redPick1Kda;
+}
+
+public void setRedPick1Kda(int redPick1Kda) {
+	this.redPick1Kda = redPick1Kda;
+}
+
+public int getRedPick2Kda() {
+	return redPick2Kda;
+}
+
+public void setRedPick2Kda(int redPick2Kda) {
+	this.redPick2Kda = redPick2Kda;
+}
+
+public int getRedPick3Kda() {
+	return redPick3Kda;
+}
+
+public void setRedPick3Kda(int redPick3Kda) {
+	this.redPick3Kda = redPick3Kda;
+}
+
+public int getRedPick4Kda() {
+	return redPick4Kda;
+}
+
+public void setRedPick4Kda(int redPick4Kda) {
+	this.redPick4Kda = redPick4Kda;
+}
+
+public int getRedPick5Kda() {
+	return redPick5Kda;
+}
+
+public void setRedPick5Kda(int redPick5Kda) {
+	this.redPick5Kda = redPick5Kda;
+}
+
+public int getBlueTeamKillsum() {
+	return blueTeamKillsum;
+}
+
+public void setBlueTeamKillsum(int blueTeamKillsum) {
+	this.blueTeamKillsum = blueTeamKillsum;
+}
+
+public int getBlueTeamDeathsum() {
+	return blueTeamDeathsum;
+}
+
+public void setBlueTeamDeathsum(int blueTeamDeathsum) {
+	this.blueTeamDeathsum = blueTeamDeathsum;
+}
+
+public int getBlueTeamAssistsum() {
+	return blueTeamAssistsum;
+}
+
+public void setBlueTeamAssistsum(int blueTeamAssistsum) {
+	this.blueTeamAssistsum = blueTeamAssistsum;
+}
+
+public int getBlueTeamKda() {
+	return blueTeamKda;
+}
+
+public void setBlueTeamKda(int blueTeamKda) {
+	this.blueTeamKda = blueTeamKda;
+}
+
+public int getRedTeamKillsum() {
+	return redTeamKillsum;
+}
+
+public void setRedTeamKillsum(int redTeamKillsum) {
+	this.redTeamKillsum = redTeamKillsum;
+}
+
+public int getRedTeamDeathsum() {
+	return redTeamDeathsum;
+}
+
+public void setRedTeamDeathsum(int redTeamDeathsum) {
+	this.redTeamDeathsum = redTeamDeathsum;
+}
+
+public int getRedTeamAssistsum() {
+	return redTeamAssistsum;
+}
+
+public void setRedTeamAssistsum(int redTeamAssistsum) {
+	this.redTeamAssistsum = redTeamAssistsum;
+}
+
+public int getRedTeamKda() {
+	return redTeamKda;
+}
+
+public void setRedTeamKda(int redTeamKda) {
+	this.redTeamKda = redTeamKda;
+}
+
+public int getBuyCheck() {
       return buyCheck;
    }
 
@@ -182,29 +361,7 @@ public class MatchVO {
       this.redResult = redResult;
    }
 
-   public String getgameDate() {
-      return gameDate;
-   }
-
-   public void setgameDate(String gameDate) {
-      this.gameDate = gameDate;
-   }
-
-   public String getgameName() {
-      return gameName;
-   }
-
-   public void setgameName(String gameName) {
-      this.gameName = gameName;
-   }
-
-   public String getgameInfo() {
-      return gameInfo;
-   }
-
-   public void setgameInfo(String gameInfo) {
-      this.gameInfo = gameInfo;
-   }
+   
 
    public String getPlayTime() {
       return playTime;
@@ -871,3 +1028,7 @@ public class MatchVO {
    }
 
 }
+
+
+
+// 통계 get/set
