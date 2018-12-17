@@ -13,14 +13,14 @@
 
 
 
-<script>
+<!-- <script>
 function insert(){
 	var data = $('#param').serialize();
 	
 	$.ajax({
 		method : 'post',
 		async:false,
-		url : '/app/insertMatch',
+		url : '/app/insertMatch22',
 		data : data,
 		dataType : 'json',
 		success : function(result){
@@ -29,16 +29,16 @@ function insert(){
 	});
 	
 }
-</script>
+</script> -->
 
 
  <!--  ctrl + shift + f 자동정렬 하지마세요! -->
 
 <%-- <form id="param" action="insertMatch" method="post"> --%>
 
-<form action="insertMatch">
+<form action="insertMatch22">
 
-<input type="text" name="gameId" value="${match.gameId}" readonly="readonly">
+<input type="text" name="gameId" value="9" readonly="readonly">
 	<div align="center">
 		<table class="table">
 			<tr>
