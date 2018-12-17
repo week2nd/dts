@@ -42,32 +42,26 @@
 </select> 
 
 
-
- <!-- 자유게시판조회 -->
-<!--  <select id="getFreeBoard" resultType="board">	
-	SELECT 	*
-	FROM	BOARD
-	WHERE 	BOARD_TYPE='free'
-</select>  -->
-
-
- <!-- 건의게시판조회 -->
-<!-- <select id="getSuggestionBoard" parameterType="board" resultType="board">
-	SELECT 	*
-	FROM	BOARD
-	WHERE 	BOARD_TYPE='suggestion'
-</select> -->
-
-<!-- 공지게시판조회 -->
-<!-- <select id="getNoticeBoard" parameterType="board" resultType="board">
-	SELECT 	*
-	FROM	BOARD
-	WHERE 	BOARD_TYPE='notice'
-</select>  -->
+ <!-- 페이지 전체 건수 조회 -->
+ <select id="getCount" resultType="int">
+ 	SELECT COUNT(*)
+ 		FROM BOARD
+	<if test="searchKeyword != null and searchKeyword != ''">
+		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
+	</if> 
+	<choose>
+		<when test="sortCol != null and sortCol != ''">
+			ORDER BY ${sortCol}	
+		</when>
+		<otherwise>
+			ORDER BY BOARD_NUMBER DESC
+		</otherwise>
+	</choose>
+ </select>
 
 
 <!-- 분석게시판조회 -->
-<select id="getAnalysisBoard" parameterType="com.company.dts.board.BoardVO" resultType="board">
+<select id="getAnalysisBoard" resultType="board">
 
 	SELECT 	*
 	FROM	BOARD 
@@ -102,11 +96,9 @@
 				)
 </insert>
 
-
-
 								
 								
-<!-- 게시판 업그레이드 -->
+<!-- 게시판 수정 -->
 <update id ="updateBoard" parameterType="board">
 	UPDATE BOARD SET 
 					BOARD_TITLE=#{boardTitle},

@@ -14,6 +14,23 @@ public class BoardVO {
 	private String searchKeyword;		//단어검색
 	private String sortCol;				//정렬
 	private String[] bnumberList;		//값을 담는 배열
+	private int first;					//페이징 처음값
+	private int last;					//페이징 마지막값
+	
+	
+	
+	public int getFirst() {
+		return first;
+	}
+	public void setFirst(int first) {
+		this.first = first;
+	}
+	public int getLast() {
+		return last;
+	}
+	public void setLast(int last) {
+		this.last = last;
+	}
 	public int getBoardNumber() {
 		return boardNumber;
 	}

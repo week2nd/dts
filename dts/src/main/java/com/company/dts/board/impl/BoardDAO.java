@@ -21,6 +21,11 @@ public class BoardDAO {
 		mybatis.update("board.insertBoard", vo);
 	}
 
+	// 페이징건수조회
+	public int getCount(BoardVO vo) {
+		return mybatis.selectOne("board.getCount", vo);
+	}
+	
 	// 수정
 	public void updateBoard(BoardVO vo) {
 		System.out.println("mybatis jdbc updateBoard() 기능처리");
@@ -45,11 +50,6 @@ public class BoardDAO {
 		return mybatis.selectList("board.getBoardList", vo);
 	}
 	
-	// 자유게시판전체조회
-		public List<BoardVO> getFreeBoard(BoardVO vo) {
-			System.out.println("mybatis jdbc getFreeBoard() 기능처리");
-			return mybatis.selectList("board.getFreeBoard", vo);
-		}
 		
 		// 분석게시판전체조회
 		public List<BoardVO> getAnalysisBoard(BoardVO vo) {
@@ -57,17 +57,6 @@ public class BoardDAO {
 			return mybatis.selectList("board.getAnalysisBoard", vo);
 		}
 	
-		// 건의게시판전체조회
-		public List<BoardVO> getSuggestionBoard(BoardVO vo) {
-			System.out.println("mybatis jdbc getSuggestionBoard() 기능처리");
-			return mybatis.selectList("board.getSuggestionBoard", vo);
-		}
-		
-		// 공지사항전체조회
-				public List<BoardVO> getNoticeBoard(BoardVO vo) {
-					System.out.println("mybatis jdbc getNoticeBoard() 기능처리");
-					return mybatis.selectList("board.getNoticeBoard", vo);
-				}
 		
 	// 단건조회
 	public BoardVO getBoard(BoardVO vo) {
