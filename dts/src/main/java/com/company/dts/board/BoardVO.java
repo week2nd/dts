@@ -1,5 +1,7 @@
 package com.company.dts.board;
 
+import java.util.Arrays;
+
 public class BoardVO {
 	private int boardNumber;			//게시판번호
 	private String boardTitle;			//게시판제목
@@ -103,6 +105,15 @@ public class BoardVO {
 	public void setBnumberList(String[] bnumberList) {
 		this.bnumberList = bnumberList;
 	}
+	@Override
+	public String toString() {
+		return "BoardVO [boardNumber=" + boardNumber + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
+				+ ", postDate=" + postDate + ", boardHits=" + boardHits + ", boardLike=" + boardLike + ", uId=" + uId
+				+ ", boardType=" + boardType + ", searchCondition=" + searchCondition + ", searchKeyword="
+				+ searchKeyword + ", sortCol=" + sortCol + ", bnumberList=" + Arrays.toString(bnumberList) + ", first="
+				+ first + ", last=" + last + "]";
+	}
+	
 
 
 }
