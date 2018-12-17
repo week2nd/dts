@@ -9,10 +9,16 @@ public class PurchaseVO {
 	private String accuracy;
 	private String betDate;
 	private String choise;
-	
+	private String returnCheck;
 	private String searchCondition;
 	private String searchKeyword;
 	
+	public String getReturnCheck() {
+		return returnCheck;
+	}
+	public void setReturnCheck(String returnCheck) {
+		this.returnCheck = returnCheck;
+	}
 	public String getSearchCondition() {
 		return searchCondition;
 	}

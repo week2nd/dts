@@ -42,9 +42,7 @@ public class PurchaseController {
 		model.addAttribute("purchaseList", purchaseService.getPurchaseList(vo));
 		return "user/purchase/getPurchaseList";
 	}
-	
-	
-	
+		
 	// 단건조회
 	/*@RequestMapping("/getPurchase")
 	public String getPurchase(Model model, PurchaseVO vo, HttpSession session) {
@@ -60,4 +58,19 @@ public class PurchaseController {
 		purchaseService.insertPurchase(vo);
 		return "redirect:getPurchaseList";
 	}
+	
+	// 경기결과처리
+	@RequestMapping(value="setResult", method = RequestMethod.POST)
+	public String setResult(PurchaseVO vo) {
+		purchaseService.setResult(vo);
+		return "redirect:getMatchListAd";
+	}
+	
+	// 경기결과처리
+	@RequestMapping(value="setMoney", method = RequestMethod.POST)
+	public String setMoney(PurchaseVO vo) {
+		purchaseService.setMoney(vo);
+		return "redirect:getMatchListAd";
+	}
+	
 }

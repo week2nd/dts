@@ -30,6 +30,7 @@
                 <th>적중유무</th>
                 <th>구매일</th>
                 <th>선택팀</th>
+                <th>지급확인</th>
             </tr>
         </thead>
 
@@ -43,7 +44,8 @@
             		<td>${purchase.betDrate}</td>           	            	
             		<td>${purchase.accuracy}</td>           	            	
             		<td>${purchase.betDate}</td>           	            	
-            		<td>${purchase.choise}</td>    	            	
+            		<td>${purchase.choise}</td>
+            		<td>${purchase.returnCheck}    	            	
             	</tr>
             
             </c:forEach>

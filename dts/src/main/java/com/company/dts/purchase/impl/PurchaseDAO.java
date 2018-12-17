@@ -32,5 +32,14 @@ public class PurchaseDAO {
 	public void insertPurchase(PurchaseVO vo) {
 		mybatis.update("purchase.insertPurchase",vo);
 	}
-
+	
+	// 게임티켓결과처리
+	public List<PurchaseVO> setResult(PurchaseVO vo) {
+		return mybatis.selectList("purchase.setResult", vo);
+	}
+	
+	// 게임적중금액처리
+	public List<PurchaseVO> setMoney(PurchaseVO vo) {
+		return mybatis.selectList("purchase.setMoney", vo);
+	}
 }
