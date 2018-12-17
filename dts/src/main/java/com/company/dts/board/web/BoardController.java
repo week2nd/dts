@@ -60,7 +60,7 @@ public class BoardController {
 	// 등록처리
 	@RequestMapping(value="/insertBoard", method = RequestMethod.POST)
 	public String insertBoard(BoardVO vo ) {	// 커맨드 객체
-		boardService.insertBoard(vo);		//등록처리
+		
 		
 		String type = vo.getBoardType();
 		System.out.println(type+"====================");
@@ -74,7 +74,7 @@ public class BoardController {
 		} else if(type.equals("notice")) {
 			map = "user/board/getAnalysisBoard?";
 		} 
-				
+		boardService.insertBoard(vo);		//등록처리	
 		return map;
 		
 	}
