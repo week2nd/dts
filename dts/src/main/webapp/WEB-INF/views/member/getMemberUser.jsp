@@ -18,25 +18,23 @@
 		var lose =$('#uLose').val();
 		console.log($('#uWin').val());
 		console.log($('#uLose').val());
-		var data = google.visualization.arrayToDataTable([
-				[ '가', '나' ], 
-				[ '적중', Number($('#uWin').val()) ],
-				[ '실패', Number($('#uLose').val()) ],
-				 ]);
-
-		var options = {
-			title : $('#uName').val()+'님 적중률'
-		};
-
-		var chart = new google.visualization.PieChart(document
-				.getElementById('piechart'));
-
-		chart.draw(data, options);
-          
-	//	console.log(mileage);
-		
+		if(win==0 && lose==0){
+			console.log("dfasdfasd");
+			var data = google.visualization.arrayToDataTable([
+					[ '가', '나' ], 
+					[ '적중', Number($('#uWin').val()) ],
+					[ '실패', Number($('#uLose').val()) ],
+					 ]);
 	
-		
+			var options = {
+				title : $('#uName').val()+'님 적중률'
+			};
+	
+			var chart = new google.visualization.PieChart(document
+					.getElementById('piechart'));
+	
+			chart.draw(data, options);
+		}
 	}
 
 
