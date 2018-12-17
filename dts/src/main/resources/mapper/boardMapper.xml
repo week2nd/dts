@@ -44,19 +44,11 @@
 
 
  <!-- 자유게시판조회 -->
-<!-- <select id="getFreeBoard" resultType="board">	
+<!--  <select id="getFreeBoard" resultType="board">	
 	SELECT 	*
 	FROM	BOARD
 	WHERE 	BOARD_TYPE='free'
-</select> -->
-
-
-<!-- 분석게시판조회 -->
-<select id="getAnalysisBoard" parameterType="com.company.dts.board.BoardVO" resultType="board">
-	SELECT 	*
-	FROM	BOARD
-	WHERE 	BOARD_TYPE= #{boardType}
-</select>
+</select>  -->
 
 
  <!-- 건의게시판조회 -->
@@ -73,6 +65,16 @@
 	WHERE 	BOARD_TYPE='notice'
 </select>  -->
 
+
+<!-- 분석게시판조회 -->
+<select id="getAnalysisBoard" parameterType="com.company.dts.board.BoardVO" resultType="board">
+
+	SELECT 	*
+	FROM	BOARD 
+	WHERE 	BOARD_TYPE= #{boardType}
+	ORDER BY BOARD_NUMBER
+
+</select>
 
 
 <!-- 단일게시판조회 -->
