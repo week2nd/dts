@@ -10,8 +10,7 @@
 <body>
 
 
-	<button type="button" onclick="location.href='insertMatchForm'"
-		class="btn">경기등록</button>
+	
 
 
 	<h3>경기 결과 보기</h3>
@@ -20,12 +19,12 @@
 		<form action="updateMatchForm">
 			<div align="center">
 				<table class="table">
-				<input type="hidden" name="matchId" value="${match.gameId}">
+				<input type="hidden" name="gameId" value="${match.gameId}">
 					<tr>
 						<th colspan="8">${match.gameDate}</th>
 						<th align="center">${match.gameName}</th>
 						<th colspan="6"></th>
-						<th align="right" colspan="2" name="matchinfo">${match.gameInfo}</th>
+						<th align="right" colspan="2" name="matchInfo">${match.gameInfo}</th>
 					</tr>
 					<tr>
 						<td colspan="6">${match.blueTeamName}</td>
@@ -61,7 +60,7 @@
 						<td>${match.bluePick4}</td>
 						<td>${match.bluePick5}</td>
 						<td></td>
-						<td align="center">${match.playTime}</td>
+						<td align="center" name="playTime">${match.playTime}</td>
 						<td></td>
 						<td>${match.redPick5}</td>
 						<td>${match.redPick4}</td>
@@ -220,6 +219,7 @@
 					</table>
 				</div>
 			</div>
+			<a href="deleteMatch?gameId=${match.gameId}"><input type="button" id="deleteMatchBtn"value="삭제"></a>
 		</form>
 	<%-- </c:forEach> --%>
 

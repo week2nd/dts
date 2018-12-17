@@ -26,15 +26,15 @@ $("#deleteMatchBtn").click(function() {
 	<div align="center">
 		<table class="table">
 			<tr>
-				<th colspan="8"><input type="text" name="matchdate" value="${match.gameDate}" size="10" placeholder="경기일시" readonly="readonly"></th>
-				<th><input type="text" name="matchname" value="${match.gameName}" size="10" placeholder="대회명"></th>
-				<td align="right" colspan="8"><input type="text" name="matchinfo" value="${match.gameInfo}" size="10" placeholder="경기 정보"></td>
+				<th colspan="8"><input type="text" name="matchDate" value="${match.matchDate}" size="10" placeholder="경기일시"></th>
+				<th><input type="text" name="matchName" value="${match.matchName}" size="10" placeholder="대회명"></th>
+				<td align="right" colspan="8"><input type="text" name="matchInfo" value="${match.matchInfo}" size="10" placeholder="경기 정보"></td>
 			</tr>
 			<tr>
 				<td colspan="6"><input type="text" name="blueTeamName" value="${match.blueTeamName}" size="10" placeholder="블루팀명"></td>
-				<td align="center" colspan="2"><input type="text" name="blueresult" value="${match.blueResult}" size="10" placeholder="블루팀 결과"></td>
+				<td align="center" colspan="2"><input type="text" name="blueResult" value="${match.blueResult}" size="10" placeholder="블루팀 결과"></td>
 				<td>${match.bluePick1Kill}:${match.redPick1Kill}</td>
-				<td align="center" colspan="2"><input type="text" name="redresult" value="${match.redResult}" size="10" placeholder="레드팀 결과"></td>
+				<td align="center" colspan="2"><input type="text" name="redResult" value="${match.redResult}" size="10" placeholder="레드팀 결과"></td>
 				<td align="right" colspan="6"><input type="text" name="redTeamName" value="${match.redTeamName}" size="10" placeholder="레드팀명"></td>
 			</tr>
 			<tr>
@@ -64,7 +64,7 @@ $("#deleteMatchBtn").click(function() {
 				<td>${match.bluePick4}</td>
 				<td>${match.bluePick5}</td>
 				<td></td>
-				<td><input type="text" name="playtime" value="${match.playTime}" size="10" placeholder="##:##"></td>
+				<td><input type="text" name="playTime" value="${match.playTime}" size="10" placeholder="##:##"></td>
 				<td></td>
 				<td>${match.redPick1}</td>
 				<td>${match.redPick2}</td>
@@ -223,9 +223,6 @@ $("#deleteMatchBtn").click(function() {
 		</div>
 	</div>
 		<input type="submit" value="경기 수정"><br>
-	<div id="deleteMatch">
-		<a href="deleteMatch?matchId=${match.gameId }"><input type="button" id="deleteMatchBtn"value="삭제"></a>
-	</div>
 </form>
 
 

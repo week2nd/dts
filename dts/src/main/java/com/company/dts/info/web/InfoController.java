@@ -159,8 +159,8 @@ public class InfoController {
 	}
 
 	// 경기 입력 처리
-	@RequestMapping("/insertMatch22")
-	public String insertMatch(MatchVO vo, HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping("/insertMatch")
+	public String insertMatch(MatchVO vo) {
 		
 		System.out.println("#####");
 		

@@ -31,12 +31,11 @@
 	</select>
  -->	
 	<insert id="insertMatch" parameterType="match">
-<!-- 	<selectKey keyProperty="matchId" resultType="integer"
+	<!-- <selectKey keyProperty="gameId" resultType="integer"
 			order="BEFORE">
 		SELECT 		MAX(GAME_ID)+1
 		FROM 		INGAME			
-	</selectKey>
-	 -->	
+	</selectKey> -->
 		INSERT INTO	INGAME(	GAME_ID,
 							MATCHDATE,
 							MATCHNAME,
@@ -50,7 +49,7 @@
 							REDGAMER1, REDGAMER2, REDGAMER3, REDGAMER4, REDGAMER5,
 							BLUEBAN1, BLUEBAN2, BLUEBAN3, BLUEBAN4, BLUEBAN5,
 							REDBAN1, REDBAN2, REDBAN3, REDBAN4, REDBAN5,
-							BLUEPICK1_SPELL1, BLUEPICK1_SPELL2,
+ 							BLUEPICK1_SPELL1, BLUEPICK1_SPELL2,
 							BLUEPICK2_SPELL1, BLUEPICK2_SPELL2,
 							BLUEPICK3_SPELL1, BLUEPICK3_SPELL2,
 							BLUEPICK4_SPELL1, BLUEPICK4_SPELL2,
@@ -70,11 +69,12 @@
 							REDPICK3_KILL, REDPICK3_DEATH, REDPICK3_ASSIST,
 							REDPICK4_KILL, REDPICK4_DEATH, REDPICK4_ASSIST,
 							REDPICK5_KILL, REDPICK5_DEATH, REDPICK5_ASSIST
-)		VALUES(		#{gameId},
+)
+		VALUES(		#{gameId},
 					sysdate,
-					#{gameName},
-					#{gameInfo},
-					to_char(to_date('#{playTime}' ,'mi:ss'),'mi:ss'),
+					#{matchName},
+					#{matchInfo},
+					#{playTime},				 
 					#{blueTeamName},	#{redTeamName},
 					#{blueResult},		#{redResult},
 					#{bluePick1}, 	#{bluePick2}, 	#{bluePick3}, 	#{bluePick4}, 	#{bluePick5},
@@ -103,15 +103,16 @@
 					#{redPick3Kill}, #{redPick3Death}, #{redPick3Assist},
 					#{redPick4Kill}, #{redPick4Death}, #{redPick4Assist},
 					#{redPick5Kill}, #{redPick5Death}, #{redPick5Assist}
-			)								
+			)		
+								
 	</insert>
 	
 	<update id="updateMatch" parameterType="match">
 		UPDATE	INGAME
-		SET		MATCHDATE=#{gameDate},
-				MATCHNAME=#{gameName},
-				MATCHINFO=#{gameInfo},
-				PLAYTIME=to_char(to_date(#{playTime} ,':mi:ss'),'mi:ss'),
+		SET		MATCHDATE=#{matchDate},
+				MATCHNAME=#{matchName},
+				MATCHINFO=#{matchInfo},
+				PLAYTIME=to_char(to_date(#{playTime},':mi:ss'),'mi:ss'),
 				BLUETEAMNAME=#{blueTeamName},	REDTEAMNAME=#{redTeamName},
 				BLUERESULT=#{blueResult},		REDRESULT=#{redResult},
 				BLUEPICK1=#{bluePick1}, 	BLUEPICK2=#{bluePick2}, 	BLUEPICK3=#{bluePick3}, 	BLUEPICK4=#{bluePick4}, 	BLUEPICK5=#{bluePick5},
