@@ -25,6 +25,11 @@ public class MatchDAO {
 		return mybatis.selectList("match.buyMatchList", vo);
 	}
 	
+	// 관리가경기전체조회
+	public List<MatchVO> getMatchListAd(MatchVO vo) {
+		return mybatis.selectList("match.getMatchListAd", vo);
+	}
+	
 	// 단일 조회
 	
 	public MatchVO getMatch(MatchVO vo) {

@@ -199,8 +199,15 @@ public class InfoController {
 	}
 	
 	// 게임구매확인
-		@RequestMapping(value="buyGame", method = RequestMethod.POST)
-		public String buyGameform(PurchaseVO vo) {
-			return "user/info/buyMatchCheck";
-		}
+	@RequestMapping(value="buyGame", method = RequestMethod.POST)
+	public String buyGameform(PurchaseVO vo) {
+		return "user/info/buyMatchCheck";
+	}
+		
+	// 관리자경기전체조회
+	@RequestMapping("/getMatchListAd")
+	public String getMatchListAd(Model model, MatchVO vo) {
+		model.addAttribute("matchListAd", matchService.getMatchListAd(vo));
+		return "admin/info/getMatchListAd";
+	}
 }

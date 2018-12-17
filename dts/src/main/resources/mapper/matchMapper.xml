@@ -162,4 +162,16 @@
 		 FROM INGAME a
 		ORDER BY 1
 	</select>
+	
+	<!-- 관리자경기전체조회 -->
+	<select id="getMatchListAd" resultType="match">
+		SELECT GAME_ID,
+				MATCHDATE AS GAMEDATE,
+				GAMESTATUS,
+				REDTEAMNAME,
+				BLUETEAMNAME,
+				REDRESULT,
+				BLUERESULT
+		  FROM  INGAME
+	</select>
 </mapper>
