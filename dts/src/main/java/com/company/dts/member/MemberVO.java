@@ -7,9 +7,8 @@ public class MemberVO {
 	private String uAddress;	// 유저 주소
 	private String uPhone;		// 유저 폰번호
 	private int uMileage;		// 유저 마일리지
+	private String uEmail;		// 유저 이메일
 	
-	
-
 	private String uGrant;		// 유저 권한
 	private String uBirth;		// 유저 생일
 	private String uDate;		// 유저 가입일
@@ -126,11 +125,16 @@ public class MemberVO {
 	public void setuLose(int uLose) {
 		this.uLose = uLose;
 	}
-	
+	public String getuEmail() {
+		return uEmail;
+	}
+	public void setuEmail(String uEmail) {
+		this.uEmail = uEmail;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + ", uAddress=" + uAddress + ", uPhone="
 				+ uPhone + ", uMileage=" + uMileage + ", uGrant=" + uGrant + ", uBirth=" + uBirth + ", uDate=" + uDate
-				+ ", uWin=" + uWin + ", uLose=" + uLose + "]";
+				+ ", uWin=" + uWin + ", uLose=" + uLose + ", uEmail=" + uEmail + "]";
 	}
 }

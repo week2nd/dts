@@ -49,18 +49,18 @@
 		
         if(inputPw=="" ){ 					// 비밀번호창이 null이면 input색깔 빨강색으로
         	pwCheck = 0;
-            $("#chkpw1").css("background-color", "#FFCECE");
-            $("#chkpw2").css("background-color", "#FFCECE");
+  //          $("#chkpw1").css("background-color", "#FFCECE");
+  //          $("#chkpw2").css("background-color", "#FFCECE");
         }
         else if (inputPw == dbPw) {			// 입력한 비밀번호가 같으면 input색깔 초록색으로
-            $("#chkpw1").css("background-color", "#B0F6AC");
-            $("#chkpw2").css("background-color", "#B0F6AC");
+ //           $("#chkpw1").css("background-color", "#B0F6AC");
+ //           $("#chkpw2").css("background-color", "#B0F6AC");
             pwCheck = 1;
             
         } else if (inputPw != dbPw) {		// 입력한 비밀번호와 다르면 비밀번호 input색깔 붉은색으로
             pwCheck = 0;
-            $("#chkpw1").css("background-color", "#FFCECE");
-            $("#chkpw2").css("background-color", "#FFCECE");
+  //          $("#chkpw1").css("background-color", "#FFCECE");
+  //          $("#chkpw2").css("background-color", "#FFCECE");
         }
         if(pwCheck=1){						// 수정버튼 누를 시 alert창으로 선택하는 거 추가하기 필요
 //        	alert("수정창으로 가즈아");
@@ -77,21 +77,29 @@
  		} 
  		
  		$(".deletebtn").click(function(){
- 			if (confirm("정말 삭제하시겠습니까??") == true){ 
- 				
+ 			if (confirm("정말 삭제하시겠습니까??")== true){ 
+ 				if($('#chkpw2').val() != $('#chkpw1').val()){
+ 					alert("비밀번호를 확인해주세요.");
+ 					document.all.chkpw1.focus();
+ 					return false;
+ 				}else if(false){
+ 					document.all.chkpw1.focus();
+ 					alert($('#uName').val() + "회원 탈퇴 완료 되었습니다.");
+ 				}
  			}else{
- 				return false;
- 			}
+ 				document.all.chkpw1.focus();
+				return false;
+			}
 
  		});
 		$(".updatebtn").click(function(){
 			if( $('#chkpw2').val() != $('#chkpw1').val()){
+				document.all.chkpw1.focus();
 				alert("비밀번호를 확인해주세요.");
 				return false;
 			}else{
-				document.all.chkPw.focus();
+				document.all.chkpw1.focus();
 		        document.all.uPw.value = $('#newPw1').val();	 
-	   			alert("수정 완료 되었습니다.");
 			}
     	});
  		
@@ -122,6 +130,7 @@
 		<input type="hidden" id="uAddress" value="${member.uAddress }">
 		<input type="hidden" id="uWin" value="${member.uWin}">
 		<input type="hidden" id="uLose" value="${member.uLose}">
+		<input type="hidden" id="uEmail" value="${member.uEmail}">
 		<table style="width: 70%" class="table">
 			<tr>
 				<td><div style="width: 50px;">아이디</div></td>
@@ -151,6 +160,10 @@
 				<td>${member.uBirth}</td>
 			</tr>
 			<tr>
+				<td>E-Mail</td>
+				<td>${member.uEmail}</td>
+			</tr>
+			<tr>
 				<td>마일리지</td>
 				<td>${member.uMileage}</td>
 			</tr>
@@ -173,8 +186,8 @@
 				<td><a href="updateMember?uId=${member.uId }">
 					<button	class="form-control btn btn-primary updatebtn" >회원수정</button></a>
 				</td>
-				<td><a href="deleteMember?uId=${member.uId }">
-					<input type="button" value="회원탈퇴"	class="form-control btn btn-primary deletebtn" ></button>
+				<td><a href="deleteMemberUser?uId=${member.uId }">
+					<input type="button" value="회원탈퇴"	class="form-control btn btn-primary deletebtn" >
 					</a>
 				</td>
 			</tr>

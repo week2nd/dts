@@ -163,7 +163,12 @@
                 <input type="hidden" name="uPhone" id="uPhone" value="${member.uPhone }">
             </td>
         </tr>
-        
+        <tr>
+			<td>E-Mail</td>
+			<td>
+				<input type="text" name="uEmail" id="uEmail" class="form-control phone" oninput="sum()" value="${member.uEmail }" >
+			</td>
+		</tr>
 		<tr>
 			<td>마일리지</td>
 			<td>${member.uMileage}</td>
