@@ -50,7 +50,7 @@ public class PurchaseController {
 		}
 
 		// 한페이지 출력할 레코드 건수
-		paging.setPageUnit(5);
+		paging.setPageUnit(10);
 
 		// 시작/마지막 레코드 번호
 		vo.setFirst(paging.getFirst());
