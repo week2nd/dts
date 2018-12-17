@@ -58,26 +58,25 @@ public class BoardController {
 	}
 		
 	// 등록처리
-	@RequestMapping(value="/insertBoard", method = RequestMethod.POST)
-	public String insertBoard(BoardVO vo ) {	// 커맨드 객체
-		
-		
-		String type = vo.getBoardType();
-		System.out.println(type+"====================");
-		String map = "";
-		if(type.equals("free")) {
-			map = "user/board/getAnalysisBoard";
-		} else if(type.equals("analysis")) {
-			map = "user/board/getAnalysisBoard";
-		} else if(type.equals("suggestion")) {
-			map = "user/board/getAnalysisBoard?";
-		} else if(type.equals("notice")) {
-			map = "user/board/getAnalysisBoard?";
-		} 
-		boardService.insertBoard(vo);		//등록처리	
-		return map;
-		
-	}
+		@RequestMapping( value="/insertBoard", method = RequestMethod.POST)
+		public String insertBoard(Model model, BoardVO vo ) {	// 커맨드 객체
+			boardService.insertBoard(vo);		//등록처리
+			
+			String type = vo.getBoardType();	
+			String map = "";
+			model.addAttribute("board", boardService.getAnalysisBoard(vo));			//모델객체를 view에 전달
+			if(type.equals("free")) {
+				map = "user/board/getAnalysisBoard";
+			} else if(type.equals("analysis")) {
+				map = "user/board/getAnalysisBoard";
+			} else if(type.equals("suggestion")) {
+				map = "user/board/getAnalysisBoard";
+			} else if(type.equals("notice")) {
+				map = "user/board/getAnalysisBoard";
+			} 
+					
+			return map;
+		}
 	
 	
 	
@@ -95,7 +94,7 @@ public class BoardController {
 	@RequestMapping("/updateBoard")
 	public String updateBoard(BoardVO vo) {
 		boardService.updateBoard(vo);		//수정처리
-		return "redirect:getAnalysisBoard";		//목록요청
+		return "user/board/getAnalysisBoard";		//목록요청
 	}
 	
 	

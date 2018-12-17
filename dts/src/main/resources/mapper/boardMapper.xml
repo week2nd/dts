@@ -65,7 +65,7 @@
 
 	SELECT 	*
 	FROM	BOARD 
-	WHERE 	BOARD_TYPE= #{boardType}
+	WHERE 	BOARD_TYPE= nvl(#{boardType},BOARD_TYPE)
 	ORDER BY BOARD_NUMBER
 
 </select>
