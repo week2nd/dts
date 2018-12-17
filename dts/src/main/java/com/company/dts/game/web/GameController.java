@@ -68,10 +68,10 @@ public class GameController {
 		return "redirect:getGameList";
 	}
 	//게임구매
-	@RequestMapping(value="buyGame", method = RequestMethod.POST)
+	/*@RequestMapping(value="buyGame", method = RequestMethod.POST)
 	public String buyGameform(PurchaseVO vo) {
 		return "user/game/buyGame";
-	}
+	}*/
 	
 	// 관리자게임조회
 	@RequestMapping("/getGameListAd")

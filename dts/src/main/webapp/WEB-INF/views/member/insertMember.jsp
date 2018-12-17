@@ -47,7 +47,7 @@
              }
  
              // 우편번호와 주소 정보를 해당 필드에 넣는다.
-             document.getElementById('sample4_roadAddress').value = fullRoadAddr;
+             document.getElementById('roadAddress').value = fullRoadAddr;
  
              // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
              if(data.autoRoadAddress) {
@@ -94,28 +94,28 @@
     //아이디 체크하여 가입버튼 비활성화, 중복확인.
    
     function checkId() {
-        var inputed = $('.id').val();
+        var inputId = $('.id').val();
         
         
         $.ajax({
             data : {
-                uId : inputed
+                uId : inputId
             },
             url : "checkId",
             success : function(data) {
-                if(inputed=="" && data==false || inputed.length<4) {			// 아이디 값을 지웠을 경우
+                if(inputId=="" && data==false || inputId.length<4) {			// 아이디 값을 지웠을 경우
                     $(".joinbtn").prop("disabled", true);
                     $(".joinbtn").css("background-color", "#aaaaaa");
-                    $("#chkid").css("background-color", "#FFCECE");
+                    $("#chkId").css("background-color", "#FFCECE");
                     idCheck = 0;
-                    document.all.labelido.style.display="none";
-                    document.all.labelidx.style.display="none";
+                    document.all.spanIdO.style.display="none";
+                    document.all.spanIdX.style.display="none";
                 } else if (data == false) {					// 사용가능한 아이디로 입력을 바꿨을때
-                    $("#chkid").css("background-color", "#B0F6AC");
-                    document.all.labelido.style.display="";
-                    document.all.labelidx.style.display="none";
+                    $("#chkId").css("background-color", "#B0F6AC");
+                    document.all.spanIdO.style.display="";
+                    document.all.spanIdX.style.display="none";
                     idCheck = 1;
-             //       console.log(inputed.length);
+             //       console.log(inputId.length);
                     if(idCheck==1 && pwdCheck == 1) {
                       	$(".joinbtn").prop("disabled", false);
                        	$(".joinbtn").css("background-color", "#4CAF50");
@@ -123,93 +123,74 @@
                 } else if (data == true) {					// 중복아이디를 입력했을 경우
                     $(".joinbtn").prop("disabled", true);
                     $(".joinbtn").css("background-color", "#aaaaaa");
-                    $("#chkid").css("background-color", "#FFCECE");
+                    $("#chkId").css("background-color", "#FFCECE");
                     idCheck = 0;
-                    document.all.labelido.style.display="none";
-                    document.all.labelidx.style.display="";
+                    document.all.spanIdO.style.display="none";
+                    document.all.spanIdX.style.display="";
                 } 
-                if(inputed.length<4){
-             //       console.log(inputed.length);
-                    document.all.countid.style.display="";
-                    $("#chkid").css("background-color", "#FFCECE");
-                 } else if(inputed.length>3){
-                    document.all.countid.style.display="none";
+                if(inputId.length<4){
+             //       console.log(inputId.length);
+                    document.all.countId.style.display="";
+                    $("#chkId").css("background-color", "#FFCECE");
+                 } else if(inputId.length>3){
+                    document.all.countId.style.display="none";
                  }
             }
         });
     }
   //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
     function checkPwd() {
-        var inputed = $('#chkpw1').val();
-        var reinputed = $('#chkpw2').val();
-        var nameinputed = $('#chkname').val();
-        var phoneinputed1 = $('#phone2').val();
-        var phoneinputed2 = $('#phone3').val();
+        var inputPw1 = $('#chkPw1').val();
+        var inputPw2 = $('#chkPw2').val();
+        var inputName = $('#chkName').val();
+        var inputPhone1 = $('#phone2').val();
+        var inputPhone2 = $('#phone3').val();
+        var inputBirth = $('#chkBirth').val();
+        var inputAddress1 = $('#roadAddress').val();		// 주소와 상세주소 합치는 과정
+        var inputAddress2 = $('#detailAddress').val();
+        var addressSum = inputAddress1 + "^" + inputAddress2
+        document.all.uAddress.value = addressSum;
         
-        
-        var birthinputed = $('#chkbirth').val();
-        
-        
-        var addressinputed1 = $('#sample4_roadAddress').val();		// 주소와 상세주소 합치는 과정
-        var addressinputed2 = $('#sample4_detail').val();
-        var addresssum = addressinputed1 + "-" + addressinputed2
-        document.all.uAddress.value = addresssum;
-        
-        var one = $('#phone1').val();			// 휴대폰번호 하이픈 합치는 과정
-    	var two = $('#phone2').val();
-    	var thr = $('#phone3').val();
-		var fou = one + "-" + two + "-" + thr;		
-		document.all.uPhone.value = fou;
-        
-        console.log($('#uAddress').val());
-        console.log(addressinputed2);
-        console.log(addresssum);
+        			// 휴대폰번호 하이픈 합치는 과정
+    	
+		var tempPhone = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;		
+		document.all.uPhone.value = tempPhone;
 			
-		if(nameinputed == "" || addressinputed1 == "" || addressinputed2 == "" ||
-				birthinputed == "" || phoneinputed1.length < 3 || phoneinputed2.length < 4){		// 이름, 주소, 휴대폰번호, 생년월일 입력삭제 시 가입버튼 비활성화
+		if(inputName == "" || inputAddress1 == "" || inputAddress2 == "" ||
+				inputBirth == "" || inputPhone1.length < 3 || inputPhone2.length < 4){		// 이름, 주소, 휴대폰번호, 생년월일 입력삭제 시 가입버튼 비활성화
 			$(".joinbtn").prop("disabled", true);													// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
             $(".joinbtn").css("background-color", "#aaaaaa");
 		}
 		
-        if(reinputed=="" || inputed=="" && (inputed != reinputed || inputed == reinputed)){ 	//
+        if(inputPw2=="" || inputPw1=="" ){ 	//
             $(".joinbtn").prop("disabled", true);
             $(".joinbtn").css("background-color", "#aaaaaa");
-            $("#chkpw1").css("background-color", "#FFCECE");
-            $("#chkpw2").css("background-color", "#FFCECE");
-            document.all.labelpwo.style.display="none";
-            document.all.labelpwx.style.display="none";
+            $("#chkPw1").css("background-color", "#FFCECE");
+            $("#chkPw2").css("background-color", "#FFCECE");
+            document.all.spanPwX.style.display="none";				
+            document.all.spanPwO.style.display="none";
         }
-        else if (inputed == reinputed) {		// 비밀번호 input색깔 초록색으로
-            $("#chkpw1").css("background-color", "#B0F6AC");
-            $("#chkpw2").css("background-color", "#B0F6AC");
+        else if (inputPw1 == inputPw2) {		// 비밀번호 input색깔 초록색으로
+            $("#chkPw1").css("background-color", "#B0F6AC");
+            $("#chkPw2").css("background-color", "#B0F6AC");
             pwdCheck = 1;
-            document.all.labelpwo.style.display="none";
-            document.all.labelpwx.style.display="";
+            document.all.spanPwX.style.display="none";			// 일치하는거 표시
+            document.all.spanPwO.style.display="";				// 불일치하는거 지우기
             if(idCheck==1 && pwdCheck == 1 
-            		&& nameinputed != "" && addressinputed1 != "" && addressinputed2 != "" && birthinputed != "" 
-            		&&  phoneinputed1.length > 2 && phoneinputed2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일) 맞으면 가입버튼 활성화
+            		&& inputName != "" && inputAddress1 != "" && inputAddress2 != "" && inputBirth != "" 
+            		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일) 맞으면 가입버튼 활성화
 	           $(".joinbtn").prop("disabled", false);								// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 	           $(".joinbtn").css("background-color", "#4CAF50");
             }
-        } else if (inputed != reinputed) {		// 비밀번호 틀리면 가입버튼 비활성화 및 비밀번호 input색깔 붉은색으로
+        } else if (inputPw1 != inputPw2) {		// 비밀번호 틀리면 가입버튼 비활성화 및 비밀번호 input색깔 붉은색으로
             pwdCheck = 0;
             $(".joinbtn").prop("disabled", true);
             $(".joinbtn").css("background-color", "#aaaaaa");
-            $("#chkpw1").css("background-color", "#FFCECE");
-            $("#chkpw2").css("background-color", "#FFCECE");
-            document.all.labelpwo.style.display="";
-            document.all.labelpwx.style.display="none";
+            $("#chkPw1").css("background-color", "#FFCECE");
+            $("#chkPw2").css("background-color", "#FFCECE");
+            document.all.spanPwX.style.display="";
+            document.all.spanPwO.style.display="none";
         }
-        
-      			
-        	
-   //     console.log(nameinputed);
-	//	console.log(addressinputed1);
-	//	console.log(phoneinputed);
-	//	console.log(birthinputed);
-		
-       
-        
     }
     
  
@@ -224,25 +205,31 @@
 		<table style="width: 70%" class="table">
 	        <tr>            
 	            <td>아이디</td>
-	            <td><input type="text" class="form-control id" name="uId" id="chkid" placeholder="아이디" value="${member.uId }" oninput="checkId()" ></td>
-	            <td><span id="labelido" style="display: none">사용가능한 아이디 입니다.</span>
-	            	<span id="labelidx" style="display: none">중복 아이디 입니다.</span>
-	            	<span id="countid">네글자 이상 아이디를 입력하세요.</span>
+	            <td><input type="text" class="form-control id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()" ><br>&nbsp;
+	            	<span id="spanIdO" style="display: none">사용가능한 아이디 입니다.</span>
+	            	<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>
+	            	<span id="countId">네글자 이상 아이디를 입력하세요.</span>
+	            </td>
+	            <td>
+	            	
 	            </td>
 	        </tr>
 	        <tr>
 	            <td>비밀번호</td>
-	            <td><input type="password" class="form-control pass" name="uPw" id="chkpw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkPwd()"></td>
-	            <td><span id="labelpwo" style="display: none">비밀번호가 일치하지 않습니다.</span>
-              	<span id="labelpwx" style="display: none">비밀번호가 일치합니다.</span></td>
+	            <td>
+	            	<input type="password" class="form-control pass" name="uPw" id="chkPw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkPwd()"><br>&nbsp;
+	            	<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
+              		<span id="spanPwO" style="display: none">비밀번호가 일치합니다.</span>
+            	</td>
+	            
 	        </tr>
 	        <tr>
 	            <td>비밀번호 확인</td>
-	            <td><input type="password" class="form-control pass" name="member" id="chkpw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkPwd()"></td>
+	            <td><input type="password" class="form-control pass" name="member" id="chkPw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkPwd()"></td>
 	        </tr>
 	        <tr>
 	            <td>이름</td>
-	            <td><input type="text" class="form-control name"  name="uName" id="chkname" placeholder="이름" value="${member.uName }" oninput="checkPwd()"></td>
+	            <td><input type="text" class="form-control name"  name="uName" id="chkName" placeholder="이름" value="${member.uName }" oninput="checkPwd()"></td>
 	            <td colspan="2"><div style="visibility: hidden">빈공간입니당.빈공간입니당.빈공간입니당.빈공간입니당.</div></td>
 	            
 	        </tr>
@@ -250,8 +237,8 @@
 	            <td>주소</td>       
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" class="form-control address" id="sample4_roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
-	                <input type="text" class="form-control address" id="sample4_detail" placeholder="상세주소 입력창" oninput="checkPwd()">
+	                <input type="text" class="form-control address" id="roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
+	                <input type="text" class="form-control address" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()">
 	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>
 	            </td>
@@ -277,7 +264,7 @@
 	        <tr>
 	            <td>생년월일</td>
 	            <td>
-	            	<input type="date" class="form-control date" name="uBirth" id="chkbirth" value="${member.uBirth }" oninput="checkPwd()">
+	            	<input type="date" class="form-control date" name="uBirth" id="chkBirth" value="${member.uBirth }" oninput="checkPwd()">
 	            </td>
 	        </tr>        
 	        <tr>

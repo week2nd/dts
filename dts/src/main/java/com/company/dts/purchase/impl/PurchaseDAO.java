@@ -14,10 +14,15 @@ public class PurchaseDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	// 구매전체조회
+	// 유저구매전체조회
 	public List<PurchaseVO> getPurchaseList(PurchaseVO vo) {
 		return mybatis.selectList("purchase.getPurchaseList", vo);
 	}
+	
+	// 관리자구매전체조회
+		public List<PurchaseVO> getPurchaseListAd(PurchaseVO vo) {
+			return mybatis.selectList("purchase.getPurchaseListAd", vo);
+		}
 	
 	// 구매단건조회
 	public PurchaseVO getPurchase(PurchaseVO vo) {

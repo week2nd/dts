@@ -18,7 +18,7 @@ public class PurchaseController {
 	@Autowired
 	PurchaseService purchaseService;
 	
-	// 전체조회
+	// 유저구매전체조회
 	@RequestMapping("/getPurchaseList")
 	public String getPurchaseList(Model model, PurchaseVO vo, HttpSession session) {
 		String uId = ((MemberVO)session.getAttribute("membersession")).getuId();
@@ -27,7 +27,14 @@ public class PurchaseController {
 		return "user/purchase/getPurchaseList";
 	}
 	
-	// 유저별 조회
+	// 유저구매전체조회
+		@RequestMapping("/getPurchaseListAd")
+		public String getPurchaseList(Model model, PurchaseVO vo) {
+			model.addAttribute("purchaseList", purchaseService.getPurchaseListAd(vo));
+			return "user/purchase/getPurchaseListAd";
+		}
+	
+	// 단건 조회
 	@RequestMapping("/getPurchase")
 	public String getPurchase(Model model, PurchaseVO vo, HttpSession session) {
 		String id = ((MemberVO)session.getAttribute("membersession")).getuId();

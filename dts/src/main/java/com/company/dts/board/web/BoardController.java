@@ -1,6 +1,8 @@
 package com.company.dts.board.web;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.filters.RequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,24 +30,14 @@ public class BoardController {
 
 	
 	
-/*	// 자유게시판 전체조회
-	@RequestMapping("/getFreeBoard")
+	// 자유게시판 전체조회
+/*	@RequestMapping("/getFreeBoard")
 	public String getFreeBoard(Model model, BoardVO vo)  {
 		model.addAttribute("board", boardService.getFreeBoard(vo));
 		return "user/board/getFreeBoard";
 	}*/
-	
-	
-	// 분석게시판 전체조회
-	@RequestMapping("/getAnalysisBoard")
-	public String getAnalysisBoard(Model model, BoardVO vo, HttpServletRequest request)  {
-		vo.setBoardType(request.getParameter("type"));
-		
-		model.addAttribute("board", boardService.getAnalysisBoard(vo));
-		return "user/board/getAnalysisBoard";
-	}
-	
-/*	// 건의게시판 전체조회
+
+	/*	// 건의게시판 전체조회
 	@RequestMapping("/getSuggestionBoard")
 	public String getSuggestionBoard(Model model, BoardVO vo)  {
 	model.addAttribute("board", boardService.getSuggestionBoard(vo));
@@ -61,16 +53,24 @@ public class BoardController {
 	
 	
 	
-	// 단건조회
-	@RequestMapping("/getBoard")		
-	public String getBoard(Model model, BoardVO vo) {
-		model.addAttribute("board", boardService.getBoard(vo));
-		return "user/board/getBoard";
+	// 분석게시판 전체조회
+	@RequestMapping("/getAnalysisBoard")
+	public String getAnalysisBoard(Model model, BoardVO vo, HttpServletRequest request)  {
+		vo.setBoardType(request.getParameter("type"));		//homeuser의 타입을 받아온다.
+		
+		
+		model.addAttribute("type", request.getParameter("type"));
+		model.addAttribute("board", boardService.getAnalysisBoard(vo));
+		return "user/board/getAnalysisBoard";
 	}
+	
 
 	// 등록폼
-	@RequestMapping(value="/insertBoard" , method = RequestMethod.GET)
-	public String insertBoardform() {
+	@RequestMapping(value="/insertBoard" , method = RequestMethod.GET )
+	public String insertBoardform(Model model, HttpServletRequest request, HttpServletResponse response) {
+		String type = request.getParameter("type"); 
+		
+		model.addAttribute("type", type);
 		return "user/board/insertBoard";
 	}
 		
@@ -79,20 +79,27 @@ public class BoardController {
 	public String insertBoard(BoardVO vo ) {	// 커맨드 객체
 		boardService.insertBoard(vo);		//등록처리
 		
-		String type = vo.getBoardType();
-		
+		String type = vo.getBoardType();	
 		String map = "";
 		if(type.equals("free")) {
-			map = "user/board/getNoticeBoard";
+			map = "user/board/getAnalysisBoard";
 		} else if(type.equals("analysis")) {
-			
+			map = "user/board/getAnalysisBoard";
 		} else if(type.equals("suggestion")) {
-			
+			map = "user/board/getAnalysisBoard";
 		} else if(type.equals("notice")) {
-			
+			map = "user/board/getAnalysisBoard";
 		} 
 				
 		return map;
+	}
+	
+	
+	// 단건조회
+	@RequestMapping("/getBoard")		
+	public String getBoard(Model model, BoardVO vo) {
+		model.addAttribute("board", boardService.getBoard(vo));
+		return "user/board/getBoard";
 	}
 	
 	//수정

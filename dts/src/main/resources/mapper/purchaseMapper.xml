@@ -18,37 +18,29 @@
 		</if>
 	</select>
 
-	<select id="getPurchase" parameterType="purchase"
+	<select id="getPurchaseListAd" parameterType="purchase"
 		resultType="purchase">
 		SELECT PURCHASE_NUM,
-		U_ID,
-		GAME_ID,
-		BETMONEY,
-		BETDRATE,
-		ACCURACY,
-		BETDATE,
-		CHOISE
-		FROM PURCHASE
+				U_ID,
+				GAME_ID,
+				BETMONEY,
+				BETDRATE,
+				ACCURACY,
+				BETDATE,
+				CHOISE
+		  FROM PURCHASE
+		  WHERE 1 = 1
+		  <if test="searchKeyword != null and searchKeyword != ''">
+		  AND ${searchCondition} like '%' || #{searchKeyword} || '%'
+		  </if>
+		  ORDER BY 1
 	</select>
 
-	<!-- <insert id="insertPurchase" parameterType="purchase">
-		<selectKey keyProperty="purchaseNum" resultType="integer"
-			order="BEFORE">
-			SELECT nvl(MAX(PURCHASE_NUM),0)+1 FROM PURCHASE
-		</selectKey>
-		INSERT INTO PURCHASE(PURCHASE_NUM,
-		U_ID,
-		GAME_ID,
-		BETMONEY,
-		BETDRATE,
-		CHOISE )
-		VALUES(#{purchaseNum},
-		#{uId},
-		#{gameId},
-		#{betMoney},
-		#{betDrate},
-		#{choise} )
-	</insert> -->
+	<!-- <insert id="insertPurchase" parameterType="purchase"> <selectKey keyProperty="purchaseNum" 
+		resultType="integer" order="BEFORE"> SELECT nvl(MAX(PURCHASE_NUM),0)+1 FROM 
+		PURCHASE </selectKey> INSERT INTO PURCHASE(PURCHASE_NUM, U_ID, GAME_ID, BETMONEY, 
+		BETDRATE, CHOISE ) VALUES(#{purchaseNum}, #{uId}, #{gameId}, #{betMoney}, 
+		#{betDrate}, #{choise} ) </insert> -->
 
 	<insert id="insertPurchase" statementType="CALLABLE"
 		parameterType="purchase">
@@ -59,7 +51,7 @@
 		#{betMoney},
 		#{betDrate},
 		#{choise} )
-		
+
 	</insert>
 
 

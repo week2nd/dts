@@ -2,12 +2,15 @@ package com.company.dts.info.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.company.dts.game.GameVO;
 import com.company.dts.info.MatchService;
 import com.company.dts.info.MatchVO;
 import com.company.dts.info.PlayerService;
@@ -15,6 +18,8 @@ import com.company.dts.info.PlayerVO;
 import com.company.dts.info.TeamService;
 import com.company.dts.info.TeamVO;
 import com.company.dts.info.impl.MatchServiceImpl;
+import com.company.dts.member.MemberVO;
+import com.company.dts.purchase.PurchaseVO;
 
 @Controller
 public class InfoController {
@@ -183,4 +188,19 @@ public class InfoController {
 		matchService.deleteMatch(vo);
 		return "redirect:getMatchList";
 	}
+	
+	// 구매페이지 전체조회
+	@RequestMapping("/buyMatchList")
+	public String getGameList(Model model, MatchVO vo, HttpSession session) {
+		String id = ((MemberVO)session.getAttribute("membersession")).getuId();
+		vo.setuId(id);
+		model.addAttribute("buyMatchList", matchService.buyMatchList(vo));
+		return "user/info/buyMatchList";
+	}
+	
+	// 게임구매확인
+		@RequestMapping(value="buyGame", method = RequestMethod.POST)
+		public String buyGameform(PurchaseVO vo) {
+			return "user/info/buyMatchCheck";
+		}
 }

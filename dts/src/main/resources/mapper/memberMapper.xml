@@ -21,11 +21,12 @@
 	</choose>
  </select>
 
- <!-- 전체유저조회 -->
+ <!-- 전체유저조회 주소에 '^'제거 후 목록보여주기 -->
 <select id="getMemberList" resultType="member">	
 select b.* from(select a.*, rownum rn from(
-	SELECT	 	*
-	FROM 		MEMBER
+	SELECT  U_ID, U_PW, U_NAME, REPLACE(U_ADDRESS, '^', '') U_ADDRESS, U_PHONE,		
+        	U_MILEAGE, U_GRANT, U_BIRTH, U_DATE, U_WIN, U_LOSE
+	FROM MEMBER
 	<!--  WHERE 1=1 -->
 	<if test="searchKeyword != null and searchKeyword != ''">
 		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
@@ -45,8 +46,6 @@ select b.* from(select a.*, rownum rn from(
 <!-- 단일유저조회 -->
 <select id="getMember" parameterType="member" resultType="member">
 	SELECT	*
-	
-
 	FROM	MEMBER
 	WHERE U_ID = #{uId}
 </select>

@@ -3,8 +3,13 @@ package com.company.dts.info;
 public class MatchVO {
 
 	private int gameId;
+	private String uId;
 	
-	
+	private float redRate;
+	private float blueRate;
+	private String gameStatus;
+	private int buyCheck;
+	private String gameDate;
 	private String gameDate;
 	private String gameName;
 	private String gameInfo;
