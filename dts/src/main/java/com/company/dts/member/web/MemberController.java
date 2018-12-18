@@ -127,6 +127,14 @@ public class MemberController {
         return result;
     }
 
+    
+    
+	// 로그인폼
+	@RequestMapping("/loginForm")
+	public String loginForm() {		
+		return "guest/member/loginForm";
+	}
+	
 	
 	
 	@RequestMapping("login")   // 
@@ -135,9 +143,9 @@ public class MemberController {
 		MemberVO membervo = memberService.getMember(vo);
 		// id가 있으면 패스워드 비교
 		if(membervo == null) { // id 없으면
-			return "guest/main/guestMain";
+			return "guest/member/loginForm";
 		} else if (! vo.getuPw().equals(membervo.getuPw())) { // ! <- not
-			return "guest/main/guestMain";
+			return "guest/member/loginForm";
 		} else {
 			session.setAttribute("membersession", membervo);
 			if (membervo.getuGrant().equals("admin")) {
