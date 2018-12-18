@@ -102,17 +102,20 @@
 <update id ="updateBoard" parameterType="board">
 	UPDATE BOARD SET 
 					BOARD_TITLE=#{boardTitle},
-					BOARD_CONTENT=#{boardContent}   
+					BOARD_CONTENT=#{boardContent}		   
 					WHERE BOARD_NUMBER=#{boardNumber}
 </update>
 
 
 
+
 <!-- 게시판 삭제 -->
-<delete id ="deleteBoard" parameterType="int">
+<delete id ="deleteBoard" parameterType="board">
 	DELETE FROM BOARD WHERE BOARD_NUMBER = #{boardNumber}
 					
 </delete>
+
+
 
 <!-- 게시판리스트(단체) 삭제 -->
 <delete id ="deleteBoardList" parameterType="board">

@@ -69,15 +69,17 @@
 </head>
 <body>
 <h3>게시판보기</h3>
-	게시판제목 : ${board.boardNumber }; ${board.boardTitle} 
-	게시판내용 : ${board.boardContent } 
-	작성일시 : ${board.postDate } 
-	조회수 : ${board.boardHits } 
-	추천수 : ${board.boardLike} 
-	아이디 : ${board.uId } 
-	게시판타입 : ${board.boardType } 
+	게시판번호 : ${board.boardNumber } <br>
+	게시판제목 : ${board.boardTitle} <br>
+	게시판내용 : ${board.boardContent } <br>
+	작성일시 : ${board.postDate } <br>
+	조회수 : ${board.boardHits } <br>
+	추천수 : ${board.boardLike} <br>
+	아이디 : ${board.uId } <br>
+	게시판타입 : ${board.boardType } <br> 
 	<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a> 
 	<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
+	<a href="getAnalysisBoard?type=${board.boardType}">게시판</a>
 	 
 	 <hr>
 	<h3>댓글</h3>

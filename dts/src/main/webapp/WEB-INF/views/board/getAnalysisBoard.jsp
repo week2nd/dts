@@ -22,7 +22,7 @@
  	
 
 	
-	<a href="${pageContext.request.contextPath}/insertBoard?type=${type}">등록</a>
+	<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 	
 	<table border="1" >
 		<tr>

@@ -49,7 +49,7 @@ public class BoardController {
 	
 
 	// 등록폼
-	@RequestMapping(value="/insertBoard" , method = RequestMethod.GET )
+	@RequestMapping(value="/insertBoardform" , method = RequestMethod.GET )
 	public String insertBoardform(Model model, HttpServletRequest request, HttpServletResponse response) {
 		String type = request.getParameter("type"); 
 		
@@ -84,30 +84,30 @@ public class BoardController {
 	
 	//수정
 	@RequestMapping("/updateBoardform")
-	public String updateBoardform(Model model, BoardVO vo) {
-	
+	public String updateBoardform(Model model, BoardVO vo) {	
 		model.addAttribute("board", boardService.getBoard(vo));
 		return "user/board/updateBoard";
 	}
 	
 	//수정처리
 	@RequestMapping("/updateBoard")
-	public String updateBoard(BoardVO vo) {
+	public String updateBoard(Model model, BoardVO vo) {
 		boardService.updateBoard(vo);		//수정처리
-		return "user/board/getAnalysisBoard";		//목록요청
+		model.addAttribute("board", boardService.getBoard(vo));
+		return "user/board/getBoard";		//목록요청
 	}
-	
-	
-	
+		
 	
 	
 	
 	// 단건 삭제처리
 	@RequestMapping("/deleteBoard")
-	public String deleteBoard(BoardVO vo) {
-		boardService.deleteBoard(vo);		//삭제처리
+	public String deleteBoard(Model model, BoardVO vo) {
+		boardService.deleteBoard(vo);			//삭제처리
 		return "redirect:getBoardList";		//목록요청
 	}
+	
+	
 	// 여러개 삭제
 	@RequestMapping("/deleteBoardList")
 	public String deleteBoardList(BoardVO vo) {
