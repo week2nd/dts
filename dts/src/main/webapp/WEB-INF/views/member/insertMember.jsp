@@ -169,17 +169,26 @@
         var inputPhone1 = $('#phone2').val();
         var inputPhone2 = $('#phone3').val();
         var inputBirth = $('#chkBirth').val();
-        var inputAddress1 = $('#roadAddress').val();		// 주소와 상세주소 합치는 과정
+        var inputAddress1 = $('#roadAddress').val();
         var inputAddress2 = $('#detailAddress').val();
-        var addressSum = inputAddress1 + "^" + inputAddress2
+        var inputEmail1 = $('#chkEmail1').val();
+        var inputEmail2 = $('#chkEmail2').val();
+        var target = document.getElementById("selectEmail");
+        
+       
+        // 주소와 상세주소 합치는 과정
+        var addressSum = inputAddress1 + "^" + inputAddress2;
         document.all.uAddress.value = addressSum;
         
-        			// 휴대폰번호 하이픈 합치는 과정
-    	
+        // 이메일과 @를 합치는 과정
+        var EmailSum = inputEmail1 + "@" + inputEmail2;
+        document.all.uEmail.value = EmailSum;
+        
+        // 휴대폰번호 하이픈 합치는 과정
 		var tempPhone = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;		
 		document.all.uPhone.value = tempPhone;
 			
-		if(inputName == "" || inputAddress1 == "" || inputAddress2 == "" ||
+		if(inputName == "" || inputAddress1 == "" || inputAddress2 == "" || inputEmail1 == "" || inputEmail2 == "" ||
 				inputBirth == "" || inputPhone1.length < 3 || inputPhone2.length < 4){		// 이름, 주소, 휴대폰번호, 생년월일 입력삭제 시 가입버튼 비활성화
 			$(".joinbtn").prop("disabled", true);													// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
             $(".joinbtn").css("background-color", "#aaaaaa");
@@ -199,9 +208,9 @@
             pwdCheck = 1;
             document.all.spanPwX.style.display="none";			// 일치하는거 표시
             document.all.spanPwO.style.display="";				// 불일치하는거 지우기
-            if(idCheck==1 && pwdCheck == 1 
+            if(idCheck==1 && pwdCheck == 1 && inputEmail1 != "" && inputEmail2 != ""
             		&& inputName != "" && inputAddress1 != "" && inputAddress2 != "" && inputBirth != "" 
-            		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일) 맞으면 가입버튼 활성화
+            		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일, E-mail) 맞으면 가입버튼 활성화
 	           $(".joinbtn").prop("disabled", false);								// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 	           $(".joinbtn").css("background-color", "#4CAF50");
             }
@@ -214,23 +223,49 @@
             document.all.spanPwX.style.display="";
             document.all.spanPwO.style.display="none";
         }
+        
+        
+        // E-Mail 텍스트박스 활성화 비활성화
+        if(target.options[target.selectedIndex].value == "direct"){
+     		document.all.chkEmail2.value = "";
+     		$("#chkEmail2").attr("readonly",false);
+        } else if(target.options[target.selectedIndex].value == "blank"){
+     		document.all.chkEmail2.value = "";
+     		$("#chkEmail2").attr("readonly",true);
+        } else{
+     		document.all.chkEmail2.value = target.options[target.selectedIndex].value;
+ 			$("#chkEmail2").attr("readonly",true);
+        }
     }
     $(function(){
     	$(".joinbtn").click(function(){
     		alert($('#chkName').val()+"님 DTS E-sport토토 가입을 환영합니다.");
     	});
+    	
     });
     
     
     $(document).ready(function(){
     	  //한글입력 안되게 처리
-    	  $("input[name=uId]").keyup(function(event){ 
-    	   if (!(event.keyCode >=37 && event.keyCode<=40)) {
-    	    var inputVal = $(this).val();
-    	    $(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
-    	   }
-    	  });
+    	$("input[name=uId]").keyup(function(event){ 
+    		if (!(event.keyCode >=37 && event.keyCode<=40)) {
+    			var inputVal = $(this).val();
+    			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+    		}	
     	});
+    	$("input[name=uEmail1]").keyup(function(event){ 
+    		if (!(event.keyCode >=37 && event.keyCode<=40)) {
+    			var inputVal = $(this).val();
+    			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+    		}	
+    	});
+    	$("input[name=uEmail2]").keyup(function(event){ 
+    		if (!(event.keyCode >=37 && event.keyCode<=40)) {
+    			var inputVal = $(this).val();
+    			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+    		}	
+    	});
+	});
 
  </script>
 
@@ -305,6 +340,22 @@
 	            <td>
 	            	<input type="date" class="form-control date" name="uBirth" id="chkBirth" value="${member.uBirth }" oninput="checkPwd()">
 	            </td>
+	        </tr>
+	        <tr>
+	            <td>E-Mail</td>
+	            <td>
+	            	<input type="text" id="uEmail" name="uEmail"  value="${member.uEmail }">
+	            	<input type="text" class="form-control email" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="checkPwd()">
+	            	<input type="text" class="form-control email" name="uEmail2" id="chkEmail2" placeholder="뭘까"  oninput="checkPwd()"  readonly>
+	            	<select name="selectEmail" id="selectEmail" class="form-control phone" oninput="checkPwd()">
+                       <option value="blank">--선택--</option>
+                       <option value="naver.com">네이버</option>
+                       <option value="gmail.com">구글</option>
+                       <option value="daum.net">다음</option>
+                       <option value="nate.com">네이트</option>
+                       <option value="direct">직접입력</option>
+                   </select>
+	            </td>
 	        </tr>        
 	        <tr>
 	            <td colspan="2"> 
@@ -314,7 +365,6 @@
 	       
 	    </table>
     </form>
-<input type="text" name="aaa" />
 
 </body>
 </html>

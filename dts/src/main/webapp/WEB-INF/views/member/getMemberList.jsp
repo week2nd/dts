@@ -39,6 +39,7 @@
 			<td>가입일<a href="#" onclick="go_sort('udate')">▲</a></td>
 			<td>승리<a href="#" onclick="go_sort('uwin')">▲</a></td>
 			<td>패배<a href="#" onclick="go_sort('ulose')">▲</a></td>
+			<td>E-Mail<a href="#" onclick="go_sort('uemail')">▲</a></td>
 		</tr>
 		<c:forEach items="${memberList }" var="member">
 			<tr>
@@ -54,6 +55,7 @@
 				<td>${member.uDate }</td>
 				<td>${member.uWin }</td>
 				<td>${member.uLose }</td>
+				<td>${member.uEmail }</td>
 			</tr>
 		</c:forEach> 
 	</table>

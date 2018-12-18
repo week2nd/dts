@@ -84,6 +84,7 @@
         var inputPhone2 = $('#phone3').val();
         var inputAddress1 = $('#roadAddress').val();		// 주소와 상세주소 합치는 과정
         var inputAddress2 = $('#detailAddress').val();
+        var inputEmail = $('#uEmail').val();
  		
         var addressSum = inputAddress1 + "^" + inputAddress2
         document.all.uAddress.value = addressSum;
@@ -92,10 +93,11 @@
 		var temp = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;		
 		document.all.uPhone.value = temp;
 		
-		if(inputAddress1 == "" || inputAddress2 == "" || dbPw == "" || origInputed2 == "" ||
+		if(inputAddress1 == "" || inputAddress2 == "" || dbPw == "" || origInputed2 == "" || inputEmail == "" ||
 				 inputPhone1.length < 3 || inputPhone2.length < 4){		// 이름, 주소, 휴대폰번호,  입력삭제 시 가입버튼 비활성화, 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 			$(".updatebtn").prop("disabled", true);													
             $(".updatebtn").css("background-color", "#aaaaaa");
+            console.log(inputEmail+"@@@");
 		}
 /* 		if( dbPw == origInputed2){							// 해당 유저 기존 비밀번호와 같은 경우
 //			$("#chkPw").css("background-color", "#B0F6AC");
@@ -123,7 +125,7 @@
             document.all.spanPwX.style.display="none";
             document.all.spanPwO.style.display="";
             if(origInputed2 != "" && pwdCheck == 1 
-            		&& inputAddress1 != "" && inputAddress2 != ""  
+            		&& inputAddress1 != "" && inputAddress2 != "" && inputEmail != ""   
             		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일) 맞으면 가입버튼 활성화
 	           $(".updatebtn").prop("disabled", false);								// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 	           $(".updatebtn").css("background-color", "#4CAF50");
@@ -237,13 +239,10 @@
 					 
 				</td>
 			</tr>
-
-
 			<tr>
-				<td>생년월일</td>
-				<td>${member.uBirth}</td>
+				<td>E-Mail</td>
+				<td><input type="text" name="uEmail" id="uEmail" class="form-control email" oninput="checkPwd()" value="${member.uEmail }"></td>
 			</tr>
-
 			<tr>
 				<td colspan="5">
 					<!--     <a href="updateMemberform?uId=${member.uId }"><input type="button" value="수정"></a> -->
