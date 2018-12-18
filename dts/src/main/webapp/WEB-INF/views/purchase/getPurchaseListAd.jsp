@@ -58,6 +58,6 @@
 			</tr>
 		</table>
 	</form>
-	<my:paging paging="${paging1}" jsFunc="go_page"/>
+	<my:paging paging="${paging}" jsFunc="go_page"/>
 </body>
 </html>

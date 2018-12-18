@@ -18,6 +18,7 @@
 		<typeAlias alias="player" 		type="com.company.dts.info.PlayerVO" />
 		<typeAlias alias="team" 		type="com.company.dts.info.TeamVO" />
 		<typeAlias alias="match" 		type="com.company.dts.info.MatchVO" />
+		<typeAlias alias="mhistory" 		type="com.company.dts.mhistory.MhistoryVO" />
 		
 	</typeAliases> 
 	
