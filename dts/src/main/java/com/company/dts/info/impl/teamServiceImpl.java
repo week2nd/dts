@@ -42,6 +42,13 @@ public class teamServiceImpl implements TeamService {
 		return dao.getTeamJoin(vo);
 	}
 
+	// 팀화면에서 팀전적 조인
+	@Override
+	public List<TeamVO> vsTeamList(TeamVO vo) {
+		System.out.println("TeamServiceImpl getTeamJoin" + '\n');
+		return dao.vsTeamList(vo);
+	}
+	
 //	전체 조회
 	@Override
 	public List<TeamVO> getTeamList(TeamVO vo) {

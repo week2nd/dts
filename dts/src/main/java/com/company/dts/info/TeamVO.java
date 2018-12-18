@@ -23,11 +23,19 @@ public class TeamVO {
 	private int rank;
 	private int rate;
 	private int playerMatch;
-	
+	private String vsTeam;
 	//검색
 	private String searchCondition;
 	private String searchKeyword;
 				
+	public String getVsTeam() {
+		return vsTeam;
+	}
+
+	public void setVsTeam(String vsTeam) {
+		this.vsTeam = vsTeam;
+	}
+
 	public int getPlayerMatch() {
 		return playerMatch;
 	}

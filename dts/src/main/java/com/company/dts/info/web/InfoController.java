@@ -97,6 +97,7 @@ public class InfoController {
 	public String getTeam(Model model, TeamVO vo) {
 		model.addAttribute("team", teamService.getTeam(vo));
 		model.addAttribute("teamJoin", teamService.getTeamJoin(vo));
+		model.addAttribute("vsTeam", teamService.vsTeamList(vo));
 		return "user/info/getTeam";
 	}
 

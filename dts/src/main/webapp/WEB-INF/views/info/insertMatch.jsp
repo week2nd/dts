@@ -38,7 +38,7 @@ function insert(){
 
 <form action="insertMatch">
 
-<input type="text" name="gameId">
+<input type="text" name="gameId" value="${match.gameId}">
 	<div align="center">
 		<table class="table">
 			<tr>

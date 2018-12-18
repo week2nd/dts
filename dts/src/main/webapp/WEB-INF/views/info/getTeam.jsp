@@ -47,7 +47,6 @@
 				</tr>
 			<c:forEach items="${teamJoin}" var="tj">
 				<tr>
-					
 					<td>${tj.playerLine}</td>
 					<td>${tj.playerName}</td>
 					<td>${tj.nickName}</td>
@@ -58,11 +57,27 @@
 					<td>${tj.playerDeath}</td>
 					<td>${tj.playerAssist}</td>
 					<td>${tj.playerKda}</td>
-					
 				</tr>
 			</c:forEach>
 			</table>	
 		</form>
+		
+			<table class="table">
+				<tr>
+					<th>상대 팀</th>
+					<th>경기 수</th>
+					<th> 승 </th>
+					<th> 패 </th>
+				</tr>
+			<c:forEach items="${vsTeam}" var="vs">
+				<tr>
+					<td>${vs.vsTeam}</td>
+					<td>${vs.playerMatch}</td>
+					<td>${vs.win}</td>
+					<td>${vs.lose} </td>
+				</tr>
+			</c:forEach>
+			</table>
 	</div>
 	<a class="badge-light[href]:focus" href="deleteTeam?teamId=${team.teamId}">삭제</a>
 

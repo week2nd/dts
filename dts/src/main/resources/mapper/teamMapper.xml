@@ -31,7 +31,7 @@
 	</select>
 	
 	<select id="getTeamJoin" parameterType="team" resultType="team">
-	SELECT	T.TEAM_ID,
+		SELECT	T.TEAM_ID,
 				T.DIRECTOR, 
 				T.HEAD_COACH, 
 				T.NAME, 
@@ -51,6 +51,37 @@
 			JOIN 	PLAYER P
 		ON 		T.TEAM_ID = P.TEAM_ID
 		WHERE 	T.TEAM_ID = #{teamId}
+	</select>
+	
+	<select id="vsTeam" parameterType="team" resultType="team">
+		SELECT	REDTEAMNAME vsTeam,
+				COUNT(BLUERESULT) playerMatch,
+        		SUM(CASE WHEN BLUERESULT = 'win' THEN '1' ELSE '0' END) win,
+        		COUNT(CASE WHEN BLUERESULT = 'lose' THEN '1' ELSE NULL END) lose
+        FROM	(SELECT MATCHDATE,
+        				MATCHNAME,
+        				MATCHINFO,
+        				PLAYTIME,
+        				BLUETEAMNAME,
+        				REDTEAMNAME,
+        				BLUERESULT,
+        				REDRESULT
+  				FROM	INGAME
+				WHERE	BLUETEAMNAME = 'SKT'
+				 AND 	REDTEAMNAME='KT'
+ 				UNION ALL
+ 				SELECT 	MATCHDATE, 
+ 						MATCHNAME, 
+ 						MATCHINFO, 
+ 						PLAYTIME, 
+ 						REDTEAMNAME, 
+ 						BLUETEAMNAME, 
+ 						REDRESULT, 
+ 						BLUERESULT
+  				FROM 	INGAME
+  				WHERE 	REDTEAMNAME = 'SKT'
+  				 AND 	BLUETEAMNAME = 'KT')
+ 				GROUP BY 	REDTEAMNAME
 	</select>
 	
 	<insert id="insertTeam" parameterType="team">
