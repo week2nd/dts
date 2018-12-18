@@ -78,9 +78,13 @@
 	아이디 : ${board.uId } <br>
 	게시판타입 : ${board.boardType } <br> 
 	<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a> 
-	<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
+	<a href="deleteBoard?boardNumber=${board.boardNumber} ">삭제</a>
 	<a href="getAnalysisBoard?type=${board.boardType}">게시판</a>
-	 
+
+
+	 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
+	 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
+	 	
 	 <hr>
 	<h3>댓글</h3>
 	<div id="commentsList"></div>
