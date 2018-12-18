@@ -79,15 +79,14 @@ span.psw {
 	<h2>Login Form</h2>
 
 	<form id="loginFrm" action="login">
-	<div class="form-group">
-	</div>
-	<div class="container">
-	<label for="uname"><b>Username</b></label><br>
-	<input id="uId" type="text" class="form-control" placeholder="ID" name="uId"><br>
-	<label for="psw"><b>Password</b></label> <br> 
-	<input id="uPw" type="password" class="form-control" placeholder="Password" name="uPw">
-	<button id="loginBtn" type="submit">Login</button><br>
-	</div>
+		<div class="form-group"></div>
+		<div class="container">
+			<label for="uname"><b>Username</b></label><br>
+			<input id="uId" type="text" class="id txt" placeholder="ID" name="uId"><br>
+			<label for="psw"><b>Password</b></label> <br> 
+			<input id="uPw" type="password" class="pw txt" placeholder="Password" name="uPw">
+			<button id="loginBtn" type="submit">Login</button><br>
+		</div>
 		<div class="container" style="background-color: #f1f1f1">
 			<button type="button" class="cancelbtn">Cancel</button>
 			<span class="psw">Forgot <a href="#">password?</a></span>

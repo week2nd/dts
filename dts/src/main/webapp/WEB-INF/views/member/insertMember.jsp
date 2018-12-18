@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>insertUser.jsp</title>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- ajax 스크립트 -->
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script> <!-- 다음우편번호 스크립트 -->
  <script>
      daum.postcode.load(function(){					// 다음 우편번호 함수
@@ -66,16 +66,20 @@
      }).open();
  }
      
+
+     
+     /////////////////////////////////////////////////////////////
+
      // 휴대폰번호 숫자만 입력가능하게
-    function onlyNumber(event){		
-   	    event = event || window.event;
-   	    var keyID = (event.which) ? event.which : event.keyCode;
-   	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 || keyID == 9 ) 
-   	        return;
-   	    else
-   	        return false;
-   	}
-   	 
+     function onlyNumber(event){		
+    	    event = event || window.event;
+    	    var keyID = (event.which) ? event.which : event.keyCode;
+    	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 || keyID == 9 ) 
+    	        return;
+    	    else
+    	        return false;
+    	}
+   	// 휴대폰번호 숫자가 아닐 시 삭제
    	function removeChar(event) {
    	    event = event || window.event;
    	    var keyID = (event.which) ? event.which : event.keyCode;
@@ -84,38 +88,14 @@
    	    else
    	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
    	}
-   	
-   	
-    // 휴대폰번호 숫자만 입력가능하게
-    function onlyVarchar2(event){		
-   	    event = event || window.event;
-   	    var keyID = (event.which) ? event.which : event.keyCode;
-   	    if ( (keyID >= 65 && keyID <= 90) || (keyID >= 97 && keyID <= 122) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 || keyID == 9 ) 
-   	        return;
-   	    else
-   	        return false;
-   	}
-   	 
-   	function removeVarchar2(event) {
-   	    event = event || window.event;
-   	    var keyID = (event.which) ? event.which : event.keyCode;
-   	    if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
-   	        return;
-   	    else
-   	        event.target.value = event.target.value.replace(/[^a-z0-9]/gi,"");
-   	}
      
-     
-     /////////////////////////////////////////////////////////////
-     
-      //아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
-    var idCheck = 0;
-    var pwdCheck = 0;
-    //아이디 체크하여 가입버튼 비활성화, 중복확인.
+    var idCheck = 0;		//아이디가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정		
+    var pwdCheck = 0;		//비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+    
    
-    function checkId() {
-        var inputId = $('.id').val();
-        var isid = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{4,20}$/;
+    function checkId() {	//아이디 체크하여 가입버튼 비활성화, 중복확인.
+        var inputId = $('.id').val();		// 아이디 값 inputId에 담기
+        var isid = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{4,20}$/;	// 영어, 숫자만 입력가능하게 만든 변수
         
         $.ajax({
             data : {
@@ -124,45 +104,41 @@
             url : "checkId",
             success : function(data) {
             	
-                if(inputId=="" && data==false || inputId.length<4) {			// 아이디 값을 지웠을 경우
-                    $(".joinbtn").prop("disabled", true);
-                    $(".joinbtn").css("background-color", "#aaaaaa");
-                    $("#chkId").css("background-color", "#FFCECE");
+                if(inputId=="" && data==false || inputId.length<4) {		// 아이디 텍스트박스 값이 Null이면서 data에 없거나 아이디 값 길이가 4미만일 경우
+                    $(".joinbtn").prop("disabled", true);					// 가입버튼 비활성화 
+                    $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
+                    $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
                     idCheck = 0;
-                    document.all.spanIdO.style.display="none";
-                    document.all.spanIdX.style.display="none";
-                } else if (data == false) {					// 사용가능한 아이디로 입력을 바꿨을때
-//                	console.log(isid+"@@@"); 
-//                	console.log(inputId+"###");
-                    $("#chkId").css("background-color", "#B0F6AC");
-                    document.all.spanIdO.style.display="";
-                    document.all.spanIdX.style.display="none";
+                    document.all.spanIdO.style.display="none";				// 사용가능한 아이디 span 비활성화
+                    document.all.spanIdX.style.display="none";				// 중복 아이디 span 비활성화
+                } else if (data == false) {				// data에 값이 없을 경우
+                    $("#chkId").css("background-color", "#B0F6AC");			// 아이디 텍스트박스 초록색
+                    document.all.spanIdO.style.display="";					// 사용가능한 아이디 span 활성화
+                    document.all.spanIdX.style.display="none";				// 중복 아이디 span 비활성화
                     idCheck = 1;
-             //       console.log(inputId.length);
-                    if(idCheck==1 && pwdCheck == 1) {
-                      	$(".joinbtn").prop("disabled", false);
-                       	$(".joinbtn").css("background-color", "#4CAF50");
+                    if(idCheck==1 && pwdCheck == 1) {	// 아이디체크와 비밀번호체크 모두 확인 됬을 경우
+                      	$(".joinbtn").prop("disabled", false);				// 가입버튼 활성화
+                       	$(".joinbtn").css("background-color", "#4CAF50");	// 가입버튼 초록색
                     } 
-                } else if (data == true) {					// 중복아이디를 입력했을 경우
-                    $(".joinbtn").prop("disabled", true);
-                    $(".joinbtn").css("background-color", "#aaaaaa");
-                    $("#chkId").css("background-color", "#FFCECE");
+                } else if (data == true) {				// 중복아이디를 입력했을 경우
+                    $(".joinbtn").prop("disabled", true);					
+                    $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
+                    $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
                     idCheck = 0;
-                    document.all.spanIdO.style.display="none";
-                    document.all.spanIdX.style.display="";
+                    document.all.spanIdO.style.display="none";				// 사용가능한 아이디 span 비활성화
+                    document.all.spanIdX.style.display="";					// 중복 아이디 span 활성화
                 } 
-                if(inputId.length<4){
-             //       console.log(inputId.length);
-                    document.all.countId.style.display="";
-                    $("#chkId").css("background-color", "#FFCECE");
-                 } else if(inputId.length>3){
-                    document.all.countId.style.display="none";
+                if(inputId.length<4){					// 아이디 값 길이가 4미만일 경우
+                    document.all.countId.style.display="";					// 네 글자 이상 아이디입력 필요 span 활성화
+                    $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
+                 } else if(inputId.length>3){			// 아이디 값 길이가 4이상일 경우
+                    document.all.countId.style.display="none";				// 네 글자 이상 아이디입력 필요 span 비활성화
                  }
             }
         });
     }
-  //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
-    function checkPwd() {
+  
+    function checkPwd() {		//재입력 비밀번호 체크 및 이름, 주소, 휴대폰번호, 생년월일, E-Mail의 값 확인 후 가입버튼 비활성화 또는 맞지않음을 알림 
     	/*     	var target = document.getElementById("selectEmail");
     	 if(target.options[target.selectedIndex].value == "direct" &&  document.all.chkEmail2.value != null){
    	    	document.all.chkEmail2.value = "";
@@ -181,101 +157,93 @@
          } 
     	 */ 	 
     	  
-        var inputPw1 = $('#chkPw1').val();
-        var inputPw2 = $('#chkPw2').val();
-        var inputName = $('#chkName').val();
-        var inputPhone1 = $('#phone2').val();
-        var inputPhone2 = $('#phone3').val();
-        var inputBirth = $('#chkBirth').val();
-        var inputAddress1 = $('#roadAddress').val();
-        var inputAddress2 = $('#detailAddress').val();
-        var inputEmail1 = $('#chkEmail1').val();
-        var inputEmail2 = $('#chkEmail2').val();
+        var inputPw1 = $('#chkPw1').val();				// 비밀번호 텍스트박스
+        var inputPw2 = $('#chkPw2').val();				// 비밀번호 확인 텍스트박스
+        var inputName = $('#chkName').val();			// 이름 텍스트박스
+        var inputPhone1 = $('#phone2').val();			// 폰번호 첫 번째 텍스트박스
+        var inputPhone2 = $('#phone3').val();			// 폰번호 두 번째 텍스트박스
+        var inputBirth = $('#chkBirth').val();			// 생년월일 텍스트박스
+        var inputAddress1 = $('#roadAddress').val();	// 주소 첫 번째 텍스트박스
+        var inputAddress2 = $('#detailAddress').val();	// 주소 두 번째 텍스트박스
+        var inputEmail1 = $('#chkEmail1').val();		// E-Mail 첫 번째 텍스트박스
+        var inputEmail2 = $('#chkEmail2').val();		// E-Mail 두 번째 텍스트박스
         
-        // E-Mail 텍스트박스 활성화 비활성화
+        
+       	// 이메일과 @를 합치는 과정
+        document.all.uEmail.value = inputEmail1 + "@" + inputEmail2;
        
-        var EmailSum = inputEmail1 + "@" + inputEmail2;
-        document.all.uEmail.value = EmailSum;
+        // 주소와 상세주소 합치는 과정(주소와 상세주소를 구분하기 위해 임의의 특수문자'^' 추가)
+        document.all.uAddress.value = inputAddress1 + "^" + inputAddress2;
         
-        
-       
-        // 주소와 상세주소 합치는 과정
-        var addressSum = inputAddress1 + "^" + inputAddress2;
-        document.all.uAddress.value = addressSum;
-        
-        // 이메일과 @를 합치는 과정
-        
-        
-        
-        // 휴대폰번호 하이픈 합치는 과정
-		var tempPhone = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;		
-		document.all.uPhone.value = tempPhone;
+        // 휴대폰번호 '-'(하이픈) 합치는 과정		
+		document.all.uPhone.value = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;
 			
-		if(inputName == "" || inputAddress1 == "" || inputAddress2 == "" || inputEmail1 == "" || inputEmail2 == "" ||
-				inputBirth == "" || inputPhone1.length < 3 || inputPhone2.length < 4){		// 이름, 주소, 휴대폰번호, 생년월일 입력삭제 시 가입버튼 비활성화
-			$(".joinbtn").prop("disabled", true);													// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
-            $(".joinbtn").css("background-color", "#aaaaaa");
+		if(inputName == "" || inputAddress1 == "" || inputAddress2 == "" 		// 이름, 주소, 휴대폰번호, 생년월일, E-mail의 각 값들이 모두 Null일 경우 (휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능)
+				|| inputEmail1 == "" || inputEmail2 == "" || inputBirth == "" 	// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
+				|| inputPhone1.length < 3 || inputPhone2.length < 4){		
+			$(".joinbtn").prop("disabled", true);				// 가입버튼 비활성화					
+            $(".joinbtn").css("background-color", "#aaaaaa");	// 가입버튼 회색
 		}
 		
-        if(inputPw2=="" || inputPw1=="" ){ 	//
-            $(".joinbtn").prop("disabled", true);
-            $(".joinbtn").css("background-color", "#aaaaaa");
-            $("#chkPw1").css("background-color", "#FFCECE");
-            $("#chkPw2").css("background-color", "#FFCECE");
-            document.all.spanPwX.style.display="none";				
-            document.all.spanPwO.style.display="none";
+        if(inputPw2=="" || inputPw1=="" ){ 		// 비밀번호 값이 없거나 비밀번호 확인 값이 없을 경우
+            $(".joinbtn").prop("disabled", true);				// 가입버튼 비활성화 
+            $(".joinbtn").css("background-color", "#aaaaaa");	// 가입버튼 회색
+            $("#chkPw1").css("background-color", "#FFCECE");	// 비밀번호 텍스트박스 빨강색
+            $("#chkPw2").css("background-color", "#FFCECE");	// 비밀번호 확인 텍스트박스 빨강색
+            document.all.spanPwX.style.display="none";			// 비밀번호가 틀렸다 span 비활성화	
+            document.all.spanPwO.style.display="none";			// 비밀번호가 맞았다 span 비활성화
         }
-        else if (inputPw1 == inputPw2) {		// 비밀번호 input색깔 초록색으로
-            $("#chkPw1").css("background-color", "#B0F6AC");
-            $("#chkPw2").css("background-color", "#B0F6AC");
+        else if (inputPw1 == inputPw2) {		// 비밀번호 값과 비밀번호확인 값이 같을 경우
+            $("#chkPw1").css("background-color", "#B0F6AC");	// 비밀번호 텍스트박스 초록색
+            $("#chkPw2").css("background-color", "#B0F6AC");	// 비밀번호 확인 텍스트박스 초록색 
             pwdCheck = 1;
-            document.all.spanPwX.style.display="none";			// 일치하는거 표시
-            document.all.spanPwO.style.display="";				// 불일치하는거 지우기
+            document.all.spanPwX.style.display="none";			// 비밀번호가 틀렸다 span 비활성화
+            document.all.spanPwO.style.display="";				// 비밀번호가 맞았다 span 활성화
             if(idCheck==1 && pwdCheck == 1 && inputEmail1 != "" && inputEmail2 != ""
             		&& inputName != "" && inputAddress1 != "" && inputAddress2 != "" && inputBirth != "" 
-            		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일, E-mail) 맞으면 가입버튼 활성화
-	           $(".joinbtn").prop("disabled", false);								// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
-	           $(".joinbtn").css("background-color", "#4CAF50");
+            		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 아이디 중복, 비밀번호확인을 하고 이름, 주소, 휴대폰번호, 생년월일, E-mail의 각 값들이 모두 Null일 경우 (휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능)
+	           $(".joinbtn").prop("disabled", false);							// 가입버튼 활성화 
+	           $(".joinbtn").css("background-color", "#4CAF50");				// 가입버튼 초록색
             }
-        } else if (inputPw1 != inputPw2) {		// 비밀번호 틀리면 가입버튼 비활성화 및 비밀번호 input색깔 붉은색으로
-            pwdCheck = 0;
-            $(".joinbtn").prop("disabled", true);
-            $(".joinbtn").css("background-color", "#aaaaaa");
-            $("#chkPw1").css("background-color", "#FFCECE");
-            $("#chkPw2").css("background-color", "#FFCECE");
-            document.all.spanPwX.style.display="";
-            document.all.spanPwO.style.display="none";
+        } else if (inputPw1 != inputPw2) {		// 비밀번호 틀릴경우
+            pwdCheck = 0;										
+            $(".joinbtn").prop("disabled", true);				// 가입버튼 비활성화
+            $(".joinbtn").css("background-color", "#aaaaaa");	// 가입버튼 회색
+            $("#chkPw1").css("background-color", "#FFCECE");	// 비밀번호 텍스트박스 빨강색
+            $("#chkPw2").css("background-color", "#FFCECE");	// 비밀번호 확인 텍스트박스 빨강색
+            document.all.spanPwX.style.display="";				// 비밀번호가 틀렸다 span 활성화
+            document.all.spanPwO.style.display="none";			// 비밀번호가 맞았다 span 비활성화
         }
         
         
         
     }
-    $(function(){
-    	$(".joinbtn").click(function(){
+    $(function(){	
+    	$(".joinbtn").click(function(){		// 가입버튼 누르면 뜨는 alert
     		alert($('#chkName').val()+"님 DTS E-sport토토 가입을 환영합니다.");
     	});
     	
     });
     
     
-    $(document).ready(function(){
-    	  //한글입력 안되게 처리
-    	$("input[name=uId]").keyup(function(event){ 
+    $(document).ready(function(){	// 영어, 숫자만 입력되게 처리
+    	  
+    	$("input[name=uId]").keyup(function(event){					// input name이 uId에 키 입력시	
     		if (!(event.keyCode >=37 && event.keyCode<=40)) {
     			var inputVal = $(this).val();
     			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
     		}	
     	});
-    		$("input[name=uEmail1]").keyup(function(event){ 
+    		$("input[name=uEmail1]").keyup(function(event){ 		// input name이 uEmail1에 키 입력시
     		if (!(event.keyCode >=37 && event.keyCode<=40)) {
     			var inputVal = $(this).val();
     			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
     		}	
     	});
-    	 $("input[name=uEmail2]").keyup(function(event){ 
+    	 $("input[name=uEmail2]").keyup(function(event){ 			// input name이 uEmail2에 키 입력시
     		if (!(event.keyCode >=37 && event.keyCode<=40)) {
     			var inputVal = $(this).val();
-    			$(this).val(inputVal.replace(/[^a-z0-9.]/gi,''));
+    			$(this).val(inputVal.replace(/[^a-z0-9.]/gi,''));	// '.'도 입력할 수 있게 출력
     		}	
     	}); 
 	});

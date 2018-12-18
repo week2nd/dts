@@ -65,10 +65,8 @@
      }).open();
  }
  	function sum(){
- 		var inputAddress1 = $('#roadAddress').val();		// 주소와 상세주소 합치는 과정
-        var inputAddress2 = $('#detailAddres').val();
- 		
-        var addressSum = inputAddress1 + "^" + inputAddress2
+ 		// 주소와 상세주소 합치는 과정       		
+        var addressSum = $('#roadAddress').val(); + "^" + $('#detailAddres').val();
         document.all.uAddress.value = addressSum;
         
        	// 휴대폰번호 하이픈 합치는 과정
@@ -117,6 +115,22 @@
    	    else
    	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
    	}
+   	
+   	$(document).ready(function(){
+  	  //한글입력 안되게 처리
+	  	$("input[name=uEmail1]").keyup(function(event){ 
+	  		if (!(event.keyCode >=37 && event.keyCode<=40)) {
+	  			var inputVal = $(this).val();
+	  			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+	  		}	
+	  	});
+	  	$("input[name=uEmail2]").keyup(function(event){ 
+	  		if (!(event.keyCode >=37 && event.keyCode<=40)) {
+	  			var inputVal = $(this).val();
+	  			$(this).val(inputVal.replace(/[^a-z0-9.]/gi,''));
+	  		}	
+	  	});
+	});
      
  </script>
 
@@ -174,7 +188,7 @@
         <tr>
 			<td>E-Mail</td>
 			<td>
-				<input type="text" name="uEmail" id="uEmail" value="${member.uEmail }" >
+				<input type="hidden" name="uEmail" id="uEmail" value="${member.uEmail }" >
 				<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디" class="form-control email" oninput="sum()" >
 				<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지" class="form-control email" oninput="sum()" >
 			</td>
