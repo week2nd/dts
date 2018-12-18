@@ -23,14 +23,43 @@ public class PlayerVO {
 	private int winrate; // WIN/(WIN+LOSE) 승률
 	private int kda; // ROUND((KILL+ASSIST)/DEATH,1) KDA
 
-	// 통계정보 get/set
-	public int getplayerRank() {
+	// 검색
+	private String searchCondition;
+	private String searchKeyword;
+
+	public String getTeamId() {
+		return teamId;
+	}
+
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
+	}
+
+	public int getPlayerRank() {
 		return playerRank;
 	}
 
-	public void setplayerRank(int playerRank) {
+	public void setPlayerRank(int playerRank) {
 		this.playerRank = playerRank;
 	}
+
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
+	// 통계정보 get/set
 
 	public int getMatch() {
 		return match;
@@ -103,14 +132,6 @@ public class PlayerVO {
 
 	public void setTier(String tier) {
 		this.tier = tier;
-	}
-
-	public String getteamId() {
-		return teamId;
-	}
-
-	public void setteamId(String teamId) {
-		this.teamId = teamId;
 	}
 
 	public int getKill() {

@@ -7,13 +7,123 @@ public class TeamVO {
 	private String name;
 	private int win;
 	private int lose;
-	private int rate;
 
+	//조인용
+	private String nickName;
+	private String playerName;
+	private String playerLine;
+	private String playerWin;
+	private String playerLose;
+	private String playerKill;
+	private String playerDeath;
+	private String playerAssist;
+	private String playerKda;
+	
 	// 통계
 	private int rank;
+	private int rate;
+	private int playerMatch;
 	
+	//검색
+	private String searchCondition;
+	private String searchKeyword;
+				
+	public int getPlayerMatch() {
+		return playerMatch;
+	}
+
+	public void setPlayerMatch(int playerMatch) {
+		this.playerMatch = playerMatch;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	public String getPlayerLine() {
+		return playerLine;
+	}
+
+	public void setPlayerLine(String playerLine) {
+		this.playerLine = playerLine;
+	}
+
+	public String getPlayerWin() {
+		return playerWin;
+	}
+
+	public void setPlayerWin(String playerWin) {
+		this.playerWin = playerWin;
+	}
+
+	public String getPlayerLose() {
+		return playerLose;
+	}
+
+	public void setPlayerLose(String playerLose) {
+		this.playerLose = playerLose;
+	}
+
+	public String getPlayerKill() {
+		return playerKill;
+	}
+
+	public void setPlayerKill(String playerKill) {
+		this.playerKill = playerKill;
+	}
+
+	public String getPlayerDeath() {
+		return playerDeath;
+	}
+
+	public void setPlayerDeath(String playerDeath) {
+		this.playerDeath = playerDeath;
+	}
+
+	public String getPlayerAssist() {
+		return playerAssist;
+	}
+
+	public void setPlayerAssist(String playerAssist) {
+		this.playerAssist = playerAssist;
+	}
+
+	public String getPlayerKda() {
+		return playerKda;
+	}
+
+	public void setPlayerKda(String playerKda) {
+		this.playerKda = playerKda;
+	}
 	
-	
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
 	public String getTeamId() {
 		return teamId;
 	}

@@ -21,6 +21,12 @@ public class TeamDAO {
 	public TeamVO getTeam(TeamVO vo) {
 		return mybatis.selectOne("team.getTeam", vo);
 	}
+	
+	// 팀+선수 조인 조회
+	public List<TeamVO> getTeamJoin(TeamVO vo) {
+		return mybatis.selectList("team.getTeamJoin", vo);
+	}
+	
 	// 팀 입력
 	public void insertTeam(TeamVO vo) {
 		mybatis.update("team.insertTeam", vo);
