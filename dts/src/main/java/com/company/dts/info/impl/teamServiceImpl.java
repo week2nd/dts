@@ -34,6 +34,13 @@ public class teamServiceImpl implements TeamService {
 		System.out.println("TeamServiceImpl getTeam" + '\n');
 		return dao.getTeam(vo);
 	}
+	
+	// 팀화면에서 선수 + 팀 단건 조인
+	@Override
+	public List<TeamVO> getTeamJoin(TeamVO vo) {
+		System.out.println("TeamServiceImpl getTeamJoin" + '\n');
+		return dao.getTeamJoin(vo);
+	}
 
 //	전체 조회
 	@Override

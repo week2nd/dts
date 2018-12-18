@@ -27,11 +27,11 @@
 						<th align="right" colspan="2" name="matchInfo">${match.gameInfo}</th>
 					</tr>
 					<tr>
-						<td colspan="6">${match.blueTeamName}</td>
+						<td colspan="6"><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
 						<td align="center" colspan="2">${match.blueResult}</td>
 						<td align="center">${match.bluePick1Kill}:${match.redPick1Kill}</td>
 						<td align="center" colspan="2">${match.redResult}</td>
-						<td align="right" colspan="6">${match.redTeamName}</td>
+						<td align="right" colspan="6"><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
 					</tr>
 					<tr>
 						<td>K</td>

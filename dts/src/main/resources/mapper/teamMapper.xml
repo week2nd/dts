@@ -30,6 +30,29 @@
 		WHERE	TEAM_ID = #{teamId}
 	</select>
 	
+	<select id="getTeamJoin" parameterType="team" resultType="team">
+	SELECT	T.TEAM_ID,
+				T.DIRECTOR, 
+				T.HEAD_COACH, 
+				T.NAME, 
+				T.WIN, 
+				T.LOSE,
+       			P.NICKNAME nickname, 
+       			P.NAME playerName, 
+       			P.LINE playerLine,
+       			P.WIN+P.LOSE PLAYERMATCH,
+       			P.WIN playerWin,
+       			P.LOSE playerLose, 
+       			P.KILL playerKill,
+       			P.DEATH playerDeath,
+       			P.ASSIST playerAssist,
+       			FUNC_PLAYERKDA(P.NICKNAME) playerKda
+		FROM	TEAM T
+			JOIN 	PLAYER P
+		ON 		T.TEAM_ID = P.TEAM_ID
+		WHERE 	T.TEAM_ID = #{teamId}
+	</select>
+	
 	<insert id="insertTeam" parameterType="team">
 		INSERT INTO TEAM(TEAM_ID, 
 						DIRECTOR, 

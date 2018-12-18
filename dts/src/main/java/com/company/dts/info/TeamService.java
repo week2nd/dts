@@ -9,6 +9,10 @@ public interface TeamService {
 	public void updateTeam(TeamVO vo);
 	// 단건조회
 	public TeamVO getTeam(TeamVO vo);
+
+	// 단건조회
+	public List<TeamVO> getTeamJoin(TeamVO vo);
+	
 	// 전체조회
 	public List<TeamVO> getTeamList(TeamVO vo);
 	// 삭제
