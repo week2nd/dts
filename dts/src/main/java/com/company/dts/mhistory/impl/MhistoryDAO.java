@@ -22,5 +22,8 @@ public class MhistoryDAO {
 	public int getCount(MhistoryVO vo) {
 		return mybatis.selectOne("mhistory.getCount", vo);
 	}
-
+	
+	public List<MhistoryVO> getMhistoryListAjax(MhistoryVO vo) {
+		return mybatis.selectList("mhistory.getMhistoryListAjax", vo);
+	}
 }

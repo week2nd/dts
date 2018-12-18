@@ -22,4 +22,9 @@ public class MhistoryServiceImpl implements MhistoryService {
 	public int getCount(MhistoryVO vo) {
 		return dao.getCount(vo);
 	}
+	
+	@Override
+	public List<MhistoryVO> getMhistoryListAjax(MhistoryVO vo) {
+		return dao.getMhistoryListAjax(vo);
+	}
 }

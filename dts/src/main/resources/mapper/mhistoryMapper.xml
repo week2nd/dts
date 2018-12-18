@@ -16,7 +16,15 @@
 		  ORDER BY 1
 		  ) a  ) b  where rn between #{first} and #{last}
 	</select>
-
+	
+	
+	<select id="getMhistoryListAjax" resultType="mhistory">
+		 
+		SELECT *
+		  FROM ADMINHISTORY
+		  ORDER BY 1
+		
+	</select>
 
 
 </mapper>

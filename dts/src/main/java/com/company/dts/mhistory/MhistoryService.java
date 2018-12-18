@@ -6,6 +6,8 @@ public interface MhistoryService {
 	
 	public List<MhistoryVO> getMhistoryList(MhistoryVO vo);
 	
+	public List<MhistoryVO> getMhistoryListAjax(MhistoryVO vo);
+	
 	public int getCount(MhistoryVO vo);
 
 }

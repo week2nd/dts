@@ -1,8 +1,13 @@
 package com.company.dts.mhistory.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.company.dts.common.Paging;
@@ -15,7 +20,7 @@ public class MhistoryController {
 	@Autowired
 	MhistoryService mhistoryService;
 	
-	@RequestMapping("/getMhistoryList")
+	@RequestMapping(value="/getMhistoryList", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView getMhistoryList(MhistoryVO vo, Paging paging) {
 		
 		ModelAndView mv = new ModelAndView();
@@ -35,6 +40,12 @@ public class MhistoryController {
 		mv.addObject("mhistoryList", mhistoryService.getMhistoryList(vo)); // 속성명, 값
 		mv.setViewName("admin/mhistory/getMhistoryList");
 		return mv;
+	}
+	
+	@RequestMapping(value="/getMhistoryListAjax", method = RequestMethod.POST)
+	@ResponseBody
+	public List<MhistoryVO> getMhistoryListAjax() {
+			return mhistoryService.getMhistoryListAjax(null);
 	}
 
 }
