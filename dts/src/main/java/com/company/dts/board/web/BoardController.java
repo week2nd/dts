@@ -1,5 +1,8 @@
 package com.company.dts.board.web;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -40,7 +43,7 @@ public class BoardController {
 	@RequestMapping("/getAnalysisBoard")
 	public String getAnalysisBoard(Model model, BoardVO vo, HttpServletRequest request)  {
 		
-		vo.setBoardType(request.getParameter("type"));		//homeuser의 타입을 받아온다.		
+		vo.setBoardType(request.getParameter("type"));				
 		
 		model.addAttribute("type", request.getParameter("type"));
 		model.addAttribute("board", boardService.getAnalysisBoard(vo));
@@ -102,11 +105,17 @@ public class BoardController {
 	
 	// 단건 삭제처리
 	@RequestMapping("/deleteBoard")
-	public String deleteBoard(Model model, BoardVO vo) {
-		boardService.deleteBoard(vo);			//삭제처리
-		return "redirect:getBoardList";		//목록요청
+	public String deleteBoard(Model model, BoardVO vo, HttpServletRequest request)  {
+		
+		BoardVO nvo= new BoardVO();
+		nvo=boardService.getBoard(vo);			//getBoard의 자료를 nvo 안에 담아놓고
+		boardService.deleteBoard(vo);			//삭제처리를 한다.
+		System.out.println(nvo.getBoardType());
+		model.addAttribute("board", boardService.getAnalysisBoard(nvo));	//그리고 nvo 안에 담겨져 있는 type을 활용하여 AnalysisBoard를 불러온다.
+		return "user/board/getAnalysisBoard";		//목록요청
 	}
 	
+
 	
 	// 여러개 삭제
 	@RequestMapping("/deleteBoardList")

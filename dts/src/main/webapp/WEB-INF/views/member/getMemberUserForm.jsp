@@ -85,7 +85,14 @@
         var inputAddress1 = $('#roadAddress').val();		// 주소와 상세주소 합치는 과정
         var inputAddress2 = $('#detailAddress').val();
         var inputEmail = $('#uEmail').val();
- 		
+        var inputEmail1 = $('#chkEmail1').val();
+        var inputEmail2 = $('#chkEmail2').val();
+        
+        // E-Mail 텍스트박스 활성화 비활성화
+       
+        var EmailSum = inputEmail1 + "@" + inputEmail2;
+        document.all.uEmail.value = EmailSum;
+        
         var addressSum = inputAddress1 + "^" + inputAddress2
         document.all.uAddress.value = addressSum;
         
@@ -162,6 +169,12 @@
 		
 		var tempPhone = phoneSplit[0] + "-" + phoneSplit[1] + "-" + phoneSplit[2];
 		document.all.uPhone.value = tempPhone;
+		
+		var emailSplit=$('#uEmail').val().split('@');			// 이메일 '@'만 제외하고 넣기
+ 		document.all.chkEmail1.value = emailSplit[0];
+ 		document.all.chkEmail2.value = emailSplit[1];
+		
+		
 		
 		$(".updatebtn").click(function(){
 			if( $('#uPw').val() != $('#chkPw').val()){
@@ -241,7 +254,11 @@
 			</tr>
 			<tr>
 				<td>E-Mail</td>
-				<td><input type="text" name="uEmail" id="uEmail" class="form-control email" oninput="checkPwd()" value="${member.uEmail }"></td>
+				<td>
+					<input type="hidden" name="uEmail" id="uEmail" value="${member.uEmail }">
+					<input type="text" name="uEmail1" id="chkEmail1" class="form-control email" oninput="checkPwd()" >
+					<input type="text" name="uEmail2" id="chkEmail2" class="form-control email" oninput="checkPwd()">
+				</td>
 			</tr>
 			<tr>
 				<td colspan="5">

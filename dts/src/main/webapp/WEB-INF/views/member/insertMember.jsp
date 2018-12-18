@@ -163,6 +163,24 @@
     }
   //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
     function checkPwd() {
+    	/*     	var target = document.getElementById("selectEmail");
+    	 if(target.options[target.selectedIndex].value == "direct" &&  document.all.chkEmail2.value != null){
+   	    	document.all.chkEmail2.value = "";
+      		document.all.chkEmail2.readOnly = false;
+      		console.log($('#chkEmail2').val());
+         } else if(target.options[target.selectedIndex].value == "blank" &&  document.all.chkEmail2.value != null ){
+      		document.all.chkEmail2.readOnly = true;
+//      		$("#chkEmail2").attr("disabled",true);
+         } else if(	target.options[target.selectedIndex].text == "네이버" || 
+        		 	target.options[target.selectedIndex].text == "구글" ||
+        		 	target.options[target.selectedIndex].text == "다음" ||
+        		 	target.options[target.selectedIndex].text == "네이트"){
+      		document.all.chkEmail2.value = target.options[target.selectedIndex].value;
+      		document.all.chkEmail2.readOnly = true;
+//  			$("#chkEmail2").attr("disabled",true);
+         } 
+    	 */ 	 
+    	  
         var inputPw1 = $('#chkPw1').val();
         var inputPw2 = $('#chkPw2').val();
         var inputName = $('#chkName').val();
@@ -173,7 +191,12 @@
         var inputAddress2 = $('#detailAddress').val();
         var inputEmail1 = $('#chkEmail1').val();
         var inputEmail2 = $('#chkEmail2').val();
-        var target = document.getElementById("selectEmail");
+        
+        // E-Mail 텍스트박스 활성화 비활성화
+       
+        var EmailSum = inputEmail1 + "@" + inputEmail2;
+        document.all.uEmail.value = EmailSum;
+        
         
        
         // 주소와 상세주소 합치는 과정
@@ -181,8 +204,8 @@
         document.all.uAddress.value = addressSum;
         
         // 이메일과 @를 합치는 과정
-        var EmailSum = inputEmail1 + "@" + inputEmail2;
-        document.all.uEmail.value = EmailSum;
+        
+        
         
         // 휴대폰번호 하이픈 합치는 과정
 		var tempPhone = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;		
@@ -225,17 +248,7 @@
         }
         
         
-        // E-Mail 텍스트박스 활성화 비활성화
-        if(target.options[target.selectedIndex].value == "direct"){
-     		document.all.chkEmail2.value = "";
-     		$("#chkEmail2").attr("readonly",false);
-        } else if(target.options[target.selectedIndex].value == "blank"){
-     		document.all.chkEmail2.value = "";
-     		$("#chkEmail2").attr("readonly",true);
-        } else{
-     		document.all.chkEmail2.value = target.options[target.selectedIndex].value;
- 			$("#chkEmail2").attr("readonly",true);
-        }
+        
     }
     $(function(){
     	$(".joinbtn").click(function(){
@@ -253,18 +266,18 @@
     			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
     		}	
     	});
-    	$("input[name=uEmail1]").keyup(function(event){ 
+    		$("input[name=uEmail1]").keyup(function(event){ 
     		if (!(event.keyCode >=37 && event.keyCode<=40)) {
     			var inputVal = $(this).val();
     			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
     		}	
     	});
-    	$("input[name=uEmail2]").keyup(function(event){ 
+    	 $("input[name=uEmail2]").keyup(function(event){ 
     		if (!(event.keyCode >=37 && event.keyCode<=40)) {
     			var inputVal = $(this).val();
-    			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+    			$(this).val(inputVal.replace(/[^a-z0-9.]/gi,''));
     		}	
-    	});
+    	}); 
 	});
 
  </script>
@@ -311,7 +324,7 @@
 	            <td>주소</td>       
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" class="form-control address" id="roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
+	                <input type="text" class="form-control address" id="roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" >
 	                <input type="text" class="form-control address" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()">
 	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>
@@ -344,17 +357,17 @@
 	        <tr>
 	            <td>E-Mail</td>
 	            <td>
-	            	<input type="text" id="uEmail" name="uEmail"  value="${member.uEmail }">
+	            	<input type="hidden" id="uEmail" name="uEmail"  value="${member.uEmail }">
 	            	<input type="text" class="form-control email" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="checkPwd()">
-	            	<input type="text" class="form-control email" name="uEmail2" id="chkEmail2" placeholder="뭘까"  oninput="checkPwd()"  readonly>
-	            	<select name="selectEmail" id="selectEmail" class="form-control phone" oninput="checkPwd()">
+	            	<input type="text" class="form-control email" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="checkPwd()">
+<!-- 	            	<select name="selectEmail" id="selectEmail" class="form-control phone" onchange="checkPwd()">
                        <option value="blank">--선택--</option>
                        <option value="naver.com">네이버</option>
                        <option value="gmail.com">구글</option>
                        <option value="daum.net">다음</option>
                        <option value="nate.com">네이트</option>
                        <option value="direct">직접입력</option>
-                   </select>
+                   </select> -->
 	            </td>
 	        </tr>        
 	        <tr>

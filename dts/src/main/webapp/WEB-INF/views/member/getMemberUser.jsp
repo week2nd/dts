@@ -18,8 +18,8 @@
 		var lose =$('#uLose').val();
 		console.log($('#uWin').val());
 		console.log($('#uLose').val());
-		if(win==0 && lose==0){
-			console.log("dfasdfasd");
+		if(win!=0 || lose!=0){
+			document.all.piechart.style.display="";
 			var data = google.visualization.arrayToDataTable([
 					[ '가', '나' ], 
 					[ '적중', Number($('#uWin').val()) ],
@@ -34,6 +34,8 @@
 					.getElementById('piechart'));
 	
 			chart.draw(data, options);
+		}else{
+			document.all.piechart.style.display="none";
 		}
 	}
 
@@ -146,7 +148,8 @@
 			</tr>
 			<tr>
 				<td>주소</td>
-				<td><input type="text" id="tempAddress"><br>
+				<td><span id="tempAddress"></span><br>
+				<!-- <input type="text" id="tempAddress"> -->
 				
 				</td>
 			</tr>

@@ -76,11 +76,14 @@
 		var tempPhone = $('#phone1').val() + "-" + $('#phone2').val() + "-" + $('#phone3').val();		
 		document.all.uPhone.value = tempPhone;
 		
+		var emailSum = $('#chkEmail1').val() + "@" + $('#chkEmail2').val();
+        document.all.uEmail.value = emailSum;
+        
         
  	}
  	$(function(){
  		
- 		var addressSplit=$('#uAddress').val().split('^');			// 주소 '^'(하이픈)만 제외하고 넣기
+ 		var addressSplit=$('#uAddress').val().split('^');			// 주소 '^'만 제외하고 넣기
  		document.all.roadAddress.value = addressSplit[0];
  		if(addressSplit[1]!=null){
  			document.all.detailAddres.value = addressSplit[1];
@@ -89,6 +92,11 @@
  		var phoneSplit=$('#uPhone').val().split('-');			// 주소 '-'(하이픈)만 제외하고 넣기
  		document.all.phone2.value = phoneSplit[1];
  		document.all.phone3.value = phoneSplit[2];
+ 		
+ 		var emailSplit=$('#uEmail').val().split('@');			// 이메일 '@'만 제외하고 넣기
+ 		document.all.chkEmail1.value = emailSplit[0];
+ 		document.all.chkEmail2.value = emailSplit[1];
+ 		
  	});
      
  	
@@ -166,7 +174,9 @@
         <tr>
 			<td>E-Mail</td>
 			<td>
-				<input type="text" name="uEmail" id="uEmail" class="form-control phone" oninput="sum()" value="${member.uEmail }" >
+				<input type="text" name="uEmail" id="uEmail" value="${member.uEmail }" >
+				<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디" class="form-control email" oninput="sum()" >
+				<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지" class="form-control email" oninput="sum()" >
 			</td>
 		</tr>
 		<tr>
