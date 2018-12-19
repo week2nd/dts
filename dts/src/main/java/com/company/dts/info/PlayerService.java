@@ -10,6 +10,8 @@ public interface PlayerService {
 	public void updatePlayer(PlayerVO vo);
 	// 단건조회
 	public PlayerVO getPlayer(PlayerVO vo);
+	// 단건 조회 내 최근 경기 목록
+	public List<PlayerVO> playerRecord(PlayerVO vo);
 	// 전체조회
 	public List<PlayerVO> getPlayerList(PlayerVO vo);
 	// 삭제

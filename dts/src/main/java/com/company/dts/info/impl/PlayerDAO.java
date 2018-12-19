@@ -25,6 +25,11 @@ public class PlayerDAO {
 		return mybatis.selectOne("player.getPlayer", vo);
 	}
 
+	// 선수 단일 조회 내 경기 이력
+	public List<PlayerVO> playerRecordList(PlayerVO vo) {
+		return mybatis.selectList("player.playerRecordList");
+	}
+	
 	// 선수 입력
 	public void insertPlayer(PlayerVO vo) {
 		mybatis.update("player.insertPlayer", vo);
