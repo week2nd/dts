@@ -61,7 +61,7 @@ public class PurchaseController {
 
 		mv.addObject("paging", paging);
 		mv.addObject("purchaseList", purchaseService.getPurchaseListAd(vo)); // 속성명, 값
-		mv.setViewName("user/purchase/getPurchaseListAd");
+		mv.setViewName("admin/purchase/getPurchaseListAd");
 		return mv;
 	}
 

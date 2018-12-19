@@ -44,7 +44,7 @@ public class MemberController {
 		
 		mv.addObject("paging", paging);
 		mv.addObject("memberList", memberService.getMemberList(vo)); // 속성명, 값
-		mv.setViewName("user/member/getMemberList");
+		mv.setViewName("admin/member/getMemberList");
 		return mv;
 	}
 	
@@ -52,7 +52,7 @@ public class MemberController {
 	@RequestMapping("/getMember")		//http://localhost:8081/app/getMemberList
 	public String getMember(Model model, MemberVO vo) {		
 		model.addAttribute("member", memberService.getMember(vo));
-		return "user/member/getMember";
+		return "admin/member/getMember";
 	}
 
 	// 회원가입 등록폼

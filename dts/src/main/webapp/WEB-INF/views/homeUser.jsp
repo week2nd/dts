@@ -109,10 +109,17 @@
 						<li class="nav-item active"><a class="nav-link" href="#">Home
 								<span class="sr-only">(current)</span>
 						</a></li>
-						<li class="nav-item"><a class="nav-link" href="./getGameList">게임구매</a>
+						<li class="nav-item"><a class="nav-link" href="./buyMatchList">게임구매</a>
 						</li>
-						<li class="nav-item"><a class="nav-link"
-							href="./getMatchList">경기정보</a></li>
+							<li class="nav-item dropdown menu"><a
+							class="nav-link dropdown-toggle" href="#" id="layouts"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+							aria-live="token">경기정보</a>
+							<div class="dropdown-menu" aria-labelledby="layouts">
+								<a class="dropdown-item" href="./getMatchList">경기목록</a> <a
+									class="dropdown-item" href="./getTeamList">팀정보</a> <a
+									class="dropdown-item" href="./getPlayerList">선수정보</a>
+							</div></li>
 						<li class="nav-item dropdown menu"><a
 							class="nav-link dropdown-toggle" href="#" id="layouts"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
