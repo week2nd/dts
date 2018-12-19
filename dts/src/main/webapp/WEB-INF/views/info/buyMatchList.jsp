@@ -19,8 +19,8 @@
 			var a2 = $(this).closest('tr').find('.gameDate').text();
 			var a3 = $(this).closest('tr').find('.redTeamName').text();
 			var a4 = $(this).closest('tr').find('.redRate').text();
-			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
-			+ " onkeyup='returnMoney(event);removeChar(event)' onkeydown='return onlyNumber(event)'></td><td class='returnmoney' ></td>";
+			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' id= 'betmoney' class = 'betmoney'" 
+			+ " onkeyup='returnMoney(event);removeChar(event);checkMileage(event)' onkeydown='return onlyNumber(event)'></td><td id='returnmoney' class='returnmoney' ></td>";
 			$(tr).appendTo("#gameBuytr");			
 		});
 		
@@ -31,8 +31,8 @@
 			var a2 = $(this).closest('tr').find('.gameDate').text();
 			var a3 = $(this).closest('tr').find('.blueTeamName').text();
 			var a4 = $(this).closest('tr').find('.blueRate').text();
-			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' class = 'betmoney'" 
-			+ " onkeyup='returnMoney(event);removeChar(event)' onkeydown='return onlyNumber(event)'></td><td class='returnmoney' ></td>";
+			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' id = 'betmoney' class = 'betmoney'" 
+			+ " onkeyup='returnMoney(event);removeChar(event);checkMileage(event)' onkeydown='return onlyNumber(event)'></td><td id='returnmoney' class='returnmoney' ></td>";
 			$(tr).appendTo("#gameBuytr");
 		});	
 		
@@ -42,7 +42,8 @@
 			//var gamedate = $("#gameBuytr").find('.gameDate').text();
 			var team = $("#gameBuytr").find('.teamid').text();
 			var rate = $("#gameBuytr").find('.rate').text();
-			var betmoney = $("#gameBuytr").find('.betmoney').val();
+			//var betmoney = $("#gameBuytr").find('.betmoneyr').val();
+			var betmoney = $("#betmoney").val();
 			//var returnmoney = $("#gameBuytr").find('.returnmoney').text();
 			document.gameBuy.gameId.value = gameid;
 			document.gameBuy.choise.value = team;
@@ -78,6 +79,16 @@
 	        return;
 	    else
 	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
+	};
+	
+	function checkMileage(event) {
+		var mileage = ${membersession.uMileage};
+		var betmoney = $("#gameBuytr").find('.betmoney').val();
+		if(mileage < betmoney) {
+			alert("보유 마일리지보다 큰 금액을 입력할 수 없습니다.");
+			$("#betmoney").val(0);
+			$("#returnmoney").text(0);
+		}		
 	};
 	
 </script>
@@ -138,7 +149,7 @@
 					<th>예상적중금액</th>
 				</tr>
 			</thead>
-			<tr id="gameBuytr">
+			<tr id="gameBuytr" name="gameBuytr">
 			</tr>
 		</table>
 		
@@ -147,7 +158,7 @@
 		<input type="hidden" name="gameId"> 
 		<input type="hidden" name="betDrate"> 
 		<input type="hidden" name="betMoney"> 
-		<input type="hidden" name="choise"> 
+		<input type="hidden" name="choise">
 	</form>
 </body>
 </html>
