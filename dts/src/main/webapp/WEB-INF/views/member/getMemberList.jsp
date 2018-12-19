@@ -24,7 +24,7 @@
 	}
 
 	#deleteBtn {						/* delete 버튼 */
-		background-image: linear-gradient(to right, blue , green);
+		background-image: linear-gradient(to right, #A8A7A7 , #363636);
 		color: white;					/* 글자색 */
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
@@ -39,6 +39,7 @@
 	}
 	 
 	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
+		border: 1px solid #f2f2f2; 
 		border-collapse: collapse;
 		width: 100%;					/* 넓이 100%  */
 		margin: 0 0 20px 0;				/* 아랫쪽 테이블 간격 20px  */

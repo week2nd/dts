@@ -250,15 +250,69 @@
 
 
 
+
+
+<style>
+	body {								/* 글자 폰트 */
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.joinbtn {						/* delete 버튼 */
+		background-image: linear-gradient(to right, #A8A7A7 , #363636);
+		color: white;					/* 글자색 */
+		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
+		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
+		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
+		width: 7%;						/* 버튼 넓이 7% */
+	}
+	.joinbtn:hover {					/* delete버튼 마우스 hover 시 */
+		opacity: 0.8;					
+		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
+		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
+	  	transform: translateY(2px);		/* 그림자 길이 2px */
+	}
+	 
+	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
+		border: 1px solid #f2f2f2; 		/* 선 굵기 1px, 실선, 회색 */
+		border-collapse: collapse;
+		width: 50%;						/* 넓이 50%  */
+		margin: 0 0 20px 0;				/* 아랫쪽 테이블 간격 20px  */
+	}
+	 
+	th, td {							/* th, td에 여백 15px, 글자 왼쪽정렬  */						
+ 		padding: 15px;
+ 		text-align: left;
+	}
+	 
+	tr:nth-child(even) {				/* 짝수번째 연한 회색 */			
+		background-color: #f2f2f2;
+	}
+		
+	input{
+	 	size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+	 }
+	#phone1{
+	 	size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 10px 20px;
+	 }
+		
+</style>
+
+
+
+
 </head>
 <body>
 	<h3>회원가입</h3>
 	<form action="insertMember" method="post">
 	
-		<table style="width: 70%" class="table">
+		<table id="tb">
 	        <tr>            
 	            <td>아이디</td>
-	            <td><input type="text" class="form-control id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
+	            <td><input type="text" class="id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
 	            	<span id="spanIdO" style="display: none">사용가능한 아이디 입니다.</span>
 	            	<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>
 	            	<span id="countId">네글자 이상 아이디를 입력하세요.</span>
@@ -270,7 +324,7 @@
 	        <tr>
 	            <td>비밀번호</td>
 	            <td>
-	            	<input type="password" class="form-control pass" name="uPw" id="chkPw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkPwd()"><br>&nbsp;
+	            	<input type="password" name="uPw" id="chkPw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkPwd()"><br>&nbsp;
 	            	<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
               		<span id="spanPwO" style="display: none">비밀번호가 일치합니다.</span>
             	</td>
@@ -278,20 +332,19 @@
 	        </tr>
 	        <tr>
 	            <td>비밀번호 확인</td>
-	            <td><input type="password" class="form-control pass" name="member" id="chkPw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkPwd()"></td>
+	            <td><input type="password" name="member" id="chkPw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkPwd()"></td>
 	        </tr>
 	        <tr>
 	            <td>이름</td>
-	            <td><input type="text" class="form-control name"  name="uName" id="chkName" placeholder="이름" value="${member.uName }" oninput="checkPwd()"></td>
-	            <td colspan="2"><div style="visibility: hidden">빈공간입니당.빈공간입니당.빈공간입니당.빈공간입니당.</div></td>
+	            <td><input type="text"  name="uName" id="chkName" placeholder="이름" value="${member.uName }" oninput="checkPwd()"></td>
 	            
 	        </tr>
 	        <tr>
 	            <td>주소</td>       
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" class="form-control address" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkPwd()" >
-	                <input type="text" class="form-control address" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()"><br>
+	                <input type="text" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkPwd()" >
+	                <input type="text" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()"><br>
 	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>
 	            </td>
@@ -299,7 +352,7 @@
 	        <tr>
                <td>휴대폰번호</td>
                <td>
-                   <select name="phone1" id="phone1" class="form-control phone" oninput="checkPwd()">
+                   <select name="phone1" id="phone1" oninput="checkPwd()">
                        <option value="010">010</option>
                        <option value="011">011</option>
                        <option value="012">012</option>
@@ -309,23 +362,23 @@
                        <option value="019">019</option>                        
                    </select>
                    
-                   <input type="text" id="phone2" class="form-control phone" name="member" maxlength=4 placeholder="휴대폰번호 앞자리" value="${member.uPhone }" oninput="checkPwd()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
-                   <input type="text" id="phone3" class="form-control phone" maxlength=4 placeholder="휴대폰번호 뒷자리" id="${member.uPhone }" oninput="checkPwd()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
+                   &nbsp;-&nbsp;&nbsp;<input type="text" id="phone2" name="member" maxlength=4 placeholder="휴대폰번호 앞자리" value="${member.uPhone }" oninput="checkPwd()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>&nbsp;&nbsp;-&nbsp;
+                   <input type="text" id="phone3" maxlength=4 placeholder="휴대폰번호 뒷자리" id="${member.uPhone }" oninput="checkPwd()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
                    <input type="hidden" name="uPhone" id="uPhone" oninput="checkPwd()">
                </td>
            </tr>
 	        <tr>
 	            <td>생년월일</td>
 	            <td>
-	            	<input type="date" class="form-control date" name="uBirth" id="chkBirth" value="${member.uBirth }" oninput="checkPwd()">
+	            	<input type="date" name="uBirth" id="chkBirth" value="${member.uBirth }" oninput="checkPwd()">
 	            </td>
 	        </tr>
 	        <tr>
 	            <td>E-Mail</td>
 	            <td>
 	            	<input type="hidden" id="uEmail" name="uEmail"  value="${member.uEmail }">
-	            	<input type="text" class="form-control email" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="checkPwd()">
-	            	<input type="text" class="form-control email" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="checkPwd()">
+	            	<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="checkPwd()">&nbsp;&nbsp;@&nbsp;
+	            	<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="checkPwd()">
 <!-- 	            	<select name="selectEmail" id="selectEmail" class="form-control phone" onchange="checkPwd()">
                        <option value="blank">--선택--</option>
                        <option value="naver.com">네이버</option>
@@ -336,13 +389,8 @@
                    </select> -->
 	            </td>
 	        </tr>        
-	        <tr>
-	            <td colspan="2"> 
-	                <button class="form-control btn btn-primary joinbtn" disabled="disabled">가입</button> 
-	            </td>
-	        </tr>
-	       
 	    </table>
+	    <button class="joinbtn" disabled="disabled">가입</button>
     </form>
 
 </body>
