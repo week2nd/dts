@@ -27,32 +27,38 @@ public class InfoController {
 	TeamService teamService;
 	@Autowired
 	MatchService matchService;
-	
-	
+
 	// 선수 전체 조회
 	@RequestMapping("/getPlayerList")
 	public String getPlayerList(Model model, PlayerVO vo, HttpSession session) {
 		model.addAttribute("playerList", playerService.getPlayerList(vo));
 		System.out.println("Controller Info에서");
-		String grant = ((MemberVO)session.getAttribute("membersession")).getuGrant();
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
 		if (grant.equals("admin")) {
-		return "admin/info/getPlayerList";
+			return "admin/info/getPlayerList";
 		} else {
 			return "user/info/getPlayerList";
 		}
 	}
-	
+
 	// 선수 단일 조회
 	@RequestMapping("/getPlayer")
-	public String getPlayer(Model model, PlayerVO vo) {
+	public String getPlayer(Model model, PlayerVO vo, HttpSession session) {
+		System.out.println(vo);
 		model.addAttribute("player", playerService.getPlayer(vo));
-		return "user/info/getPlayer";
+		model.addAttribute("playerRecordList", playerService.playerRecordList(vo));
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/info/getPlayer";
+		} else {
+			return "user/info/getPlayer";
+		}
 	}
 
 	// 선수 입력 폼 이동
 	@RequestMapping("/insertPlayerForm")
 	public String insertForm() {
-		return "user/info/insertPlayer";
+		return "admin/info/insertPlayer";
 	}
 
 	// 선수 입력 처리
@@ -66,7 +72,7 @@ public class InfoController {
 	@RequestMapping("/updatePlayerForm")
 	public String updatePlayerForm(Model model, PlayerVO vo) {
 		model.addAttribute("player", playerService.getPlayer(vo));
-		return "user/info/updatePlayer";
+		return "admin/info/updatePlayer";
 	}
 
 	// 선수 정보 수정 처리
@@ -88,10 +94,16 @@ public class InfoController {
 //		팀
 	// 팀 전체 조회
 	@RequestMapping("/getTeamList")
-	public String getTeamList(Model model, TeamVO vo) {
+	public String getTeamList(Model model, TeamVO vo, HttpSession session) {
 		model.addAttribute("teamList", teamService.getTeamList(vo));
 		System.out.println("Controller Info에서");
-		return "user/info/getTeamList";
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/info/getTeamList";
+		} else {
+			return "user/info/getTeamList";
+		}
+
 	}
 
 	// 팀 단일 조회
@@ -100,12 +112,12 @@ public class InfoController {
 		model.addAttribute("team", teamService.getTeam(vo));
 		model.addAttribute("teamJoin", teamService.getTeamJoin(vo));
 		model.addAttribute("vsTeam", teamService.vsTeamList(vo));
-		String grant = ((MemberVO)session.getAttribute("membersession")).getuGrant();
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
 		if (grant.equals("admin")) {
 			return "admin/info/getTeam";
-			} else {
-				return "user/info/getTeam";
-			}
+		} else {
+			return "user/info/getTeam";
+		}
 	}
 
 //	// 팀 단일 조인 조회
@@ -114,11 +126,11 @@ public class InfoController {
 //		
 //		return "user/info/getTeam";
 //	}
-	
+
 	// 팀 입력 폼 이동
 	@RequestMapping("/insertTeamForm")
 	public String insertTeamForm() {
-		return "user/info/insertTeam";
+		return "admin/info/insertTeam";
 	}
 
 	// 팀 입력 처리
@@ -132,7 +144,7 @@ public class InfoController {
 	@RequestMapping("/updateTeamForm")
 	public String updateTeamForm(Model model, TeamVO vo) {
 		model.addAttribute("team", teamService.getTeam(vo));
-		return "user/info/insertTeam";
+		return "admin/info/updateTeam";
 	}
 
 	// 팀 정보 수정 처리
@@ -177,9 +189,9 @@ public class InfoController {
 	// 경기 입력 처리
 	@RequestMapping("/insertMatch")
 	public String insertMatch(MatchVO vo) {
-		
+
 		System.out.println("#####");
-		
+
 		matchService.insertMatch(vo);
 		return "redirect:getMatchList";
 	}
@@ -204,22 +216,22 @@ public class InfoController {
 		matchService.deleteMatch(vo);
 		return "redirect:getMatchList";
 	}
-	
+
 	// 구매페이지 전체조회
 	@RequestMapping("/buyMatchList")
 	public String getGameList(Model model, MatchVO vo, HttpSession session) {
-		String id = ((MemberVO)session.getAttribute("membersession")).getuId();
+		String id = ((MemberVO) session.getAttribute("membersession")).getuId();
 		vo.setuId(id);
 		model.addAttribute("buyMatchList", matchService.buyMatchList(vo));
 		return "user/info/buyMatchList";
 	}
-	
+
 	// 게임구매확인
-	@RequestMapping(value="buyGame", method = RequestMethod.POST)
+	@RequestMapping(value = "buyGame", method = RequestMethod.POST)
 	public String buyGameform(PurchaseVO vo) {
 		return "user/info/buyMatchCheck";
 	}
-		
+
 	// 관리자경기전체조회
 	@RequestMapping("/getMatchListAd")
 	public String getMatchListAd(Model model, MatchVO vo) {

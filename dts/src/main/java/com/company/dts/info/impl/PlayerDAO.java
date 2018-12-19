@@ -27,6 +27,8 @@ public class PlayerDAO {
 
 	// 선수 단일 조회 내 경기 이력
 	public List<PlayerVO> playerRecordList(PlayerVO vo) {
+		System.out.println("dkfsdlfjasdfkljsdakflsjskdaljskdaskdafljsdkaffffffffffffffffffffffffffffffffffffffffffffffffff");
+		System.out.println(vo);
 		return mybatis.selectList("player.playerRecordList");
 	}
 	

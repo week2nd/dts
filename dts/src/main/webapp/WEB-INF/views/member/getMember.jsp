@@ -136,7 +136,7 @@
 	}
 
 	#updateBtn, #deleteBtn, #cancelBtn{						/* delete 버튼 */
-		background-image: linear-gradient(to right, blue , green);
+		background-image: linear-gradient(to right, #A8A7A7 , #363636);
 		color: white;					/* 글자색 */
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
@@ -150,9 +150,10 @@
 	  	transform: translateY(2px);		/* 그림자 길이 2px */
 	}
 	 
-	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
+	#tb {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
+		border: 1px solid #f2f2f2; 
 		border-collapse: collapse;
-		width: 100%;					/* 넓이 100%  */
+	/*	width: 80%;					 넓이 100%  */
 		margin: 0 0 20px 0;				/* 아랫쪽 테이블 간격 20px  */
 	}
 	 
@@ -164,14 +165,14 @@
 	tr:nth-child(even) {				/* 짝수번째 연한 회색 */			
 		background-color: #f2f2f2;
 	}
-	 input{
+ 	input{
 	 	size: 40px;
-	 	border: 1px solid #7fbfff; 
+	 	border: 1px solid #f2f2f2; 
 	 	padding: 8px 20px;
 	 }
 	#phone1{
 	 	size: 40px;
-	 	border: 1px solid #7fbfff; 
+	 	border: 1px solid #f2f2f2; 
 	 	padding: 10px 20px;
 	 }
 			
@@ -179,20 +180,15 @@
 </style>
 
 
-
-
-
-
 </head>
 <body>
 <h3>관리자가 단일유저 정보보기</h3>
  	<form action="updateMember" method="post">
  	<input type="hidden" name="uId" value="${member.uId }" /> 
- 	<table style="width: 100%" >
+ 	<table id="tb">
         <tr>            
             <td>아이디</td>
             <td>${member.uId }</td>
-            <td colspan="2"><div style="visibility: hidden">빈공간입니당.빈공간입니당.빈공간입니당.빈공간입니당.</div></td>
         </tr>
         <tr>
             <td>비밀번호</td>
@@ -226,7 +222,7 @@
                     <option value="019">019</option>                         
                 </select>
                 
-                -<input type="text" name="phone2" id="phone2" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>- 
+                &nbsp;-&nbsp;&nbsp;<input type="text" name="phone2" id="phone2" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>&nbsp;&nbsp;-&nbsp; 
                 <input type="text" name="phone3" id="phone3" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
                 <input type="hidden" name="uPhone" id="uPhone" value="${member.uPhone }">
             </td>
@@ -235,7 +231,7 @@
 			<td>E-Mail</td>
 			<td>
 				<input type="hidden" name="uEmail" id="uEmail" value="${member.uEmail }" >
-				<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="sum()" >@
+				<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="sum()" >&nbsp;@
 				<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="sum()" >
 			</td>
 		</tr>
@@ -274,7 +270,7 @@
         </tr> --> 
     </table>
     
-    <table>
+    <table style="width: 40%">
 		<tr>
 			<td>
 				<a href="updateMember?uId=${member.uId }">

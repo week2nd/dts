@@ -23,9 +23,127 @@ public class PlayerVO {
 	private int winrate; // WIN/(WIN+LOSE) 승률
 	private int kda; // ROUND((KILL+ASSIST)/DEATH,1) KDA
 
+	// 조인내용
+	private String matchDate;
+	private String matchName;
+	private String matchInfo;
+	private String blueGamer3;
+	private String redGamer3;
+	private String game_id;
+	private String blueResult;
+	private int bluePick3Kill;
+	private int bluePick3Death;
+	private int bluePick3Assist;
+	private String bluePick3;
+	private String bluePick3Spell1;
+	private String bluePick3Spell2;
 	// 검색
 	private String searchCondition;
 	private String searchKeyword;
+
+	public String getMatchDate() {
+		return matchDate;
+	}
+
+	public void setMatchDate(String matchDate) {
+		this.matchDate = matchDate;
+	}
+
+	public String getMatchName() {
+		return matchName;
+	}
+
+	public void setMatchName(String matchName) {
+		this.matchName = matchName;
+	}
+
+	public String getMatchInfo() {
+		return matchInfo;
+	}
+
+	public void setMatchInfo(String matchInfo) {
+		this.matchInfo = matchInfo;
+	}
+
+	public String getBlueGamer3() {
+		return blueGamer3;
+	}
+
+	public void setBlueGamer3(String blueGamer3) {
+		this.blueGamer3 = blueGamer3;
+	}
+
+	public String getRedGamer3() {
+		return redGamer3;
+	}
+
+	public void setRedGamer3(String redGamer3) {
+		this.redGamer3 = redGamer3;
+	}
+
+	public String getGame_id() {
+		return game_id;
+	}
+
+	public void setGame_id(String game_id) {
+		this.game_id = game_id;
+	}
+
+	public String getBlueResult() {
+		return blueResult;
+	}
+
+	public void setBlueResult(String blueResult) {
+		this.blueResult = blueResult;
+	}
+
+	public int getBluePick3Kill() {
+		return bluePick3Kill;
+	}
+
+	public void setBluePick3Kill(int bluePick3Kill) {
+		this.bluePick3Kill = bluePick3Kill;
+	}
+
+	public int getBluePick3Death() {
+		return bluePick3Death;
+	}
+
+	public void setBluePick3Death(int bluePick3Death) {
+		this.bluePick3Death = bluePick3Death;
+	}
+
+	public int getBluePick3Assist() {
+		return bluePick3Assist;
+	}
+
+	public void setBluePick3Assist(int bluePick3Assist) {
+		this.bluePick3Assist = bluePick3Assist;
+	}
+
+	public String getBluePick3() {
+		return bluePick3;
+	}
+
+	public void setBluePick3(String bluePick3) {
+		this.bluePick3 = bluePick3;
+	}
+
+	public String getBluePick3Spell1() {
+		return bluePick3Spell1;
+	}
+
+	public void setBluePick3Spell1(String bluePick3Spell1) {
+		this.bluePick3Spell1 = bluePick3Spell1;
+	}
+
+	public String getBluePick3Spell2() {
+		return bluePick3Spell2;
+	}
+
+	public void setBluePick3Spell2(String bluePick3Spell2) {
+		this.bluePick3Spell2 = bluePick3Spell2;
+	}
 
 	public String getTeamId() {
 		return teamId;
@@ -180,6 +298,20 @@ public class PlayerVO {
 
 	public void setAttend(String attend) {
 		this.attend = attend;
+	}
+
+	@Override
+	public String toString() {
+		return "PlayerVO [playerId=" + playerId + ", nickname=" + nickname + ", name=" + name + ", birth=" + birth
+				+ ", line=" + line + ", tier=" + tier + ", teamId=" + teamId + ", kill=" + kill + ", death=" + death
+				+ ", assist=" + assist + ", win=" + win + ", lose=" + lose + ", attend=" + attend + ", playerRank="
+				+ playerRank + ", match=" + match + ", winrate=" + winrate + ", kda=" + kda + ", matchDate=" + matchDate
+				+ ", matchName=" + matchName + ", matchInfo=" + matchInfo + ", blueGamer3=" + blueGamer3
+				+ ", redGamer3=" + redGamer3 + ", game_id=" + game_id + ", blueResult=" + blueResult
+				+ ", bluePick3Kill=" + bluePick3Kill + ", bluePick3Death=" + bluePick3Death + ", bluePick3Assist="
+				+ bluePick3Assist + ", bluePick3=" + bluePick3 + ", bluePick3Spell1=" + bluePick3Spell1
+				+ ", bluePick3Spell2=" + bluePick3Spell2 + ", searchCondition=" + searchCondition + ", searchKeyword="
+				+ searchKeyword + "]";
 	}
 
 }
