@@ -11,7 +11,9 @@
 
 	<div>
 		<form action="updateTeamForm">
+		<c:if test="${membersession.uId=='admin'}">
 			<input class="btn" type="submit" value="수정">
+		</c:if>
 			<table class="table">
 				<tr>
 					<td><h3>${team.teamId}</h3></td>
@@ -48,8 +50,8 @@
 			<c:forEach items="${teamJoin}" var="tj">
 				<tr>
 					<td>${tj.playerLine}</td>
-					<td>${tj.playerName}</td>
-					<td>${tj.nickName}</td>
+					<td><a href="getPlayer?nickname=${tj.nickName}">${tj.playerName}</a></td>
+					<td><a href="getPlayer?nickname=${tj.nickName}">${tj.nickName}</a></td>
 					<td>${tj.playerMatch}</td>
 					<td>${tj.playerWin}</td>
 					<td>${tj.playerLose}</td>
@@ -71,7 +73,7 @@
 				</tr>
 			<c:forEach items="${vsTeam}" var="vs">
 				<tr>
-					<td>${vs.vsTeam}</td>
+					<td>vs <a href="getTeam?teamId=${vs.vsTeam}">${vs.vsTeam}</a></td>
 					<td>${vs.playerMatch}</td>
 					<td>${vs.win}</td>
 					<td>${vs.lose} </td>
@@ -79,7 +81,11 @@
 			</c:forEach>
 			</table>
 	</div>
-	<a class="badge-light[href]:focus" href="deleteTeam?teamId=${team.teamId}">삭제</a>
+	<c:if test="${membersession.uId=='admin'}">
+	<div>
+		<a class="badge-light[href]:focus" href="deleteTeam?teamId=${team.teamId}">삭제</a>
+	</div>
+	</c:if>
 
 </body>
 </html>

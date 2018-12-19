@@ -67,8 +67,8 @@
         				BLUERESULT,
         				REDRESULT
   				FROM	INGAME
-				WHERE	BLUETEAMNAME = 'SKT'
-				 AND 	REDTEAMNAME='KT'
+				WHERE	BLUETEAMNAME = #{teamId}
+<!-- 				 AND 	REDTEAMNAME='KT' -->
  				UNION ALL
  				SELECT 	MATCHDATE, 
  						MATCHNAME, 
@@ -79,8 +79,8 @@
  						REDRESULT, 
  						BLUERESULT
   				FROM 	INGAME
-  				WHERE 	REDTEAMNAME = 'SKT'
-  				 AND 	BLUETEAMNAME = 'KT')
+  				WHERE 	REDTEAMNAME = #{teamId})
+<!--   				 AND 	BLUETEAMNAME = 'KT' -->
  				GROUP BY 	REDTEAMNAME
 	</select>
 	

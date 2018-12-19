@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +22,9 @@
 
 	<h3>전적 정보</h3>
 
-
+	<c:if test="${membersession.uId=='admin'}">
 	<a href="updatePlayerForm?nickname=${player.nickname}">선수 정보 변경</a>
+	</c:if>
 
 	<div>
 		<form action="deletePlayer">
@@ -55,18 +57,20 @@
 				<th>A</th>
 				<th>KDA</th>
 			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			<c:forEach items="">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</c:forEach>
 		</table>
 		
 	</div>
