@@ -96,51 +96,50 @@
         // 휴대폰번호 하이픈 합치는 과정
 		document.all.uPhone.value = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;
 		
-		if(inputAddress1 == "" || inputAddress2 == "" || dbPw == "" || origInputed2 == "" || inputEmail1 == "" || inputEmail2 == "" ||
+		if(inputAddress1 == "" || inputAddress2 == "" || dbPw == "" || 
+				origInputed2 == "" || inputEmail1 == "" || inputEmail2 == "" ||
 				 inputPhone1.length < 3 || inputPhone2.length < 4){		// 이름, 주소, 휴대폰번호,  입력삭제 시 가입버튼 비활성화, 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
-			$(".updatebtn").prop("disabled", true);													
-            $(".updatebtn").css("background-color", "#aaaaaa");
+			$(".updatebtn").prop("disabled", true);						// 수정 버튼 비활성화						
+            $(".updatebtn").css("background-color", "#aaaaaa");			// 수정 버튼 회색
 		}
 
-        if( inputPw2=="" || inputPw1==""){ 	//
-            $(".updatebtn").prop("disabled", true);
-            $(".updatebtn").css("background-color", "#aaaaaa");
-            $("#newPw1").css("background-color", "#FFCECE");
-            $("#newPw2").css("background-color", "#FFCECE");
-            document.all.spanPwX.style.display="none";
-            document.all.spanPwO.style.display="none";
-        } 
-        else if ( inputPw1 == inputPw2) {		// 비밀번호 input색깔 초록색으로
-            $("#newPw1").css("background-color", "#B0F6AC");
-            $("#newPw2").css("background-color", "#B0F6AC");
+        if( inputPw2=="" || inputPw1==""){ 								// 비밀번호 값이 없거나 비밀번호 확인 값이 없을 경우 
+            $(".updatebtn").prop("disabled", true);						// 수정 버튼 비활성화
+            $(".updatebtn").css("background-color", "#aaaaaa");			// 수정 버튼 회색
+            $("#newPw1").css("background-color", "#FFCECE");			// 비밀번호 텍스트박스 빨강색
+            $("#newPw2").css("background-color", "#FFCECE");			// 비밀번호 확인 텍스트박스 빨강색
+            document.all.spanPwX.style.display="none";					// 비밀번호가 틀렸다 span 비활성화
+            document.all.spanPwO.style.display="none";					// 비밀번호가 맞았다 span 비활성화
+        } else if ( inputPw1 == inputPw2) {								// 비밀번호 input색깔 초록색으로
+            $("#newPw1").css("background-color", "#B0F6AC");			// 비밀번호 텍스트박스 초록색
+            $("#newPw2").css("background-color", "#B0F6AC");			// 비밀번호 확인 텍스트박스 초록색
             pwdCheck = 1;
-            document.all.spanPwX.style.display="none";
-            document.all.spanPwO.style.display="";
+            document.all.spanPwX.style.display="none";					// 비밀번호가 틀렸다 span 비활성화
+            document.all.spanPwO.style.display="";						// 비밀번호가 맞았다 span 활성화
+            
             if(origInputed2 != "" && pwdCheck == 1 
-            		&& inputAddress1 != "" && inputAddress2 != "" && inputEmail1 != "" && inputEmail2 != ""   
-            		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일) 맞으면 가입버튼 활성화
-	           $(".updatebtn").prop("disabled", false);								// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
-	           $(".updatebtn").css("background-color", "#4CAF50");
+            		&& inputAddress1 != "" && inputAddress2 != "" 
+            		&& inputEmail1 != "" && inputEmail2 != ""   
+            		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 아이디 중복, 비밀번호확인을 하고 이름, 주소, 휴대폰번호, 생년월일, E-mail의 각 값들이 모두 Null일 경우 (휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능)
+	           $(".updatebtn").prop("disabled", false);							// 가입버튼 활성화  
+	           $(".updatebtn").css("background-color", "#4CAF50");				// 가입버튼 초록색 
 	
             }
-        } else if (inputPw1 != inputPw2 ) {		// 비밀번호 틀리면 가입버튼 비활성화 및 비밀번호 input색깔 붉은색으로
+        } else if (inputPw1 != inputPw2 ) {								// 비밀번호 틀릴경우
             pwdCheck = 0;
-            $(".updatebtn").prop("disabled", true);
-            $(".updatebtn").css("background-color", "#aaaaaa");
-            $("#newPw1").css("background-color", "#FFCECE");
-            $("#newPw2").css("background-color", "#FFCECE");
-            document.all.spanPwX.style.display="";
-            document.all.spanPwO.style.display="none";
+            $(".updatebtn").prop("disabled", true);						// 가입버튼 비활성화
+            $(".updatebtn").css("background-color", "#aaaaaa");			// 가입버튼 회색
+            $("#newPw1").css("background-color", "#FFCECE");			// 비밀번호 텍스트박스 빨강색
+            $("#newPw2").css("background-color", "#FFCECE");			// 비밀번호 확인 텍스트박스 빨강색
+            document.all.spanPwX.style.display="";						// 비밀번호가 틀렸다 span 활성화
+            document.all.spanPwO.style.display="none";					// 비밀번호가 맞았다 span 비활성화
         }
-  /*       console.log(dbPw+"디비패스워드");
-        console.log(origInputed2+"입력한 기존 패스워드");
-        console.log($('#chkPw').val()+"텍스트 박스 입력한 기존 패스워드"); */
     }
 	
 
 
 	
-	$(function (){		// 화면 시작하자마자 주소부분 '^' 지워서 합치기 과정
+	$(function (){		
 		
 		var addressSplit=$('#uAddress').val().split('^');			// 주소 '^'만 제외하고 넣기
 		document.all.roadAddress.value = addressSplit[0];

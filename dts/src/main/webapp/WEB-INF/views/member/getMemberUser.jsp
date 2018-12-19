@@ -46,8 +46,7 @@
 		
 		
  		var addressSplit=$('#uAddress').val().split('^');					// 주소 '^'를 기준으로 자르기
- 		document.all.tempAddress.value = addressSplit[0] + addressSplit[1];	// 주소와 상세주소 합쳐서 tempAddress에 입력   
- 	
+ 		$("#tempAddress").text(addressSplit[0] + addressSplit[1]);			// 주소와 상세주소 합쳐서 tempAddress에 입력
  		$(".deletebtn").click(function(){									// 회원탈퇴 버튼을 눌렀을 경우
  			if (confirm("정말 삭제하시겠습니까??")== true){						// 회원탈퇴 확인을 눌렀을 경우 	
  				if($('#chkpw2').val() != $('#chkpw1').val()){				// 입력한 비밀번호와 해당유저 비밀번호가 다를 경우
@@ -115,9 +114,8 @@
 			</tr>
 			<tr>
 				<td>주소</td>
-				<td><span id="tempAddress"></span><br>
-				<!-- <input type="text" id="tempAddress"> -->
-				
+				<td>
+					<label id="tempAddress"></label>  
 				</td>
 			</tr>
 			<tr>

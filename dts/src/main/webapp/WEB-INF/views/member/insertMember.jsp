@@ -291,7 +291,7 @@
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 	                <input type="text" class="form-control address" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkPwd()" >
-	                <input type="text" class="form-control address" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()">
+	                <input type="text" class="form-control address" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()"><br>
 	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>
 	            </td>

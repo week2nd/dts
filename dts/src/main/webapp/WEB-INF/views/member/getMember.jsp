@@ -66,7 +66,7 @@
  }
  	function sum(){
  		// 주소와 상세주소 합치는 과정       		
-        document.all.uAddress.value = $('#roadAddress').val(); + "^" + $('#detailAddres').val();
+        document.all.uAddress.value = $('#roadAddress').val() + "^" + $('#detailAddres').val();
         
        	// 휴대폰번호 하이픈 합치는 과정
 		document.all.uPhone.value = $('#phone1').val() + "-" + $('#phone2').val() + "-" + $('#phone3').val();
@@ -129,13 +129,66 @@
 
 
 
+<style>
+	body {								/* 글자 폰트 */
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+	}
+
+	#updateBtn, #deleteBtn, #cancelBtn{						/* delete 버튼 */
+		background-image: linear-gradient(to right, blue , green);
+		color: white;					/* 글자색 */
+		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
+		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
+		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
+		width: 20%;						/* 버튼 넓이 7% */
+	}
+	#updateBtn:hover ,#deleteBtn:hover, #cancelBtn:hover {					/* delete버튼 마우스 hover 시 */
+		opacity: 0.8;					
+		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
+		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
+	  	transform: translateY(2px);		/* 그림자 길이 2px */
+	}
+	 
+	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
+		border-collapse: collapse;
+		width: 100%;					/* 넓이 100%  */
+		margin: 0 0 20px 0;				/* 아랫쪽 테이블 간격 20px  */
+	}
+	 
+	th, td {							/* th, td에 여백 15px, 글자 왼쪽정렬  */
+		padding: 15px;	 					
+ 		text-align: left;
+	}
+			 
+	tr:nth-child(even) {				/* 짝수번째 연한 회색 */			
+		background-color: #f2f2f2;
+	}
+	 input{
+	 	size: 40px;
+	 	border: 1px solid #7fbfff; 
+	 	padding: 8px 20px;
+	 }
+	#phone1{
+	 	size: 40px;
+	 	border: 1px solid #7fbfff; 
+	 	padding: 10px 20px;
+	 }
+			
+		
+</style>
+
+
+
+
+
 
 </head>
 <body>
 <h3>관리자가 단일유저 정보보기</h3>
  	<form action="updateMember" method="post">
  	<input type="hidden" name="uId" value="${member.uId }" /> 
- 	<table style="width: 100%" class="table">
+ 	<table style="width: 100%" >
         <tr>            
             <td>아이디</td>
             <td>${member.uId }</td>
@@ -143,7 +196,7 @@
         </tr>
         <tr>
             <td>비밀번호</td>
-            <td><input type="password" name="uPw" id="uPw" class="form-control pass" value="${member.uPw }" ></td>
+            <td><input type="password" name="uPw" id="uPw"  value="${member.uPw }" ></td>
         </tr>
         <tr>
             <td>이름</td>
@@ -153,8 +206,8 @@
             <td>주소</td>
             <td>
            	   <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-               <input type="text" class="form-control address" id="roadAddress" placeholder="지번주소" oninput="sum()" readonly>
-               <input type="text" class="form-control address" id="detailAddres" placeholder="상세주소 입력창" oninput="sum()">
+               <input type="text"  id="roadAddress" placeholder="지번주소" oninput="sum()" readonly>
+               <input type="text"  id="detailAddres" placeholder="상세주소 입력창" oninput="sum()">
                <input type="hidden" id="uAddress" name="uAddress" value="${member.uAddress }">  
                <span id="guide" style="color:#999"></span>
 
@@ -163,7 +216,7 @@
         <tr>
             <td>휴대폰번호</td>
             <td>
-                <select name="phone1" id="phone1" class="form-control phone" oninput="sum()">
+                <select name="phone1" id="phone1" oninput="sum()">
                     <option value="010">010</option>
                     <option value="011">011</option>
                     <option value="012">012</option>
@@ -173,8 +226,8 @@
                     <option value="019">019</option>                         
                 </select>
                 
-                <input type="text" name="phone2" id="phone2" class="form-control phone" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'> 
-                <input type="text" name="phone3" id="phone3" class="form-control phone" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
+                -<input type="text" name="phone2" id="phone2" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>- 
+                <input type="text" name="phone3" id="phone3" oninput="sum()" maxlength=4 onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
                 <input type="hidden" name="uPhone" id="uPhone" value="${member.uPhone }">
             </td>
         </tr>
@@ -182,8 +235,8 @@
 			<td>E-Mail</td>
 			<td>
 				<input type="hidden" name="uEmail" id="uEmail" value="${member.uEmail }" >
-				<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디" class="form-control email" oninput="sum()" >
-				<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지" class="form-control email" oninput="sum()" >
+				<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="sum()" >@
+				<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="sum()" >
 			</td>
 		</tr>
 		<tr>
@@ -221,19 +274,17 @@
         </tr> --> 
     </table>
     
-    <table style="width: 30%">
+    <table>
 		<tr>
 			<td>
 				<a href="updateMember?uId=${member.uId }">
-				<button	class="form-control btn btn-primary joinbtn" >회원수정</button></a>
-			</td>
-			<td>
+				<button id="updateBtn" >회원수정</button></a>
+			
 				<a href="deleteMember?uId=${member.uId }">
-				<input type="button" value="회원탈퇴"	class="form-control btn btn-primary deletebtn" ></button>
+				<input id="deleteBtn" type="button" value="회원탈퇴"	></button>
 				</a>
-			</td>
-			<td>
-				<a href="getMemberList"><input type="button" class="form-control btn btn-primary cancelbtn" value="&nbsp;취 소&nbsp;"></a>
+			
+				<a href="getMemberList"><input id="cancelBtn" type="button" value="&nbsp;취 소&nbsp;"></a>
 			</td>
 		</tr>
 	</table>
