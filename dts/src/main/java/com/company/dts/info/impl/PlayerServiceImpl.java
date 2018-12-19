@@ -34,6 +34,13 @@ public class PlayerServiceImpl implements PlayerService {
 		System.out.println("PlayerServiceImpl getPlayer"+'\n');
 		return dao.getPlayer(vo);
 	}
+	
+	// 단건 조회 내 경기 전적 통계
+	@Override
+	public List<PlayerVO> playerRecord(PlayerVO vo) {
+		System.out.println("PlayerServiceImpl PlayerRecord##");
+		return dao.playerRecordList(vo);
+	}
 
 //	전체 조회
 	@Override
@@ -48,4 +55,6 @@ public class PlayerServiceImpl implements PlayerService {
 		System.out.println("ServiceImpl deleteplayer");
 		dao.deletePlayer(vo);
 	}
+
+	
 }

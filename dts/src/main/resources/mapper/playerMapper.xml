@@ -40,6 +40,44 @@
 		WHERE	P.NICKNAME = #{nickname}
 	</select>
 	
+	<select id="playerRecordList" parameterType="player" resultType="player">
+		SELECT	DISTINCT *
+		FROM	(SELECT	MATCHDATE, 
+						MATCHNAME,
+						MATCHINFO,
+						BLUEGAMER3,
+						REDGAMER3,
+						GAME_ID,
+						BLUERESULT,
+						BLUEPICK3_KILL,
+						BLUEPICK3_DEATH,
+						BLUEPICK3_ASSIST,
+						BLUEPICK3,
+						I.BLUEPICK3_SPELL1,
+						I.BLUEPICK3_SPELL2
+				FROM	INGAME I
+				JOIN	PLAYER P
+				ON 		P.TEAM_ID = I.BLUETEAMNAME
+				WHERE	BLUEGAMER3 = 'SKT T1 Faker'
+				UNION ALL
+				SELECT	MATCHDATE,
+						MATCHNAME,
+						 MATCHINFO,
+						  REDGAMER3,
+						   BLUEGAMER3,
+						    GAME_ID,
+						     REDRESULT,
+						REDPICK3_KILL,
+						REDPICK3_DEATH,
+						REDPICK3_ASSIST,
+                  		REDPICK3,
+                  		I.REDPICK3_SPELL1,
+                  		I.REDPICK3_SPELL2
+				FROM	INGAME I JOIN PLAYER P
+				ON		P.TEAM_ID = I.BLUETEAMNAME
+				WHERE	REDGAMER3 = 'SKT T1 Faker')
+	</select>
+	
 	
  	<insert id="insertPlayer" parameterType="player">
  		INSERT INTO PLAYER(PLAYER_ID, 
