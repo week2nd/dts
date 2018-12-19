@@ -89,8 +89,8 @@
    	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
    	}
      
-    var idCheck = 0;		//아이디가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정		
-    var pwdCheck = 0;		//비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+    var idCheck = 0;		// 아이디가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정		
+    var pwdCheck = 0;		// 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
     
    
     function checkId() {	//아이디 체크하여 가입버튼 비활성화, 중복확인.
@@ -157,19 +157,19 @@
          } 
     	 */ 	 
     	  
-        var inputPw1 = $('#chkPw1').val();				// 비밀번호 텍스트박스
-        var inputPw2 = $('#chkPw2').val();				// 비밀번호 확인 텍스트박스
-        var inputName = $('#chkName').val();			// 이름 텍스트박스
-        var inputPhone1 = $('#phone2').val();			// 폰번호 첫 번째 텍스트박스
-        var inputPhone2 = $('#phone3').val();			// 폰번호 두 번째 텍스트박스
-        var inputBirth = $('#chkBirth').val();			// 생년월일 텍스트박스
-        var inputAddress1 = $('#roadAddress').val();	// 주소 첫 번째 텍스트박스
-        var inputAddress2 = $('#detailAddress').val();	// 주소 두 번째 텍스트박스
-        var inputEmail1 = $('#chkEmail1').val();		// E-Mail 첫 번째 텍스트박스
-        var inputEmail2 = $('#chkEmail2').val();		// E-Mail 두 번째 텍스트박스
+        var inputPw1 = $('#chkPw1').val();				// 비밀번호 텍스트박스 값
+        var inputPw2 = $('#chkPw2').val();				// 비밀번호 확인 텍스트박스 값
+        var inputName = $('#chkName').val();			// 이름 텍스트박스 값
+        var inputPhone1 = $('#phone2').val();			// 폰번호 첫 번째 텍스트박스 값
+        var inputPhone2 = $('#phone3').val();			// 폰번호 두 번째 텍스트박스 값
+        var inputBirth = $('#chkBirth').val();			// 생년월일 텍스트박스 값
+        var inputAddress1 = $('#roadAddress').val();	// 주소 첫 번째 텍스트박스 값
+        var inputAddress2 = $('#detailAddress').val();	// 주소 두 번째 텍스트박스 값
+        var inputEmail1 = $('#chkEmail1').val();		// E-Mail 첫 번째 텍스트박스 값
+        var inputEmail2 = $('#chkEmail2').val();		// E-Mail 두 번째 텍스트박스 값
         
         
-       	// 이메일과 @를 합치는 과정
+     	// E-Mail @를 합치는 과정	
         document.all.uEmail.value = inputEmail1 + "@" + inputEmail2;
        
         // 주소와 상세주소 합치는 과정(주소와 상세주소를 구분하기 위해 임의의 특수문자'^' 추가)
@@ -214,10 +214,8 @@
             document.all.spanPwX.style.display="";				// 비밀번호가 틀렸다 span 활성화
             document.all.spanPwO.style.display="none";			// 비밀번호가 맞았다 span 비활성화
         }
-        
-        
-        
     }
+    
     $(function(){	
     	$(".joinbtn").click(function(){		// 가입버튼 누르면 뜨는 alert
     		alert($('#chkName').val()+"님 DTS E-sport토토 가입을 환영합니다.");
@@ -292,7 +290,7 @@
 	            <td>주소</td>       
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" class="form-control address" id="roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()" >
+	                <input type="text" class="form-control address" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkPwd()" >
 	                <input type="text" class="form-control address" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()">
 	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>

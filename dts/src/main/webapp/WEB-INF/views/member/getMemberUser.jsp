@@ -8,17 +8,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	<!-- Ajax차트 -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>		<!-- 구글차트 -->
 <script>
+	//원형차트
 	google.charts.load('current', {'packages':['corechart']});
 	google.charts.setOnLoadCallback(drawChart);
-	//원형차트
+	
 	function drawChart() {
 		
 	//	var mileage = $('#mileage').val();
-		var win = $('#uWin').val();
-		var lose =$('#uLose').val();
-		console.log($('#uWin').val());
-		console.log($('#uLose').val());
-		if(win!=0 || lose!=0){
+		var win = $('#uWin').val();						// 맞춘횟수 값
+		var lose =$('#uLose').val();					// 틀린횟수 값
+		if(win!=0 || lose!=0){							// 경기구매를 한 번이상 했을 경우 차트를 보여줌
 			document.all.piechart.style.display="";
 			var data = google.visualization.arrayToDataTable([
 					[ '가', '나' ], 
@@ -34,7 +33,7 @@
 					.getElementById('piechart'));
 	
 			chart.draw(data, options);
-		}else{
+		}else{			// 경기구매를 한번도 안했을 경우 영역 비활성화
 			document.all.piechart.style.display="none";
 		}
 	}
@@ -43,68 +42,36 @@
 	/////////////////////////////////////////////////////////////
 
 	
-	var pwCheck = 0;						//비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
-
-	function checkPwd() {					//비밀번호 체크하여 수정, 탈퇴버튼 비활성화
-        var inputPw = $('#chkpw1').val();	// 텍스트 입력값
-        var dbPw = $('#chkpw2').val();		// hidden으로 숨겨져있는 해당유저 비밀번호
-		
-        if(inputPw=="" ){ 					// 비밀번호창이 null이면 input색깔 빨강색으로
-        	pwCheck = 0;
-  //          $("#chkpw1").css("background-color", "#FFCECE");
-  //          $("#chkpw2").css("background-color", "#FFCECE");
-        }
-        else if (inputPw == dbPw) {			// 입력한 비밀번호가 같으면 input색깔 초록색으로
- //           $("#chkpw1").css("background-color", "#B0F6AC");
- //           $("#chkpw2").css("background-color", "#B0F6AC");
-            pwCheck = 1;
-            
-        } else if (inputPw != dbPw) {		// 입력한 비밀번호와 다르면 비밀번호 input색깔 붉은색으로
-            pwCheck = 0;
-  //          $("#chkpw1").css("background-color", "#FFCECE");
-  //          $("#chkpw2").css("background-color", "#FFCECE");
-        }
-        if(pwCheck=1){						// 수정버튼 누를 시 alert창으로 선택하는 거 추가하기 필요
-//        	alert("수정창으로 가즈아");
-        }
-    }
-	
-	
 	$(function(){		// 화면 시작하자마자 주소부분 '^' 지워서 합치기 과정
- 		
- 		var addresssplit=$('#uAddress').val().split('^');			// 주소 '^'만 제외하고 넣기
- 		document.all.tempAddress.value = addresssplit[0];
- 		if(addresssplit[1]!=null){									// 상세주소 입력 되어 있을 경우 두개 붙이기 (막아놨는데)
- 			document.all.tempAddress.value = addresssplit[0] + addresssplit[1];
- 		} 
- 		
- 		$(".deletebtn").click(function(){
- 			if (confirm("정말 삭제하시겠습니까??")== true){ 
- 				if($('#chkpw2').val() != $('#chkpw1').val()){
+		
+		
+ 		var addressSplit=$('#uAddress').val().split('^');					// 주소 '^'를 기준으로 자르기
+ 		document.all.tempAddress.value = addressSplit[0] + addressSplit[1];	// 주소와 상세주소 합쳐서 tempAddress에 입력   
+ 	
+ 		$(".deletebtn").click(function(){									// 회원탈퇴 버튼을 눌렀을 경우
+ 			if (confirm("정말 삭제하시겠습니까??")== true){						// 회원탈퇴 확인을 눌렀을 경우 	
+ 				if($('#chkpw2').val() != $('#chkpw1').val()){				// 입력한 비밀번호와 해당유저 비밀번호가 다를 경우
  					alert("비밀번호를 확인해주세요.");
- 					document.all.chkpw1.focus();
+ 					document.all.chkpw1.focus();							// 비밀번호 텍스트 박스로 커서 이동
+ 					document.all.chkpw1.value = "";							// 비밀번호 텍스트 박스 값 제거
  					return false;
- 				}else if(false){
- 					document.all.chkpw1.focus();
+ 				}else if(false){											// 입력한 비밀번호와 해당유저 비밀번호가 같을 경우
  					alert($('#uName').val() + "회원 탈퇴 완료 되었습니다.");
  				}
- 			}else{
- 				document.all.chkpw1.focus();
+ 			}else{															// 회원탈퇴 취소를 눌렀을 경우
+ 				document.all.chkpw1.focus();								// 비밀번호 텍스트 박스로 커서 이동
 				return false;
 			}
 
  		});
-		$(".updatebtn").click(function(){
-			if( $('#chkpw2').val() != $('#chkpw1').val()){
-				document.all.chkpw1.focus();
+		$(".updatebtn").click(function(){									// 회원수정 버튼을 눌렀을 경우
+			if( $('#chkpw2').val() != $('#chkpw1').val()){					// 입력한 비밀번호와 해당유저 비밀번호가 다를 경우
+				document.all.chkpw1.focus();								// 비밀번호 텍스트 박스로 커서 이동
+				document.all.chkpw1.value = "";								// 비밀번호 텍스트 박스 값 제거
 				alert("비밀번호를 확인해주세요.");
 				return false;
-			}else{
-				document.all.chkpw1.focus();
-		        document.all.uPw.value = $('#newPw1').val();	 
 			}
     	});
- 		
 	});
 	
 </script>
@@ -128,10 +95,10 @@
 	<form action="updateMemberForm" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" />
 		<input type="hidden" id="chkpw2" value="${member.uPw }">
-		<input type="hidden" id="uName" value="${member.uName }">
+		<input type="hidden" id="uName" value="${member.uName }">			<!-- 구글차트에서 이름 필요 -->
 		<input type="hidden" id="uAddress" value="${member.uAddress }">
-		<input type="hidden" id="uWin" value="${member.uWin}">
-		<input type="hidden" id="uLose" value="${member.uLose}">
+		<input type="hidden" id="uWin" value="${member.uWin}">				<!-- 구글차트에서 맞춘횟수 필요 -->
+		<input type="hidden" id="uLose" value="${member.uLose}">			<!-- 구글차트에서 틀린횟수 필요 -->
 		<input type="hidden" id="uEmail" value="${member.uEmail}">
 		<table style="width: 70%" class="table">
 			<tr>

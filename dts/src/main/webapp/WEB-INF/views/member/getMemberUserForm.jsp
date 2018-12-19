@@ -72,51 +72,36 @@
 	}
 
 	/////////////////////////////////
-//	var dbPwCheck = 0;
-	var pwdCheck = 0;
-	  //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
-    function checkPwd() {
-	  	var dbPw = $('#uPw').val();
-	  	var origInputed2 = $('#chkPw').val();
-        var inputPw1 = $('#newPw1').val();
-        var inputPw2 = $('#newPw2').val();
-        var inputPhone1 = $('#phone2').val();
-        var inputPhone2 = $('#phone3').val();
-        var inputAddress1 = $('#roadAddress').val();		// 주소와 상세주소 합치는 과정
-        var inputAddress2 = $('#detailAddress').val();
-        var inputEmail = $('#uEmail').val();
-        var inputEmail1 = $('#chkEmail1').val();
-        var inputEmail2 = $('#chkEmail2').val();
+	
+	var pwdCheck = 0;		// 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+	
+    function checkPwd() {	//재입력 비밀번호 체크 및 이름, 주소, 휴대폰번호, 생년월일, E-Mail의 값 확인 후 가입버튼 비활성화 또는 맞지않음을 알림	
+	  	var dbPw = $('#uPw').val();							// 해당 유저 비밀번호 값
+	  	var origInputed2 = $('#chkPw').val();				// 비밀번호 텍스트박스 값
+        var inputPw1 = $('#newPw1').val();					// 새 비밀번호 텍스트박스 값
+        var inputPw2 = $('#newPw2').val();					// 새 비밀번호 확인 텍스트박스 값
+        var inputPhone1 = $('#phone2').val();				// 휴대폰번호 첫 번째 텍스트박스 값
+        var inputPhone2 = $('#phone3').val();				// 휴대폰번호 두 번째 텍스트박스 값
+        var inputAddress1 = $('#roadAddress').val();		// 주소 첫 번째 텍스트박스 값
+        var inputAddress2 = $('#detailAddress').val();		// 주소 두 번째 텍스트박스 값
+        var inputEmail1 = $('#chkEmail1').val();			// E-Mail 첫 번째 텍스트박스 값
+        var inputEmail2 = $('#chkEmail2').val();			// E-Mail 두 번째 텍스트박스 값
         
-        // E-Mail 텍스트박스 활성화 비활성화
-       
-        var EmailSum = inputEmail1 + "@" + inputEmail2;
-        document.all.uEmail.value = EmailSum;
+     	// E-Mail @를 합치는 과정
+        document.all.uEmail.value = inputEmail1 + "@" + inputEmail2;
         
-        var addressSum = inputAddress1 + "^" + inputAddress2
-        document.all.uAddress.value = addressSum;
+     	// 주소와 상세주소 합치는 과정(주소와 상세주소를 구분하기 위해 임의의 특수문자'^' 추가) 
+        document.all.uAddress.value = inputAddress1 + "^" + inputAddress2;
         
         // 휴대폰번호 하이픈 합치는 과정
-		var temp = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;		
-		document.all.uPhone.value = temp;
+		document.all.uPhone.value = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;
 		
-		if(inputAddress1 == "" || inputAddress2 == "" || dbPw == "" || origInputed2 == "" || inputEmail == "" ||
+		if(inputAddress1 == "" || inputAddress2 == "" || dbPw == "" || origInputed2 == "" || inputEmail1 == "" || inputEmail2 == "" ||
 				 inputPhone1.length < 3 || inputPhone2.length < 4){		// 이름, 주소, 휴대폰번호,  입력삭제 시 가입버튼 비활성화, 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 			$(".updatebtn").prop("disabled", true);													
             $(".updatebtn").css("background-color", "#aaaaaa");
-            console.log(inputEmail+"@@@");
 		}
-/* 		if( dbPw == origInputed2){							// 해당 유저 기존 비밀번호와 같은 경우
-//			$("#chkPw").css("background-color", "#B0F6AC");
-			dbPwCheck = 1;
-    
-        } else if(dbPw != origInputed2){					// 새 비밀번호와 새 비밀번호 확인과 다를 경우
-//        	$("#chkPw").css("background-color", "#FFCECE");
-        	dbPwCheck = 0;
-        } else if(origInputed2==""){								// 기존 비밀번호 텍스트박스가 null일 경우
-//        	$("#chkPw").css("background-color", "#FFCECE");
-        	dbPwCheck = 0;
-        } */
+
         if( inputPw2=="" || inputPw1==""){ 	//
             $(".updatebtn").prop("disabled", true);
             $(".updatebtn").css("background-color", "#aaaaaa");
@@ -132,7 +117,7 @@
             document.all.spanPwX.style.display="none";
             document.all.spanPwO.style.display="";
             if(origInputed2 != "" && pwdCheck == 1 
-            		&& inputAddress1 != "" && inputAddress2 != "" && inputEmail != ""   
+            		&& inputAddress1 != "" && inputAddress2 != "" && inputEmail1 != "" && inputEmail2 != ""   
             		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 비밀번호(이름, 주소, 휴대폰번호, 생년월일) 맞으면 가입버튼 활성화
 	           $(".updatebtn").prop("disabled", false);								// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 	           $(".updatebtn").css("background-color", "#4CAF50");
@@ -180,6 +165,7 @@
 			if( $('#uPw').val() != $('#chkPw').val()){
 				alert("기존 비밀번호를 확인해주세요.");
 				document.all.chkPw.focus();
+				document.all.chkPw.value = "";
 				return false;
 			}else{
 		        document.all.uPw.value = $('#newPw1').val();	 

@@ -66,38 +66,31 @@
  }
  	function sum(){
  		// 주소와 상세주소 합치는 과정       		
-        var addressSum = $('#roadAddress').val(); + "^" + $('#detailAddres').val();
-        document.all.uAddress.value = addressSum;
+        document.all.uAddress.value = $('#roadAddress').val(); + "^" + $('#detailAddres').val();
         
        	// 휴대폰번호 하이픈 합치는 과정
-    	
-		var tempPhone = $('#phone1').val() + "-" + $('#phone2').val() + "-" + $('#phone3').val();		
-		document.all.uPhone.value = tempPhone;
+		document.all.uPhone.value = $('#phone1').val() + "-" + $('#phone2').val() + "-" + $('#phone3').val();
 		
-		var emailSum = $('#chkEmail1').val() + "@" + $('#chkEmail2').val();
-        document.all.uEmail.value = emailSum;
-        
-        
+		// E-Mail @를 합치는 과정
+        document.all.uEmail.value = $('#chkEmail1').val() + "@" + $('#chkEmail2').val();
  	}
  	$(function(){
  		
- 		var addressSplit=$('#uAddress').val().split('^');			// 주소 '^'만 제외하고 넣기
- 		document.all.roadAddress.value = addressSplit[0];
- 		if(addressSplit[1]!=null){
- 			document.all.detailAddres.value = addressSplit[1];
- 		} 
+		var addressSplit = $('#uAddress').val().split('^');		// 주소 '^'를 기준으로 자르기
+ 		document.all.roadAddress.value = addressSplit[0];		// '^' 기준으로 첫 번째 부분을 지번주소 텍스트박스에 입력
+		document.all.detailAddres.value = addressSplit[1];		// '^' 기준으로 두 번째 부분을 상세주소 텍스트박스에 입력
  		
- 		var phoneSplit=$('#uPhone').val().split('-');			// 주소 '-'(하이픈)만 제외하고 넣기
- 		document.all.phone2.value = phoneSplit[1];
- 		document.all.phone3.value = phoneSplit[2];
+ 		var phoneSplit = $('#uPhone').val().split('-');			// 주소 '-'(하이픈)을 기준으로 자르기
+ 		document.all.phone2.value = phoneSplit[1];				// '-' 기준으로 두 번째 부분을 휴대폰번호 첫 번째 텍스트박스에 입력 
+ 		document.all.phone3.value = phoneSplit[2];				// '-' 기준으로 세 번째 부분을 휴대폰번호 두 번째 텍스트박스에 입력
  		
- 		var emailSplit=$('#uEmail').val().split('@');			// 이메일 '@'만 제외하고 넣기
- 		document.all.chkEmail1.value = emailSplit[0];
- 		document.all.chkEmail2.value = emailSplit[1];
+ 		var emailSplit = $('#uEmail').val().split('@');			// 이메일 '@'를 기준으로 자르기
+ 		document.all.chkEmail1.value = emailSplit[0];			// '-' 기준으로 첫 번째 부분을 E-Mail 첫 번째 텍스트박스에 입력
+ 		document.all.chkEmail2.value = emailSplit[1];			// '-' 기준으로 두 번째 부분을 E-Mail 두 번째 텍스트박스에 입력
  		
  	});
      
- 	
+ 	// 휴대폰번호 숫자만 입력가능하게
     function onlyNumber(event){		
    	    event = event || window.event;
    	    var keyID = (event.which) ? event.which : event.keyCode;
@@ -106,7 +99,7 @@
    	    else
    	        return false;
    	}
-   	 
+	// 휴대폰번호 숫자가 아닐 시 삭제
    	function removeChar(event) {
    	    event = event || window.event;
    	    var keyID = (event.which) ? event.which : event.keyCode;
@@ -115,19 +108,19 @@
    	    else
    	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
    	}
-   	
-   	$(document).ready(function(){
+   		
+   	$(document).ready(function(){	// 영어, 숫자만 입력되게 처리
   	  //한글입력 안되게 처리
-	  	$("input[name=uEmail1]").keyup(function(event){ 
+	  	$("input[name=uEmail1]").keyup(function(event){ 				// input name이 uEmail1에 키 입력시
 	  		if (!(event.keyCode >=37 && event.keyCode<=40)) {
 	  			var inputVal = $(this).val();
 	  			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
 	  		}	
 	  	});
-	  	$("input[name=uEmail2]").keyup(function(event){ 
+	  	$("input[name=uEmail2]").keyup(function(event){ 				// input name이 uEmail2에 키 입력시
 	  		if (!(event.keyCode >=37 && event.keyCode<=40)) {
 	  			var inputVal = $(this).val();
-	  			$(this).val(inputVal.replace(/[^a-z0-9.]/gi,''));
+	  			$(this).val(inputVal.replace(/[^a-z0-9.]/gi,''));		// '.'도 입력할 수 있게 출력
 	  		}	
 	  	});
 	});
@@ -160,7 +153,7 @@
             <td>주소</td>
             <td>
            	   <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-               <input type="text" class="form-control address" id="roadAddress" placeholder="도로명주소" oninput="sum()" readonly>
+               <input type="text" class="form-control address" id="roadAddress" placeholder="지번주소" oninput="sum()" readonly>
                <input type="text" class="form-control address" id="detailAddres" placeholder="상세주소 입력창" oninput="sum()">
                <input type="hidden" id="uAddress" name="uAddress" value="${member.uAddress }">  
                <span id="guide" style="color:#999"></span>
