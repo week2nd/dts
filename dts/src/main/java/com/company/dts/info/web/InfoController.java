@@ -1,7 +1,5 @@
 package com.company.dts.info.web;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.company.dts.game.GameVO;
 import com.company.dts.info.MatchService;
 import com.company.dts.info.MatchVO;
 import com.company.dts.info.PlayerService;
 import com.company.dts.info.PlayerVO;
 import com.company.dts.info.TeamService;
 import com.company.dts.info.TeamVO;
-import com.company.dts.info.impl.MatchServiceImpl;
+import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
 import com.company.dts.purchase.PurchaseVO;
 
@@ -28,16 +25,21 @@ public class InfoController {
 	PlayerService playerService;
 	@Autowired
 	TeamService teamService;
-
 	@Autowired
 	MatchService matchService;
 	
+	
 	// 선수 전체 조회
 	@RequestMapping("/getPlayerList")
-	public String getPlayerList(Model model, PlayerVO vo) {
+	public String getPlayerList(Model model, PlayerVO vo, HttpSession session) {
 		model.addAttribute("playerList", playerService.getPlayerList(vo));
 		System.out.println("Controller Info에서");
-		return "user/info/getPlayerList";
+		String grant = ((MemberVO)session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+		return "admin/info/getPlayerList";
+		} else {
+			return "user/info/getPlayerList";
+		}
 	}
 	
 	// 선수 단일 조회
@@ -94,11 +96,16 @@ public class InfoController {
 
 	// 팀 단일 조회
 	@RequestMapping("/getTeam")
-	public String getTeam(Model model, TeamVO vo) {
+	public String getTeam(Model model, TeamVO vo, HttpSession session) {
 		model.addAttribute("team", teamService.getTeam(vo));
 		model.addAttribute("teamJoin", teamService.getTeamJoin(vo));
 		model.addAttribute("vsTeam", teamService.vsTeamList(vo));
-		return "user/info/getTeam";
+		String grant = ((MemberVO)session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/info/getTeam";
+			} else {
+				return "user/info/getTeam";
+			}
 	}
 
 //	// 팀 단일 조인 조회

@@ -26,13 +26,13 @@ public class BoardController {
 				// 페이지번호 파라미터
 		if( paging.getPage() == null) {
 			paging.setPage(1);
-		}
+		}	//get으로 받아온 page 가 널이면 1page를 set으로 받아온다.
 		//한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
 		paging.setPageUnit(5);
 		//first/last	페이징 first, last 가져오는것
 		vo.setFirst(paging.getFirst());
 		vo.setLast(paging.getLast());
-		//전체 레코드 건수 구하는것
+		//전체 레코드 건수 구하는것(BoardVO 에 있는 내용을 vo에 담는다)
 		paging.setTotalRecord(boardService.getCount(vo));
 		
 		mv.addObject("paging", paging);		/*페이징번호가 나오게 하는것*/
