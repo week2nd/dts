@@ -62,20 +62,11 @@
 
 <!-- 분석게시판조회 -->
 <select id="getAnalysisBoard" resultType="board">
-	select  b.* from( select a.*, rownum rn from  (
 	SELECT 	*
 	FROM	BOARD 
 	WHERE 	BOARD_TYPE= nvl(#{boardType},BOARD_TYPE)
 	ORDER BY BOARD_NUMBER
-	<choose>
-			<when test="sortCol != null and sortCol != ''">
-			ORDER BY ${sortCol}
-			</when> 
-			<otherwise>
-			ORDER BY SEQ DESC	
-			</otherwise>			
-		</choose>	
-		) a ) b where rn between #{first} and #{last}	
+
 </select>
 
 
