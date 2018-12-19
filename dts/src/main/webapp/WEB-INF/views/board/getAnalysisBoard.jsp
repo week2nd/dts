@@ -26,7 +26,7 @@
 
  <form action="deleteBoardList">	
 	<button>선택삭제</button>
- 	
+ 		
 
 	
 	<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
