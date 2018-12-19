@@ -10,7 +10,7 @@
 </head>
 <body>
 <h3>게시판목록</h3>
- <my:paging paging="${paging}" jsFunc="go_page"/>
+
  	<script>
 	function go_sort(sortCol){
 		document.frm.sortCol.value = sortCol;
@@ -59,7 +59,7 @@
 	</table>
 </form>	 
 
-			<!-- 페이징 위해 추가 -->
+ <my:paging paging="${paging}" jsFunc="go_page"/>	<!-- 페이징 위해 추가 -->
 
 
 </body>
