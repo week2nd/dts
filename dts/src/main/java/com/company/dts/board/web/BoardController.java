@@ -18,7 +18,7 @@ import com.company.dts.common.Paging;
 public class BoardController {
 @Autowired BoardService boardService;
 
-	// 전체조회
+	// 전체조회(현재 사용 안함)
 	@RequestMapping(value= {"/getBoardList"}, method = RequestMethod.GET)		//http://localhost:8081/app/getBoardList
 	public ModelAndView getBoardList(BoardVO vo,  Paging paging)  {
 		ModelAndView mv = new ModelAndView();
@@ -26,22 +26,38 @@ public class BoardController {
 				// 페이지번호 파라미터
 		if( paging.getPage() == null) {
 			paging.setPage(1);
-		}	//get으로 받아온 page 가 널이면 1page를 set으로 받아온다.
-		//한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
-		paging.setPageUnit(5);
-		//first/last	페이징 first, last 가져오는것
-		vo.setFirst(paging.getFirst());
-		vo.setLast(paging.getLast());
-		//전체 레코드 건수 구하는것(BoardVO 에 있는 내용을 vo에 담는다)
-		paging.setTotalRecord(boardService.getCount(vo));
+			}																																
+		paging.setPageUnit(10);													
+		vo.setFirst(paging.getFirst());								
+		vo.setLast(paging.getLast());	
+		paging.setTotalRecord(boardService.getCount(vo));			//전체 레코드 건수 구하는것(BoardVO 에 있는 내용을 vo에 담는다)
 		
-		mv.addObject("paging", paging);		/*페이징번호가 나오게 하는것*/
-		
+		mv.addObject("paging", paging);		/*페이징번호가 나오게 하는것*/	
 		mv.addObject("boardList", boardService.getBoardList(vo));
-		mv.setViewName("board/getBoardList");
+		mv.setViewName("user/board/getBoardList");
 		return mv;
 	}
 
+	
+	// 분석게시판 전체조회
+		@RequestMapping("/getAnalysisBoard")
+		public String getAnalysisBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request)  {
+			
+			if( paging.getPage() == null) {			//get으로 받아온 page가 null이면 1page를 set으로 1페이지를 받아온다.				
+				paging.setPage(1); }
+			paging.setPageUnit(5);					//한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
+			vo.setFirst(paging.getFirst());			//게시판 숫자에 따라서 first, last 값 가져옴
+			vo.setLast(paging.getLast());
+			vo.setBoardType(request.getParameter("type"));		//homeUser의 게시판 클릭시 type 받아오는 Parameter
+			paging.setTotalRecord(boardService.getCount(vo));	//바로 위에서 받은 type을 기반으로 getCount(페이징갯수조회) 실행
+			
+			vo.setBoardType(request.getParameter("type"));		//homeUser의 게시판 클릭시 type 받아오는 Parameter		
+			model.addAttribute("paging", paging);				//model 안에 페이징 작업 넣기
+			model.addAttribute("type", request.getParameter("type"));	//받아온 type을 model 안에 넣기
+			model.addAttribute("board", boardService.getAnalysisBoard(vo));	//getAnalysisBoard 실행
+			return "user/board/getAnalysisBoard";
+		}
+	
 	
 	// 단건조회
 	@RequestMapping("/getBoard")		
@@ -50,18 +66,7 @@ public class BoardController {
 		return "user/board/getBoard";
 	}
 	
-	// 분석게시판 전체조회
-	@RequestMapping("/getAnalysisBoard")
-	public String getAnalysisBoard(Model model, BoardVO vo, HttpServletRequest request)  {
-		
-		vo.setBoardType(request.getParameter("type"));				
-		
-		model.addAttribute("type", request.getParameter("type"));
-		model.addAttribute("board", boardService.getAnalysisBoard(vo));
-		return "user/board/getAnalysisBoard";
-	}
 	
-
 	// 등록폼
 	@RequestMapping(value="/insertBoardform" , method = RequestMethod.GET )
 	public String insertBoardform(Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -70,6 +75,7 @@ public class BoardController {
 		model.addAttribute("type", type);
 		return "user/board/insertBoard";
 	}
+	
 		
 	// 등록처리
 		@RequestMapping( value="/insertBoard", method = RequestMethod.POST)
@@ -92,8 +98,7 @@ public class BoardController {
 			return map;
 		}
 	
-	
-	
+		
 		
 	
 	//수정

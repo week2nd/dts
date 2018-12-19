@@ -1,21 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>getAnalysisBoard.jsp</title>
-<!-- <script>
- 	function go_sort(sortCol){
- 		document.frm.sortCol.value = sortCol;
- 		document.frm.submit();
- 	} 
-</script>-->
+
 </head>
 <body>
 <h3>게시판</h3>
 
+<script>
+	function go_sort(sortCol){
+		document.frm.sortCol.value = sortCol;
+		document.frm.submit();
+	}
+	function go_page(page){
+		location.href="getAnalysisBoard?type=${type}&page="+page;
+/* 		document.frm.page.value=page;
+		document.frm.submit();		//검색폼 */
+	}
+	</script>
 
  <form action="deleteBoardList">	
 	<button>선택삭제</button>
@@ -52,5 +59,8 @@
 		</c:forEach> 
 	</table>
 </form>	 
+
+ <my:paging paging="${paging}" jsFunc="go_page"/> 	<!-- 페이징 위해 추가  -->
+
 </body>
 </html>

@@ -3,33 +3,36 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="board">
 
+
+
+ <!-- 페이지 전체 건수 조회 -->
+ <select id="getCount" parameterType="board" resultType="int">
+ 	SELECT COUNT(*)
+ 	FROM	BOARD 
+	WHERE 	BOARD_TYPE= nvl(#{boardType},BOARD_TYPE)
+	<choose>
+		<when test="sortCol != null and sortCol != ''">
+			ORDER BY ${sortCol}	
+		</when>
+		<otherwise>
+			ORDER BY BOARD_NUMBER DESC
+		</otherwise>
+	</choose>
+ </select>
+
+
  <!-- 전체게시판조회 -->
  <select id="getBoardList" resultType="board">	
 	select  b.* from( select a.*, rownum rn from  (	
  		SELECT *
 		FROM BOARD 
-	
-
+		
 	<!--  WHERE 1=1 -->
 	 <if test="searchKeyword != null and searchKeyword == ''">
 		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
 	</if>
 	<if test="searchKeyword == null or searchKeyword != ''">
 	</if> 
-	
-	<!-- 검색할때사용할쿼리들 -->
-<!-- <where>	
-	<choose>
-		<when test="searchCondition != null and searchCondition == 'title'">
-			and title like '%' || #{searchKeyword} || '%'
-		</when>
-		<when test="searchCondition != null and searchCondition == 'content'">
-			and content like '%' || #{searchKeyword} || '%'
-		</when>
-	</choose>
-	
-	</where>
-	--> 
  	<choose>
 		<when test="sortCol != null and sortCol != ''">
 			ORDER BY ${sortCol}	
@@ -42,32 +45,24 @@
 </select> 
 
 
- <!-- 페이지 전체 건수 조회 -->
- <select id="getCount" resultType="int">
- 	SELECT COUNT(*)
- 		FROM BOARD
-	<if test="searchKeyword != null and searchKeyword != ''">
-		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
-	</if> 
+	<!-- 분석게시판조회 -->
+	<select id="getAnalysisBoard" resultType="board">
+	select b.* from(select a.*, rownum rn from(
+	SELECT 	*
+	FROM	BOARD 
+	WHERE 	BOARD_TYPE= nvl(#{boardType},BOARD_TYPE)
 	<choose>
 		<when test="sortCol != null and sortCol != ''">
 			ORDER BY ${sortCol}	
 		</when>
 		<otherwise>
-			ORDER BY BOARD_NUMBER DESC
+			ORDER BY U_ID DESC
 		</otherwise>
 	</choose>
- </select>
-
-
-<!-- 분석게시판조회 -->
-<select id="getAnalysisBoard" resultType="board">
-	SELECT 	*
-	FROM	BOARD 
-	WHERE 	BOARD_TYPE= nvl(#{boardType},BOARD_TYPE)
-	ORDER BY BOARD_NUMBER
+  )a ) b where rn between #{first} and #{last}
 
 </select>
+
 
 
 <!-- 단일게시판조회 -->
