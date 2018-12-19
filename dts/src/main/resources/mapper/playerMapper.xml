@@ -35,16 +35,15 @@
 			    P.ASSIST assist,
 			    FUNC_PLAYERKDA('${nickname}') kda
 		FROM	PLAYER P
-			JOIN	TEAM T
+		JOIN	TEAM T
 		ON		P.TEAM_ID = T.TEAM_ID
 		WHERE	P.NICKNAME = #{nickname}
 	</select>
 	
 	<select id="playerRecordList" parameterType="player" resultType="player">
-		SELECT	DISTINCT *
-		FROM	(SELECT	MATCHDATE, 
+		 SELECT	MATCHDATE, 
 						MATCHNAME,
-						MATCHINFO,
+						MATCHINFO, BLUETEAMNAME,
 						BLUEGAMER3,
 						REDGAMER3,
 						GAME_ID,
@@ -53,29 +52,13 @@
 						BLUEPICK3_DEATH,
 						BLUEPICK3_ASSIST,
 						BLUEPICK3,
-						I.BLUEPICK3_SPELL1,
-						I.BLUEPICK3_SPELL2
+						BLUEPICK3_SPELL1,
+						BLUEPICK3_SPELL2
 				FROM	INGAME I
 				JOIN	PLAYER P
 				ON 		P.TEAM_ID = I.BLUETEAMNAME
-				WHERE	BLUEGAMER3 = 'SKT T1 Faker'
-				UNION ALL
-				SELECT	MATCHDATE,
-						MATCHNAME,
-						 MATCHINFO,
-						  REDGAMER3,
-						   BLUEGAMER3,
-						    GAME_ID,
-						     REDRESULT,
-						REDPICK3_KILL,
-						REDPICK3_DEATH,
-						REDPICK3_ASSIST,
-                  		REDPICK3,
-                  		I.REDPICK3_SPELL1,
-                  		I.REDPICK3_SPELL2
-				FROM	INGAME I JOIN PLAYER P
-				ON		P.TEAM_ID = I.BLUETEAMNAME
-				WHERE	REDGAMER3 = 'SKT T1 Faker')
+				WHERE	1=1
+			 
 	</select>
 	
 	

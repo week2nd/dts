@@ -99,7 +99,7 @@
 		UPDATE	TEAM
 		SET		TEAM_ID = #{teamId},
 				DIRECTOR = #{director},
-				HEADCOACH = #{headCoach},
+				HEAD_COACH = #{headCoach},
 				NAME = #{name}
 		WHERE	TEAM_ID = #{teamId}
 	</update>

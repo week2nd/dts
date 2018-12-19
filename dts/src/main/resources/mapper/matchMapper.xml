@@ -124,7 +124,7 @@
 	<insert id="insertMatch" parameterType="match">
 	<selectKey keyProperty="gameId" resultType="integer"
 			order="BEFORE">
-		SELECT 		MAX(GAME_ID)+1
+		SELECT 		NVL(MAX(GAME_ID),0)+1
 		FROM 		INGAME			
 	</selectKey>
 		INSERT INTO	INGAME(	GAME_ID,

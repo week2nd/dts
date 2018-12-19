@@ -37,8 +37,9 @@ public class PlayerServiceImpl implements PlayerService {
 	
 	// 단건 조회 내 경기 전적 통계
 	@Override
-	public List<PlayerVO> playerRecord(PlayerVO vo) {
+	public List<PlayerVO> playerRecordList(PlayerVO vo) {
 		System.out.println("PlayerServiceImpl PlayerRecord##");
+		System.out.println(vo);
 		return dao.playerRecordList(vo);
 	}
 
