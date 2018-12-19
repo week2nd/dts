@@ -88,7 +88,11 @@
 			alert("보유 마일리지보다 큰 금액을 입력할 수 없습니다.");
 			$("#betmoney").val(0);
 			$("#returnmoney").text(0);
-		}		
+		} else if (betmoney > 100000) {
+			alert("게임당 배팅가능금액은 10만원 이하 입니다.");
+			$("#betmoney").val(0);
+			$("#returnmoney").text(0);
+		}
 	};
 	
 </script>
