@@ -6,15 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>getBoardList.jsp</title>
-<!-- <script>
- 	function go_sort(sortCol){
- 		document.frm.sortCol.value = sortCol;
- 		document.frm.submit();
- 	} 
-</script>-->
+
 </head>
 <body>
 <h3>게시판목록</h3>
+ <my:paging paging="${paging}" jsFunc="go_page"/>
+ 	<script>
+	function go_sort(sortCol){
+		document.frm.sortCol.value = sortCol;
+		document.frm.submit();
+	}
+	function go_page(page){
+		location.href="getBoardList?page"+page;
+/* 		document.frm.page.value=page;
+		document.frm.submit();		//검색폼 */
+	}
+	</script>
  
  <form action="deleteBoardList">	
 	<button>선택삭제</button>
@@ -51,5 +58,9 @@
 		</c:forEach> 
 	</table>
 </form>	 
+
+			<!-- 페이징 위해 추가 -->
+
+
 </body>
 </html>

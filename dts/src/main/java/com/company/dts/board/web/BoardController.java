@@ -1,34 +1,45 @@
 package com.company.dts.board.web;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.filters.RequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.company.dts.board.BoardService;
 import com.company.dts.board.BoardVO;
+import com.company.dts.common.Paging;
 
 @Controller
 public class BoardController {
 @Autowired BoardService boardService;
 
 	// 전체조회
-	@RequestMapping(value= {"/getBoardList"}
-					, method = RequestMethod.GET
-					)		//http://localhost:8081/app/getBoardList
-	public String getBoardList(Model model, BoardVO vo)  {
-		/*vo.setBoardType(boardType);*/
-		model.addAttribute("boardList", boardService.getBoardList(vo));
-		return "user/board/getBoardList";
+	@RequestMapping(value= {"/getBoardList"}, method = RequestMethod.GET)		//http://localhost:8081/app/getBoardList
+	public ModelAndView getBoardList(BoardVO vo,  Paging paging)  {
+		ModelAndView mv = new ModelAndView();
+		//페이징처리 - 선생님이 주신 boardcontroller 페이징에 있는것 복사해서 사용
+				// 페이지번호 파라미터
+		if( paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		//한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
+		paging.setPageUnit(5);
+		//first/last	페이징 first, last 가져오는것
+		vo.setFirst(paging.getFirst());
+		vo.setLast(paging.getLast());
+		//전체 레코드 건수 구하는것
+		paging.setTotalRecord(boardService.getCount(vo));
+		
+		mv.addObject("paging", paging);		/*페이징번호가 나오게 하는것*/
+		
+		mv.addObject("boardList", boardService.getBoardList(vo));
+		mv.setViewName("board/getBoardList");
+		return mv;
 	}
 
 	
