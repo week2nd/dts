@@ -93,6 +93,7 @@
 	<div id="commentAdd">
 		<form name="addForm" id="addForm">
 			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
+			<input type="hidden" name="boardType" value="${board.boardType}">
 			이름: <input type="text" name="commentsName" size="10"><br /> 
 			내용: <textarea name="commentsContent" cols="20" rows="2"></textarea>
 			<br /> <input type="button" value="등록" id="btnAdd" />
