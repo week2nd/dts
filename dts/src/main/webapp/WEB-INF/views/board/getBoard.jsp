@@ -22,7 +22,8 @@
 
 				});
 	}
-
+	
+	
 	function makeCommentView(comment) {
 		var div = $("<div>");
 		div.attr("id", "c" + comment.commentsSeq);
