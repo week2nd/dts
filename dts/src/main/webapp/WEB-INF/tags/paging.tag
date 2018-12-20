@@ -33,7 +33,8 @@
 </c:if>
 
 
-<a href="#" >&laquo;</a>
+<a href="#" onclick="go_page(1)" >&laquo;</a>
+<a href="#" onclick="go_page('${paging.page-1}')" ><</a>
 <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i">
 	
 	<c:if test="${i != paging.page}">
@@ -43,7 +44,7 @@
 		<a href="#" class="active">${i}</a>
 	</c:if>
 </c:forEach>
-
-<a href="#">&raquo;</a>
+<a href="#" onclick="go_page('${paging.page+1}')" >></a>
+<a href="#" onclick="go_page('${paging.lastPage}')">&raquo;</a>
 
 </div>

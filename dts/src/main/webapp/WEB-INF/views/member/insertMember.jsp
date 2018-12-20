@@ -308,7 +308,7 @@
 <body>
 	<h3>회원가입</h3>
 	<form action="insertMember" method="post">
-	
+	<input type="text" id="uDate" value="${member.uDate }">
 		<table id="tb">
 	        <tr>            
 	            <td>아이디</td>
