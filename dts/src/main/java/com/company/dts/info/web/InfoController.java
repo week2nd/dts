@@ -167,23 +167,33 @@ public class InfoController {
 
 	// 경기 전체 조회
 	@RequestMapping("/getMatchList")
-	public String getMatchList(Model model, MatchVO vo) {
+	public String getMatchList(Model model, MatchVO vo, HttpSession session) {
 		model.addAttribute("matchList", matchService.getMatchList(vo));
 		System.out.println("Controller Info에서");
-		return "user/info/getMatchList";
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/info/getMatchList";
+		} else {
+			return "user/info/getMatchList";
+		}
 	}
 
 	// 경기 단일 조회
 	@RequestMapping("/getMatch")
-	public String getMatch(Model model, MatchVO vo) {
+	public String getMatch(Model model, MatchVO vo, HttpSession session) {
 		model.addAttribute("match", matchService.getMatch(vo));
-		return "user/info/getMatch";
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/info/getMatch";
+		} else {
+			return "user/info/getMatch";
+		}
 	}
 
 	// 경기 입력 폼 이동
 	@RequestMapping("/insertMatchForm")
 	public String insertMatchForm() {
-		return "user/info/insertMatch";
+		return "admin/info/insertMatch";
 	}
 
 	// 경기 입력 처리
@@ -200,7 +210,7 @@ public class InfoController {
 	@RequestMapping("/updateMatchForm")
 	public String updateMatchForm(Model model, MatchVO vo) {
 		model.addAttribute("match", matchService.getMatch(vo));
-		return "user/info/updateMatch";
+		return "admin/info/updateMatch";
 	}
 
 	// 경기 정보 수정 처리

@@ -9,7 +9,10 @@
 <title>getUserList.jsp</title>
 <script>
  	function go_sort(sortCol){
+ 		console.log(sortCol+"@@@@");
+ 		
  		document.frm.sortCol.value = sortCol;
+ 		console.log(document.frm.sortCol.value);
  		document.frm.submit();
  	} 
  	function go_page(page){
@@ -31,13 +34,21 @@
 		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
 		width: 7%;						/* 버튼 넓이 7% */
 	}
-	#deleteBtn:hover {					/* delete버튼 마우스 hover 시 */
+	#deleteBtn:hover, #selectBtn:hover {					/* delete버튼 마우스 hover 시 */
 		opacity: 0.8;					
 		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
 		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
 	  	transform: translateY(2px);		/* 그림자 길이 2px */
 	}
-	 
+	#selectBtn{						/* delete 버튼 */
+		background-image: linear-gradient(to right, #A8A7A7 , #363636);
+		color: white;					/* 글자색 */
+		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
+		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
+		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
+		width: 5%;						/* 버튼 넓이 7% */
+	}
+	
 	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
 		border: 1px solid #f2f2f2; 
 		border-collapse: collapse;
@@ -61,8 +72,16 @@
 	tr:nth-child(even):hover {			/* 짝수번째 마우스 hover 시 진한 회색 */		
 		background-color: #c1c1c1;
 	}
-		
-		
+	input{
+	 	size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+	}	
+	#ab{
+	 	size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 10px 20px;
+	}	
 		
 		
 	
@@ -134,13 +153,24 @@
 <body>
 <h3>getUserList아아아아</h3>
 
+<form>
+	<select id="ab" name="searchCondition" >
+			<option value="U_ID">아이디
+			<option value="U_NAME">이름
+	</select>
+	<input type="text" name="searchKeyword">
+	<button id="selectBtn">검색</button>
+
+</form>
+
+
  <form action="deleteMemberList" name="frm" >	
 
 	<button id="deleteBtn">선택삭제</button>
 	<table border="1" >
 		<tr>
 			<th>선택</th>
-			<th>아이디<a href="#" onclick="go_sort('uid')">▲</a></th>
+			<th>아이디<a href="#" id="sortCol" onclick="go_sort('uid')">▲</a></th>
 			<th>비밀번호<a href="#" onclick="go_sort('upw')">▲</a></th>				
 			<th>이름<a href="#" onclick="go_sort('uname')">▲</a></th>
 			<th>주소<a href="#" onclick="go_sort('uaddress')">▲</a></th>

@@ -21,6 +21,10 @@
 				ASSIST,
 				FUNC_PLAYERKDA(NICKNAME) kda
 		FROM 	PLAYER
+		<if test="searchKeyword != null and searchKeyword != ''">
+		WHERE 	${searchCondition} like '%' || #{searchKeyword} || '%'
+		</if>
+		
 	</select>
 	
 	<select id="getPlayer"	parameterType="player" resultType="player">
@@ -41,9 +45,10 @@
 	</select>
 	
 	<select id="playerRecordList" parameterType="player" resultType="player">
-		 SELECT	MATCHDATE, 
+		 SELECT	DISTINCT *
+		FROM	(SELECT	MATCHDATE, 
 						MATCHNAME,
-						MATCHINFO, BLUETEAMNAME,
+						MATCHINFO,             BLUETEAMNAME,
 						BLUEGAMER3,
 						REDGAMER3,
 						GAME_ID,
@@ -57,7 +62,7 @@
 				FROM	INGAME I
 				JOIN	PLAYER P
 				ON 		P.TEAM_ID = I.BLUETEAMNAME
-				WHERE	1=1
+				WHERE	BLUEGAMER3 = #{nickname})
 			 
 	</select>
 	

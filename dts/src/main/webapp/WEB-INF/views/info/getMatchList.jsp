@@ -8,11 +8,23 @@
 <title>getMatchList</title>
 </head>
 <body>
+	<c:if test="${membersession.uGrant=='admin'}">
+		<button type="button" onclick="location.href='insertMatchForm'"
+				class="btn">경기등록</button>
+	</c:if>
+		
+	<form name= "matchFrm">
+		<table border="1">
+			<tr>
+				<td><input type="hidden" name="searchCondition" value="blueteamname">팀</td>
+				<td><input type="text" name="searchKeyword"></td>
+				<td><button> 검색 </button></td>
+			</tr>
+			
+		</table>
+	</form>
 
-<button type="button" onclick="location.href='insertMatchForm'"
-		class="btn">경기등록</button>
-
-	<form action=>
+	<form>
 		<table class="table">
 			<tr>
 				<th>경기번호</th>
@@ -36,7 +48,7 @@
 					<td><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
 					<td></td>
 					<td><a href="getMatch?gameId=${match.gameId}">결과확인</a></td>
-					<td><input type="button" value="구매"></td>
+					<td><a href="buyMatchList"> 구매 </a></td>
 				</tr>
 			</c:forEach>
 		</table>

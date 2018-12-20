@@ -26,12 +26,14 @@
 select b.* from(select a.*, rownum rn from(
 	SELECT  U_ID, U_PW, U_NAME, REPLACE(U_ADDRESS, '^', '') U_ADDRESS, U_PHONE,		
         	U_MILEAGE, U_GRANT, U_BIRTH, U_DATE, U_WIN, U_LOSE, U_EMAIL
-	FROM MEMBER
+	FROM MEMBER 
+	<where>
 	<!--  WHERE 1=1 -->
 	<if test="searchKeyword != null and searchKeyword != ''">
-		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
+		${searchCondition} like '%' || #{searchKeyword} || '%'
 	</if> 
-
+</where>
+	
 	<choose>
 		<when test="sortCol != null and sortCol != ''">
 			ORDER BY ${sortCol}	
@@ -56,7 +58,7 @@ select b.* from(select a.*, rownum rn from(
 	<!--  <selectKey keyProperty="uId" resultType="string" order="BEFORE">
 		SELECT nvl(MAX(U_ID),0)+1 FROM MEMBER 
 	</selectKey>  --> 
-	INSERT INTO MEMBER (U_ID, U_PW, U_NAME, U_ADDRESS, U_PHONE, U_BIRTH, U_EMAIL)
+	INSERT INTO MEMBER (U_ID, U_PW, U_NAME, U_ADDRESS, U_PHONE, U_BIRTH, U_DATE, U_EMAIL)
 				VALUES(
 						#{uId},
 						#{uPw},
@@ -64,6 +66,7 @@ select b.* from(select a.*, rownum rn from(
 						#{uAddress},
 						#{uPhone},
 						#{uBirth},
+						TO_CHAR(SYSDATE, 'YYYY-MM-DD'),
 						#{uEmail}
 				)
 </insert>

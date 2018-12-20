@@ -213,13 +213,17 @@
 							<td>#.#</td>
 							<td>${match.redPick5Spell2}</td>
 						</tr>
+						<c:if test="${membersession.uGrant=='admin'}">
 						<tr>
 							<td><input type="submit" value="수정"></td>
 						</tr>
+						</c:if>
 					</table>
 				</div>
 			</div>
+			<c:if test="${membersession.uGrant=='admin'}">
 			<a href="deleteMatch?gameId=${match.gameId}"><input type="button" id="deleteMatchBtn"value="삭제"></a>
+			</c:if>
 		</form>
 	<%-- </c:forEach> --%>
 

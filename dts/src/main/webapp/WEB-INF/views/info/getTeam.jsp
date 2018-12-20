@@ -11,7 +11,7 @@
 
 	<div>
 		<form action="updateTeamForm">
-		<c:if test="${membersession.uId=='admin'}">
+		<c:if test="${membersession.uGrant=='admin'}">
 			<input class="btn" type="submit" value="수정">
 		</c:if>
 			<table class="table">
