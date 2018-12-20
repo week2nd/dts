@@ -19,10 +19,11 @@
 	
 	
 	<select id="getMhistoryListAjax" resultType="mhistory">
-		 
+		 select b.* from (  select a.*, rownum rn from ( 
 		SELECT *
 		  FROM ADMINHISTORY
 		  ORDER BY 1
+		  ) a  ) b  where rn between #{first} and #{last}
 		
 	</select>
 
