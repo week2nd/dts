@@ -14,6 +14,10 @@
 				LOSE,
 				RATE
 		FROM 	TEAM
+		<if test="searchKeyword != null and searchKeyword != ''">
+		WHERE 	${searchCondition} like '%'||#{searchKeyword}||'%'
+		</if>
+		
 	</select>
 	
 	<select id="getTeam" parameterType="team" resultType="team">

@@ -8,8 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<c:if test="${membersession.uGrant=='admin'}">
 <a href="insertTeamForm"><button class="btn">새 팀 입력</button></a>
+</c:if>
+	
+	<form name="teamFrm">
+		<span><input type="hidden" name="searchCondition" value="team_id">팀 이름</span>
+		<input type="text" name="searchKeyword">
+		<button> 검색 </button>	
+	</form>
 
 	<div>
 		<table class="table">

@@ -7,6 +7,10 @@
 	<select id="getMatchList" parameterType="match" resultType="match">
 		SELECT	*
 		FROM 	INGAME
+		<if test="searchKeyword != null and searchKeyword != ''">
+		WHERE 	${searchCondition} LIKE '%'||#{searchKeyword}||'%'
+		OR		REDTEAMNAME LIKE '%'||#{searchKeyword}||'%'
+		</if>
 		ORDER BY	MATCHDATE DESC
 	</select>
 	

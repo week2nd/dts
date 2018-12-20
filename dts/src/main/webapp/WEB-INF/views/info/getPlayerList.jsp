@@ -9,9 +9,22 @@
 </head>
 <body>
 
-	<h3>선수 정보 TEST</h3>	
+	<h3>선수 정보 TEST</h3>
+	
+	<form name="playerFrm">
+		<select name="searchCondition">
+			<option value="nickname">소환사명</option>
+			<option value="team_id">최근 소속팀</option>
+			<option value="name">선수이름</option> 
+		</select>
+		<input type="text" name="searchKeyword">
+		<button> 검색 </button>
+	</form>
+	
 	<form action="insertPlayerForm">
-		<input type="submit" value="선수 등록">
+		<c:if test="${membersession.uGrant=='admin'}">
+			<input type="submit" value="선수 등록">
+		</c:if>
 		<table border="1">
 			<tr>
 				<td>순위</td>

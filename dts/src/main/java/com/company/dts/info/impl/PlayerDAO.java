@@ -29,7 +29,7 @@ public class PlayerDAO {
 	public List<PlayerVO> playerRecordList(PlayerVO vo) {
 		System.out.println("dkfsdlfjasdfkljsdakflsjskdaljskdaskdafljsdkaffffffffffffffffffffffffffffffffffffffffffffffffff");
 		System.out.println(vo);
-		return mybatis.selectList("player.playerRecordList");
+		return mybatis.selectList("player.playerRecordList", vo);
 	}
 	
 	// 선수 입력

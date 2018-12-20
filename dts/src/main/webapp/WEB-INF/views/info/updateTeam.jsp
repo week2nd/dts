@@ -33,7 +33,9 @@
 				</tr>
 			</table>
 		</div>
+		<c:if test="${membersession.uGrant=='admin'}">
 		<input type="submit" value="입력">
+		</c:if>
 	</form>
 
 </body>
