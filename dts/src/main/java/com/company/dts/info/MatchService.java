@@ -25,4 +25,6 @@ public interface MatchService {
 	// 경기결과 삭제
 	public void deleteMatch(MatchVO vo);
 	
+	// 페이징
+	public int getCount(MatchVO vo);
 }

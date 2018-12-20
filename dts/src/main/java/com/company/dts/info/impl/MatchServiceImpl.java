@@ -57,4 +57,10 @@ public class MatchServiceImpl implements MatchService {
 			dao.deleteMatch(vo);
 		}
 
+		// 페이징
+		@Override
+		public int getCount(MatchVO vo) {
+			return dao.getCount(vo);
+		}
+
 }

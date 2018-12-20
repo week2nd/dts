@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.company.dts.common.Paging;
 import com.company.dts.info.MatchService;
 import com.company.dts.info.MatchVO;
 import com.company.dts.info.PlayerService;
@@ -31,6 +33,7 @@ public class InfoController {
 	// 선수 전체 조회
 	@RequestMapping("/getPlayerList")
 	public String getPlayerList(Model model, PlayerVO vo, HttpSession session) {
+
 		model.addAttribute("playerList", playerService.getPlayerList(vo));
 		System.out.println("Controller Info에서");
 		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
@@ -167,14 +170,39 @@ public class InfoController {
 
 	// 경기 전체 조회
 	@RequestMapping("/getMatchList")
-	public String getMatchList(Model model, MatchVO vo, HttpSession session) {
-		model.addAttribute("matchList", matchService.getMatchList(vo));
-		System.out.println("Controller Info에서");
+	public ModelAndView getMatchList(MatchVO vo, HttpSession session, Paging paging) {
+
+		ModelAndView mv = new ModelAndView();
+
+		// 페이징
+		// 파라미터
+		if (paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		else if(paging.getPage() <= 0) {
+				paging.setPage(1);
+		}
+		
+
+		// 페이지당 최대수
+		paging.setPageUnit(5);
+
+		vo.setFirst(paging.getFirst());
+		vo.setLast(paging.getLast());
+
+		paging.setTotalRecord(matchService.getCount(vo));
+
 		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+
+		mv.addObject("paging", paging);
+		mv.addObject("matchList", matchService.getMatchList(vo));
+
 		if (grant.equals("admin")) {
-			return "admin/info/getMatchList";
+			mv.setViewName("admin/info/getMatchList");
+			return mv;
 		} else {
-			return "user/info/getMatchList";
+			mv.setViewName("user/info/getMatchList");
+			return mv;
 		}
 	}
 

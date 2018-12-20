@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>getMatchList</title>
+	<script>
+		function go_page(page){
+			location.href="getMatchList?page="+page;
+		}
+	</script>
 </head>
 <body>
 	<c:if test="${membersession.uGrant=='admin'}">
@@ -48,10 +54,17 @@
 					<td><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
 					<td></td>
 					<td><a href="getMatch?gameId=${match.gameId}">결과확인</a></td>
+					<c:if test="${membersession.uGrant=='admin'}">
+					<td><a href="getMhistoryList">마일리지 관리</a></td>
+					</c:if>
+					<c:if test="${membersession.uGrant!='admin'}">
 					<td><a href="buyMatchList"> 구매 </a></td>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</table>
 	</form>
+	
+	<my:paging paging="${paging}" jsFunc="go_page"/>
 </body>
 </html>

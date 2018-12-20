@@ -38,12 +38,13 @@ function insert(){
 
 <form action="insertMatch">
 
-<input type="text" name="gameId" value="${match.gameId}">
+<input type="hidden" name="gameId" value="0" readonly="readonly">
 	<div align="center">
 		<table class="table">
 			<tr>
-				<th colspan="8"><input type="text" name="matchDate" size="10" placeholder="경기일시"></th>
-				<th><input type="text" name="matchName" value="LOL Champs" size="10" placeholder="대회명"></th>
+				<th colspan="1"><input type="text" name="matchDate" size="10" placeholder="경기일시"></th>
+				<th colspan="7">* 빈칸일 경우 오늘 날짜로 입력됩니다.</th>
+				<th><input type="text" name="matchName" size="10" value="LOL Champs"  placeholder="대회명"></th>
 				<td align="right" colspan="8"><input type="text" name="matchInfo" size="10" placeholder="경기 정보"></td>
 			</tr>
 			<tr>
@@ -78,7 +79,7 @@ function insert(){
 				<td>${match.bluePick2}</td>
 				<td>${match.bluePick3}</td>
 				<td>${match.bluePick4}</td>
-				<td>${match.bluePick5}</td>
+				<td>${match.bluePick5}</td>	
 				<td></td>
 				<td><input type="text" name="playTime" value="15:00" size="10" placeholder="##:##"></td>
 				<td></td>

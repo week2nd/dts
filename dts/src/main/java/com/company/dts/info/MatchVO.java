@@ -106,6 +106,23 @@ public class MatchVO {
 	private String matchDate;
 	private String matchName;
 	private String matchInfo;
+	
+	private int first;			// 페이지 첫장
+	private int last;			// 페이지 끝장
+	
+
+	public int getFirst() {
+		return first;
+	}
+	public void setFirst(int first) {
+		this.first = first;
+	}
+	public int getLast() {
+		return last;
+	}
+	public void setLast(int last) {
+		this.last = last;
+	}
 
 	public String getMatchDate() {
 		return matchDate;

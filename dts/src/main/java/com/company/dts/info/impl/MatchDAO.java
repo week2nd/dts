@@ -52,4 +52,9 @@ public class MatchDAO {
 		mybatis.update("match.deleteMatch", vo);
 	}
 	
+	// 페이징
+	public int getCount(MatchVO vo) {
+		return mybatis.selectOne("match.getCount", vo);
+	}
+	
 }
