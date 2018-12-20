@@ -8,25 +8,40 @@
 <meta charset="UTF-8">
 <title>getUserList.jsp</title>
 <script>
- 	function go_sort(sortCol){
- 		console.log(sortCol+"@@@@");
- 		
+ 	function go_sort(sortCol){				// 정렬
  		document.frm.sortCol.value = sortCol;
- 		console.log(document.frm.sortCol.value);
  		document.frm.submit();
  	} 
- 	function go_page(page){
- 		location.href="getMemberList?page="+page;
-		//document.frm.page.value=page;
-		//document.frm.submit();			// 검색폼
+ 	function go_page(page){					// 페이징
+ 	//	location.href="getMemberList?page="+page;
+		document.frm.page.value=page;
+		document.frm.submit();			// 검색폼
 	}
+ 	
+ 	
+ 	$(function(){
+ 		$(".deleteBtn").click(function(){									// 다중 삭제 버튼을 눌렀을 경우
+ 			if (confirm("정말 삭제하시겠습니까??")== true){						// 다중 삭제 확인을 눌렀을 경우 	
+				alert("회원 탈퇴 완료 되었습니다.");
+ 				return true;
+ 			}else{															// 다중 삭제 취소를 눌렀을 경우
+				return false;
+			}
+ 		});
+ 		if("${memberVO.searchCondition}"!=""){
+
+ 			document.frm.searchCondition.value="${memberVO.searchCondition}";
+ 		}
+ 	});
+ 	
+ 	
 </script>
 <style>
 	body {								/* 글자 폰트 */
 		font-family: Arial, Helvetica, sans-serif;
 	}
 
-	#deleteBtn {						/* delete 버튼 */
+	.deleteBtn {						/* delete 버튼 */
 		background-image: linear-gradient(to right, #A8A7A7 , #363636);
 		color: white;					/* 글자색 */
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
@@ -34,7 +49,7 @@
 		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
 		width: 7%;						/* 버튼 넓이 7% */
 	}
-	#deleteBtn:hover, #selectBtn:hover {					/* delete버튼 마우스 hover 시 */
+	.deleteBtn:hover, #selectBtn:hover {					/* delete버튼 마우스 hover 시 */
 		opacity: 0.8;					
 		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
 		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
@@ -153,35 +168,36 @@
 <body>
 <h3>getUserList아아아아</h3>
 
-<form>
-	<select id="ab" name="searchCondition" >
+<form name="frm">
+	<select id="ab" name="searchCondition"  >
 			<option value="U_ID">아이디
 			<option value="U_NAME">이름
 	</select>
-	<input type="text" name="searchKeyword">
+	<input type="text" name="searchKeyword" value="${memberVO.searchKeyword}">
 	<button id="selectBtn">검색</button>
-
+	<input type="hidden" name="sortCol" value="${memberVO.sortCol}"/>
+	<input type="hidden" name="page" />
 </form>
 
 
- <form action="deleteMemberList" name="frm" >	
+ <form action="deleteMemberList" 0 >	
 
-	<button id="deleteBtn">선택삭제</button>
+	<button class="deleteBtn">선택삭제</button>
 	<table border="1" >
 		<tr>
 			<th>선택</th>
-			<th>아이디<a href="#" id="sortCol" onclick="go_sort('uid')">▲</a></th>
-			<th>비밀번호<a href="#" onclick="go_sort('upw')">▲</a></th>				
-			<th>이름<a href="#" onclick="go_sort('uname')">▲</a></th>
-			<th>주소<a href="#" onclick="go_sort('uaddress')">▲</a></th>
-			<th>폰번호<a href="#" onclick="go_sort('uphone')">▲</a></th>
-			<th>마일리지<a href="#" onclick="go_sort('umileage')">▲</a></th>
-			<th>권한<a href="#" onclick="go_sort('ugrant')">▲</a></th>
-			<th>생년월일<a href="#" onclick="go_sort('ubirth')">▲</a></th>
-			<th>가입일<a href="#" onclick="go_sort('udate')">▲</a></th>
-			<th>승리<a href="#" onclick="go_sort('uwin')">▲</a></th>
-			<th>패배<a href="#" onclick="go_sort('ulose')">▲</a></th>
-			<th>E-Mail<a href="#" onclick="go_sort('uemail')">▲</a></th>
+			<th>아이디<a href="#" onclick="go_sort('u_id')">▲</a></th>
+			<th>비밀번호<a href="#" onclick="go_sort('u_pw')">▲</a></th>				
+			<th>이름<a href="#" onclick="go_sort('u_name')">▲</a></th>
+			<th>주소<a href="#" onclick="go_sort('u_address')">▲</a></th>
+			<th>폰번호<a href="#" onclick="go_sort('u_phone')">▲</a></th>
+			<th>마일리지<a href="#" onclick="go_sort('u_mileage')">▲</a></th>
+			<th>권한<a href="#" onclick="go_sort('u_grant')">▲</a></th>
+			<th>생년월일<a href="#" onclick="go_sort('u_birth')">▲</a></th>
+			<th>가입일<a href="#" onclick="go_sort('u_date')">▲</a></th>
+			<th>승리<a href="#" onclick="go_sort('u_win')">▲</a></th>
+			<th>패배<a href="#" onclick="go_sort('u_lose')">▲</a></th>
+			<th>E-Mail<a href="#" onclick="go_sort('u_email')">▲</a></th>
 		</tr>
 		<c:forEach items="${memberList }" var="member" varStatus="status">
 			<tr>

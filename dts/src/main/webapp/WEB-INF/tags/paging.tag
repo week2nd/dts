@@ -34,7 +34,12 @@
 
 
 <a href="#" onclick="go_page(1)" >&laquo;</a>
+<c:if test="${paging.page==1 }" >	
+<a href="#" onclick="event.preventDefault()" ><</a>
+</c:if>
+<c:if test="${paging.page>1 }" >	
 <a href="#" onclick="go_page('${paging.page-1}')" ><</a>
+</c:if>
 <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i">
 	
 	<c:if test="${i != paging.page}">
@@ -44,7 +49,15 @@
 		<a href="#" class="active">${i}</a>
 	</c:if>
 </c:forEach>
+
+<c:if test="${paging.page==paging.lastPage }" >	
+<a href="#" onclick="event.preventDefault()" >></a>
+</c:if>
+<c:if test="${paging.page>=1 && paging.page != paging.lastPage }" >
 <a href="#" onclick="go_page('${paging.page+1}')" >></a>
+</c:if>
+
+
 <a href="#" onclick="go_page('${paging.lastPage}')">&raquo;</a>
 
 </div>
