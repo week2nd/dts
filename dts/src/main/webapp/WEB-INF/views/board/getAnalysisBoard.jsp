@@ -18,11 +18,29 @@
 		document.frm.submit();
 	}
 	function go_page(page){
-		location.href="getAnalysisBoard?type=${type}&page="+page;
-/* 		document.frm.page.value=page;
-		document.frm.submit();		//검색폼 */
+ 		document.frm.page.value=page;
+		document.frm.submit();		//검색폼 
 	}
 	</script>
+
+<form name="frm">									<!-- 게시판 검색!! -->
+	
+		<select name="searchCondition">
+			<option value="board_Title">제목
+			<option value="board_Content">내용
+		</select>
+		<input type="text" name="searchKeyword" value="${boardVO.searchKeyword}">
+		<button>검색</button>
+		<input type="hidden" name="sortCol"/>
+		<input type="hidden" name="page"/>
+		<input type="hidden" name="type" value="${type}"/>
+</form>
+<script>
+if("${boardVO.searchCondition}"!=""){
+
+document.frm.searchCondition.value="${boardVO.searchCondition}";
+}
+</script>
 
  <form action="deleteBoardList">	
 	<button>선택삭제</button>

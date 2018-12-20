@@ -10,10 +10,10 @@ public class BoardVO {
 	private String boardHits;			//조회수
 	private String boardLike;			//추천수
 	private String uId;					//user아이디
-	private String boardType;			//게시판타입
+	private String boardType="";			//게시판타입
 
-	private String searchCondition;		//속성검색
-	private String searchKeyword;		//단어검색
+	private String searchCondition;		//속성검색(게시판검색때사용)
+	private String searchKeyword;		//단어검색(게시판검색때사용)
 	private String sortCol;				//정렬
 	private String[] bnumberList;		//값을 담는 배열
 	private int first;					//페이징 처음값

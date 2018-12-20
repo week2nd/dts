@@ -4,23 +4,6 @@
  <mapper namespace="board">
 
 
-
- <!-- 페이지 전체 건수 조회 -->
- <select id="getCount" parameterType="board" resultType="int">
- 	SELECT COUNT(*)
- 	FROM	BOARD 
-	WHERE 	BOARD_TYPE= nvl(#{boardType},BOARD_TYPE)
-	<choose>
-		<when test="sortCol != null and sortCol != ''">
-			ORDER BY ${sortCol}	
-		</when>
-		<otherwise>
-			ORDER BY BOARD_NUMBER DESC
-		</otherwise>
-	</choose>
- </select>
-
-
  <!-- 전체게시판조회 -->
  <select id="getBoardList" resultType="board">	
 	select  b.* from( select a.*, rownum rn from  (	
@@ -45,12 +28,34 @@
 </select> 
 
 
+ <!-- 페이지 전체 건수 조회 -->
+ <select id="getCount" parameterType="board" resultType="int">
+ 	SELECT COUNT(*)
+ 	FROM	BOARD 
+	WHERE 	BOARD_TYPE=#{boardType}
+	<if test="searchKeyword != null and searchKeyword != ''">
+		 AND ${searchCondition} like '%' || #{searchKeyword} || '%'
+		</if>
+	<choose>
+		<when test="sortCol != null and sortCol != ''">
+			ORDER BY ${sortCol}	
+		</when>
+		<otherwise>
+			ORDER BY BOARD_NUMBER DESC
+		</otherwise>
+	</choose>
+ </select>
+ 
+
 	<!-- 분석게시판조회 -->
 	<select id="getAnalysisBoard" resultType="board">
 	select b.* from(select a.*, rownum rn from(
 	SELECT 	*
 	FROM	BOARD 
-	WHERE 	BOARD_TYPE= nvl(#{boardType},BOARD_TYPE)
+	WHERE 	BOARD_TYPE= #{boardType}
+			<if test="searchKeyword != null and searchKeyword != ''">
+		 AND ${searchCondition} like '%' || #{searchKeyword} || '%'
+		</if>
 	<choose>
 		<when test="sortCol != null and sortCol != ''">
 			ORDER BY ${sortCol}	
