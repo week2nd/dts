@@ -56,22 +56,12 @@
 				alert("상태값 :" + status + "Http에러메시지 :" + msg);
 			},
 			success : function(datas) {
-				console.log(datas);
+				console.log(data);
 				var data = google.visualization.arrayToDataTable([
-						/* datas.addColumn['mon', 'cnt'];
-						for(i=0;i < datas.memberList.length; i++) {
-							data.addRow([datas.memberList[i].mon, datas.memberList[i].cnt]);
-						} */
+						[ 'mon', 'cnt' ],
 						[ datas.memberList[0].mon, datas.memberList[0].cnt ],
-						[ datas.memberList[1].mon, datas.memberList[1].cnt ],
-						[ datas.memberList[2].mon, datas.memberList[2].cnt ],
-						[ datas.memberList[3].mon, datas.memberList[3].cnt ],
-						[ datas.memberList[4].mon, datas.memberList[4].cnt ],
-						[ datas.memberList[5].mon, datas.memberList[5].cnt ],
-						[ datas.memberList[6].mon, datas.memberList[6].cnt ]];
-						
-				
-						
+						[ datas.memberList[1].mon, datas.memberList[1].cnt ] ]);
+
 				var options = {
 					chart : {
 						title : 'Company Performance',
