@@ -45,8 +45,13 @@ select b.* from(select a.*, rownum rn from(
   )a ) b where rn between #{first} and #{last}
 </select>
 
+<select id="getMemberListChartData" resultType="map">
+	select substr(u_date,6,2) as mon, count(*) as cnt from member
+	where u_grant ='user' group by substr(u_date,6,2) order by 1 
+</select>
+
 <!-- 단일유저조회 -->
-<select id="getMember" parameterType="member" resultType="member">
+<select id="getMember" parameterType="member" resultType="member"> 
 	SELECT	*
 	FROM	MEMBER
 	WHERE U_ID = #{uId}

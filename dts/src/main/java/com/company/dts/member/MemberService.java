@@ -1,6 +1,7 @@
 package com.company.dts.member;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MemberService {
 	public void insertMember(MemberVO vo); 				// 등록
@@ -10,4 +11,5 @@ public interface MemberService {
 	public MemberVO getMember(MemberVO vo);				// 단일보기
 	public List<MemberVO> getMemberList(MemberVO vo);	// 다중보기
 	public int getCount(MemberVO vo);					// 페이지 목록
+	public List<Map<String, Object>> getMemberListChart();
 }

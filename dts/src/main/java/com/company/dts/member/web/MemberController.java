@@ -1,5 +1,8 @@
 package com.company.dts.member.web;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.company.dts.common.Paging;
 import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
-import com.company.dts.common.Paging;
 
 @Controller
 public class MemberController {
@@ -47,6 +50,22 @@ public class MemberController {
 		mv.setViewName("admin/member/getMemberList");
 		return mv;
 	}
+	
+	
+	// 관리자 차트 폼
+	@RequestMapping(value="/getMemberListChart")
+	public String getMemberListChart(Model model, MemberVO vo) {
+		model.addAttribute("memberList", memberService.getMemberList(vo));
+		return "admin/member/getMemberListChart";
+	}
+	
+	
+	@RequestMapping(value="/getMemberListChartData")
+	@ResponseBody
+	public List<Map<String, Object>>  getMemberListChartData() {
+		return memberService.getMemberListChart();
+	}
+	
 	
 	// 관리자 맴버 단건조회
 	@RequestMapping("/getMember")		//http://localhost:8081/app/getMemberList

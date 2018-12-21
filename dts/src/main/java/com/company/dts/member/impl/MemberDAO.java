@@ -1,6 +1,7 @@
 package com.company.dts.member.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,8 @@ public class MemberDAO {
 		return mybatis.selectOne("member.getCount", vo);
 	}
 	
-	
+	public List<Map<String, Object>> getMemberListChart(){
+		System.out.println("mybatis GetMemberListChart 기능 처리");
+		return mybatis.selectList("member.getMemberListChartData");
+	}
 }
