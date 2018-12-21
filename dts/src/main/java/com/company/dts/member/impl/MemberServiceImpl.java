@@ -35,4 +35,7 @@ public class MemberServiceImpl implements MemberService {
 	public int getCount(MemberVO vo) {		// 페이지 목록 건수조회
 		return dao.getCount(vo);
 	}
+	public List<MemberVO> getMemberListChart(MemberVO vo) {
+		return dao.getMemberListChart(vo);
+	}
 }

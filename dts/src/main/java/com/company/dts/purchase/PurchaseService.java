@@ -6,6 +6,8 @@ public interface PurchaseService {
 	
 	public List<PurchaseVO> getPurchaseList(PurchaseVO vo);
 	
+	public List<PurchaseVO> getPurchaseListChart(PurchaseVO vo);
+	
 	public List<PurchaseVO> getPurchaseListAd(PurchaseVO vo);
 	
 	public List<PurchaseVO> setResult(PurchaseVO vo);

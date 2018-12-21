@@ -13,9 +13,26 @@ public class PurchaseVO {
 	private String searchCondition;
 	private String searchKeyword;
 	
+	private String day;
+	private int cnt;
+	
+	
 	private int first;
 	private int last;
-		
+	
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+	
 	public int getFirst() {
 		return first;
 	}

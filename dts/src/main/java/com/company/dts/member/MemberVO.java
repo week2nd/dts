@@ -14,7 +14,22 @@ public class MemberVO {
 	private String uDate;		// 유저 가입일
 	private int uWin;			// 유저 베팅 승리횟수
 	private int uLose;			// 유저 베팅 패배횟수
-		
+	
+	private String mon;
+	private int cnt;
+	
+	public String getMon() {
+		return mon;
+	}
+	public void setMon(String mon) {
+		this.mon = mon;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	private String searchCondition;
 	private String searchKeyword;
 	private String sortCol;

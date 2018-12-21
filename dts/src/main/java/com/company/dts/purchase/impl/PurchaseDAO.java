@@ -19,10 +19,14 @@ public class PurchaseDAO {
 		return mybatis.selectList("purchase.getPurchaseList", vo);
 	}
 	
+	public List<PurchaseVO> getPurchaseListChart(PurchaseVO vo) {
+		return mybatis.selectList("purchase.getPurchaseListChart", vo);
+	}
+	
 	// 관리자구매전체조회
-		public List<PurchaseVO> getPurchaseListAd(PurchaseVO vo) {
-			return mybatis.selectList("purchase.getPurchaseListAd", vo);
-		}
+	public List<PurchaseVO> getPurchaseListAd(PurchaseVO vo) {
+		return mybatis.selectList("purchase.getPurchaseListAd", vo);
+	}
 	
 	// 구매단건조회
 	public PurchaseVO getPurchase(PurchaseVO vo) {

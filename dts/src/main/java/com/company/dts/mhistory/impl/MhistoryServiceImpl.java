@@ -27,4 +27,9 @@ public class MhistoryServiceImpl implements MhistoryService {
 	public List<MhistoryVO> getMhistoryListAjax(MhistoryVO vo) {
 		return dao.getMhistoryListAjax(vo);
 	}
+	
+	@Override
+	public List<MhistoryVO> totalChart(MhistoryVO vo) {
+		return dao.getMhistoryList(vo);
+	}
 }

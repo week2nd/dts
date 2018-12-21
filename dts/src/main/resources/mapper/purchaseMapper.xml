@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="purchase">
-	
+
 	<select id="getCount" resultType="int">
 		SELECT COUNT(*)
-		  FROM PURCHASE
-		 ORDER BY 1
+		FROM PURCHASE
+		ORDER BY 1
 	</select>
-	
-	<select id="getPurchaseList" resultType="purchase">
+
+	<!-- <select id="getPurchaseList" resultType="purchase">
 		SELECT PURCHASE_NUM,
 		U_ID,
 		GAME_ID,
@@ -22,27 +22,27 @@
 		<if test="uId!=null and uId!=''">
 			WHERE U_ID = #{uId}
 		</if>
-	</select>
+	</select> -->
 
 	<select id="getPurchaseListAd" parameterType="purchase"
 		resultType="purchase">
-		select b.* from (  select a.*, rownum rn from ( 
+		select b.* from ( select a.*, rownum rn from (
 		SELECT PURCHASE_NUM,
-				U_ID,
-				GAME_ID,
-				BETMONEY,
-				BETDRATE,
-				ACCURACY,
-				BETDATE,
-				CHOISE,
-				RETURNCHECK
-		  FROM PURCHASE
-		  WHERE 1 = 1 
-		  <if test="searchKeyword != null and searchKeyword != ''">
-		  AND ${searchCondition} like '%' || #{searchKeyword} || '%'
-		  </if>
-		  ORDER BY 1
-		  ) a  ) b  where rn between #{first} and #{last}
+		U_ID,
+		GAME_ID,
+		BETMONEY,
+		BETDRATE,
+		ACCURACY,
+		BETDATE,
+		CHOISE,
+		RETURNCHECK
+		FROM PURCHASE
+		WHERE 1 = 1
+		<if test="searchKeyword != null and searchKeyword != ''">
+			AND ${searchCondition} like '%' || #{searchKeyword} || '%'
+		</if>
+		ORDER BY 1
+		) a ) b where rn between #{first} and #{last}
 	</select>
 
 	<!-- <insert id="insertPurchase" parameterType="purchase"> <selectKey keyProperty="purchaseNum" 
@@ -61,20 +61,23 @@
 		#{betDrate},
 		#{choise} )
 	</insert>
-	
+
 	<insert id="setResult" parameterType="purchase"
-		statementType="CALLABLE">		
+		statementType="CALLABLE">
 		{ call PROC_SETRESULT(
 		#{gameId}
 		)
 	</insert>
-	
+
 	<insert id="setMoney" parameterType="purchase"
-		statementType="CALLABLE">		
+		statementType="CALLABLE">
 		{ call PROC_PAYMENTS(
 		#{gameId}
 		)
 	</insert>
-
+	<select id="getPurchaseListChart" parameterType="purchase"
+		resultType="purchase">
+		select substr(betdate,7,2) as day, count(*) as cnt from purchase where 1=1 group by substr(betdate,7,2)
+	</select>
 
 </mapper>

@@ -52,5 +52,8 @@ public class MemberDAO {
 		return mybatis.selectOne("member.getCount", vo);
 	}
 	
-	
+	public List<MemberVO> getMemberListChart(MemberVO vo){
+		System.out.println("mybatis GetMemberListChart 기능 처리");
+		return mybatis.selectList("member.getMemberListChart", vo);
+	}
 }

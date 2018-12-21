@@ -26,4 +26,8 @@ public class MhistoryDAO {
 	public List<MhistoryVO> getMhistoryListAjax(MhistoryVO vo) {
 		return mybatis.selectList("mhistory.getMhistoryListAjax", vo);
 	}
+	
+	public List<MhistoryVO> totalChart(MhistoryVO vo) {
+		return mybatis.selectList("mhistory.getMhistoryList", vo);
+	}
 }

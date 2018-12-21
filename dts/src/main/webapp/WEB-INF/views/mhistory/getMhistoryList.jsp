@@ -32,26 +32,40 @@
 	  border-radius: 5px;
 	}
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
-	function go_page(page) {
+	function go_page(page, vid) {
+		
 		$("#mhistoryList").empty();
 		$("#pagination").html("");
-		if(page == undefined || page == "")
+		console.log(vid);
+		if(page == undefined || page == ""){
 			{page=1}
+		};
+		
+		
+		if(vid=="admin") {
+			{vid="admin"}
+		} else {
+			{vid=null}
+		};
+			
+		
+		console.log(page);
+		console.log(vid);
+		
 		$.ajax({
 			url : "getMhistoryListAjax",
-			data : {page:page},
+			data : {page:page, uId:vid},
 			type : "POST",
 			dataType : "json",
 			error : function(xhr, status, msg) {
 				alert("상태값 :" + status + "Http에러메시지 :" + msg);
 			},
 			success : function(data) {
-				console.log(data);
-				console.log(data.mhistoryList);
+				//console.log(data);
+				//console.log(data.mhistoryList);
 			//	console.log(data.mhistoryList[1].num);
 				for (i = 0; i < data.mhistoryList.length; i++) {
 					var tr = "<tr><td>" + data.mhistoryList[i].num + 
@@ -64,8 +78,8 @@
 					"</td></tr>"
 					$(tr).appendTo("#mhistoryList");
 				}
-							
-				
+				if(data.mhistoryList[0].uId != "admin") {
+					
 				var dd = "<a href='#' onclick='go_page(1)' >&laquo;</a>";
 				$(dd).appendTo("#pagination");
 				
@@ -84,21 +98,47 @@
 				var ee = "<a href='#' onclick='go_page("+data.paging.lastPage+")'>&raquo;</a>";
 				$(ee).appendTo("#pagination");
 				
-				/* var ff = '<my:paging paging="${paging}" jsFunc="go_page"/>';
-				$(ff).appendTo("#pagination"); */
+				} else {
+					
+					var dd = "<a href='#' onclick='go_page(1,\"admin\")' >&laquo;</a>";
+					$(dd).appendTo("#pagination");
+					var vid = "admin";
+					
+					var begin = data.paging.startPage;
+					var end = data.paging.endPage;					
+					for(j = begin; j <= end; j++ ) {
+						if(j != data.paging.page) {
+							var bb = "<a href='#' onclick='go_page("+j+","+"\"admin\""+")'>"+j+"</a>";
+							$(bb).appendTo("#pagination");
+						}
+					    else if(j == data.paging.page) {
+							var cc = "<a href='#' class='active'>"+j+"</a>";
+							$(cc).appendTo("#pagination");
+						}
+					}
+					var ee = "<a href='#' onclick='go_page("+data.paging.lastPage+",\"admin\")'>&raquo;</a>";
+					$(ee).appendTo("#pagination");
+				}
 			}
 		})
 	};
 	$(function() {
-		$("#historyAll").click(go_page);
-	
+		//$("#historyAdmin").click({vid:'admin'}, go_page);
 		
+		//$("#historyAdmin").on( "click", {page:null, vid:"admin"}, go_page);
+		$("#historyAll").click(go_page);
+		
+
+
 	});
+	
+	
+	
+	
 </script>
 </head>
 <body>
-	<button id="historyAll">전체목록조회</button>
-	<form>
+	<button class= "btn" id="historyAll">전체목록조회</button> <input class="btn" type="button" id="historyAdmin" onclick='go_page("","admin")') value="관리자조회" />
 		<table class="table">
 			<thead>
 				<tr>
@@ -112,9 +152,7 @@
 				</tr>
 			</thead>
 		</table>
-	</form>
 	<div>
-	<form>
 		<table class="table">
 		<thead>
 		</thead>
@@ -134,7 +172,6 @@
 				</c:forEach>
 			</tr> --%>
 		</table>
-	</form>
 	</div>
 	<div id="pagination" class="pagination">
 	</div>
