@@ -96,12 +96,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item active"> <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a></li>
-            <li class="nav-item"> <a class="nav-link" href="./getMhistoryList">마일리지관리</a> </li>
+            <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" aria-live="token">관리</a>
+              <div class="dropdown-menu" aria-labelledby="layouts">
+                <a class="dropdown-item" href="./getMhistoryList">마일리지관리</a>
+                <a class="dropdown-item" href="./getMatchListAd">경기결과반영</a>
+                <a class="dropdown-item" href="./getPurchaseListAd">전체구매목록</a>
+              </div>
+            </li>
             <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" aria-live="token">정보</a>
               <div class="dropdown-menu" aria-labelledby="layouts">
                 <a class="dropdown-item" href="./getMatchList">경기정보</a>
-                <a class="dropdown-item" href="./getMatchListAd">경기결과반영</a>
                 <a class="dropdown-item" href="./getTeamList">팀정보</a>
                 <a class="dropdown-item" href="./getPlayerList">선수정보</a>
               </div>
