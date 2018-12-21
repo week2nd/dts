@@ -24,6 +24,11 @@ public class PurchaseServiceImpl implements PurchaseService {
 	}
 	
 	@Override
+	public List<PurchaseVO> getPurchaseListChart(PurchaseVO vo) {
+		return dao.getPurchaseListChart(vo);
+	}
+	
+	@Override
 	public List<PurchaseVO> getPurchaseListAd(PurchaseVO vo) {
 		return dao.getPurchaseListAd(vo);
 	}

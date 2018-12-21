@@ -1,7 +1,6 @@
 package com.company.dts.member.impl;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 	public int getCount(MemberVO vo) {		// 페이지 목록 건수조회
 		return dao.getCount(vo);
 	}
-	public List<Map<String, Object>> getMemberListChart() {
-		return dao.getMemberListChart();
+	public List<MemberVO> getMemberListChart(MemberVO vo) {
+		return dao.getMemberListChart(vo);
 	}
 }

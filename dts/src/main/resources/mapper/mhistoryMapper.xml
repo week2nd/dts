@@ -13,11 +13,11 @@
 	</select>
 	
 	<select id="getMhistoryList" resultType="mhistory">
-		select b.* from (  select a.*, rownum rn from ( 
+		<!-- select b.* from (  select a.*, rownum rn from (  -->
 		SELECT *
 		  FROM ADMINHISTORY
 		  ORDER BY 1
-		  ) a  ) b  where rn between #{first} and #{last}
+		  <!-- ) a  ) b  where rn between #{first} and #{last} -->
 	</select>
 	
 	

@@ -69,8 +69,7 @@ public class MhistoryController {
 	
 	@RequestMapping(value="/totalpage", method = {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView getMhistoryList(MhistoryVO vo) {
-		ModelAndView mv = new ModelAndView();	
-		
+		ModelAndView mv = new ModelAndView();			
 		mv.setViewName("admin/mhistory/totalChart");
 		return mv;
 	}
@@ -81,7 +80,7 @@ public class MhistoryController {
 		HashMap map = new HashMap();
 		
 		map.put("mhistoryList", mhistoryService.getMhistoryList(vo));
-		map.put("purchaseList", purchaseService.getPurchaseList(vo1));
+		map.put("purchaseList", purchaseService.getPurchaseListChart(vo1));
 		
 		return map;
 	}

@@ -25,10 +25,10 @@
 			},
 			success : function(data) {
 				console.log(data)
-				var data = google.visualization.arrayToDataTable([
-						[ 'Year', 'Sales' ], [ '2004', 50],
-						[ '2005', 30], [ '2006', 70],
-						[ '2007', 110] ]);
+				var datas = google.visualization.arrayToDataTable([
+						[ 'Year', 'Sales' ], [ data.purchaseList[0].day, data.purchaseList[0].cnt],
+						[ data.purchaseList[1].day, data.purchaseList[1].cnt], [ data.purchaseList[2].day, data.purchaseList[2].cnt]
+						]);
 
 				var options = {
 					title : 'Company Performance',
@@ -41,7 +41,7 @@
 				var chart = new google.visualization.LineChart(document
 						.getElementById('curve_chart'));
 
-				chart.draw(data, options);
+				chart.draw(datas, options);
 			}
 		})
 	}
