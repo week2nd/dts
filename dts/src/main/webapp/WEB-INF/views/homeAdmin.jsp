@@ -122,7 +122,7 @@
             </li>
             <li class="nav-item"> <a class="nav-link" href="#">공지사항</a> </li>
             <li class="nav-item"> <a class="nav-link" href="./getMemberList">회원정보</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="#">통계관리</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="./totalpage">통계관리</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>
           </ul>
           <form class="ml-auto">

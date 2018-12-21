@@ -13,18 +13,21 @@ import org.springframework.web.servlet.ModelAndView;
 import com.company.dts.common.Paging;
 import com.company.dts.mhistory.MhistoryService;
 import com.company.dts.mhistory.MhistoryVO;
+import com.company.dts.purchase.PurchaseService;
+import com.company.dts.purchase.PurchaseVO;
 
 @Controller
 public class MhistoryController {
 	
 	@Autowired
 	MhistoryService mhistoryService;
+	@Autowired
+	PurchaseService purchaseService;
 	
 	@RequestMapping(value="/getMhistoryList", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView getMhistoryList(MhistoryVO vo, Paging paging) {
 		
-		ModelAndView mv = new ModelAndView();
-		
+		ModelAndView mv = new ModelAndView();		
 		/*if (paging.getPage() == null) {
 			paging.setPage(1);
 		}
@@ -51,7 +54,7 @@ public class MhistoryController {
 			paging.setPage(1);
 		}
 		
-		paging.setPageUnit(10);
+		paging.setPageUnit(15);
 		
 		vo.setFirst(paging.getFirst());
 		vo.setLast(paging.getLast());
@@ -60,6 +63,25 @@ public class MhistoryController {
 
 		map.put("paging", paging);
 		map.put("mhistoryList", mhistoryService.getMhistoryListAjax(vo));
+		
+		return map;
+	}
+	
+	@RequestMapping(value="/totalpage", method = {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView getMhistoryList(MhistoryVO vo) {
+		ModelAndView mv = new ModelAndView();	
+		
+		mv.setViewName("admin/mhistory/totalChart");
+		return mv;
+	}
+	
+	@RequestMapping(value="/totalChart", method = {RequestMethod.POST, RequestMethod.GET})
+	@ResponseBody
+	public Map totalChart(MhistoryVO vo, PurchaseVO vo1) {
+		HashMap map = new HashMap();
+		
+		map.put("mhistoryList", mhistoryService.getMhistoryList(vo));
+		map.put("purchaseList", purchaseService.getPurchaseList(vo1));
 		
 		return map;
 	}

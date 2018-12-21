@@ -6,6 +6,9 @@
 	<select id="getCount" resultType="int">
 		SELECT COUNT(*)
 		  FROM ADMINHISTORY
+		  <if test="uId!=null and uId!=''">
+			WHERE U_ID = #{uId}
+		  </if>		  
 		 ORDER BY 1
 	</select>
 	
@@ -28,6 +31,12 @@
 		  ORDER BY 1
 		  ) a  ) b  where rn between #{first} and #{last}
 		
+	</select>
+	
+	<select id="totalChart" resultType="mhistory">
+		SELECT *
+		  FROM ADMINHISTORY
+		  ORDER BY 1
 	</select>
 
 
