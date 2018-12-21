@@ -39,7 +39,7 @@ public class BoardController {
 	}
 
 	
-	// 분석게시판 전체조회
+	// 전체조회
 		@RequestMapping("/getAnalysisBoard")
 		public String getAnalysisBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request)  {
 			

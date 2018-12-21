@@ -32,9 +32,11 @@
 
 		var str = "<strong class='commentName'>" + comment.commentsName + "</strong>"
 				+ "<span class='commentContent'>" + comment.commentsContent + "</span>"
-				+ "<button type=\"button\" class=\"btnUpdFrm\">수정</button>"
+				+ "<button type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
 				+ "<button type=\"button\" class=\"btnDel\">삭제</button>"
+				
 		div.html(str);
+				
 		return div;
 	}
 	
@@ -42,15 +44,21 @@
 	$(function() {
 		loadCommentList();
 
+
+
 		//댓글등록처리
-		$("#btnAdd").click(function() {
-			var params = $("#addForm").serialize();
-			console.log(params);
-			$.getJSON("insertComments", params, function(datas) {
+		$("#btnAdd").click(function() {					//버튼 클릭시 btnAdd 작업 수행.
+			var params = $("#addForm").serialize();		//params 안에 값을 담는다.
+			console.log(params);						//params 값을 콘솔창에 출력해줌.
+			$.getJSON("insertComments", params, function(datas) {	
+				console.log(datas)
 				var div = makeCommentView(datas);
 				$(div).prependTo("#commentsList");
 			});
 		});	// end btnAdd click event
+				
+		
+		
 		
 		//댓글 삭제 이벤트
 		$("#commentsList").on("click", ".btnDel", function(){
@@ -63,9 +71,57 @@
 				});
 			}
 		});
+	
 		
+		//댓글 수정 이벤트
+		$("#btnUpd").click(function(){			
+			console.log("===============================+++++++++++++")
+			var params = $("[name=updateForm]").serialize();
+			var url = "updateComments";
+			console.log(params);
+			$.getJSON(url, params, function(datas){
+				 console.log(datas) 
+				var newDiv = makeCommentView(datas);
+				var oldDiv = $("#c"+datas.commentsSeq);
+				$(newDiv).replaceAll(oldDiv);  // 수정된 DIV를 교체
+				$("#btnCancel").click();
+				
+
+			});			
+		});	 
+
 		
-	});		//$() end ready event
+		//수정폼 이벤트(수정할 댓글밑에 수정폼 보이게 함)
+		$("#commentsList").on("click", ".btnUpdFrm", function(){
+			console.log("===============================" )
+			console.log($(this).parent().children()[1].innerText)    
+			
+			var commentsSeq = $(this).parent().attr("id").substr(1);
+			var commentsName = $(this).parent().children()[0].innerText;
+			var commentsContent = $(this).parent().children()[1].innerText;
+			$("#commentAdd").css("display","none")
+			$("#commentUpdate").css("display","block")
+			//수정할 데이터 입력필드에 셋팅
+			$("#updateForm [name=commentsSeq]").val(commentsSeq);    
+			$("#updateForm [name=commentsName]").val(commentsName);
+			$("#updateForm [name=commentsContent]").val(commentsContent);
+			//수정할 댓글밑으로 이동하고 보이게
+			$("#c"+commentsSeq).append($('#commentUpdate'));  
+			$('#commentUpdate').show();   
+		});
+		
+	});
+
+	
+	
+	//수정 취소 이벤트
+	$("#btnCancel").click(function(){
+		$("[name=updateForm]")[0].reset();   //폼 필드 클리어
+		$("#comments").append( $("#commentUpdate") );//수정 폼(div)를 이동
+		$("#commentUpdate").hide();    // 수정폼 숨기기
+	}); //$() end ready event
+	
+	
 </script>
 </head>
 <body>
@@ -101,5 +157,18 @@
 		</form>
 	</div>
 	<!-- 댓글등록끝 -->
+	
+	<!-- 댓글수정폼시작 -->
+<div id="commentUpdate" style="display:none">
+	<form name="updateForm" id="updateForm">
+	<input type="hidden" name="boardNumber" value="${board.boardNumber}">
+	<input type="hidden" name="boardType" value="${board.boardType}"/>
+	이름: <input type="text" name="commentsName" size="10"><br/>
+	내용: <textarea name="commentsContent" cols="20" rows="2"></textarea><br/>
+	<input type="button" value="등록" id="btnUpd"/>
+	<input type="button" value="취소" id="btnCancel"/>
+	</form>
+</div>
+<!-- 댓글수정폼끝 -->
 </body>
 </html>
