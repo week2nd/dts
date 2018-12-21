@@ -63,26 +63,5 @@ public class MhistoryController {
 		
 		return map;
 	}
-	
-	
-	/*@RequestMapping(value="/getMhistoryListAjax", method = RequestMethod.POST)
-	@ResponseBody
-	public ModelAndView getMhistoryListAjax(MhistoryVO vo, Paging paging) {
-		ModelAndView mv = new ModelAndView();
-		if (paging.getPage() == null) {
-			paging.setPage(1);
-		}
-		
-		paging.setPageUnit(10);
-		
-		vo.setFirst(paging.getFirst());
-		vo.setLast(paging.getLast());
-		
-		paging.setTotalRecord(mhistoryService.getCount(vo));
 
-		mv.addObject("paging", paging);
-		mv.addObject("mhistoryList", mhistoryService.getMhistoryListAjax(vo)); // 속성명, 값
-		mv.setViewName("admin/mhistory/getMhistoryList");
-		return mv;
-	}*/
 }

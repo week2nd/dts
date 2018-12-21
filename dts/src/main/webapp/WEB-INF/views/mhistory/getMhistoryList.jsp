@@ -37,10 +37,18 @@
 <script>
 
 	function go_page(page) {
+		
+		console.log(this);
 		$("#mhistoryList").empty();
 		$("#pagination").html("");
+		//
+ 		//var vid = null; 
+		//console.log(vid);
+		
 		if(page == undefined || page == "")
 			{page=1}
+
+		
 		$.ajax({
 			url : "getMhistoryListAjax",
 			data : {page:page},
@@ -50,8 +58,8 @@
 				alert("상태값 :" + status + "Http에러메시지 :" + msg);
 			},
 			success : function(data) {
-				console.log(data);
-				console.log(data.mhistoryList);
+				//console.log(data);
+				//console.log(data.mhistoryList);
 			//	console.log(data.mhistoryList[1].num);
 				for (i = 0; i < data.mhistoryList.length; i++) {
 					var tr = "<tr><td>" + data.mhistoryList[i].num + 
@@ -90,15 +98,17 @@
 		})
 	};
 	$(function() {
+		//$(this).click(go_page);
 		$("#historyAll").click(go_page);
-	
+		//$("#historyAdmin").click(go_page);
 		
 	});
+	
+	
 </script>
 </head>
 <body>
-	<button id="historyAll">전체목록조회</button>
-	<form>
+	<button id="historyAll">전체목록조회</button> <button id="historyAdmin">관리자마일리지조회</button>
 		<table class="table">
 			<thead>
 				<tr>
@@ -112,9 +122,7 @@
 				</tr>
 			</thead>
 		</table>
-	</form>
 	<div>
-	<form>
 		<table class="table">
 		<thead>
 		</thead>
@@ -134,7 +142,6 @@
 				</c:forEach>
 			</tr> --%>
 		</table>
-	</form>
 	</div>
 	<div id="pagination" class="pagination">
 	</div>
