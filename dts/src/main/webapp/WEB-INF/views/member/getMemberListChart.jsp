@@ -68,7 +68,7 @@
 						[ datas.memberList[3].mon, datas.memberList[3].cnt ],
 						[ datas.memberList[4].mon, datas.memberList[4].cnt ],
 						[ datas.memberList[5].mon, datas.memberList[5].cnt ],
-						[ datas.memberList[6].mon, datas.memberList[6].cnt ] 
+						[ datas.memberList[6].mon, datas.memberList[6].cnt ]];
 						
 				
 						
