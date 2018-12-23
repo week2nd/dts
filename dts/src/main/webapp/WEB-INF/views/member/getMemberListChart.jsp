@@ -39,29 +39,29 @@
 			document.frm.searchCondition.value = "${memberVO.searchCondition}";
 		}
 	});
-</script>
-	/////////////////////////////////////////////////////////////////
-<script type="text/javascript">
+
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
 
 
 	function drawChart() {
 
+		var myArray1 = [];
 		$.ajax({
-			url : "getMemberListChart",
-			type : "POST",
+			url : "getMemberListChartData",
+			type : "post",
 			dataType : "json",
-			error : function(xhr, status, msg) {
+			/* error : function(xhr, status, msg) {
 				alert("상태값 :" + status + "Http에러메시지 :" + msg);
-			},
-			success : function(datas) {
-				console.log(data);
-				var data = google.visualization.arrayToDataTable([
-						[ 'mon', 'cnt' ],
-						[ datas.memberList[0].mon, datas.memberList[0].cnt ],
-						[ datas.memberList[1].mon, datas.memberList[1].cnt ] ]);
-
+			}, */
+			success : function(result) {
+				var myArray=[];
+				myArray.push([ "회원", "가입인원" ]);
+				
+				for(var i=0; i<result.length; i++){
+					myArray.push( [result[i].MON, parseInt(result[i].CNT)]);
+				}
+				
 				var options = {
 					chart : {
 						title : 'Company Performance',
@@ -69,12 +69,12 @@
 					}
 				};
 
-				var chart = new google.charts.Bar(document
-						.getElementById('columnchart_material'));
+				var data = google.visualization.arrayToDataTable(myArray);
+				var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
 				chart.draw(data, google.charts.Bar.convertOptions(options));
 			}
-		})
+		});
 	}
 </script>
 <style>
