@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,6 +135,11 @@
 	추천수 : ${board.boardLike} <br>
 	아이디 : ${board.uId } <br>
 	게시판타입 : ${board.boardType } <br> 
+	<c:if test="${not empty board.uploadFileName}">		<!-- 이미지 파일 보여주는것 -->
+	<a href="FileDown?atchFileId=${board.uploadFileName}">${board.uploadFileName }</a>
+	<img src="./img/${board.uploadFileName }"/>	<!-- 이미지 파일 보여주는것 -->
+	</c:if>
+	<br>
 	<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a> 
 	<a href="deleteBoard?boardNumber=${board.boardNumber} ">삭제</a>
 	<a href="getAnalysisBoard?type=${board.boardType}">게시판</a>

@@ -5,12 +5,12 @@
 
 
  <!-- 전체게시판조회 -->
- <select id="getBoardList" resultType="board">	
+ <!-- <select id="getBoardList" resultType="board">	
 	select  b.* from( select a.*, rownum rn from  (	
  		SELECT *
 		FROM BOARD 
 		
-	<!--  WHERE 1=1 -->
+	 WHERE 1=1
 	 <if test="searchKeyword != null and searchKeyword == ''">
 		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
 	</if>
@@ -25,7 +25,7 @@
 		</otherwise>
 	</choose>
 	) a ) b where rn between #{first} and #{last}	
-</select> 
+</select>  -->
 
 
  <!-- 페이지 전체 건수 조회 -->
@@ -61,7 +61,7 @@
 			ORDER BY ${sortCol}	
 		</when>
 		<otherwise>
-			ORDER BY U_ID DESC
+			ORDER BY BOARD_NUMBER DESC
 		</otherwise>
 	</choose>
   )a ) b where rn between #{first} and #{last}
@@ -85,13 +85,20 @@
  <selectKey keyProperty="boardNumber" resultType="integer" order="BEFORE">
 		SELECT nvl(MAX(BOARD_NUMBER),0)+1 FROM BOARD 
 	</selectKey>
-	INSERT INTO BOARD (	BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, U_ID, BOARD_TYPE)
+	INSERT INTO BOARD (	BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, U_ID, BOARD_TYPE
+						<if test="uploadFileName != null and uploadFileName != ''">
+						,uploadFileName
+					</if>
+					)
 				VALUES(
 					#{boardNumber},	
 					#{boardTitle},			<!-- 게시판제목 -->
 					#{boardContent},		<!-- 게시판내용 -->
 					#{uId},					<!-- 아이디 -->
 					#{boardType}			<!-- 게시판타입 -->
+					<if test="uploadFileName != null and uploadFileName != ''">
+					,#{uploadFileName}
+					</if>
 				)
 </insert>
 

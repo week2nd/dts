@@ -2,6 +2,10 @@ package com.company.dts.board;
 
 import java.util.Arrays;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class BoardVO {
 	private int boardNumber;			//게시판번호
 	private String boardTitle;			//게시판제목
@@ -10,8 +14,10 @@ public class BoardVO {
 	private String boardHits;			//조회수
 	private String boardLike;			//추천수
 	private String uId;					//user아이디
-	private String boardType="";			//게시판타입
+	private String boardType;			//게시판타입
 
+	private String uploadFileName;		//파일업로드할때 사용
+	private MultipartFile uploadFile;	//파일업로드할때 사용
 	private String searchCondition;		//속성검색(게시판검색때사용)
 	private String searchKeyword;		//단어검색(게시판검색때사용)
 	private String sortCol;				//정렬
@@ -21,6 +27,19 @@ public class BoardVO {
 	
 	
 	
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+	@JsonIgnore
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 	public int getFirst() {
 		return first;
 	}
