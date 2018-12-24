@@ -80,7 +80,7 @@
 								style="display: inline-block; margin-top: 0em;">
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
-								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}</p>
+								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId} 보유마일리지 : ${membersession.uMileage}</p>
 								</div>
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
@@ -141,7 +141,7 @@
 							</div></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 					</ul>
-					<form class="ml-auto">
+					<!-- <form class="ml-auto">
 						<div class="search">
 							<input type="text" class="form-control" maxlength="64"
 								placeholder="Search" />
@@ -149,7 +149,7 @@
 								<i class="fa fa-search"></i>
 							</button>
 						</div>
-					</form>
+					</form> -->
 				</div>
 			</div>
 		</nav>

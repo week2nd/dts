@@ -8,12 +8,14 @@
 <title>totalChart</title>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
+	
 <script type="text/javascript">
-	google.charts.load('current', {
-		'packages' : [ 'corechart' ]
-	});
-	google.charts.setOnLoadCallback(drawChart);
-
+	google.charts.load('current', {'packages' : [ 'corechart' ]});
+	google.charts.setOnLoadCallback(drawChart); 
+	
+	 google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart);
+		
 	function drawChart() {
 		$.ajax({
 			url : "totalChart",
@@ -24,31 +26,63 @@
 				alert("상태값 :" + status + "Http에러메시지 :" + msg);
 			},
 			success : function(data) {
-				console.log(data)
-				var datas = google.visualization.arrayToDataTable([
-						[ 'Year', 'Sales' ], [ data.purchaseList[0].day, data.purchaseList[0].cnt],
-						[ data.purchaseList[1].day, data.purchaseList[1].cnt], [ data.purchaseList[2].day, data.purchaseList[2].cnt]
-						]);
-
+				console.log(data);
+								
+				console.log("@@@@");
+				var myArray = [];
+				myArray.push(["day", "발매티켓수"]);
+				
+				for(var i=0; i<data.purchaseList.length; i++) {
+					myArray.push([data.purchaseList[i].day, data.purchaseList[i].cnt]);
+				}
+				
 				var options = {
-					title : 'Company Performance',
+					title : '일자별 판매',
 					curveType : 'function',
 					legend : {
 						position : 'bottom'
 					}
 				};
+				var datas = google.visualization.arrayToDataTable(myArray);
+				var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-				var chart = new google.visualization.LineChart(document
-						.getElementById('curve_chart'));
+				chart.draw(datas, options); 
+			///////////////////////////////////////////////////////////
+				
+				var myArray1 = [];
+				myArray1.push(["날짜", "이익"]);
+				
+				for(var j=0; j<data.mhistoryList.length; j++) {
+					myArray1.push([data.mhistoryList[j].betdate, data.mhistoryList[j].cntMileage]);
+				}
+				
+			
+				var options1 = {
+					chart : {
+						title : 'Company Performance',
+						subtitle : 'Sales, Expenses, and Profit: 2014-2017',
+						//seriesType: 'bars',
+				        bar: { groupWidth: '30%' }						
+						
+					}
+				};
+				//
+			
+				var datas1 = google.visualization.arrayToDataTable(myArray1);
+				var chart1 = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-				chart.draw(datas, options);
+				chart1.draw(datas1, google.charts.Bar.convertOptions(options1));
 			}
-		})
+		});
 	}
+	
 </script>
 </head>
 <body>
-	<div id="curve_chart" style="width: 900px; height: 500px"></div>
+	<div id="curve_chart" style="width: 800px; height: 500px"></div>
+	<div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+	<button type="button" onclick="chart1_options1.bar.groupWidth='50%'; drawChart()">50%</button>
+	
 
 </body>
 </html>

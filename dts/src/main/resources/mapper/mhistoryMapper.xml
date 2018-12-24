@@ -5,40 +5,57 @@
 
 	<select id="getCount" resultType="int">
 		SELECT COUNT(*)
-		  FROM ADMINHISTORY
-		  <if test="uId!=null and uId!=''">
+		FROM ADMINHISTORY
+		<if test="uId!=null and uId!=''">
 			WHERE U_ID = #{uId}
-		  </if>		  
-		 ORDER BY 1
-	</select>
-	
-	<select id="getMhistoryList" resultType="mhistory">
-		<!-- select b.* from (  select a.*, rownum rn from (  -->
-		SELECT *
-		  FROM ADMINHISTORY
-		  ORDER BY 1
-		  <!-- ) a  ) b  where rn between #{first} and #{last} -->
-	</select>
-	
-	
-	<select id="getMhistoryListAjax" resultType="mhistory">
-		 select b.* from (  select a.*, rownum rn from ( 
-		SELECT *
-		  FROM ADMINHISTORY
-		  <if test="uId!=null and uId!=''">
-			WHERE U_ID = #{uId}
-		  </if>		  
-		  ORDER BY 1
-		  ) a  ) b  where rn between #{first} and #{last}
-		
-	</select>
-	
-	<select id="totalChart" resultType="mhistory">
-		SELECT *
-		  FROM ADMINHISTORY
-		  ORDER BY 1
+		</if>
+		ORDER BY 1
 	</select>
 
+	<select id="getMhistoryList" resultType="mhistory">
+		<!-- select b.* from ( select a.*, rownum rn from ( -->
+		SELECT *
+		FROM ADMINHISTORY
+		ORDER BY 1
+		<!-- ) a ) b where rn between #{first} and #{last} -->
+	</select>
+
+
+	<select id="getMhistoryListAjax" resultType="mhistory">
+		select b.* from ( select a.*, rownum rn from (
+		SELECT *
+		FROM ADMINHISTORY
+		<if test="uId!=null and uId!=''">
+			WHERE U_ID = #{uId}
+		</if>
+		ORDER BY 1
+		) a ) b where rn between #{first} and #{last}
+
+	</select>
+
+	<select id="totalChart" resultType="mhistory">
+		SELECT *
+		FROM ADMINHISTORY
+		ORDER BY 1
+	</select>
+
+	<select id="totalChartMileage" resultType="mhistory">
+	
+		SELECT SUBSTR(C.AHDATE,9,2) AS DAY, OLD_MILEAGE, NEW_MILEAGE, (NEW_MILEAGE-OLD_MILEAGE) AS
+		CNTMILEAGE FROM
+		(SELECT TO_CHAR(A.AH_DATE,'yyyy/mm/dd') AS AHDATE, A.OLD_MILEAGE FROM
+		ADMINHISTORY A,
+		(SELECT MIN(NUM) AS MINNUM, TO_CHAR(AH_DATE,'yyyy/mm/dd') FROM ADMINHISTORY
+		WHERE U_ID ='admin' GROUP BY TO_CHAR(AH_DATE,'yyyy/mm/dd')) B
+		WHERE A.NUM = B.MINNUM) C
+		JOIN
+		(SELECT TO_CHAR(A.AH_DATE,'yyyy/mm/dd') AS AHDATE, A.NEW_MILEAGE FROM
+		ADMINHISTORY A,
+		(SELECT MAX(NUM) AS MAXNUM, TO_CHAR(AH_DATE,'yyyy/mm/dd') FROM ADMINHISTORY
+		WHERE U_ID ='admin' GROUP BY TO_CHAR(AH_DATE,'yyyy/mm/dd')) B
+		WHERE A.NUM = B.MAXNUM) D
+		ON C.AHDATE = D.AHDATE
+	</select>
 
 </mapper>
 	

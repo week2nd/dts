@@ -79,7 +79,7 @@ public class MhistoryController {
 	public Map totalChart(MhistoryVO vo, PurchaseVO vo1) {
 		HashMap map = new HashMap();
 		
-		map.put("mhistoryList", mhistoryService.getMhistoryList(vo));
+		map.put("mhistoryList", mhistoryService.totalChartMileage(vo));
 		map.put("purchaseList", purchaseService.getPurchaseListChart(vo1));
 		
 		return map;

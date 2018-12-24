@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.company.dts.member.MemberVO;
 import com.company.dts.common.Paging;
+import com.company.dts.member.MemberService;
+import com.company.dts.member.MemberVO;
 import com.company.dts.purchase.PurchaseService;
 import com.company.dts.purchase.PurchaseVO;
 
@@ -19,6 +20,8 @@ public class PurchaseController {
 
 	@Autowired
 	PurchaseService purchaseService;
+	@Autowired
+	MemberService memberSerivce;
 
 	// 유저구매전체조회
 	@RequestMapping("/getPurchaseList")
@@ -85,8 +88,14 @@ public class PurchaseController {
 
 	// 구매완료등록
 	@RequestMapping(value = "insertPurchase", method = RequestMethod.POST)
-	public String insertPurchase(Model model, PurchaseVO vo) {
+	public String insertPurchase(Model model, PurchaseVO vo, HttpSession session) {
+		System.out.println(vo.getuId());
+		MemberVO vo1 = new MemberVO();
+		vo1.setuId(vo.getuId());
 		purchaseService.insertPurchase(vo);
+		MemberVO membervo = memberSerivce.getMember(vo1);
+		
+		session.setAttribute("membersession", membervo);
 		return "redirect:getPurchaseList";
 	}
 

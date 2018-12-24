@@ -9,10 +9,25 @@ public class MhistoryVO {
 	private int newMileage;
 	private String ipAddr;
 	private String categorie;
-	
+	private int cntMileage;
+	private String day;
 	private int first;
 	private int last;
 	
+	
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
+	}
+	
+	public int getCntMileage() {
+		return cntMileage;
+	}
+	public void setCntMileage(int cntMileage) {
+		this.cntMileage = cntMileage;
+	}
 	public int getFirst() {
 		return first;
 	}
