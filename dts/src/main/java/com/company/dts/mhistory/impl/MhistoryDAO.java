@@ -30,4 +30,8 @@ public class MhistoryDAO {
 	public List<MhistoryVO> totalChart(MhistoryVO vo) {
 		return mybatis.selectList("mhistory.getMhistoryList", vo);
 	}
+	
+	public List<MhistoryVO> totalChartMileage(MhistoryVO vo) {
+		return mybatis.selectList("mhistory.totalChartMileage", vo);
+	}
 }

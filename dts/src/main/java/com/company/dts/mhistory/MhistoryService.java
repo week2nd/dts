@@ -11,5 +11,7 @@ public interface MhistoryService {
 	public int getCount(MhistoryVO vo);
 	
 	public List<MhistoryVO> totalChart(MhistoryVO vo);
+	
+	public List<MhistoryVO> totalChartMileage(MhistoryVO vo);
 
 }

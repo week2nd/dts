@@ -32,4 +32,9 @@ public class MhistoryServiceImpl implements MhistoryService {
 	public List<MhistoryVO> totalChart(MhistoryVO vo) {
 		return dao.getMhistoryList(vo);
 	}
+	@Override
+	public List<MhistoryVO> totalChartMileage(MhistoryVO vo) {
+		return dao.totalChartMileage(vo);
+	}
+	
 }

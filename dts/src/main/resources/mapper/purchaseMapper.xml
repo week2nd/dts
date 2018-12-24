@@ -9,7 +9,7 @@
 		ORDER BY 1
 	</select>
 
-	<!-- <select id="getPurchaseList" resultType="purchase">
+	<select id="getPurchaseList" resultType="purchase">
 		SELECT PURCHASE_NUM,
 		U_ID,
 		GAME_ID,
@@ -22,7 +22,7 @@
 		<if test="uId!=null and uId!=''">
 			WHERE U_ID = #{uId}
 		</if>
-	</select> -->
+	</select>
 
 	<select id="getPurchaseListAd" parameterType="purchase"
 		resultType="purchase">

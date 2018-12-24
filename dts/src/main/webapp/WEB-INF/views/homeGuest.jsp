@@ -847,27 +847,6 @@
 		</div>
 	</footer>
 
-	<!-- Copy footer start from here-->
-	<div class="copyright">
-		<div class="container-fluid">
-			<div class="row px-3">
-				<div class="col-lg-6 col-md-4">
-					<p>
-						© 2016 - <a href="http://grafreez.com">Grafreez.com</a>
-					</p>
-				</div>
-				<div class="col-lg-6 col-md-8">
-					<ul class="bottom_ul">
-						<li><a href="#">About us</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Faq's</a></li>
-						<li><a href="#">Contact us</a></li>
-						<li><a href="#">Site Map</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<!-- Bootstrap core JavaScript
     ================================================== -->

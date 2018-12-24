@@ -8,7 +8,6 @@
 
 </head>
 <body>
-
 	<form action="./insertPurchase" method="post" name="gamebuy" >
 	<input type="hidden" name="uId" value="${membersession.uId }">
 	게임번호<input type="text" name="gameId" value="${purchaseVO.gameId }" readonly>

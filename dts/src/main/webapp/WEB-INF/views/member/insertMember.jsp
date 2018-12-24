@@ -308,7 +308,7 @@
 <body>
 	<h3>회원가입</h3>
 	<form action="insertMember" method="post">
-	<input type="hidden" id="uDate" value="${member.uDate }">
+	
 		<table id="tb">
 	        <tr>            
 	            <td>아이디</td>
@@ -379,6 +379,7 @@
 	            	<input type="hidden" id="uEmail" name="uEmail"  value="${member.uEmail }">
 	            	<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="checkPwd()">&nbsp;&nbsp;@&nbsp;
 	            	<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="checkPwd()">
+	            	<input type="hidden" id="uDate" value="${member.uDate }">
 <!-- 	            	<select name="selectEmail" id="selectEmail" class="form-control phone" onchange="checkPwd()">
                        <option value="blank">--선택--</option>
                        <option value="naver.com">네이버</option>

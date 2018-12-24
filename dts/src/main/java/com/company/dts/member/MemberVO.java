@@ -15,9 +15,17 @@ public class MemberVO {
 	private int uWin;			// 유저 베팅 승리횟수
 	private int uLose;			// 유저 베팅 패배횟수
 	
-	private String mon;
-	private int cnt;
+	private String mon;			// 차트 월
+	private int cnt;			// 차트 월별 회원 수
 	
+	private String year;		// 차트 년도
+	
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
 	public String getMon() {
 		return mon;
 	}

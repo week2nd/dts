@@ -45,10 +45,10 @@ select b.* from(select a.*, rownum rn from(
   )a ) b where rn between #{first} and #{last}
 </select>
 
-<select id="getMemberListChartData" resultType="map">
+<select id="getMemberListChartData"  parameterType="member" resultType="map">
 	
 	SELECT SUBSTR(U_DATE,6,2) AS MON, TO_CHAR(COUNT(*)) AS CNT FROM MEMBER
-	WHERE U_GRANT ='user' GROUP BY SUBSTR(U_DATE,6,2) ORDER BY 1
+	WHERE U_GRANT ='user' AND SUBSTR(U_DATE,1,4)=#{year} GROUP BY SUBSTR(U_DATE,6,2) ORDER BY 1
 </select>
 
 <!-- 단일유저조회 -->
