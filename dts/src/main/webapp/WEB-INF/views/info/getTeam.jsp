@@ -27,7 +27,12 @@
 				</tr>
 				<tr>
 				<td>순위 ${team.rank}</td>
-				<td>${team.director }</td>
+				<td>${team.director}</td>
+				<td colspan="2">
+					<c:if test="${not empty team.fileName}">
+						<img src="./img/${team.fileName}">
+					</c:if>
+				</td>
 				</tr>
 			</table>
 		</form>
@@ -81,7 +86,7 @@
 			</c:forEach>
 			</table>
 	</div>
-	<c:if test="${membersession.uId=='admin'}">
+	<c:if test="${membersession.uGrant=='admin'}">
 	<div>
 		<a class="badge-light[href]:focus" href="deleteTeam?teamId=${team.teamId}">삭제</a>
 	</div>

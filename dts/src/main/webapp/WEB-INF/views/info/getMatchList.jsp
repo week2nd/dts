@@ -14,6 +14,11 @@
 	</script>
 </head>
 <body>
+
+	<h3>경기 정보</h3>
+	
+	
+	
 	<c:if test="${membersession.uGrant=='admin'}">
 		<button type="button" onclick="location.href='insertMatchForm'"
 				class="btn">경기등록</button>

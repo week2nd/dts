@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<h3>팀 정보</h3>
 <c:if test="${membersession.uGrant=='admin'}">
 <a href="insertTeamForm"><button class="btn">새 팀 입력</button></a>
 </c:if>
@@ -23,14 +25,13 @@
 			<tr>
 				<th>순위</th>
 				<th>팀명</th>
-				<th>M</th>
-				<th>W</th>
-				<th>L</th>
+				<th>감독</th>
+				<th>헤드코치</th>
+				<th>팀 이름</th>
+				<th>경기수</th>
+				<th>승</th>
+				<th>패</th>
 				<th>승률</th>
-				<th>TK</th>
-				<th>TD</th>
-				<th>TA</th>
-				<th>KDA</th>
 			</tr>
 			<c:forEach items="${teamList}" var="team">
 				<tr>
@@ -39,11 +40,10 @@
 					<td>${team.director }</td>
 					<td>${team.headCoach}</td>
 					<td>${team.name}</td>
-					<td>${team.win }</td>
-					<td>${team.lose }</td>
-					<td>#</td>
-					<td>#</td>
-					<td>#.#</td>
+					<td>${team.playerMatch}</td>
+					<td>${team.win}</td>
+					<td>${team.lose}</td>
+					<td>${team.rate}%</td>
 				</tr>
 			</c:forEach>
 		</table>

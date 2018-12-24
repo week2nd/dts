@@ -1,11 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>updateMatch</title>
 <script>
+$(function() {
+$(".datepicker").datepicker();
+});
+
+function teamCheck() {
+	$("#redTeamId option:eq(0)").attr("selected", false).each(function(){
+		if($(this).val() == "${team.teamId}"){
+			$(this).attr("selected","selected")
+		}
+	});
+	$("#blueTeamId option:eq(0)").attr("selected", false);
+	var t1 = $("select[name=redTeamName]").val();
+	var t2 = $("select[name=blueTeamName]").val();
+	if(t1==t2) {
+		$("#redTeamId option:eq(0)").attr("selected", true);
+		$("#blueTeamId option:eq(0)").attr("selected", true);
+		alert("중복팀을 선택 할 수 없습니다");		
+	}	
+}
+
 $("#deleteMatchBtn").click(function() {
 	var delcon = confirm("삭제하시겠습니까?");
 	if(delcon == true) {
@@ -31,11 +52,21 @@ $("#deleteMatchBtn").click(function() {
 				<td align="right" colspan="8"><input type="text" name="matchInfo" value="${match.matchInfo}" size="10" placeholder="경기 정보"></td>
 			</tr>
 			<tr>
-				<td colspan="6"><input type="text" name="blueTeamName" value="${match.blueTeamName}" size="10" placeholder="블루팀명"></td>
+				<td colspan="6"><select id="blueTeamId" name="blueTeamName" onchange="teamCheck()">
+						<option >BLUE팀ID</option>
+							<c:forEach items="${teamList}" var="team">
+						<option <c:if test="${team.teamId == match.blueTeamName}"> selected="true" </c:if> value="${team.teamId}" > ${team.teamId}</option>
+							</c:forEach>
+					</select></td>
 				<td align="center" colspan="2"><input type="text" name="blueResult" value="${match.blueResult}" size="10" placeholder="블루팀 결과"></td>
 				<td>${match.bluePick1Kill}:${match.redPick1Kill}</td>
 				<td align="center" colspan="2"><input type="text" name="redResult" value="${match.redResult}" size="10" placeholder="레드팀 결과"></td>
-				<td align="right" colspan="6"><input type="text" name="redTeamName" value="${match.redTeamName}" size="10" placeholder="레드팀명"></td>
+				<td align="right" colspan="6"><select id="redTeamId" name="redTeamName" onchange="teamCheck()" >
+						<option >RED팀ID</option>
+							<c:forEach items="${teamList}" var="team">
+						<option <c:if test="${team.teamId == match.redTeamName}"> selected="selected" </c:if> value="${team.teamId}">${team.teamId}</option>
+							</c:forEach>
+					</select></td>
 			</tr>
 			<tr>
 				<td>K</td>

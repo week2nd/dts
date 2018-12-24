@@ -10,9 +10,10 @@
 				DIRECTOR,
 				HEAD_COACH,
 				NAME,
+				WIN + LOSE playerMatch,
 				WIN,
 				LOSE,
-				RATE
+				ROUND(FUNC_TEAMWINRATE(TEAM_ID),2) rate
 		FROM 	TEAM
 		<if test="searchKeyword != null and searchKeyword != ''">
 		WHERE 	${searchCondition} like '%'||#{searchKeyword}||'%'
@@ -29,7 +30,7 @@
 						NAME,
 						WIN,
 						LOSE,
-						RATE
+						FILENAME
 				FROM 	TEAM)
 		WHERE	TEAM_ID = #{teamId}
 	</select>
@@ -92,11 +93,21 @@
 		INSERT INTO TEAM(TEAM_ID, 
 						DIRECTOR, 
 						HEAD_COACH, 
-						NAME)
+						NAME
+		<if test="fileName != null and fileName != ''">
+						,
+						FILENAME
+		</if>
+						)
   		VALUES			(#{teamId},
   						#{director},
   						#{headCoach},
-  						#{name})
+  						#{name}
+  		<if test="fileName != null and fileName != ''">
+  						,
+  						#{fileName}
+  		</if>
+  						)
 	</insert>
 	
 	<update id="updateTeam" parameterType="team">
@@ -105,6 +116,11 @@
 				DIRECTOR = #{director},
 				HEAD_COACH = #{headCoach},
 				NAME = #{name}
+				
+			<if test="fileName != null and fileName != ''">
+				,
+				FILENAME = #{fileName}
+			</if>
 		WHERE	TEAM_ID = #{teamId}
 	</update>
 	

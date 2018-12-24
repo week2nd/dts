@@ -1,5 +1,7 @@
 package com.company.dts.info;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class TeamVO {
 	private String teamId;
 	private String director;
@@ -8,6 +10,10 @@ public class TeamVO {
 	private int win;
 	private int lose;
 
+	//파입 업로드용
+	private String fileName;
+	private MultipartFile uploadFile;
+	
 	//조인용
 	private String nickName;
 	private String playerName;
@@ -21,13 +27,29 @@ public class TeamVO {
 	
 	// 통계
 	private int rank;
-	private int rate;
+	private float rate;
 	private int playerMatch;
 	private String vsTeam;
 	//검색
 	private String searchCondition;
 	private String searchKeyword;
-				
+	
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+
 	public String getVsTeam() {
 		return vsTeam;
 	}
@@ -188,11 +210,11 @@ public class TeamVO {
 		this.lose = lose;
 	}
 
-	public int getRate() {
+	public float getRate() {
 		return rate;
 	}
 
-	public void setRate(int rate) {
+	public void setRate(float rate) {
 		this.rate = rate;
 	}
 

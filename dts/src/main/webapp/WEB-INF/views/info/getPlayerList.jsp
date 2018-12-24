@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<h3>선수 정보 TEST</h3>
+	<h3>선수 정보</h3>
 	
 	<form name="playerFrm">
 		<select name="searchCondition">

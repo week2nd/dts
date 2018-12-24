@@ -1,5 +1,9 @@
 package com.company.dts.info.web;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.company.dts.common.Paging;
@@ -16,7 +21,6 @@ import com.company.dts.info.PlayerService;
 import com.company.dts.info.PlayerVO;
 import com.company.dts.info.TeamService;
 import com.company.dts.info.TeamVO;
-import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
 import com.company.dts.purchase.PurchaseVO;
 
@@ -60,7 +64,8 @@ public class InfoController {
 
 	// 선수 입력 폼 이동
 	@RequestMapping("/insertPlayerForm")
-	public String insertForm() {
+	public String insertForm(Model model, TeamVO vo) {
+		model.addAttribute("teamList", teamService.getTeamList(vo));
 		return "admin/info/insertPlayer";
 	}
 
@@ -73,7 +78,8 @@ public class InfoController {
 
 	// 선수 정보 수정 폼 이동
 	@RequestMapping("/updatePlayerForm")
-	public String updatePlayerForm(Model model, PlayerVO vo) {
+	public String updatePlayerForm(Model model, PlayerVO vo, TeamVO tvo) {
+		model.addAttribute("teamList", teamService.getTeamList(tvo));
 		model.addAttribute("player", playerService.getPlayer(vo));
 		return "admin/info/updatePlayer";
 	}
@@ -132,13 +138,23 @@ public class InfoController {
 
 	// 팀 입력 폼 이동
 	@RequestMapping("/insertTeamForm")
-	public String insertTeamForm() {
+	public String insertTeamForm(Model model, TeamVO vo) {
+		model.addAttribute("teamList", teamService.getTeamList(vo));
 		return "admin/info/insertTeam";
 	}
 
 	// 팀 입력 처리
 	@RequestMapping("/insertTeam")
-	public String insertTeam(TeamVO vo) {
+	public String insertTeam(TeamVO vo, HttpServletRequest request) throws IllegalStateException, IOException {
+		String path = request.getSession().getServletContext().getRealPath("/img");
+		System.out.println("path==" + path);
+		MultipartFile upfile = vo.getUploadFile();
+		if( ! upfile.isEmpty() && upfile.getSize() > 0) {
+			String filename = upfile.getOriginalFilename();
+			upfile.transferTo(new File(path, filename));
+			vo.setFileName(filename);
+		}
+		
 		teamService.insertTeam(vo);
 		return "redirect:getTeamList";
 	}
@@ -146,13 +162,22 @@ public class InfoController {
 	// 팀 정보 수정 폼 이동
 	@RequestMapping("/updateTeamForm")
 	public String updateTeamForm(Model model, TeamVO vo) {
+		model.addAttribute("teamList", teamService.getTeamList(vo));
 		model.addAttribute("team", teamService.getTeam(vo));
 		return "admin/info/updateTeam";
 	}
 
 	// 팀 정보 수정 처리
 	@RequestMapping("/updateTeam")
-	public String updateTeam(TeamVO vo) {
+	public String updateTeam(TeamVO vo, HttpServletRequest request) throws IllegalStateException, IOException {
+		String path = request.getSession().getServletContext().getRealPath("/img");
+		MultipartFile upfile = vo.getUploadFile();
+		if(! upfile.isEmpty() && upfile.getSize() > 0) {
+			String filename = upfile.getOriginalFilename();
+			upfile.transferTo(new File(path, filename));
+			vo.setFileName(filename);
+		}
+		
 		teamService.updateTeam(vo);
 		return "redirect:getTeamList";
 	}
@@ -220,7 +245,8 @@ public class InfoController {
 
 	// 경기 입력 폼 이동
 	@RequestMapping("/insertMatchForm")
-	public String insertMatchForm() {
+	public String insertMatchForm(Model model, TeamVO vo) {
+		model.addAttribute("teamList", teamService.getTeamList(vo));
 		return "admin/info/insertMatch";
 	}
 
@@ -236,7 +262,8 @@ public class InfoController {
 
 	// 경기 정보 수정 폼 이동
 	@RequestMapping("/updateMatchForm")
-	public String updateMatchForm(Model model, MatchVO vo) {
+	public String updateMatchForm(Model model, MatchVO vo, TeamVO tvo) {
+		model.addAttribute("teamList", teamService.getTeamList(tvo));
 		model.addAttribute("match", matchService.getMatch(vo));
 		return "admin/info/updateMatch";
 	}

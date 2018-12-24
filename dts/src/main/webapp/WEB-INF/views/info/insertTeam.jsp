@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>insertTeam.jsp</title>
 </head>
 <body>
-	<form action="insertTeam">
+	<form action="insertTeam" method="post" enctype="multipart/form-data">
 		<div>
 			<table>
 				<tr>
@@ -32,6 +33,7 @@
 					<td>${team.rate}%</td>
 				</tr>
 			</table>
+			<input type="file" name="uploadFile" value="${team.fileName }">${team.fileName}
 		</div>
 		<input type="submit" value="입력">
 	</form>
