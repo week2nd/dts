@@ -191,9 +191,13 @@
 </form>
 
 
- <form action="deleteMemberList" 0 >	
+ <form action="deleteMemberList" >	
 
 	<button class="deleteBtn">선택삭제</button>
+	<input type="text" name="year" value="${memberVO.year }" >
+	<a href="getMemberListChart?year=${memberVO.year }"><input id="chartBtn" type="button" value="회원차트">
+				</a>
+	<!-- ?year=${member.year } -->
 	<table border="1" >
 		<tr>
 			<th>선택</th>

@@ -1,6 +1,5 @@
 package com.company.dts.member.web;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,15 +55,15 @@ public class MemberController {
 	// 관리자 차트 폼
 	@RequestMapping(value="/getMemberListChart")
 	public String getMemberListChart(Model model, MemberVO vo) {
-		model.addAttribute("memberList", memberService.getMemberList(vo));
+		model.addAttribute("member", memberService.getMemberList(vo));
 		return "admin/member/getMemberListChart";
 	}
 	
 	// 관리자 차트 폼
 	@RequestMapping(value="/getMemberListChartData")
 	@ResponseBody
-	public List<Map<String, String>> getMemberListChartData() {
-		return memberService.getMemberListChart(); 
+	public List<Map<String, String>> getMemberListChartData(MemberVO vo) {
+		return memberService.getMemberListChart(vo); 
 	}
 	
 	
