@@ -21,12 +21,23 @@
  	
  	$(function(){
  		$(".deleteBtn").click(function(){									// 다중 삭제 버튼을 눌렀을 경우
- 			if (confirm("정말 삭제하시겠습니까??")== true){						// 다중 삭제 확인을 눌렀을 경우 	
-				alert("회원 탈퇴 완료 되었습니다.");
- 				return true;
- 			}else{															// 다중 삭제 취소를 눌렀을 경우
-				return false;
-			}
+ 			if($(".hide:checked").length==0){
+ 				alert("체크박스를 선택하세요");
+ 				return false;
+ 			}else{
+	 			if (confirm("정말 삭제하시겠습니까??")== true && $(".hide:checked").length>0){						// 다중 삭제 확인을 눌렀을 경우 	
+					alert("회원 탈퇴 완료 되었습니다.");
+					
+	 				return true;
+	 			}else if($(".hide:checked").length==0){															// 다중 삭제 취소를 눌렀을 경우
+	 				console.log($(".hide:checked").length);
+	 				alert("체크박스가 선택안됫다.");
+					return false;
+				}else {
+					alert("취소해서 요기 왔냐");
+					return false;
+				}
+ 			}
  		});
  		if("${memberVO.searchCondition}"!=""){
 

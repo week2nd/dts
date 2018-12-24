@@ -308,7 +308,7 @@
 <body>
 	<h3>회원가입</h3>
 	<form action="insertMember" method="post">
-	<input type="text" id="uDate" value="${member.uDate }">
+	<input type="hidden" id="uDate" value="${member.uDate }">
 		<table id="tb">
 	        <tr>            
 	            <td>아이디</td>
@@ -343,7 +343,7 @@
 	            <td>주소</td>       
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkPwd()" >
+	                <input type="text" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
 	                <input type="text" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()"><br>
 	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>

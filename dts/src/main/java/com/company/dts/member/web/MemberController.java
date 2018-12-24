@@ -1,6 +1,7 @@
 package com.company.dts.member.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -52,19 +53,18 @@ public class MemberController {
 	}
 	
 	
-	/*// 관리자 차트 폼
-	@RequestMapping(value="/getMemberListChart", method = {RequestMethod.POST, RequestMethod.GET})
+	// 관리자 차트 폼
+	@RequestMapping(value="/getMemberListChart")
 	public String getMemberListChart(Model model, MemberVO vo) {
 		model.addAttribute("memberList", memberService.getMemberList(vo));
 		return "admin/member/getMemberListChart";
-	}*/
+	}
 	
 	// 관리자 차트 폼
-	@RequestMapping(value="/getMemberListChart1", method = {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView getMemberList(MemberVO vo) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("admin/member/getMemberListChart");
-		return mv;
+	@RequestMapping(value="/getMemberListChartData")
+	@ResponseBody
+	public List<Map<String, String>> getMemberListChartData() {
+		return memberService.getMemberListChart(); 
 	}
 	
 	
@@ -74,7 +74,7 @@ public class MemberController {
 		return memberService.getMemberListChart();
 	}*/
 	
-	@RequestMapping(value="/getMemberListChart", method = {RequestMethod.POST, RequestMethod.GET})
+	/*@RequestMapping(value="/getMemberListChart", method = {RequestMethod.POST, RequestMethod.GET})
 	@ResponseBody
 	public Map  getMemberListChart(MemberVO vo) {
 		HashMap map = new HashMap();
@@ -82,7 +82,7 @@ public class MemberController {
 		map.put("memberList", memberService.getMemberListChart(vo));
 		
 		return map;
-	}
+	}*/
 	
 	
 	// 관리자 맴버 단건조회
