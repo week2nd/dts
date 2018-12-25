@@ -97,66 +97,6 @@
         var inputId = $('.id').val();		// 아이디 값 inputId에 담기
         var isid = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{4,20}$/;	// 영어, 숫자만 입력가능하게 만든 변수
         
-        $.ajax({
-            data : {
-                uId : inputId
-            },
-            url : "checkId",
-            success : function(data) {
-            	
-                if(inputId=="" && data==false || inputId.length<4) {		// 아이디 텍스트박스 값이 Null이면서 data에 없거나 아이디 값 길이가 4미만일 경우
-                    $(".joinbtn").prop("disabled", true);					// 가입버튼 비활성화 
-                    $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
-                    $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
-                    idCheck = 0;
-                    document.all.spanIdO.style.display="none";				// 사용가능한 아이디 span 비활성화
-                    document.all.spanIdX.style.display="none";				// 중복 아이디 span 비활성화
-                } else if (data == false) {				// data에 값이 없을 경우
-                    $("#chkId").css("background-color", "#B0F6AC");			// 아이디 텍스트박스 초록색
-                    document.all.spanIdO.style.display="";					// 사용가능한 아이디 span 활성화
-                    document.all.spanIdX.style.display="none";				// 중복 아이디 span 비활성화
-                    idCheck = 1;
-                    if(idCheck==1 && pwdCheck == 1) {	// 아이디체크와 비밀번호체크 모두 확인 됬을 경우
-                      	$(".joinbtn").prop("disabled", false);				// 가입버튼 활성화
-                       	$(".joinbtn").css("background-color", "#4CAF50");	// 가입버튼 초록색
-                    } 
-                } else if (data == true) {				// 중복아이디를 입력했을 경우
-                    $(".joinbtn").prop("disabled", true);					
-                    $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
-                    $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
-                    idCheck = 0;
-                    document.all.spanIdO.style.display="none";				// 사용가능한 아이디 span 비활성화
-                    document.all.spanIdX.style.display="";					// 중복 아이디 span 활성화
-                } 
-                if(inputId.length<4){					// 아이디 값 길이가 4미만일 경우
-                    document.all.countId.style.display="";					// 네 글자 이상 아이디입력 필요 span 활성화
-                    $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
-                 } else if(inputId.length>3){			// 아이디 값 길이가 4이상일 경우
-                    document.all.countId.style.display="none";				// 네 글자 이상 아이디입력 필요 span 비활성화
-                 }
-            }
-        });
-    }
-  
-    function checkPwd() {		//재입력 비밀번호 체크 및 이름, 주소, 휴대폰번호, 생년월일, E-Mail의 값 확인 후 가입버튼 비활성화 또는 맞지않음을 알림 
-    	/*     	var target = document.getElementById("selectEmail");
-    	 if(target.options[target.selectedIndex].value == "direct" &&  document.all.chkEmail2.value != null){
-   	    	document.all.chkEmail2.value = "";
-      		document.all.chkEmail2.readOnly = false;
-      		console.log($('#chkEmail2').val());
-         } else if(target.options[target.selectedIndex].value == "blank" &&  document.all.chkEmail2.value != null ){
-      		document.all.chkEmail2.readOnly = true;
-//      		$("#chkEmail2").attr("disabled",true);
-         } else if(	target.options[target.selectedIndex].text == "네이버" || 
-        		 	target.options[target.selectedIndex].text == "구글" ||
-        		 	target.options[target.selectedIndex].text == "다음" ||
-        		 	target.options[target.selectedIndex].text == "네이트"){
-      		document.all.chkEmail2.value = target.options[target.selectedIndex].value;
-      		document.all.chkEmail2.readOnly = true;
-//  			$("#chkEmail2").attr("disabled",true);
-         } 
-    	 */ 	 
-    	  
         var inputPw1 = $('#chkPw1').val();				// 비밀번호 텍스트박스 값
         var inputPw2 = $('#chkPw2').val();				// 비밀번호 확인 텍스트박스 값
         var inputName = $('#chkName').val();			// 이름 텍스트박스 값
@@ -177,6 +117,95 @@
         
         // 휴대폰번호 '-'(하이픈) 합치는 과정		
 		document.all.uPhone.value = $('#phone1').val() + "-" + inputPhone1 + "-" + inputPhone2;
+        
+        $.ajax({
+            data : {
+                uId : inputId
+            },
+            url : "checkId",
+            success : function(data) {
+            	
+            	if(inputId=="" || inputId.length<4) {		// 아이디 텍스트박스 값이 Null이면서 data에 없거나 아이디 값 길이가 4미만일 경우
+                    $(".joinbtn").prop("disabled", true);					// 가입버튼 비활성화 
+                    $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
+                    $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
+                    idCheck = 0;
+                    document.all.countId.style.display="";					// 네 글자 이상 아이디입력 필요 span 활성화
+                    document.all.spanIdO.style.display="none";				// 사용가능한 아이디 span 비활성화
+                    document.all.spanIdX.style.display="none";				// 중복 아이디 span 비활성화
+                } else if (data == false) {				// data에 값이 없을 경우
+                    $("#chkId").css("background-color", "#B0F6AC");			// 아이디 텍스트박스 초록색
+                    document.all.spanIdO.style.display="";					// 사용가능한 아이디 span 활성화
+                    document.all.spanIdX.style.display="none";				// 중복 아이디 span 비활성화
+                    idCheck = 1;
+                    if(idCheck==1 && pwdCheck == 1) {	// 아이디체크와 비밀번호체크 모두 확인 됬을 경우
+                      	$(".joinbtn").prop("disabled", false);				// 가입버튼 활성화
+                       	$(".joinbtn").css("background-color", "#4CAF50");	// 가입버튼 초록색
+                    } 
+                } else if (data == true) {				// 중복아이디를 입력했을 경우
+                    $(".joinbtn").prop("disabled", true);					
+                    $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
+                    $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
+                    idCheck = 0;
+                    document.all.spanIdO.style.display="none";				// 사용가능한 아이디 span 비활성화
+                    document.all.spanIdX.style.display="";					// 중복 아이디 span 활성화
+                } if(inputId.length>3){			// 아이디 값 길이가 4이상일 경우
+                    document.all.countId.style.display="none";				// 네 글자 이상 아이디입력 필요 span 비활성화
+                 }
+                
+            }
+        });
+    }
+  
+    function checkId2() {		//재입력 비밀번호 체크 및 이름, 주소, 휴대폰번호, 생년월일, E-Mail의 값 확인 후 가입버튼 비활성화 또는 맞지않음을 알림 
+    	/*     	var target = document.getElementById("selectEmail");
+    	 if(target.options[target.selectedIndex].value == "direct" &&  document.all.chkEmail2.value != null){
+   	    	document.all.chkEmail2.value = "";
+      		document.all.chkEmail2.readOnly = false;
+      		console.log($('#chkEmail2').val());
+         } else if(target.options[target.selectedIndex].value == "blank" &&  document.all.chkEmail2.value != null ){
+      		document.all.chkEmail2.readOnly = true;
+//      		$("#chkEmail2").attr("disabled",true);
+         } else if(	target.options[target.selectedIndex].text == "네이버" || 
+        		 	target.options[target.selectedIndex].text == "구글" ||
+        		 	target.options[target.selectedIndex].text == "다음" ||
+        		 	target.options[target.selectedIndex].text == "네이트"){
+      		document.all.chkEmail2.value = target.options[target.selectedIndex].value;
+      		document.all.chkEmail2.readOnly = true;
+//  			$("#chkEmail2").attr("disabled",true);
+         } 
+    	 */ 	 
+    	if(inputId=="" && data==false || inputId.length<4) {		// 아이디 텍스트박스 값이 Null이면서 data에 없거나 아이디 값 길이가 4미만일 경우
+            $(".joinbtn").prop("disabled", true);					// 가입버튼 비활성화 
+            $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
+            $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
+            idCheck = 0;
+            document.all.spanIdO.style.display="none";				// 사용가능한 아이디 span 비활성화
+            document.all.spanIdX.style.display="none";				// 중복 아이디 span 비활성화
+        } else if (data == false) {				// data에 값이 없을 경우
+            $("#chkId").css("background-color", "#B0F6AC");			// 아이디 텍스트박스 초록색
+            document.all.spanIdO.style.display="";					// 사용가능한 아이디 span 활성화
+            document.all.spanIdX.style.display="none";				// 중복 아이디 span 비활성화
+            idCheck = 1;
+            if(idCheck==1 && pwdCheck == 1) {	// 아이디체크와 비밀번호체크 모두 확인 됬을 경우
+              	$(".joinbtn").prop("disabled", false);				// 가입버튼 활성화
+               	$(".joinbtn").css("background-color", "#4CAF50");	// 가입버튼 초록색
+            } 
+        } else if (data == true) {				// 중복아이디를 입력했을 경우
+            $(".joinbtn").prop("disabled", true);					
+            $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
+            $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
+            idCheck = 0;
+            document.all.spanIdO.style.display="none";				// 사용가능한 아이디 span 비활성화
+            document.all.spanIdX.style.display="";					// 중복 아이디 span 활성화
+        } 
+        if(inputId.length<4){					// 아이디 값 길이가 4미만일 경우
+            document.all.countId.style.display="";					// 네 글자 이상 아이디입력 필요 span 활성화
+            $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
+         } else if(inputId.length>3){			// 아이디 값 길이가 4이상일 경우
+            document.all.countId.style.display="none";				// 네 글자 이상 아이디입력 필요 span 비활성화
+         }  
+        
 			
 		if(inputName == "" || inputAddress1 == "" || inputAddress2 == "" 		// 이름, 주소, 휴대폰번호, 생년월일, E-mail의 각 값들이 모두 Null일 경우 (휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능)
 				|| inputEmail1 == "" || inputEmail2 == "" || inputBirth == "" 	// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
@@ -206,7 +235,9 @@
 	           $(".joinbtn").css("background-color", "#4CAF50");				// 가입버튼 초록색
             }
         } else if (inputPw1 != inputPw2) {		// 비밀번호 틀릴경우
-            pwdCheck = 0;										
+            pwdCheck = 0;		
+            $(".joinbtn").css("display","block");
+    //        $(".joinbtn").css("display","none");
             $(".joinbtn").prop("disabled", true);				// 가입버튼 비활성화
             $(".joinbtn").css("background-color", "#aaaaaa");	// 가입버튼 회색
             $("#chkPw1").css("background-color", "#FFCECE");	// 비밀번호 텍스트박스 빨강색
@@ -258,19 +289,19 @@
 	}
 
 	.joinbtn {						/* delete 버튼 */
-		background-image: linear-gradient(to right, #A8A7A7 , #363636);
+		background-color:  #363636;
 		color: white;					/* 글자색 */
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
 		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
 		width: 7%;						/* 버튼 넓이 7% */
 	}
-	.joinbtn:hover {					/* delete버튼 마우스 hover 시 */
+/* 	.joinbtn:hover {					/* delete버튼 마우스 hover 시 */
 		opacity: 0.8;					
 		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
 		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
 	  	transform: translateY(2px);		/* 그림자 길이 2px */
-	}
+	} */
 	 
 	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
 		border: 1px solid #f2f2f2; 		/* 선 굵기 1px, 실선, 회색 */
@@ -324,7 +355,7 @@
 	        <tr>
 	            <td>비밀번호</td>
 	            <td>
-	            	<input type="password" name="uPw" id="chkPw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkPwd()"><br>&nbsp;
+	            	<input type="password" name="uPw" id="chkPw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkId()"><br>&nbsp;
 	            	<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
               		<span id="spanPwO" style="display: none">비밀번호가 일치합니다.</span>
             	</td>
@@ -332,19 +363,19 @@
 	        </tr>
 	        <tr>
 	            <td>비밀번호 확인</td>
-	            <td><input type="password" name="member" id="chkPw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkPwd()"></td>
+	            <td><input type="password" name="member" id="chkPw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkId()"></td>
 	        </tr>
 	        <tr>
 	            <td>이름</td>
-	            <td><input type="text"  name="uName" id="chkName" placeholder="이름" value="${member.uName }" oninput="checkPwd()"></td>
+	            <td><input type="text"  name="uName" id="chkName" placeholder="이름" value="${member.uName }" oninput="checkId()"></td>
 	            
 	        </tr>
 	        <tr>
 	            <td>주소</td>       
 	            <td>
 	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	                <input type="text" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkPwd()" readonly>
-	                <input type="text" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()"><br>
+	                <input type="text" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkId()" readonly>
+	                <input type="text" id="detailAddress" placeholder="상세주소 입력창" oninput="checkId()"><br>
 	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>
 	            </td>
@@ -352,7 +383,7 @@
 	        <tr>
                <td>휴대폰번호</td>
                <td>
-                   <select name="phone1" id="phone1" oninput="checkPwd()">
+                   <select name="phone1" id="phone1" oninput="checkId()">
                        <option value="010">010</option>
                        <option value="011">011</option>
                        <option value="012">012</option>
@@ -362,25 +393,25 @@
                        <option value="019">019</option>                        
                    </select>
                    
-                   &nbsp;-&nbsp;&nbsp;<input type="text" id="phone2" name="member" maxlength=4 placeholder="휴대폰번호 앞자리" value="${member.uPhone }" oninput="checkPwd()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>&nbsp;&nbsp;-&nbsp;
-                   <input type="text" id="phone3" maxlength=4 placeholder="휴대폰번호 뒷자리" id="${member.uPhone }" oninput="checkPwd()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
-                   <input type="hidden" name="uPhone" id="uPhone" oninput="checkPwd()">
+                   &nbsp;-&nbsp;&nbsp;<input type="text" id="phone2" name="member" maxlength=4 placeholder="휴대폰번호 앞자리" value="${member.uPhone }" oninput="checkId()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>&nbsp;&nbsp;-&nbsp;
+                   <input type="text" id="phone3" maxlength=4 placeholder="휴대폰번호 뒷자리" id="${member.uPhone }" oninput="checkId()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
+                   <input type="hidden" name="uPhone" id="uPhone" oninput="checkId()">
                </td>
            </tr>
 	        <tr>
 	            <td>생년월일</td>
 	            <td>
-	            	<input type="date" name="uBirth" id="chkBirth" value="${member.uBirth }" oninput="checkPwd()">
+	            	<input type="date" name="uBirth" id="chkBirth" value="${member.uBirth }" oninput="checkId()">
 	            </td>
 	        </tr>
 	        <tr>
 	            <td>E-Mail</td>
 	            <td>
 	            	<input type="hidden" id="uEmail" name="uEmail"  value="${member.uEmail }">
-	            	<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="checkPwd()">&nbsp;&nbsp;@&nbsp;
-	            	<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="checkPwd()">
+	            	<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="checkId()">&nbsp;&nbsp;@&nbsp;
+	            	<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="checkId()">
 	            	<input type="hidden" id="uDate" value="${member.uDate }">
-<!-- 	            	<select name="selectEmail" id="selectEmail" class="form-control phone" onchange="checkPwd()">
+<!-- 	            	<select name="selectEmail" id="selectEmail" class="form-control phone" onchange="checkId()">
                        <option value="blank">--선택--</option>
                        <option value="naver.com">네이버</option>
                        <option value="gmail.com">구글</option>
