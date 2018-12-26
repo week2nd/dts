@@ -20,7 +20,7 @@
 			var a3 = $(this).closest('tr').find('.redTeamName').text();
 			var a4 = $(this).closest('tr').find('.redRate').text();
 			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' id= 'betmoney' class = 'betmoney'" 
-			+ " onkeyup='returnMoney(event);removeChar(event);checkMileage(event)' onkeydown='return onlyNumber(event)'></td><td id='returnmoney' class='returnmoney' ></td>";
+			+ " onkeyup='returnMoney(event);removeChar(event);' onchange='checkMileage(event)'; onkeydown='return onlyNumber(event)'></td><td id='returnmoney' class='returnmoney' ></td>";
 			$(tr).appendTo("#gameBuytr");			
 		});
 		
@@ -32,7 +32,7 @@
 			var a3 = $(this).closest('tr').find('.blueTeamName').text();
 			var a4 = $(this).closest('tr').find('.blueRate').text();
 			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' id = 'betmoney' class = 'betmoney'" 
-			+ " onkeyup='returnMoney(event);removeChar(event);checkMileage(event)' onkeydown='return onlyNumber(event)'></td><td id='returnmoney' class='returnmoney' ></td>";
+			+ " onkeyup='returnMoney(event);removeChar(event);' onchange='checkMileage(event)'; onkeydown='return onlyNumber(event)'></td><td id='returnmoney' class='returnmoney' ></td>";
 			$(tr).appendTo("#gameBuytr");
 		});	
 		
@@ -84,17 +84,21 @@
 	function checkMileage(event) {
 		var mileage = ${membersession.uMileage};
 		var betmoney = $("#gameBuytr").find('.betmoney').val();
-		if(mileage < betmoney) {
-			alert("보유 마일리지보다 큰 금액을 입력할 수 없습니다.");
-			$("#betmoney").val(0);
-			$("#returnmoney").text(0);
-		} else if (betmoney > 100000) {
-			alert("게임당 배팅가능금액은 10만원 이하 입니다.");
-			$("#betmoney").val(0);
-			$("#returnmoney").text(0);
-		}
+		
+		if (mileage < betmoney) {
+				alert("보유 마일리지보다 큰 금액을 입력할 수 없습니다.");
+				$("#betmoney").val(0);
+				$("#returnmoney").text(0);
+			} else if (betmoney > 100000) {
+				alert("게임당 배팅가능금액은 10만원 이하 입니다.");
+				$("#betmoney").val(0);
+				$("#returnmoney").text(0);
+			} else if (betmoney < 1000) {
+				alert("게임당 배팅가능금액은 천원 이상 입니다.");
+				$("#betmoney").val(0);
+				$("#returnmoney").text(0);
+			}
 	};
-	
 </script>
 </head>
 <body>
