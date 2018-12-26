@@ -151,6 +151,14 @@ public class MemberController {
 		return "redirect:getMemberList";		//목록요청
 	}
 	
+	
+	// 회원가입 등록폼
+	@RequestMapping("/kswtest")
+	public String kswtest() {
+		return "guest/member/kswtest";
+	}
+	
+	
 	// 회원가입 아이디 중복 체크
     @ResponseBody
     @RequestMapping(value="checkId")

@@ -1,0 +1,61 @@
+package com.company.dts.common;
+
+public class EmailVO {
+	private String from;
+	private String to;
+	private String subject;
+	private String content;
+	private String filename;
+	
+	private String uId;
+	private String uEmail;
+	
+	
+	public String getuId() {
+		return uId;
+	}
+	public void setuId(String uId) {
+		this.uId = uId;
+	}
+	public String getuEmail() {
+		return uEmail;
+	}
+	public void setuEmail(String uEmail) {
+		this.uEmail = uEmail;
+	}
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
+	}
+	public String getTo() {
+		return to;
+	}
+	public void setTo(String to) {
+		this.to = to;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	@Override
+	public String toString() {
+		return "EmailVO [from=" + from + ", to=" + to + ", subject=" + subject + ", content=" + content + ", filename="
+				+ filename + "]";
+	}	
+}
