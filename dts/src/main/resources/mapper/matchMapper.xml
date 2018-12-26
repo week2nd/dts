@@ -279,7 +279,10 @@
 				REDTEAMNAME,
 				BLUETEAMNAME,
 				REDRESULT,
-				BLUERESULT
-		  FROM  INGAME
+				BLUERESULT,
+				(SELECT COUNT(*) FROM PURCHASE a
+	    		WHERE ACCURACY IS NULL AND a.GAME_ID = b.GAME_ID) AS checkResult
+		  FROM  INGAME b
+	      ORDER BY 1
 	</select>
 </mapper>

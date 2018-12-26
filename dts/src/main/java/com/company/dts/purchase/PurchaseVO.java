@@ -12,14 +12,11 @@ public class PurchaseVO {
 	private String returnCheck;
 	private String searchCondition;
 	private String searchKeyword;
-	
 	private String day;
 	private int cnt;
-	
-	
 	private int first;
 	private int last;
-	
+		
 	public String getDay() {
 		return day;
 	}

@@ -10,7 +10,6 @@
 <script>
 	$(function() {
 		$(".setResultBtn").click(function() {
-			
 			var gameid = $(this).closest('tr').find('.gameId').text();
 			console.log(gameid);
 			document.setResultfrm.gameId.value = gameid;
@@ -53,6 +52,7 @@
 					<td class="redResult">${match.redResult}</td>
 					<td class="blueTeamName">${match.blueTeamName}</td>
 					<td class="blueResult">${match.blueResult}</td>
+					
 					<td class="result"><button type="button" class="btn setResultBtn">구매결과입력</button></td>
 					<td class="money"><button type="button" class="btn setMoneyBtn">적중금액지급</button></td>
 				</tr>
