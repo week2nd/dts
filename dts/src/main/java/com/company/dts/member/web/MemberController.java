@@ -131,6 +131,13 @@ public class MemberController {
 		return "home";		//목록요청
 	}
 	
+	// 개인 맴버 비밀번호 수정폼   updateMemberform변경
+	@RequestMapping("/pwChangeForm")
+	public String pwChangeForm(Model model, MemberVO vo) {
+		model.addAttribute("member", memberService.getMember(vo));
+		return "user/member/pwChangeForm";
+	}
+	
 	
 	// 관리자 맴버 수정처리
 	@RequestMapping("/updateMember")

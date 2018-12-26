@@ -300,7 +300,8 @@
 				</td>
 			</tr>
 		</table>
-		<button class="updateBtn" disabled="disabled">수정</button> 
+		<button class="updateBtn" disabled="disabled">수정</button>
+		<a href="pwChangeForm?uId=${member.uId }"><input type="button" class="pwBtn" value="비밀번호 수정"></a> 
 		<a href="getMemberUser"><input type="button" class="cancelBtn" value="취소"></a>
 	</form>
 </body>

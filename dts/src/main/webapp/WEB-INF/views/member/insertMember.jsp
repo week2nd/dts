@@ -153,6 +153,46 @@
                     document.all.countId.style.display="none";				// 네 글자 이상 아이디입력 필요 span 비활성화
                  }
                 
+                
+        		if(inputName == "" || inputAddress1 == "" || inputAddress2 == "" 		// 이름, 주소, 휴대폰번호, 생년월일, E-mail의 각 값들이 모두 Null일 경우 (휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능)
+    				|| inputEmail1 == "" || inputEmail2 == "" || inputBirth == "" 	// 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
+    				|| inputPhone1.length < 3 || inputPhone2.length < 4){		
+    			$(".joinbtn").prop("disabled", true);				// 가입버튼 비활성화					
+                $(".joinbtn").css("background-color", "#aaaaaa");	// 가입버튼 회색
+    		}
+    		
+            if(inputPw2=="" || inputPw1=="" ){ 		// 비밀번호 값이 없거나 비밀번호 확인 값이 없을 경우
+                $(".joinbtn").prop("disabled", true);				// 가입버튼 비활성화 
+                $(".joinbtn").css("background-color", "#aaaaaa");	// 가입버튼 회색
+                $("#chkPw1").css("background-color", "#FFCECE");	// 비밀번호 텍스트박스 빨강색
+                $("#chkPw2").css("background-color", "#FFCECE");	// 비밀번호 확인 텍스트박스 빨강색
+                document.all.spanPwX.style.display="none";			// 비밀번호가 틀렸다 span 비활성화	
+                document.all.spanPwO.style.display="none";			// 비밀번호가 맞았다 span 비활성화
+            }
+            else if (inputPw1 == inputPw2) {		// 비밀번호 값과 비밀번호확인 값이 같을 경우
+                $("#chkPw1").css("background-color", "#B0F6AC");	// 비밀번호 텍스트박스 초록색
+                $("#chkPw2").css("background-color", "#B0F6AC");	// 비밀번호 확인 텍스트박스 초록색 
+                pwdCheck = 1;
+                document.all.spanPwX.style.display="none";			// 비밀번호가 틀렸다 span 비활성화
+                document.all.spanPwO.style.display="";				// 비밀번호가 맞았다 span 활성화
+                if(idCheck==1 && pwdCheck == 1 && inputEmail1 != "" && inputEmail2 != ""
+                		&& inputName != "" && inputAddress1 != "" && inputAddress2 != "" && inputBirth != "" 
+                		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 아이디 중복, 비밀번호확인을 하고 이름, 주소, 휴대폰번호, 생년월일, E-mail의 각 값들이 모두 Null일 경우 (휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능)
+    	           $(".joinbtn").prop("disabled", false);							// 가입버튼 활성화 
+    	           $(".joinbtn").css("background-color", "#4CAF50");				// 가입버튼 초록색
+                }
+            } else if (inputPw1 != inputPw2) {		// 비밀번호 틀릴경우
+                pwdCheck = 0;		
+                $(".joinbtn").css("display","block");
+        //        $(".joinbtn").css("display","none");
+                $(".joinbtn").prop("disabled", true);				// 가입버튼 비활성화
+                $(".joinbtn").css("background-color", "#aaaaaa");	// 가입버튼 회색
+                $("#chkPw1").css("background-color", "#FFCECE");	// 비밀번호 텍스트박스 빨강색
+                $("#chkPw2").css("background-color", "#FFCECE");	// 비밀번호 확인 텍스트박스 빨강색
+                document.all.spanPwX.style.display="";				// 비밀번호가 틀렸다 span 활성화
+                document.all.spanPwO.style.display="none";			// 비밀번호가 맞았다 span 비활성화
+            }
+                
             }
         });
     }
@@ -175,7 +215,7 @@
 //  			$("#chkEmail2").attr("disabled",true);
          } 
     	 */ 	 
-    	if(inputId=="" && data==false || inputId.length<4) {		// 아이디 텍스트박스 값이 Null이면서 data에 없거나 아이디 값 길이가 4미만일 경우
+    	/* if(inputId=="" && data==false || inputId.length<4) {		// 아이디 텍스트박스 값이 Null이면서 data에 없거나 아이디 값 길이가 4미만일 경우
             $(".joinbtn").prop("disabled", true);					// 가입버튼 비활성화 
             $(".joinbtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
             $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
@@ -204,7 +244,7 @@
             $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
          } else if(inputId.length>3){			// 아이디 값 길이가 4이상일 경우
             document.all.countId.style.display="none";				// 네 글자 이상 아이디입력 필요 span 비활성화
-         }  
+         }   */
         
 			
 		if(inputName == "" || inputAddress1 == "" || inputAddress2 == "" 		// 이름, 주소, 휴대폰번호, 생년월일, E-mail의 각 값들이 모두 Null일 경우 (휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능)
