@@ -28,7 +28,6 @@
 		SELECT *
 		  FROM COMMENTS  
 		 WHERE COMMENTS_SEQ = #{commentsSeq}
-		 ORDER BY COMMENTS_SEQ
 	</select>
 	
 	

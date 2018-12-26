@@ -97,15 +97,16 @@
 			console.log("===============================" )
 			console.log($(this).parent().children()[1].innerText)    
 			
-			var commentsSeq = $(this).parent().attr("id").substr(1);
-			var commentsName = $(this).parent().children()[0].innerText;
-			var commentsContent = $(this).parent().children()[1].innerText;
-			$("#commentAdd").css("display","none")
-			$("#commentUpdate").css("display","block")
+ 			var commentsSeq = $(this).parent().attr("id").substr(1);			//댓글번호가져오기
+			var commentsName = $(this).parent().children()[0].innerText;		//댓글제목가져오기
+			var commentsContent = $(this).parent().children()[1].innerText; 		//댓글내용가져오기 */
+   			$("#commentAdd").css("display","none")
+ 			$("#commentUpdate").css("display","block")   
+			
 			//수정할 데이터 입력필드에 셋팅
-			$("#updateForm [name=commentsSeq]").val(commentsSeq);    
+ 			$("#updateForm [name=commentsSeq]").val(commentsSeq);    
 			$("#updateForm [name=commentsName]").val(commentsName);
-			$("#updateForm [name=commentsContent]").val(commentsContent);
+			$("#updateForm [name=commentsContent]").val(commentsContent); 
 			//수정할 댓글밑으로 이동하고 보이게
 			$("#c"+commentsSeq).append($('#commentUpdate'));  
 			$('#commentUpdate').show();   
@@ -169,6 +170,7 @@
 	<form name="updateForm" id="updateForm">
 	<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 	<input type="hidden" name="boardType" value="${board.boardType}"/>
+	<input type="hidden" name="commentsSeq" >
 	이름: <input type="text" name="commentsName" size="10"><br/>
 	내용: <textarea name="commentsContent" cols="20" rows="2"></textarea><br/>
 	<input type="button" value="등록" id="btnUpd"/>

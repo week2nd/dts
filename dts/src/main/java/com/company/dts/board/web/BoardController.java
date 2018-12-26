@@ -105,18 +105,8 @@ public class BoardController {
 				vo.setUploadFileName(filename);
 			}
 			boardService.insertBoard(vo);		//등록처리
-			if( paging.getPage() == null) {			//get으로 받아온 page가 null이면 1page를 set으로 1페이지를 받아온다.				
-				paging.setPage(1); }
-			paging.setPageUnit(5);					//한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
-			vo.setFirst(paging.getFirst());			//게시판 숫자에 따라서 first, last 값 가져옴
-			vo.setLast(paging.getLast());
 			
-			paging.setTotalRecord(boardService.getCount(vo));	//바로 위에서 받은 type을 기반으로 getCount(페이징갯수조회) 실행
-			
-		
-			model.addAttribute("type", request.getParameter("type"));	//받아온 type을 model 안에 넣기
-			model.addAttribute("board", boardService.getAnalysisBoard(vo));	//getAnalysisBoard 실행
-			return "user/board/getAnalysisBoard";
+			return "redirect:getAnalysisBoard?type="+vo.getBoardType();
 		}
 	
 		
@@ -158,7 +148,7 @@ public class BoardController {
 	@RequestMapping("/deleteBoardList")
 	public String deleteBoardList(BoardVO vo) {
 		boardService.deleteBoardList(vo);	//여러개 삭제처리
-		return "redirect:getBoardList";		//목록요청
+		return "redirect:getAnalysisBoard?type="+vo.getBoardType();		//목록요청
 	}
 	
 	private String getBrowser(HttpServletRequest request) {		//한글 안깨지게 하기 위해 필요

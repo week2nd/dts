@@ -12,16 +12,7 @@
 <body>
 <h3>게시판</h3>
 
-<script>
-	function go_sort(sortCol){
-		document.frm.sortCol.value = sortCol;
-		document.frm.submit();
-	}
-	function go_page(page){
- 		document.frm.page.value=page;
-		document.frm.submit();		//검색폼 
-	}
-	</script>
+
 
 <form name="frm">									<!-- 게시판 검색!! -->
 	
@@ -45,7 +36,16 @@ document.frm.searchCondition.value="${boardVO.searchCondition}";
  <form action="deleteBoardList">	
 	<button>선택삭제</button>
  		
-
+<script>
+	function go_sort(sortCol){
+		document.frm.sortCol.value = sortCol;
+		document.frm.submit();
+	}
+	function go_page(page){
+ 		document.frm.page.value=page;
+		document.frm.submit();		//검색폼 
+	}
+	</script>
 	
 	<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 	
