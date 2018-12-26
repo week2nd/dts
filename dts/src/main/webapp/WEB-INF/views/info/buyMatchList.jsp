@@ -117,6 +117,7 @@
 				</tr>
 			</thead>
 
+
 			<c:forEach items="${buyMatchList}" var="match">
 				<tr id="g${match.gameId}">
 					<td class="gameId">${match.gameId}</td>
@@ -124,16 +125,15 @@
 					<td class="gameStatus">${match.gameStatus}</td>
 					<td class="redTeamName">${match.redTeamName}</td>
 					<td class="redRate">${match.redRate}</td>
-					<c:if test="${match.buyCheck!=0}">
-					<td ><input class="redcheck" type="checkbox" disabled=true></td></c:if>
-					<c:if test="${match.buyCheck==0}">
-					<td ><input class="redcheck" type="checkbox"></td></c:if>
+					<td ><input class="redcheck" type="checkbox"<c:if test="${match.buyCheck!=0 || match.gameStatus == '후' || match.gameStatus == '중'}"> disabled='disabled' </c:if>></td>
 					<td class="blueTeamName">${match.blueTeamName}</td>		
 					<td class="blueRate">${match.blueRate}</td>
-					<c:if test="${match.buyCheck!=0}">	
-					<td ><input class="bluecheck" type="checkbox" disabled=true></td></c:if>
+					<td ><input class="bluecheck" type="checkbox"<c:if test="${match.buyCheck!=0 || match.gameStatus == '후' || match.gameStatus == '중'}"> disabled='disabled' </c:if>></td>
+					<%-- <c:if test="${match.buyCheck!=0}">	
+					<td ><input class="bluecheck" type="checkbox" disabled='disabled'></td></c:if>
 					<c:if test="${match.buyCheck==0}">
-					<td ><input class="bluecheck" type="checkbox"></td></c:if>
+					<td ><input class="bluecheck" type="checkbox"></td></c:if> --%>
+					
 				</tr>
 			</c:forEach>
 		</table>

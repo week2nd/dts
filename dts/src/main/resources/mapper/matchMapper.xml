@@ -175,7 +175,8 @@
 							REDPICK2_KILL, REDPICK2_DEATH, REDPICK2_ASSIST,
 							REDPICK3_KILL, REDPICK3_DEATH, REDPICK3_ASSIST,
 							REDPICK4_KILL, REDPICK4_DEATH, REDPICK4_ASSIST,
-							REDPICK5_KILL, REDPICK5_DEATH, REDPICK5_ASSIST
+							REDPICK5_KILL, REDPICK5_DEATH, REDPICK5_ASSIST,
+							REDRATE, BLUERATE
 )
 		VALUES(		#{gameId},
 					sysdate,
@@ -209,7 +210,8 @@
 					#{redPick2Kill}, #{redPick2Death}, #{redPick2Assist},
 					#{redPick3Kill}, #{redPick3Death}, #{redPick3Assist},
 					#{redPick4Kill}, #{redPick4Death}, #{redPick4Assist},
-					#{redPick5Kill}, #{redPick5Death}, #{redPick5Assist}
+					#{redPick5Kill}, #{redPick5Death}, #{redPick5Assist},
+					TRUNC(FUNC_BETRATE(#{redTeamName},#{blueTeamName}),2), TRUNC(FUNC_BETRATE(#{blueTeamName},#{redTeamName}),2)
 			)		
 								
 	</insert>
@@ -281,7 +283,9 @@
 				REDRESULT,
 				BLUERESULT,
 				(SELECT COUNT(*) FROM PURCHASE a
-	    		WHERE ACCURACY IS NULL AND a.GAME_ID = b.GAME_ID) AS checkResult
+	    		WHERE ACCURACY IS NULL AND a.GAME_ID = b.GAME_ID) AS checkResult,
+	    		(SELECT COUNT(*) FROM PURCHASE a
+	    		WHERE RETURNCHECK = 'Y' AND a.GAME_ID = b.GAME_ID) AS checkReturn
 		  FROM  INGAME b
 	      ORDER BY 1
 	</select>

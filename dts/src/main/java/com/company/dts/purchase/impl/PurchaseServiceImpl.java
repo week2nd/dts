@@ -52,9 +52,5 @@ public class PurchaseServiceImpl implements PurchaseService {
 	public int getCount(PurchaseVO vo) {
 		return dao.getCount(vo);
 	}
-	
-	@Override
-	public int checkSetResult(PurchaseVO vo) {
-		return dao.checkSetResult(vo);
-	}
+
 }

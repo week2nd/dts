@@ -9,6 +9,7 @@ public class MatchVO {
 	private String searchCondition;
 	private String searchKeyword;
 	private int checkResult;
+	private int checkReturn;
 
 	private float redRate;
 	private float blueRate;
@@ -16,6 +17,53 @@ public class MatchVO {
 	private int buyCheck;
 	private String gameDate;
 	private String gameName;
+	@Override
+	public String toString() {
+		return "MatchVO [gameId=" + gameId + ", uId=" + uId + ", searchCondition=" + searchCondition
+				+ ", searchKeyword=" + searchKeyword + ", checkResult=" + checkResult + ", checkReturn=" + checkReturn
+				+ ", redRate=" + redRate + ", blueRate=" + blueRate + ", gameStatus=" + gameStatus + ", buyCheck="
+				+ buyCheck + ", gameDate=" + gameDate + ", gameName=" + gameName + ", gameInfo=" + gameInfo
+				+ ", playTime=" + playTime + ", blueTeamName=" + blueTeamName + ", redTeamName=" + redTeamName
+				+ ", blueResult=" + blueResult + ", redResult=" + redResult + ", blueGamer1=" + blueGamer1
+				+ ", blueGamer2=" + blueGamer2 + ", blueGamer3=" + blueGamer3 + ", blueGamer4=" + blueGamer4
+				+ ", blueGamer5=" + blueGamer5 + ", redGamer1=" + redGamer1 + ", redGamer2=" + redGamer2
+				+ ", redGamer3=" + redGamer3 + ", redGamer4=" + redGamer4 + ", redGamer5=" + redGamer5 + ", bluePick1="
+				+ bluePick1 + ", bluePick2=" + bluePick2 + ", bluePick3=" + bluePick3 + ", bluePick4=" + bluePick4
+				+ ", bluePick5=" + bluePick5 + ", redPick1=" + redPick1 + ", redPick2=" + redPick2 + ", redPick3="
+				+ redPick3 + ", redPick4=" + redPick4 + ", redPick5=" + redPick5 + ", blueBan1=" + blueBan1
+				+ ", blueBan2=" + blueBan2 + ", blueBan3=" + blueBan3 + ", blueBan4=" + blueBan4 + ", blueBan5="
+				+ blueBan5 + ", redBan1=" + redBan1 + ", redBan2=" + redBan2 + ", redBan3=" + redBan3 + ", redBan4="
+				+ redBan4 + ", redBan5=" + redBan5 + ", bluePick1Spell1=" + bluePick1Spell1 + ", bluePick1Spell2="
+				+ bluePick1Spell2 + ", bluePick2Spell1=" + bluePick2Spell1 + ", bluePick2Spell2=" + bluePick2Spell2
+				+ ", bluePick3Spell1=" + bluePick3Spell1 + ", bluePick3Spell2=" + bluePick3Spell2 + ", bluePick4Spell1="
+				+ bluePick4Spell1 + ", bluePick4Spell2=" + bluePick4Spell2 + ", bluePick5Spell1=" + bluePick5Spell1
+				+ ", bluePick5Spell2=" + bluePick5Spell2 + ", redPick1Spell1=" + redPick1Spell1 + ", redPick1Spell2="
+				+ redPick1Spell2 + ", redPick2Spell1=" + redPick2Spell1 + ", redPick2Spell2=" + redPick2Spell2
+				+ ", redPick3Spell1=" + redPick3Spell1 + ", redPick3Spell2=" + redPick3Spell2 + ", redPick4Spell1="
+				+ redPick4Spell1 + ", redPick4Spell2=" + redPick4Spell2 + ", redPick5Spell1=" + redPick5Spell1
+				+ ", redPick5Spell2=" + redPick5Spell2 + ", bluePick1Kill=" + bluePick1Kill + ", bluePick1Death="
+				+ bluePick1Death + ", bluePick1Assist=" + bluePick1Assist + ", bluePick2Kill=" + bluePick2Kill
+				+ ", bluePick2Death=" + bluePick2Death + ", bluePick2Assist=" + bluePick2Assist + ", bluePick3Kill="
+				+ bluePick3Kill + ", bluePick3Death=" + bluePick3Death + ", bluePick3Assist=" + bluePick3Assist
+				+ ", bluePick4Kill=" + bluePick4Kill + ", bluePick4Death=" + bluePick4Death + ", bluePick4Assist="
+				+ bluePick4Assist + ", bluePick5Kill=" + bluePick5Kill + ", bluePick5Death=" + bluePick5Death
+				+ ", bluePick5Assist=" + bluePick5Assist + ", redPick1Kill=" + redPick1Kill + ", redPick1Death="
+				+ redPick1Death + ", redPick1Assist=" + redPick1Assist + ", redPick2Kill=" + redPick2Kill
+				+ ", redPick2Death=" + redPick2Death + ", redPick2Assist=" + redPick2Assist + ", redPick3Kill="
+				+ redPick3Kill + ", redPick3Death=" + redPick3Death + ", redPick3Assist=" + redPick3Assist
+				+ ", redPick4Kill=" + redPick4Kill + ", redPick4Death=" + redPick4Death + ", redPick4Assist="
+				+ redPick4Assist + ", redPick5Kill=" + redPick5Kill + ", redPick5Death=" + redPick5Death
+				+ ", redPick5Assist=" + redPick5Assist + ", matchDate=" + matchDate + ", matchName=" + matchName
+				+ ", matchInfo=" + matchInfo + ", first=" + first + ", last=" + last + ", bluePick1Kda=" + bluePick1Kda
+				+ ", bluePick2Kda=" + bluePick2Kda + ", bluePick3Kda=" + bluePick3Kda + ", bluePick4Kda=" + bluePick4Kda
+				+ ", bluePick5Kda=" + bluePick5Kda + ", redPick1Kda=" + redPick1Kda + ", redPick2Kda=" + redPick2Kda
+				+ ", redPick3Kda=" + redPick3Kda + ", redPick4Kda=" + redPick4Kda + ", redPick5Kda=" + redPick5Kda
+				+ ", blueTeamKillsum=" + blueTeamKillsum + ", blueTeamDeathsum=" + blueTeamDeathsum
+				+ ", blueTeamAssistsum=" + blueTeamAssistsum + ", blueTeamKda=" + blueTeamKda + ", redTeamKillsum="
+				+ redTeamKillsum + ", redTeamDeathsum=" + redTeamDeathsum + ", redTeamAssistsum=" + redTeamAssistsum
+				+ ", redTeamKda=" + redTeamKda + "]";
+	}
+
 	private String gameInfo;
 	private String playTime;
 	private String blueTeamName;
@@ -110,9 +158,14 @@ public class MatchVO {
 	
 	private int first;			// 페이지 첫장
 	private int last;			// 페이지 끝장
-	
 
 	
+	public int getCheckReturn() {
+		return checkReturn;
+	}
+	public void setCheckReturn(int checkReturn) {
+		this.checkReturn = checkReturn;
+	}
 	public int getCheckResult() {
 		return checkResult;
 	}

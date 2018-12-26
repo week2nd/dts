@@ -50,9 +50,5 @@ public class PurchaseDAO {
 	public int getCount(PurchaseVO vo) {
 		return mybatis.selectOne("purchase.getCount", vo);
 	}
-	// 결과처리중복제어
-	public int checkSetResult(PurchaseVO vo) {
-		return mybatis.selectOne("purchase.checkSetResult", vo);
-	}
 	
 }

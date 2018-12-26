@@ -52,9 +52,18 @@
 					<td class="redResult">${match.redResult}</td>
 					<td class="blueTeamName">${match.blueTeamName}</td>
 					<td class="blueResult">${match.blueResult}</td>
-					
-					<td class="result"><button type="button" class="btn setResultBtn">구매결과입력</button></td>
+					<c:if test="${match.checkResult==0}">
+					<td class="result"><button type="button" class="btn setResultBtn" disabled="disabled" >구매결과입력</button></td>
+					</c:if>
+					<c:if test="${match.checkResult!=0}">
+					<td class="result"><button type="button" class="btn setResultBtn" >구매결과입력</button></td>
+					</c:if>					
+					<c:if test="${match.checkReturn==0}">
 					<td class="money"><button type="button" class="btn setMoneyBtn">적중금액지급</button></td>
+					</c:if>
+					<c:if test="${match.checkReturn!=0}">
+					<td class="money"><button type="button" class="btn setMoneyBtn" disabled="disabled">적중금액지급</button></td>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</table>
