@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>insertUser.jsp</title>
+<title>pwSearchForm.jsp</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- ajax 스크립트 -->
 <script>
 
@@ -48,13 +48,14 @@ $(function(){
 		<table id="tb">
 	        <tr>            
 	            <td>아이디</td>
-	            <td><input type="text" class="id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
+	            <td><input type="text" class="id" name="uId" id="uId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
 	            	<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>
 	            </td>
-	            <td>
-	            	
-	            </td>
 	        </tr>
+	        <%-- <tr>
+	            <td>E-Mail</td>
+	            <td><input type="text" class="email" name="uEmail" id="uEmail" placeholder="E-Mail" value="${member.uEmail }" oninput="checkId()"></td>
+	        </tr> --%>
 		</table>
 	    <button class="searchBtn" disabled="disabled">비밀번호 찾기</button>
     </form>

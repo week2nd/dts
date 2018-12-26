@@ -153,9 +153,9 @@ public class MemberController {
 	
 	
 	// 회원가입 등록폼
-	@RequestMapping("/kswtest")
+	@RequestMapping("/pwSearchForm")
 	public String kswtest() {
-		return "guest/member/kswtest";
+		return "guest/member/pwSearchForm";
 	}
 	
 	

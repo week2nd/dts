@@ -2,7 +2,9 @@ package com.company.dts;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.company.dts.common.EmailVO;
 import com.company.dts.common.SendEmailService;
 import com.company.dts.member.MemberService;
+import com.company.dts.member.MemberVO;
 
 
 @Controller
@@ -27,22 +30,23 @@ public class EmailController {
 	
 	//메일발송처리
 	@RequestMapping("mailSend")
-	public String mailSend(EmailVO vo, Model model,
+	public String mailSend(EmailVO vo, MemberVO mv,
 			        HttpServletResponse response) throws IOException {
-		
-		
+		MemberVO nvo = new MemberVO();
+		nvo = memberService.getMember(mv);
 		vo.setFrom("sangwoon0104@gmail.com");
-		vo.setTo("sangwoon0104@gmail.com");
-		vo.setSubject("제목");
-		vo.setContent("내용");
+		vo.setTo(nvo.getuEmail());
+		String  uuid = UUID.randomUUID().toString().replaceAll("-", ""); // -를 제거해 주었다. 
+		        uuid = uuid.substring(0, 10); //uuid를 앞에서부터 10자리 잘라줌. 
+		vo.setSubject("분실하신 비밀번호입니다.");
+		vo.setContent("임시비밀번호 입니다."+'\n'+uuid);
+		nvo.setuPw(uuid);
+		memberService.updateMember(nvo);
 		
 		emailService.send(vo);
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		out.println("<script>");
-		out.println("alert('mail send success!!!');");
-		out.println("</script>");
 		return "home";
 	}
 }

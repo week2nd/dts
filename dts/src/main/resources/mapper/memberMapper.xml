@@ -44,12 +44,6 @@ select b.* from(select a.*, rownum rn from(
 	</choose>
   )a ) b where rn between #{first} and #{last}
 </select>
-<!-- 패스워드 분실 시.. -->
-<select id="kswtest" resultType="member">
-	SELECT U_ID, U_NAME, U_EMAIL
-	FROM MEMBER
-	WHERE U_ID = #{uId}
-</select>
 
 <select id="getMemberListChartData"  parameterType="member" resultType="map">
 	
