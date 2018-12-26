@@ -9,6 +9,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+
 	//댓글 목록조회 요청
 	function loadCommentList() {
 		var params = {
@@ -84,7 +85,8 @@
 				 console.log(datas) 
 				var newDiv = makeCommentView(datas);
 				var oldDiv = $("#c"+datas.commentsSeq);
-				$(newDiv).replaceAll(oldDiv);  // 수정된 DIV를 교체
+				$(document.body).append($('#commentUpdate')); //그래서 위쪽 body로 수정폼을 옮겨서 가능하게 해야 한다.
+				$(newDiv).replaceAll(oldDiv);  // replaceAll 을 해버리면 수정 폼도 없어지게 된다.
 				$("#btnCancel").click();
 				
 
@@ -97,11 +99,11 @@
 			console.log("===============================" )
 			console.log($(this).parent().children()[1].innerText)    
 			
- 			var commentsSeq = $(this).parent().attr("id").substr(1);			//댓글번호가져오기
-			var commentsName = $(this).parent().children()[0].innerText;		//댓글제목가져오기
-			var commentsContent = $(this).parent().children()[1].innerText; 		//댓글내용가져오기 */
-   			$("#commentAdd").css("display","none")
- 			$("#commentUpdate").css("display","block")   
+  			var commentsSeq = $(this).parent().attr("id").substr(1);			
+			var commentsName = $(this).parent().children()[0].innerText;		
+			var commentsContent = $(this).parent().children()[1].innerText; 	 
+ 
+ 			$("#commentUpdate").css("display","inline")   
 			
 			//수정할 데이터 입력필드에 셋팅
  			$("#updateForm [name=commentsSeq]").val(commentsSeq);    

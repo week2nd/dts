@@ -148,8 +148,11 @@ public class BoardController {
 	@RequestMapping("/deleteBoardList")
 	public String deleteBoardList(BoardVO vo) {
 		boardService.deleteBoardList(vo);	//여러개 삭제처리
-		return "redirect:getAnalysisBoard?type="+vo.getBoardType();		//목록요청
+		return "user/board/getAnalysisBoard";		//목록요청
 	}
+	
+	
+	
 	
 	private String getBrowser(HttpServletRequest request) {		//한글 안깨지게 하기 위해 필요
 		String header = request.getHeader("User-Agent");
