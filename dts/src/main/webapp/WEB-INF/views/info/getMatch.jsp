@@ -6,6 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>경기 결과 보기</title>
+
+<script>
+$(function(){
+	
+
+$("#deleteMatchBtn").click(function() {
+		if(confirm("정말 삭제하시겠습니까??")) {
+			alert("삭제했습니다.")
+			return true;
+		} else {
+			alert("취소했습니다.")
+			return false;
+		}
+	})
+});
+</script>
 </head>
 <body>
 
