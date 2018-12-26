@@ -54,6 +54,7 @@
 					<td>${player.death}</td>
 					<td>${player.assist}</td>
 					<td>${player.kda}</td>
+					<input type="hidden" name="playerId" value="${player.playerId}">
 				</tr>
 			</c:forEach>
 		</table>
