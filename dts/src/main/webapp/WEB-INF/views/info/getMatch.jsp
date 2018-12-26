@@ -16,7 +16,6 @@ $("#deleteMatchBtn").click(function() {
 			alert("삭제했습니다.")
 			return true;
 		} else {
-			alert("취소했습니다.")
 			return false;
 		}
 	})

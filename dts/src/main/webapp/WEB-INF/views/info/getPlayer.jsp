@@ -8,7 +8,7 @@
 <title>getPlayer</title>
 </head>
 <body>
-
+	<input type="hidden" value="${player.playerId}">
 	<input type="hidden" value="${player.name}">
 	<input type="hidden" value="${player.nickname}">
 	<input type="hidden" value="${player.teamId}">
@@ -27,21 +27,20 @@
 	</c:if>
 
 	<div>
-		<form action="deletePlayer">
 		<c:if test="${membersession.uGrant=='admin'}">
-			<input type="submit" value="선수 삭제">
+		<input type="hidden" name="playerId" value="${player.playerId}">
+			<a href="deletePlayer?nickname=${player.nickname}"> 선수 삭제 </a>
 		</c:if>
 			<table border="1">
 				<tr>
-					<td><h3>${player.playerId} ${player.nickname }</h3></td>
+					<td><h3>${player.teamId} ${player.nickname }</h3></td>
 					<td><h5>${player.name}</h5></td>
 					<td width="64%"></td>
-					<td align="right"><h4>${player.teamId }</h4></a></td>
+					<td align="right"><h4>${player.teamname }</h4></a></td>
 					<%-- <input type="hidden" value="${player.nickname}">
 					<input type="hidden" name="playerId" value="${player.playerId}"> --%>
 				</tr>
 			</table>
-		</form>
 	</div>
 
 

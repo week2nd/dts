@@ -10,6 +10,7 @@ public class PlayerVO {
 	private String line;
 	private String tier;
 	private String teamId;
+	private String teamname;
 	private int kill;
 	private int death;
 	private int assist;
@@ -40,6 +41,16 @@ public class PlayerVO {
 	// 검색
 	private String searchCondition;
 	private String searchKeyword;
+
+	
+	
+	public String getTeamname() {
+		return teamname;
+	}
+
+	public void setTeamname(String teamname) {
+		this.teamname = teamname;
+	}
 
 	public String getMatchDate() {
 		return matchDate;
