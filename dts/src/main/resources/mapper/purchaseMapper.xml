@@ -75,6 +75,7 @@
 		#{gameId}
 		)
 	</insert>
+
 	<select id="getPurchaseListChart" parameterType="purchase"
 		resultType="purchase">
 		select substr(betdate,7,2) as day, count(*) as cnt from purchase where 1=1 group by substr(betdate,7,2)

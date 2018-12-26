@@ -19,4 +19,6 @@ public interface PurchaseService {
 	public void insertPurchase(PurchaseVO vo);
 	
 	public int getCount(PurchaseVO vo);
+	
+	public int checkSetResult(PurchaseVO vo);
 }

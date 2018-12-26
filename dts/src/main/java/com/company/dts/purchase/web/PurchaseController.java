@@ -1,5 +1,9 @@
 package com.company.dts.purchase.web;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,9 +103,24 @@ public class PurchaseController {
 		return "redirect:getPurchaseList";
 	}
 
+	/*// 경기결과중복처리제어
+	@RequestMapping(value = "checkSetResult", method = RequestMethod.POST)
+	public String checkSetResult(PurchaseVO vo) {
+		purchaseService.checkSetResult(vo);
+		return "redirect:getMatchListAd";
+	}	*/
+	
 	// 경기결과처리
 	@RequestMapping(value = "setResult", method = RequestMethod.POST)
-	public String setResult(PurchaseVO vo) {
+	public String setResult(PurchaseVO vo, HttpServletResponse response) throws IOException {
+		/*int a;
+		a = purchaseService.checkSetResult(vo);
+		if (a>0) {
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('이미처리하였습니다');");
+			out.println("</script>");
+		}*/
 		purchaseService.setResult(vo);
 		return "redirect:getMatchListAd";
 	}

@@ -8,6 +8,7 @@ public class MatchVO {
 	// 검색
 	private String searchCondition;
 	private String searchKeyword;
+	private int checkResult;
 
 	private float redRate;
 	private float blueRate;
@@ -111,6 +112,13 @@ public class MatchVO {
 	private int last;			// 페이지 끝장
 	
 
+	
+	public int getCheckResult() {
+		return checkResult;
+	}
+	public void setCheckResult(int checkResult) {
+		this.checkResult = checkResult;
+	}
 	public int getFirst() {
 		return first;
 	}
