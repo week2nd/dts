@@ -133,22 +133,25 @@ public class BoardController {
 	// 단건 삭제처리
 	@RequestMapping("/deleteBoard")
 	public String deleteBoard(Model model, BoardVO vo, HttpServletRequest request)  {
-		
 		BoardVO nvo= new BoardVO();
 		nvo=boardService.getBoard(vo);			//getBoard의 자료를 nvo 안에 담아놓고
 		boardService.deleteBoard(vo);			//삭제처리를 한다.
 		System.out.println(nvo.getBoardType());
 		model.addAttribute("board", boardService.getAnalysisBoard(nvo));	//그리고 nvo 안에 담겨져 있는 type을 활용하여 AnalysisBoard를 불러온다.
-		return "user/board/getAnalysisBoard";		//목록요청
+		return "redirect:getAnalysisBoard?type="+nvo.getBoardType();
 	}
 	
 
 	
 	// 여러개 삭제
 	@RequestMapping("/deleteBoardList")
-	public String deleteBoardList(BoardVO vo) {
-		boardService.deleteBoardList(vo);	//여러개 삭제처리
-		return "user/board/getAnalysisBoard";		//목록요청
+	public String deleteBoardList(Model model, BoardVO vo, HttpServletRequest request) {
+		
+		boardService.deleteBoardList(vo);	//여러개 삭제처리	
+		vo.setBoardType(request.getParameter("type"));
+		model.addAttribute("type", request.getParameter("type"));
+		model.addAttribute("board", boardService.getAnalysisBoard(vo));			
+		return "redirect:getAnalysisBoard?type="+vo.getBoardType();
 	}
 	
 	
