@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dts" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7ba572a-5b3a-4150-88e8-be5828b49219">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="dts"/>
+	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<style name="korfont" 
+			pdfFontName="font/malgun.ttf" 
+			pdfEncoding="Identity-H" 
+			isPdfEmbedded="true"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+	u_id 			as "uId",
+	u_name		as "uName",
+	REPLACE(U_ADDRESS, '^', '') as "uAddress",
+	u_phone	as "uPhone",
+	u_mileage 	as "uMileage",
+	u_grant		as "uGrant",
+	u_birth		as "uBirth",
+	u_date		as "uDate",
+	u_win		as "uWin",
+	u_lose		as "uLose",
+	u_email		as "uEmail"
+	
+FROM MEMBER
+ORDER BY u_id DESC]]>
+	</queryString>
+	<field name="uId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uId"/>
+	</field>
+	<field name="uName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uName"/>
+	</field>
+	<field name="uAddress" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uAddress"/>
+	</field>
+	<field name="uPhone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uPhone"/>
+	</field>
+	<field name="uMileage" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="uMileage"/>
+	</field>
+	<field name="uGrant" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uGrant"/>
+	</field>
+	<field name="uBirth" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uBirth"/>
+	</field>
+	<field name="uDate" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uDate"/>
+	</field>
+	<field name="uWin" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="uWin"/>
+	</field>
+	<field name="uLose" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="uLose"/>
+	</field>
+	<field name="uEmail" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uEmail"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="127" splitType="Stretch">
+			<staticText>
+				<reportElement style="korfont" x="282" y="30" width="238" height="30" uuid="96e19da5-fbd4-48f2-931f-b75f7cbd22aa"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[DTS 회원 정보]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement style="korfont" x="491" y="5" width="89" height="30" uuid="fa765f28-8f55-4e79-964d-1f885aa6ff56">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b704bbbf-b779-4ed5-9b9e-66f5871a5f83"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[휴대폰번호]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="580" y="5" width="66" height="30" uuid="6add41eb-69ab-484b-8f9d-cdaafa319958">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="afae6e72-a6c1-4d45-a351-fb86ba7b724d"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[마일리지]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="646" y="5" width="57" height="30" uuid="cab1b8fe-2ea3-49dc-8441-1e1fc54f70c1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7c3dd801-d98a-480c-a605-da97d27eccac"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[권한]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement style="korfont" x="110" y="-30" width="81" height="30" uuid="26524c79-26da-402e-8658-202a674d6ef4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb774290-8633-4fed-961c-a1d20293e24f"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[아이디]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="192" y="-30" width="66" height="30" uuid="0ddfa15a-e21a-4630-9c31-8d9fd6909896">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c9e93efc-040d-4cc4-81b4-876cbfedb31c"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[이름]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="258" y="-30" width="233" height="30" uuid="d84b0de4-2a1d-4efa-92eb-84a9f63a74f8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e727f4f-819f-400c-82db-e32c34baeded"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[주소]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="110" y="0" width="81" height="30" uuid="c5292921-552b-47e5-9cac-be528d790b54">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03f77b66-630b-4c16-a7a1-8e0c2d72e251"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[생년월일]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="192" y="0" width="66" height="30" uuid="0e7bb78d-e136-47f8-8d6d-cff8452a3d51">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5b50cc6a-1573-45b1-81dd-442570f1794f"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[가입일자]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="258" y="0" width="46" height="30" uuid="a4745958-237a-477d-b33f-116a71547d81">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="05658262-27a1-4836-8cfb-b4bc11501812"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[승리]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="305" y="0" width="46" height="30" uuid="aa1b6f7b-735a-4c6c-bf94-927b3cd0ad99">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="923faf13-1288-4888-8d95-314481c19c0a"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[패배]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="korfont" x="352" y="0" width="139" height="30" uuid="34d3e2dc-8ce1-4dc0-8cbe-ea7ddef88eda">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c90dffd3-4e90-4636-af9b-7f54158fea81"/>
+				</reportElement>
+				<box topPadding="9" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[이메일]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="81" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<textField>
+				<reportElement x="110" y="0" width="81" height="30" uuid="8be1444b-e732-4c79-8c22-f3c2ab6da3c7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d90dc736-f9a2-4841-8c11-d3ca1ec9c014"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="korfont" x="190" y="0" width="68" height="30" uuid="fab1deb8-2786-4df5-a8d6-76b0726e49bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a38657b-1d2c-4dc9-8f4a-f12bfc61bf98"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="korfont" x="258" y="0" width="231" height="30" uuid="52a795fc-8893-421e-a1c0-09f33f517b99">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aa17fe2f-febe-43b6-997f-50ee3453d8a8"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="0" width="89" height="30" uuid="8d92d048-8f6f-47e5-be2a-19865ec6efd9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="809d7491-e46b-45b0-8225-087d71558266"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uPhone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="578" y="0" width="66" height="30" uuid="abf239e3-1e91-4301-96f9-21ec2496b66e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="563e9ec7-7548-4795-9493-4a166f0d6f9b"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uMileage}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="644" y="0" width="57" height="30" uuid="f0e45b16-f543-4ea9-a3be-1a48b138558d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37659663-4f8a-4147-aa44-ed492f387bcb"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uGrant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="30" width="80" height="30" uuid="4aa96f81-9b1d-426e-8c33-b2548d11f127">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e2284a68-624e-4ebf-8373-e7d019cd7766"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uBirth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="30" width="67" height="30" uuid="1801434c-f699-42fb-84f9-22a0ccb3e3d4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b4f1e70e-3e07-4915-95b6-c1623a0338fc"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="30" width="46" height="30" uuid="b29f3814-1765-405e-842f-782cc4899893">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03575d97-dd8b-4dd0-90af-d53d60afcf62"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uWin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="30" width="46" height="30" uuid="e9337d7c-962d-40b6-a5ab-df7f07faf65c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72cfaadb-1b52-4ded-b55f-37758fb560b2"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uLose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="30" width="139" height="30" uuid="1e7a6757-6245-476c-a499-9a20b6c6fd05">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="049cf363-318d-4660-810f-48f85e74e31c"/>
+				</reportElement>
+				<box topPadding="15" leftPadding="7" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{uEmail}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="42" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -80,5 +80,31 @@
 		resultType="purchase">
 		select substr(betdate,7,2) as day, count(*) as cnt from purchase where 1=1 group by substr(betdate,7,2)
 	</select>
+	
+	<select id="getPurchaseGameChart" resultType="purchase">
+		SELECT GAME_ID,
+			   COUNT(GAME_ID) AS gameCnt
+		  FROM PURCHASE
+		  GROUP BY GAME_ID
+		  ORDER BY GAME_ID
+	</select>
+	
+	<select id="getPurchaseGameMoney" resultType="purchase">
+		select game_id,
+			   sum(betmoney) as gameMoney, 
+			   (select sum(betmoney*betdrate) from purchase a where returncheck = 'Y' AND a.GAME_ID = b.GAME_ID ) AS gameReturnMoney
+		  from purchase b 
+		  group by game_id 
+		  order by game_id
+	</select>
+	
+	<select id="getPurchaseTeam" resultType="purchase">
+		select choise, 
+			   count(choise) as teamCnt
+		  from purchase
+		  group by choise
+	</select>
+	
+	
 
 </mapper>

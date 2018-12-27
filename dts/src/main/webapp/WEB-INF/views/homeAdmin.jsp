@@ -84,7 +84,7 @@
       </div>
     </div>
   </header>
-<h3>관리자메인</h3>
+
 <!-- Top Navigation -->
   <section class="top-nav">
     <nav class="navbar navbar-expand-lg py-0">
@@ -125,12 +125,7 @@
             <li class="nav-item"> <a class="nav-link" href="./totalpage">통계관리</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>
           </ul>
-          <form class="ml-auto">
-            <div class="search">
-              <input type="text" class="form-control" maxlength="64" placeholder="Search" />
-              <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-            </div>
-          </form>
+          
         </div>
       </div>
     </nav>

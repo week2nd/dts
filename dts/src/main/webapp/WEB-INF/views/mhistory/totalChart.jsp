@@ -6,15 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>totalChart</title>
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript"	src="https://www.gstatic.com/charts/loader.js"></script>
 	
 <script type="text/javascript">
 	google.charts.load('current', {'packages' : [ 'corechart' ]});
 	google.charts.setOnLoadCallback(drawChart); 
 	
-	 google.charts.load('current', {'packages':['bar']});
+	google.charts.load('current', {'packages':['bar']});
     google.charts.setOnLoadCallback(drawChart);
+    
+    
+
 		
 	function drawChart() {
 		$.ajax({
@@ -27,8 +29,7 @@
 			},
 			success : function(data) {
 				console.log(data);
-								
-				console.log("@@@@");
+
 				var myArray = [];
 				myArray.push(["day", "발매티켓수"]);
 				
@@ -37,11 +38,12 @@
 				}
 				
 				var options = {
+						height : "500px",
 					title : '일자별 판매',
-					curveType : 'function',
+					/* curveType : 'function',
 					legend : {
 						position : 'bottom'
-					}
+					} */
 				};
 				var datas = google.visualization.arrayToDataTable(myArray);
 				var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -59,7 +61,8 @@
 			
 				var options1 = {
 					chart : {
-						title : 'Company Performance',
+						height : "500px",
+						title : '일자별 이익',
 						subtitle : 'Sales, Expenses, and Profit: 2014-2017',
 						//seriesType: 'bars',
 				        bar: { groupWidth: '30%' }						
@@ -72,6 +75,76 @@
 				var chart1 = new google.charts.Bar(document.getElementById('columnchart_material'));
 
 				chart1.draw(datas1, google.charts.Bar.convertOptions(options1));
+				
+			//////////////////////////////////////////////////////////
+				
+				var myArray2 = [];
+					myArray2.push(["게임번호", "구입갯수"]);
+					
+					for(var j=0; j<data.purchaseGame.length; j++) {
+						myArray2.push([data.purchaseGame[j].gameId, data.purchaseGame[j].gameCnt]);
+					}
+			
+				var options2 = {
+						
+						chart : {
+							title : '게임별 판매수',
+							subtitle : 'Member, Number, and Profit: 2017-2019',
+							height : '500px'
+						}
+					};
+	
+					var datas2= google.visualization.arrayToDataTable(myArray2);
+					var chart2 = new google.charts.Bar(document.getElementById('columnchart_material2'));
+	
+					chart2.draw(datas2, google.charts.Bar.convertOptions(options2));
+			/////////////////////////////////////////////////////////
+			
+				var myArray3 = [];
+					myArray3.push(["게임번호", "총판매금액", "총환급금액"]);
+					
+					for(var j=0; j<data.purchaseGameMoney.length; j++) {
+						myArray3.push([data.purchaseGameMoney[j].gameId, data.purchaseGameMoney[j].gameMoney, data.purchaseGameMoney[j].gameReturnMoney]);
+					}
+			
+					var options3 = {
+							
+							vAxis : {
+								minValue: 5000,
+					            maxValue: 1000000
+								
+							} ,
+					          chart: {
+					            title: '게임수익',
+					            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+					            height : "500px"
+					          },
+					          colors: ['#1b9e77', '#d95f02', '#7570b3']
+					          
+					        };
+					var datas3 = google.visualization.arrayToDataTable(myArray3);
+			        var chart3 = new google.charts.Bar(document.getElementById('chart_div'));
+			        
+			        chart3.draw(datas3, options3);
+			/////////////////////////////////////////////////////////////
+			
+				var myArray4 = [];
+					myArray4.push(["선택팀", "선택횟수"]);
+					
+					for(var j=0; j<data.purchaseTeam.length; j++) {
+						myArray4.push([data.purchaseTeam[j].choise, data.purchaseTeam[j].teamCnt]);
+					}
+			
+			        var options4 = {
+			                title: 'My Daily Activities',
+			                pieHole: 0.4,
+			              };
+
+				        var datas4 = google.visualization.arrayToDataTable(myArray4);
+				        var chart4 = new google.visualization.PieChart(document.getElementById('donutchart'));
+				        chart4.draw(datas4, options4);
+			        
+			        
 			}
 		});
 	}
@@ -118,9 +191,11 @@
 					}
 					
 					var options = {
+							
 						chart : {
 							title : 'DTS Company Performance',
 							subtitle : 'Member, Number, and Profit: 2017-2019',
+							height : '500px'
 						}
 					};
 	
@@ -159,9 +234,37 @@
 		    <option value="2017">2017</option>
 		   </select>
 	</form>
-	<div id="columnchart_material1" style="width: 800px; height: 500px;"></div>
-	<div id="curve_chart" style="width: 800px; height: 500px"></div>
-	<div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+	<div class="row" >
+	<div class="col-sm" >
+		<div id="columnchart_material1" style="height: 500px;"></div>
+	</div>
+	<div class="col-sm" >
+		<div id="columnchart_material2" style="height: 500px;"></div>
+		</div>
+	</div>
+	
+	<div class="row" >
+	<div class="col-sm" >
+		<div id="donutchart" style=" height: 500px;"></div>
+	</div>
+	<div class="col-sm" >
+		<div id="chart_div" style="height: 500px;"></div>
+		</div>
+	</div>
+	<div class="row" >
+	<div class="col-sm" >
+		<div id="curve_chart" style=" height: 500px"></div>
+	</div>
+	<div class="col-sm" >
+		<div id="columnchart_material" style=" height: 500px;"></div>
+		</div>
+	</div>
+	
+	
+	
+	
+
+	
 
 </body>
 </html>

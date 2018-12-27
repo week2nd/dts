@@ -177,6 +177,14 @@
 </style>
 </head>
 <body>
+
+<hr>
+<input type="button" value="pdf내려받기"
+	onclick="location.href='./memberReport'"/>
+<input type="button" value="엑셀내려받기"
+	onclick="location.href='./memberExcel'"/>
+<hr>
+
 <h3>getUserList아아아아</h3>
 
 <form name="frm">

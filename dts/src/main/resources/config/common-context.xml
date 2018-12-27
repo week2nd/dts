@@ -24,8 +24,12 @@
 	<mvc:resources mapping="/js/**" location="/js/" />
 	<mvc:resources mapping="/fonts/**" location="/fonts/" />
 
+	<!-- excel -->
+	<bean p:order="1"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+	
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-		p:order="1"
+		p:order="2"
 		p:viewClass="org.springframework.web.servlet.view.tiles3.TilesView" />
 	<!--Don't add suffix or prefix like you do with .jsp files -->
 	<bean id="tilesConfigurer"	class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">

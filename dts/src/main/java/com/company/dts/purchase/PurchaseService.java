@@ -8,6 +8,12 @@ public interface PurchaseService {
 	
 	public List<PurchaseVO> getPurchaseListChart(PurchaseVO vo);
 	
+	public List<PurchaseVO> getPurchaseGameChart(PurchaseVO vo);
+	
+	public List<PurchaseVO> getPurchaseGameMoney(PurchaseVO vo);
+	
+	public List<PurchaseVO> getPurchaseTeam(PurchaseVO vo);
+	
 	public List<PurchaseVO> getPurchaseListAd(PurchaseVO vo);
 	
 	public List<PurchaseVO> setResult(PurchaseVO vo);
