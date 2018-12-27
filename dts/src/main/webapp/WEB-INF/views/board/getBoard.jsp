@@ -147,9 +147,9 @@
 	<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a> 
 	
 	
-	
+	<c:if test="${membersession.uId == board.uId} ">
 	<a href="deleteBoard?boardNumber=${board.boardNumber} ">삭제</a>
-
+	</c:if>
 	
 	
 	<a href="getBoardList?type=${board.boardType}">게시판</a>
