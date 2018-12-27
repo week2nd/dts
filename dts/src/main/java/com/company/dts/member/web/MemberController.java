@@ -1,8 +1,14 @@
 package com.company.dts.member.web;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +22,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.company.dts.common.Paging;
 import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
+
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
 
 @Controller
 public class MemberController {
@@ -220,6 +236,67 @@ public class MemberController {
 	}
 	
 	
+	
+	
+	
+	@RequestMapping("/memberReport")
+	public void report(HttpServletRequest request, HttpServletResponse response, MemberVO vo) throws Exception {
+		try {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			JasperReport report = JasperCompileManager
+					.compileReport(request.getSession().getServletContext().getRealPath("reports/memberList.jrxml"));
+			vo.setFirst(1);
+			vo.setLast(100);
+			JRDataSource JRdataSource = new JRBeanCollectionDataSource(memberService.getMemberList(vo));
+			JasperPrint print = JasperFillManager.fillReport(report, map, JRdataSource);
+			JRExporter exporter = new JRPdfExporter();
+			OutputStream out;
+			response.reset();
+			out = response.getOutputStream();
+			exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "memberList.pdf");
+			exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+			exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, out);
+			exporter.exportReport();
+			out.flush();
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 엑셀출력
+	@RequestMapping("/memberExcel")
+	public ModelAndView excelView(MemberVO vo, HttpServletResponse response) throws IOException {
+		ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		vo.setFirst(1);
+		vo.setLast(100000);
+		List<MemberVO> list2 = memberService.getMemberList(vo);
+		for(int i=0; i<list2.size(); i++) {
+			Map<String, Object> temp = new HashMap<String, Object>();  
+			temp.put("uId", list2.get(i).getuId());
+			temp.put("uName", list2.get(i).getuName());
+			temp.put("uAddress", list2.get(i).getuAddress());
+			temp.put("uPhone", list2.get(i).getuPhone());
+			temp.put("uMileage", new Integer(list2.get(i).getuMileage()));
+			temp.put("uGrant", list2.get(i).getuGrant());
+			temp.put("uBirth", list2.get(i).getuBirth());
+			temp.put("uDate", list2.get(i).getuDate());
+			temp.put("uWin", list2.get(i).getuWin());
+			temp.put("uLose", list2.get(i).getuLose());
+			temp.put("uEmail", list2.get(i).getuEmail());
+			list.add(temp);
+		}
+		
+		
+		
+		HashMap<String, Object> emap = new HashMap<String, Object>();
+		String[] header = { "uId", "uName", "uAddress", "uPhone", "uMileage", "uGrant", "uBirth", "uDate", "uWin", "uLose", "uEmail" };
+		emap.put("headers", header);
+		emap.put("title", "DTS 회원정보");
+		emap.put("filename", "excel_dept");
+		emap.put("datas", list);
+		return new ModelAndView("commonExcelView", emap);
+	}
 	
 	
 }
