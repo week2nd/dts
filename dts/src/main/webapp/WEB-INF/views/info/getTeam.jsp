@@ -18,21 +18,24 @@
 				<tr>
 					<td><h3>${team.teamId}</h3></td>
 					<input type="hidden" name="teamId" value="${team.teamId}">
-					<td><h5>${team.director}</h5></td>
+					<td>순위 ${team.rank}등</td>
+					<td><h5> 감독 </h5></td>
 					<input type="hidden" name="director" value="${team.director}">
-					<td>${team.headCoach}</td>
+					<td> 헤드코치 </td>
 					<input type="hidden" name="headCoach" value="${team.headCoach}">
-					<td><h4>${team.name}</h4></td>
-					<input type="hidden" name="name" value="${team.name}">
+					
 				</tr>
 				<tr>
-				<td>순위 ${team.rank}</td>
-				<td>${team.director}</td>
-				<td colspan="2">
+				<td>
 					<c:if test="${not empty team.fileName}">
 						<img src="./img/${team.fileName}">
 					</c:if>
 				</td>
+				<td><h4>정식 팀명 : ${team.name}</h4></td>
+					<input type="hidden" name="name" value="${team.name}">
+				<td>${team.director}</td>
+				<td>${team.headCoach}</td>
+				
 				</tr>
 			</table>
 		</form>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 
 	<h3> 맞대결 전적 </h3>
 
-<table>
+<table border="1">
 	<tr>
 		<td></td>
 		<td>팀명</td>

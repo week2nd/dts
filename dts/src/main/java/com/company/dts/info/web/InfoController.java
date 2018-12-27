@@ -116,7 +116,7 @@ public class InfoController {
 	}
 
 	// 팀 단일 조회
-	@RequestMapping("/getTeam")
+	@RequestMapping(value= {"/getTeam", "/preView"})
 	public String getTeam(Model model, TeamVO vo, HttpSession session) {
 		model.addAttribute("team", teamService.getTeam(vo));
 		model.addAttribute("teamJoin", teamService.getTeamJoin(vo));

@@ -36,19 +36,14 @@ function teamCheck() {
 					<th>Rate</th>
 				</tr>
 				<tr>
-					<%-- <td><input type="hidden" name="teamId" value="${team.teamId}"></td> --%>
-					<td><select name="TeamId">
-						<option >팀ID</option>
-						<c:forEach items="${teamList}" var="team">
-							<option value="${team.teamId}">${team.teamId}</option>
-						</c:forEach>
-						</select></td>
+					<td><input type="hidden" name="teamId" value="${team.teamId}">
+					${team.teamId}</td>
 					<td><input type="text" name="director"
 						value="${team.director }"></td>
 					<td><input type="text" name="headCoach"
 						value="${team.headCoach }"></td>
-					<td><input type="text" name="name" value="${team.name }">
-					</td>
+					<td><input type="hidden"  name="name" value="${team.name}">
+					${team.name}</td>
 					<td>0</td>
 					<td>0</td>
 					<td>${team.rate}%</td>
@@ -58,6 +53,7 @@ function teamCheck() {
 		</div>
 		<c:if test="${membersession.uGrant=='admin'}">
 		<input type="submit" value="입력">
+		${team.fileName}
 		</c:if>
 	</form>
 
