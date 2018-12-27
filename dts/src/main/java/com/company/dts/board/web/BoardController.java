@@ -11,6 +11,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,35 +26,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.company.dts.board.BoardService;
 import com.company.dts.board.BoardVO;
 import com.company.dts.common.Paging;
+import com.company.dts.member.MemberVO;
 
 @Controller
 public class BoardController {
 @Autowired BoardService boardService;
 
-	// 전체조회(현재 사용 안함)
-/*	@RequestMapping(value= {"/getBoardList"}, method = RequestMethod.GET)		//http://localhost:8081/app/getBoardList
-	public ModelAndView getBoardList(BoardVO vo,  Paging paging)  {
-		ModelAndView mv = new ModelAndView();
-		//페이징처리 - 선생님이 주신 boardcontroller 페이징에 있는것 복사해서 사용
-				// 페이지번호 파라미터
-		if( paging.getPage() == null) {
-			paging.setPage(1);
-			}																																
-		paging.setPageUnit(10);													
-		vo.setFirst(paging.getFirst());								
-		vo.setLast(paging.getLast());	
-		paging.setTotalRecord(boardService.getCount(vo));			//전체 레코드 건수 구하는것(BoardVO 에 있는 내용을 vo에 담는다)
-		
-		mv.addObject("paging", paging);		페이징번호가 나오게 하는것	
-		mv.addObject("boardList", boardService.getBoardList(vo));
-		mv.setViewName("user/board/getBoardList");
-		return mv;
-	}*/
-
 	
 	// 전체조회(getAnalysisBoard)
-		@RequestMapping("/getAnalysisBoard")
-		public String getAnalysisBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request)  {
+		@RequestMapping("/getBoardList")
+		public String getAnalysisBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request, HttpSession session)  {
 			
 			if( paging.getPage() == null) {			//get으로 받아온 page가 null이면 1page를 set으로 1페이지를 받아온다.				
 				paging.setPage(1); }
@@ -66,8 +48,14 @@ public class BoardController {
 			vo.setBoardType(request.getParameter("type"));		//homeUser의 게시판 클릭시 type 받아오는 Parameter		
 			model.addAttribute("paging", paging);				//model 안에 페이징 작업 넣기
 			model.addAttribute("type", request.getParameter("type"));	//받아온 type을 model 안에 넣기
-			model.addAttribute("board", boardService.getAnalysisBoard(vo));	//getAnalysisBoard 실행
-			return "user/board/getAnalysisBoard";
+			model.addAttribute("board", boardService.getBoardList(vo));	//getAnalysisBoard 실행
+			String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+			if (grant.equals("admin")) {
+				return "admin/board/getBoardList";
+			} else {
+				return "user/board/getBoardList";
+			}
+			
 		}
 	
 	
@@ -106,7 +94,7 @@ public class BoardController {
 			}
 			boardService.insertBoard(vo);		//등록처리
 			
-			return "redirect:getAnalysisBoard?type="+vo.getBoardType();
+			return "redirect:getBoardList?type="+vo.getBoardType();
 		}
 	
 		
@@ -137,8 +125,8 @@ public class BoardController {
 		nvo=boardService.getBoard(vo);			//getBoard의 자료를 nvo 안에 담아놓고
 		boardService.deleteBoard(vo);			//삭제처리를 한다.
 		System.out.println(nvo.getBoardType());
-		model.addAttribute("board", boardService.getAnalysisBoard(nvo));	//그리고 nvo 안에 담겨져 있는 type을 활용하여 AnalysisBoard를 불러온다.
-		return "redirect:getAnalysisBoard?type="+nvo.getBoardType();
+		model.addAttribute("board", boardService.getBoardList(nvo));	//그리고 nvo 안에 담겨져 있는 type을 활용하여 AnalysisBoard를 불러온다.
+		return "redirect:getBoardList?type="+nvo.getBoardType();
 	}
 	
 
@@ -150,8 +138,8 @@ public class BoardController {
 		boardService.deleteBoardList(vo);	//여러개 삭제처리	
 		vo.setBoardType(request.getParameter("type"));
 		model.addAttribute("type", request.getParameter("type"));
-		model.addAttribute("board", boardService.getAnalysisBoard(vo));			
-		return "redirect:getAnalysisBoard?type="+vo.getBoardType();
+		model.addAttribute("board", boardService.getBoardList(vo));			
+		return "redirect:getBoardList?type="+vo.getBoardType();
 	}
 	
 	

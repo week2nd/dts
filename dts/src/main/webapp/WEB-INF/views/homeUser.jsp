@@ -125,11 +125,11 @@
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 							aria-live="token">게시판</a>
 							<div class="dropdown-menu" aria-labelledby="layouts">
-								<a class="dropdown-item" href="./getAnalysisBoard?type=free">자유게시판</a> <a
-									class="dropdown-item" href="./getAnalysisBoard?type=analysis">분석게시판</a> <a
-									class="dropdown-item" href="./getAnalysisBoard?type=suggestion">건의게시판</a>
+								<a class="dropdown-item" href="./getBoardList?type=free">자유게시판</a> <a
+									class="dropdown-item" href="./getBoardList?type=analysis">분석게시판</a> <a
+									class="dropdown-item" href="./getBoardList?type=suggestion">건의게시판</a>
 							</div></li>
-						<li class="nav-item"><a class="nav-link" href="./getAnalysisBoard?type=notice">공지사항</a></li>
+						<li class="nav-item"><a class="nav-link" href="./getBoardList?type=notice">공지사항</a></li>
 						<li class="nav-item dropdown menu"><a
 							class="nav-link dropdown-toggle" href="#" id="layouts"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"

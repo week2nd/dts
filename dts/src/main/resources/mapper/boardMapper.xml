@@ -4,30 +4,6 @@
  <mapper namespace="board">
 
 
- <!-- 전체게시판조회 -->
- <!-- <select id="getBoardList" resultType="board">	
-	select  b.* from( select a.*, rownum rn from  (	
- 		SELECT *
-		FROM BOARD 
-		
-	 WHERE 1=1
-	 <if test="searchKeyword != null and searchKeyword == ''">
-		WHERE ${searchCondition} like '%' || #{searchKeyword} || '%'
-	</if>
-	<if test="searchKeyword == null or searchKeyword != ''">
-	</if> 
- 	<choose>
-		<when test="sortCol != null and sortCol != ''">
-			ORDER BY ${sortCol}	
-		</when>
-		<otherwise>
-			ORDER BY BOARD_NUMBER DESC
-		</otherwise>
-	</choose>
-	) a ) b where rn between #{first} and #{last}	
-</select>  -->
-
-
  <!-- 페이지 전체 건수 조회 -->
  <select id="getCount" parameterType="board" resultType="int">
  	SELECT COUNT(*)
@@ -47,8 +23,8 @@
  </select>
  
 
-	<!-- 분석게시판조회 -->
-	<select id="getAnalysisBoard" resultType="board">
+	<!-- 전체게시판조회 -->
+	<select id="getBoardList" resultType="board">
 	select b.* from(select a.*, rownum rn from(
 	SELECT 	*
 	FROM	BOARD 
