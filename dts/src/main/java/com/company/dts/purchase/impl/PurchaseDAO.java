@@ -23,6 +23,18 @@ public class PurchaseDAO {
 		return mybatis.selectList("purchase.getPurchaseListChart", vo);
 	}
 	
+	public List<PurchaseVO> getPurchaseGameChart(PurchaseVO vo) {
+		return mybatis.selectList("purchase.getPurchaseGameChart", vo);
+	}
+	
+	public List<PurchaseVO> getPurchaseGameMoney(PurchaseVO vo) {
+		return mybatis.selectList("purchase.getPurchaseGameMoney", vo);
+	}
+	
+	public List<PurchaseVO> getPurchaseTeam(PurchaseVO vo) {
+		return mybatis.selectList("purchase.getPurchaseTeam", vo);
+	}
+	
 	// 관리자구매전체조회
 	public List<PurchaseVO> getPurchaseListAd(PurchaseVO vo) {
 		return mybatis.selectList("purchase.getPurchaseListAd", vo);

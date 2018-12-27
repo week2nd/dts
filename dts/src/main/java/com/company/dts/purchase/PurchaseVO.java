@@ -16,7 +16,36 @@ public class PurchaseVO {
 	private int cnt;
 	private int first;
 	private int last;
+	private int gameCnt;
+	private int gameMoney;
+	private int gameReturnMoney;
+	private int teamCnt;
 		
+	
+	public int getTeamCnt() {
+		return teamCnt;
+	}
+	public void setTeamCnt(int teamCnt) {
+		this.teamCnt = teamCnt;
+	}
+	public int getGameMoney() {
+		return gameMoney;
+	}
+	public void setGameMoney(int gameMoney) {
+		this.gameMoney = gameMoney;
+	}
+	public int getGameReturnMoney() {
+		return gameReturnMoney;
+	}
+	public void setGameReturnMoney(int gameReturnMoney) {
+		this.gameReturnMoney = gameReturnMoney;
+	}
+	public int getGameCnt() {
+		return gameCnt;
+	}
+	public void setGameCnt(int gameCnt) {
+		this.gameCnt = gameCnt;
+	}
 	public String getDay() {
 		return day;
 	}

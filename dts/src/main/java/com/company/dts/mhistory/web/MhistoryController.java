@@ -78,10 +78,12 @@ public class MhistoryController {
 	@ResponseBody
 	public Map totalChart(MhistoryVO vo, PurchaseVO vo1) {
 		HashMap map = new HashMap();
-		
+		// mapper 에 넘길때 vo를 담는다 parameter #~~
 		map.put("mhistoryList", mhistoryService.totalChartMileage(vo));
 		map.put("purchaseList", purchaseService.getPurchaseListChart(vo1));
-		
+		map.put("purchaseGame", purchaseService.getPurchaseGameChart(null));
+		map.put("purchaseGameMoney", purchaseService.getPurchaseGameMoney(null));
+		map.put("purchaseTeam",  purchaseService.getPurchaseTeam(null));
 		return map;
 	}
 
