@@ -115,12 +115,12 @@
             <li class="nav-item dropdown menu"> <a class="nav-link dropdown-toggle" href="#" id="layouts" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" aria-live="token">게시판관리</a>
               <div class="dropdown-menu" aria-labelledby="layouts">
-                <a class="dropdown-item" href="#">자유게시판</a>
-                <a class="dropdown-item" href="#">분석게시판</a>
-                <a class="dropdown-item" href="#">건의게시판</a>
+                <a class="dropdown-item" href="./getBoardList?type=free">자유게시판</a>
+                <a class="dropdown-item" href="./getBoardList?type=analysis">분석게시판</a>
+                <a class="dropdown-item" href="./getBoardList?type=suggestion">건의게시판</a>
               </div>
             </li>
-            <li class="nav-item"> <a class="nav-link" href="#">공지사항</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="./getBoardList?type=notice">공지사항</a> </li>
             <li class="nav-item"> <a class="nav-link" href="./getMemberList">회원정보</a> </li>
             <li class="nav-item"> <a class="nav-link" href="./totalpage">통계관리</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>

@@ -11,7 +11,6 @@ public interface BoardService {
 	public void deleteBoard(BoardVO vo);					//게시판삭제
 	public BoardVO getBoard(BoardVO vo);					//게시판단건조회
 	public List<BoardVO> getBoardList(BoardVO vo);			//게시판전체조회
-	public List<BoardVO> getAnalysisBoard(BoardVO vo);		//분석게시판전체조회
 	public void deleteBoardList(BoardVO vo);				//게시판전체삭제
 	public int getCount(BoardVO vo);						//페이징건수가져오기
 }

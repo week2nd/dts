@@ -51,12 +51,6 @@ public class BoardDAO {
 	}
 	
 		
-		// 분석게시판전체조회
-		public List<BoardVO> getAnalysisBoard(BoardVO vo) {
-			System.out.println("mybatis jdbc getAnalysisBoard() 기능처리");
-			return mybatis.selectList("board.getAnalysisBoard", vo);
-		}
-	
 		
 	// 단건조회
 	public BoardVO getBoard(BoardVO vo) {

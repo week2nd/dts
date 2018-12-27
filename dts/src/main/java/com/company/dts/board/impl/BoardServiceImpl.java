@@ -25,13 +25,6 @@ public class BoardServiceImpl implements BoardService{
 		return dao.getBoardList(vo);
 	}
 		
-			
-		//분석게시판 전체조회
-		@Override
-		public List<BoardVO> getAnalysisBoard(BoardVO vo) {
-			return dao.getAnalysisBoard(vo);
-		}
-		
 	
 	//게시판 입력	
 	@Override
