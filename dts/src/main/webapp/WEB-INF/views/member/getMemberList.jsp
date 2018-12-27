@@ -53,7 +53,7 @@
 	}
 
 	.deleteBtn {						/* delete 버튼 */
-		background-image: linear-gradient(to right, #A8A7A7 , #363636);
+		background-color: #aaaaaa;
 		color: white;					/* 글자색 */
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
@@ -67,7 +67,7 @@
 	  	transform: translateY(2px);		/* 그림자 길이 2px */
 	}
 	#selectBtn{						/* delete 버튼 */
-		background-image: linear-gradient(to right, #A8A7A7 , #363636);
+		background-color: #aaaaaa;
 		color: white;					/* 글자색 */
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */

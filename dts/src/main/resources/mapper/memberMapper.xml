@@ -76,16 +76,20 @@ select b.* from(select a.*, rownum rn from(
 						#{uEmail}
 				)
 </insert>
-
+<!-- 개인 유저 정보 수정 -->
 <update id ="updateMember" parameterType="member">
 	UPDATE MEMBER SET 
-					U_PW=#{uPw},
 					U_ADDRESS=#{uAddress},    
 					U_PHONE=#{uPhone},
 					U_EMAIL=#{uEmail}					
 					WHERE U_ID=#{uId}
 </update> 
-
+<!-- 개인 유저 비밀번호 변경 -->
+<update id ="updatePw" parameterType="member">
+	UPDATE MEMBER SET 
+					U_PW=#{uPw}					
+					WHERE U_ID=#{uId}
+</update> 
 <delete id ="deleteMember" parameterType="member">
 	DELETE FROM MEMBER WHERE U_ID=#{uId}
 					
