@@ -73,13 +73,13 @@
 
 	/////////////////////////////////
 	
-	var pwdCheck = 0;		// 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+//	var pwdCheck = 0;		// 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
 	
     function checkPwd() {	//재입력 비밀번호 체크 및 이름, 주소, 휴대폰번호, 생년월일, E-Mail의 값 확인 후 가입버튼 비활성화 또는 맞지않음을 알림	
 	  	var dbPw = $('#uPw').val();							// 해당 유저 비밀번호 값
 	  	var origInputed2 = $('#chkPw').val();				// 비밀번호 텍스트박스 값
-        var inputPw1 = $('#newPw1').val();					// 새 비밀번호 텍스트박스 값
-        var inputPw2 = $('#newPw2').val();					// 새 비밀번호 확인 텍스트박스 값
+ //       var inputPw1 = $('#newPw1').val();					// 새 비밀번호 텍스트박스 값
+ //       var inputPw2 = $('#newPw2').val();					// 새 비밀번호 확인 텍스트박스 값
         var inputPhone1 = $('#phone2').val();				// 휴대폰번호 첫 번째 텍스트박스 값
         var inputPhone2 = $('#phone3').val();				// 휴대폰번호 두 번째 텍스트박스 값
         var inputAddress1 = $('#roadAddress').val();		// 주소 첫 번째 텍스트박스 값
@@ -102,17 +102,26 @@
 			$(".updateBtn").prop("disabled", true);						// 수정 버튼 비활성화						
             $(".updateBtn").css("background-color", "#aaaaaa");			// 수정 버튼 회색
 		}
+		
+		if(origInputed2 != "" 
+        		&& inputAddress1 != "" && inputAddress2 != "" 
+        		&& inputEmail1 != "" && inputEmail2 != ""   
+        		&&  inputPhone1.length > 2 && inputPhone2.length == 4) {	// 아이디 중복, 비밀번호확인을 하고 이름, 주소, 휴대폰번호, 생년월일, E-mail의 각 값들이 모두 Null일 경우 (휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능)
+           $(".updateBtn").prop("disabled", false);							// 가입버튼 활성화  
+           $(".updateBtn").css("background-color", "#4CAF50");				// 가입버튼 초록색 
 
-        if( inputPw2=="" || inputPw1==""){ 								// 비밀번호 값이 없거나 비밀번호 확인 값이 없을 경우 
+        }
+
+/*         if( inputPw2=="" || inputPw1==""){ 								// 비밀번호 값이 없거나 비밀번호 확인 값이 없을 경우 
             $(".updateBtn").prop("disabled", true);						// 수정 버튼 비활성화
             $(".updateBtn").css("background-color", "#aaaaaa");			// 수정 버튼 회색
-            $("#newPw1").css("background-color", "#FFCECE");			// 비밀번호 텍스트박스 빨강색
-            $("#newPw2").css("background-color", "#FFCECE");			// 비밀번호 확인 텍스트박스 빨강색
+ //           $("#newPw1").css("background-color", "#FFCECE");			// 비밀번호 텍스트박스 빨강색
+ //           $("#newPw2").css("background-color", "#FFCECE");			// 비밀번호 확인 텍스트박스 빨강색
             document.all.spanPwX.style.display="none";					// 비밀번호가 틀렸다 span 비활성화
             document.all.spanPwO.style.display="none";					// 비밀번호가 맞았다 span 비활성화
         } else if ( inputPw1 == inputPw2) {								// 비밀번호 input색깔 초록색으로
-            $("#newPw1").css("background-color", "#B0F6AC");			// 비밀번호 텍스트박스 초록색
-            $("#newPw2").css("background-color", "#B0F6AC");			// 비밀번호 확인 텍스트박스 초록색
+ //           $("#newPw1").css("background-color", "#B0F6AC");			// 비밀번호 텍스트박스 초록색
+ //           $("#newPw2").css("background-color", "#B0F6AC");			// 비밀번호 확인 텍스트박스 초록색
             pwdCheck = 1;
             document.all.spanPwX.style.display="none";					// 비밀번호가 틀렸다 span 비활성화
             document.all.spanPwO.style.display="";						// 비밀번호가 맞았다 span 활성화
@@ -129,11 +138,11 @@
             pwdCheck = 0;
             $(".updateBtn").prop("disabled", true);						// 가입버튼 비활성화
             $(".updateBtn").css("background-color", "#aaaaaa");			// 가입버튼 회색
-            $("#newPw1").css("background-color", "#FFCECE");			// 비밀번호 텍스트박스 빨강색
-            $("#newPw2").css("background-color", "#FFCECE");			// 비밀번호 확인 텍스트박스 빨강색
+ //           $("#newPw1").css("background-color", "#FFCECE");			// 비밀번호 텍스트박스 빨강색
+ //           $("#newPw2").css("background-color", "#FFCECE");			// 비밀번호 확인 텍스트박스 빨강색
             document.all.spanPwX.style.display="";						// 비밀번호가 틀렸다 span 활성화
             document.all.spanPwO.style.display="none";					// 비밀번호가 맞았다 span 비활성화
-        }
+        } */
     }
 	
 
@@ -183,7 +192,7 @@
 	}
 
 	.updateBtn, .cancelBtn{						/* delete 버튼 */
-		background-image: linear-gradient(to right, #A8A7A7 , #363636);
+		background-color: #aaaaaa;
 		color: white;					/* 글자색 */
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
@@ -250,7 +259,7 @@
 				<td>기존 비밀번호</td>
 				<td><input type="password" id="chkPw" oninput="checkPwd()" autofocus></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>새 비밀번호</td>
 				<td>
 					<input type="password" id="newPw1" oninput="checkPwd()"><br>&nbsp;
@@ -261,7 +270,7 @@
 			<tr>
 				<td>새 비밀번호 확인</td>
 				<td><input type="password" id="newPw2" oninput="checkPwd()"></td>
-			</tr>
+			</tr> -->
 			<tr>
 				<td>이름</td>
 				<td>${member.uName }</td>
@@ -300,8 +309,8 @@
 				</td>
 			</tr>
 		</table>
-		<button class="updateBtn" disabled="disabled">수정</button>
-		<a href="pwChangeForm?uId=${member.uId }"><input type="button" class="pwBtn" value="비밀번호 수정"></a> 
+		<button class="updateBtn">수정</button>
+		<a href="updatePwForm?uId=${member.uId }"><input type="button" class="pwBtn" value="비밀번호 변경"></a> 
 		<a href="getMemberUser"><input type="button" class="cancelBtn" value="취소"></a>
 	</form>
 </body>

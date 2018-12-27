@@ -14,6 +14,7 @@ function checkPwd() {	//재입력 비밀번호 체크 및 이름, 주소, 휴대
   	var origInputed2 = $('#chkPw').val();				// 비밀번호 텍스트박스 값
     var inputPw1 = $('#newPw1').val();					// 새 비밀번호 텍스트박스 값
     var inputPw2 = $('#newPw2').val();					// 새 비밀번호 확인 텍스트박스 값
+	console.log(document.all.uPw.value);
 	
 	if(dbPw == "" || origInputed2 == ""){		// 이름, 주소, 휴대폰번호,  입력삭제 시 가입버튼 비활성화, 휴대폰번호는 중간자리는 3~4자리가능, 마지막자리는 4자리만가능
 		$(".updateBtn").prop("disabled", true);						// 수정 버튼 비활성화						
@@ -67,7 +68,7 @@ $(function (){
 </script>
 <body>
 	<h3>유저 비밀번호 수정</h3>
-	<form action="updateMemberUser" method="post">
+	<form action="updatePw" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" /> 
 		<input type="hidden" name="uPw" id="uPw" value="${member.uPw }" />
 		<table style="width: 50%" >
