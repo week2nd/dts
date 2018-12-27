@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,8 +145,14 @@
 	</c:if>
 	<br>
 	<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a> 
+	
+	
+	
 	<a href="deleteBoard?boardNumber=${board.boardNumber} ">삭제</a>
-	<a href="getAnalysisBoard?type=${board.boardType}">게시판</a>
+
+	
+	
+	<a href="getBoardList?type=${board.boardType}">게시판</a>
 
 
 	 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>

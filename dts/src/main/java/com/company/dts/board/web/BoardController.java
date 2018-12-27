@@ -62,7 +62,7 @@ public class BoardController {
 	// 단건조회
 	@RequestMapping("/getBoard")		
 	public String getBoard(Model model, BoardVO vo) {
-		model.addAttribute("board", boardService.getBoard(vo));
+		model.addAttribute("board", boardService.getBoard(vo));		
 		return "user/board/getBoard";
 	}
 	
@@ -134,12 +134,11 @@ public class BoardController {
 	// 여러개 삭제
 	@RequestMapping("/deleteBoardList")
 	public String deleteBoardList(Model model, BoardVO vo, HttpServletRequest request) {
-		
+		String type = request.getParameter("type"); 	
+		vo.setBoardType(type);
 		boardService.deleteBoardList(vo);	//여러개 삭제처리	
-		vo.setBoardType(request.getParameter("type"));
-		model.addAttribute("type", request.getParameter("type"));
-		model.addAttribute("board", boardService.getBoardList(vo));			
-		return "redirect:getBoardList?type="+vo.getBoardType();
+		
+		return "redirect:getBoardList?type="+type;
 	}
 	
 	

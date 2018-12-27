@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,10 +33,12 @@
 			document.frm.searchCondition.value = "${boardVO.searchCondition}";
 		}
 	</script>
-
-	<form action="deleteBoardList">
+	
+	<form action="deleteBoardList">	
+	<c:if test="${membersession.uGrant=='admin'}">
+		<input type=hidden name = "type" value = "${type}">
 		<button>선택삭제</button>
-
+	</c:if>
 		<script>
 			function go_sort(sortCol) {
 				document.frm.sortCol.value = sortCol;
@@ -46,10 +49,9 @@
 				document.frm.submit(); //검색폼 
 			}
 		</script>
-
-		<a
-			href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
-
+		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">
+		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
+		</c:if>
 		<table border="1">
 			<tr>
 				<td>선택</td>
