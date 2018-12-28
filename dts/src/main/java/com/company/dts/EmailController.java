@@ -42,7 +42,7 @@ public class EmailController {
 		vo.setContent("임시비밀번호 입니다."+'\n'+uuid);
 		nvo.setuPw(uuid);
 		memberService.updateMember(nvo);
-		
+		System.out.println("업데이트했따");
 		emailService.send(vo);
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");

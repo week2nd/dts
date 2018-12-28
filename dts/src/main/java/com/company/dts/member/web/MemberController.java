@@ -181,9 +181,10 @@ public class MemberController {
 	}
 	
 	
-	// 회원가입 등록폼
+	// 비밀번호 찾기 폼
 	@RequestMapping("/pwSearchForm")
-	public String kswtest() {
+	public String kswtest(Model model, MemberVO vo) {
+	//	model.addAttribute("member", memberService.getMemberList(vo));
 		return "guest/member/pwSearchForm";
 	}
 	
@@ -195,6 +196,9 @@ public class MemberController {
         System.out.println("Controller.idCheck() 호출");
         boolean result=false;
         MemberVO user = memberService.getMember(vo);
+        
+        model.addAttribute("member", memberService.getMember(vo));
+        
         if(user!=null) result=true;
         else System.out.println("아이디사용가능@@@@@@@@@@@@@@@@@");
         return result;

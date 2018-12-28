@@ -55,7 +55,10 @@ select b.* from(select a.*, rownum rn from(
 <select id="getMember" parameterType="member" resultType="member"> 
 	SELECT	*
 	FROM	MEMBER
-	WHERE U_ID = #{uId}
+	WHERE U_ID = #{uId} 
+	<if test="uEmail != null and uEmail!= '' ">
+		AND U_EMAIL = #{uEmail}
+	</if>
 </select>
 
 
@@ -79,10 +82,14 @@ select b.* from(select a.*, rownum rn from(
 <!-- 개인 유저 정보 수정 -->
 <update id ="updateMember" parameterType="member">
 	UPDATE MEMBER SET 
+					<if test="uPw != null and uPw!= '' ">
+						U_PW=#{uPw},
+					</if>
 					U_ADDRESS=#{uAddress},    
 					U_PHONE=#{uPhone},
 					U_EMAIL=#{uEmail}					
 					WHERE U_ID=#{uId}
+					
 </update> 
 <!-- 개인 유저 비밀번호 변경 -->
 <update id ="updatePw" parameterType="member">
