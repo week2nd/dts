@@ -6,15 +6,16 @@
 	<!-- 팀 전체 보기 -->
 	<select id="getTeamList" parameterType="team" resultType="team">
 		SELECT	RANK() OVER(ORDER BY WIN DESC, LOSE ASC) rank,
-				TEAM_ID,
-				DIRECTOR,
-				HEAD_COACH,
-				NAME,
-				WIN + LOSE playerMatch,
-				WIN,
-				LOSE,
-				ROUND(FUNC_TEAMWINRATE(TEAM_ID),2) rate
-		FROM 	TEAM
+				B.*,
+				win+lose playerMatch
+		FROM	(SELECT	TEAM_ID,
+						DIRECTOR,
+						HEAD_COACH,
+						NAME,
+						NVL(FUNC_TEAMWIN(team_id),0) win,
+						NVL(FUNC_TEAMLOSE(team_id),0) lose,
+						ROUND(FUNC_TEAMWINRATE(TEAM_ID),2) rate
+		FROM 	TEAM A) B
 		<if test="searchKeyword != null and searchKeyword != ''">
 		WHERE 	${searchCondition} like '%'||#{searchKeyword}||'%'
 		</if>
@@ -22,16 +23,20 @@
 	</select>
 	
 	<select id="getTeam" parameterType="team" resultType="team">
-		SELECT 	*
-		FROM	(SELECT	RANK() OVER(ORDER BY WIN DESC, LOSE ASC) rank,	
-						TEAM_ID,
-						DIRECTOR,
-						HEAD_COACH,
-						NAME,
-						WIN,
-						LOSE,
-						FILENAME
-				FROM 	TEAM)
+		SELECT	C.*
+		FROM 	(SELECT RANK() OVER(ORDER BY WIN DESC, LOSE ASC) rank,	
+						B.*,
+						win+lose playerMatch
+				FROM	(SELECT	TEAM_ID,
+								DIRECTOR,
+								HEAD_COACH,
+								NAME,
+								NVL(FUNC_TEAMWIN(team_id),0) win,
+								NVL(FUNC_TEAMLOSE(team_id),0) lose,
+								FILENAME
+						FROM 	TEAM A)
+						B)
+				C
 		WHERE	TEAM_ID = #{teamId}
 	</select>
 	
@@ -40,8 +45,8 @@
 				T.DIRECTOR, 
 				T.HEAD_COACH, 
 				T.NAME, 
-				T.WIN, 
-				T.LOSE,
+				NVL(FUNC_TEAMWIN(t.team_id),0) win,
+				NVL(FUNC_TEAMLOSE(t.team_id),0) lose,
        			P.NICKNAME nickname, 
        			P.NAME playerName, 
        			P.LINE playerLine,

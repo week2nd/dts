@@ -75,9 +75,19 @@ function insert(){
 							</c:forEach>
 					</select></td>
 				
-				<td align="center" colspan="2"><input type="text" name="blueResult" size="7" placeholder="블루팀 결과"></td>
+				<td align="center" colspan="2">
+					<select name = "blueResult">
+						<option value="win">W</option>
+						<option value="lose">L</option>
+					</select>
+				</td>
 				<td> 　:</td>
-				<td align="center" colspan="2"><input type="text" name="redResult" size="7" placeholder="레드팀 결과"></td>
+				<td align="center" colspan="2">
+					<select name = "redResult">
+						<option value="win">W</option>
+						<option value="lose">L</option>
+					</select>
+				</td>
 				<!-- <td align="right" colspan="6"><input type="text" name="redTeamName" size="7" placeholder="레드팀명"></td> -->
 				<td align="right" colspan="6"><select id="redTeamId" name="redTeamName" onchange="teamCheck()" >
 						<option >RED팀ID</option>
