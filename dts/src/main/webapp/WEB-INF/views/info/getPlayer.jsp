@@ -63,7 +63,7 @@
 				<tr>
 					<td>${rec.matchDate}</td>
 					<td>${rec.matchName} ${rec.matchInfo}</td>
-					<td>${player.playerId} ${rec.blueGamer3}</td>
+					<td>${player.teamId} ${rec.blueGamer3}</td>
 					<td>vs ${rec.redGamer3}</td>
 					<td>${rec.bluePick3}</td>
 					<td>${rec.bluePick3Spell1}  ${rec.bluePick3Spell2}</td>

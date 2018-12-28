@@ -11,7 +11,7 @@
 
 	<h3> 맞대결 전적 </h3>
 
-<table border="1">
+<table class="table" border="1">
 	<tr>
 		<td></td>
 		<td>팀명</td>

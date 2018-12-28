@@ -116,7 +116,7 @@ public class InfoController {
 	}
 
 	// 팀 단일 조회
-	@RequestMapping(value= {"/getTeam", "/preView"})
+	@RequestMapping(value= {"/getTeam"})
 	public String getTeam(Model model, TeamVO vo, HttpSession session) {
 		model.addAttribute("team", teamService.getTeam(vo));
 		model.addAttribute("teamJoin", teamService.getTeamJoin(vo));
@@ -129,12 +129,19 @@ public class InfoController {
 		}
 	}
 
-//	// 팀 단일 조인 조회
-//	@RequestMapping("/getTeam")
-//	public String getTeamJoin(Model model, TeamVO vo) {
-//		
-//		return "user/info/getTeam";
-//	}
+	// 경기 프리뷰 
+	@RequestMapping("/preView")
+	public String preView(Model model, TeamVO vo, HttpSession session) {
+		
+		/*model.addAttribute("vsTeam", teamService.vsTeamList(vo));*/
+		
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/info/preView";
+		} else {
+			return "user/info/preView";
+		}
+	}
 
 	// 팀 입력 폼 이동
 	@RequestMapping("/insertTeamForm")

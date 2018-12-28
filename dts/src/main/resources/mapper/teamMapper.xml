@@ -41,26 +41,27 @@
 	</select>
 	
 	<select id="getTeamJoin" parameterType="team" resultType="team">
-		SELECT	T.TEAM_ID,
-				T.DIRECTOR, 
-				T.HEAD_COACH, 
-				T.NAME, 
-				NVL(FUNC_TEAMWIN(t.team_id),0) win,
-				NVL(FUNC_TEAMLOSE(t.team_id),0) lose,
-       			P.NICKNAME nickname, 
-       			P.NAME playerName, 
-       			P.LINE playerLine,
-       			P.WIN+P.LOSE PLAYERMATCH,
-       			P.WIN playerWin,
-       			P.LOSE playerLose, 
-       			P.KILL playerKill,
-       			P.DEATH playerDeath,
-       			P.ASSIST playerAssist,
-       			FUNC_PLAYERKDA(P.NICKNAME) playerKda
-		FROM	TEAM T
-			JOIN 	PLAYER P
-		ON 		T.TEAM_ID = P.TEAM_ID
-		WHERE 	T.TEAM_ID = #{teamId}
+		SELECT	A.*,
+				playerWin + playerLose playerMatch
+		FROM 	(SELECT	T.TEAM_ID,
+						T.DIRECTOR, 
+						T.HEAD_COACH, 
+						T.NAME, 
+						NVL(FUNC_TEAMWIN(t.team_id),0) win,
+						NVL(FUNC_TEAMLOSE(t.team_id),0) lose,
+		       			P.NICKNAME nickName, 
+		       			P.NAME playerName, 
+		       			P.LINE playerLine,
+			       	    NVL(FUNC_PLAYERWIN(NICKNAME),0) playerWin,
+			            NVL(FUNC_PLAYERLOSE(NICKNAME),0) playerLose,
+			            NVL(FUNC_PLAYERKILL(NICKNAME),0) playerKill,
+			            NVL(FUNC_PLAYERDEATH(NICKNAME),0) playerDeath,
+			            NVL(FUNC_PLAYERASSIST(NICKNAME),0) playerAssist,
+			            NVL(ROUND(FUNC_PLAYERKDA(NICKNAME),2),0) playerKda
+						FROM	TEAM T
+						JOIN 	PLAYER P
+						ON 		T.TEAM_ID = P.TEAM_ID
+						WHERE 	T.TEAM_ID = #{teamId}) a
 	</select>
 	
 	<select id="vsTeam" parameterType="team" resultType="team">

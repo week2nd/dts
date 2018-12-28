@@ -8,19 +8,20 @@
 
 	<!-- 선수 전체 보기 -->
 	<select id="getPlayerList" parameterType="player" resultType="player">
-		SELECT	RANK() OVER(ORDER BY WIN DESC) playerRank,
-				NAME, 
-				NICKNAME, 
-				TEAM_ID,
-				WIN+LOSE match, 
-				WIN, 
-				LOSE,			 
-				WIN/NULLIF((WIN+LOSE),0) * 100 winrate,
-				KILL, 
-				DEATH, 
-				ASSIST,
-				FUNC_PLAYERKDA(NICKNAME) kda
-		FROM 	PLAYER
+		SELECT  DENSE_RANK() OVER(ORDER BY WIN DESC) playerRank,
+		        A.*,
+		        WIN+LOSE MATCH,
+		        ROUND(WIN/NULLIF((WIN+LOSE),0),3) * 100 winrate
+		FROM    (SELECT	NAME, 
+						NICKNAME, 
+						TEAM_ID,
+						NVL(FUNC_PLAYERWIN(NICKNAME),0) WIN,
+						NVL(FUNC_PLAYERLOSE(NICKNAME),0) LOSE,
+						NVL(FUNC_PLAYERKILL(NICKNAME),0) KILL,
+				        NVL(FUNC_PLAYERDEATH(NICKNAME),0) DEATH,
+				        NVL(FUNC_PLAYERASSIST(NICKNAME),0) ASSIST,
+				        NVL(ROUND(FUNC_PLAYERKDA(NICKNAME),2),0) KDA
+				FROM 	PLAYER) A
 		<if test="searchKeyword != null and searchKeyword != ''">
 		WHERE 	${searchCondition} like '%' || #{searchKeyword} || '%'
 		</if>
@@ -33,12 +34,12 @@
 				P.NAME name, 
 				T.NAME teamname, 
 				P.NICKNAME nickname,
-			    P.WIN WIN,
-			    P.LOSE lose, 
-			    P.KILL kill,
-			    P.DEATH death, 
-			    P.ASSIST assist,
-			    FUNC_PLAYERKDA(NICKNAME) kda
+			    NVL(FUNC_PLAYERWIN(NICKNAME),0) WIN,
+				NVL(FUNC_PLAYERLOSE(NICKNAME),0) LOSE,
+				NVL(FUNC_PLAYERKILL(NICKNAME),0) KILL,
+		        NVL(FUNC_PLAYERDEATH(NICKNAME),0) DEATH,
+		        NVL(FUNC_PLAYERASSIST(NICKNAME),0) ASSIST,
+		        NVL(ROUND(FUNC_PLAYERKDA(NICKNAME),2),0) KDA
 		FROM	PLAYER P
 		JOIN	TEAM T
 		ON		P.TEAM_ID = T.TEAM_ID
@@ -158,11 +159,11 @@
  	
  	<update id="updatePlayer" parameterType="player">
  		UPDATE 	PLAYER
- 		SET		WIN = #{win} , 
- 				LOSE = #{lose} , 
- 				KILL = #{kill} , 
- 				DEATH = #{death} , 
- 				ASSIST = #{assist}
+ 		SET		NAME = #{name}, 
+ 				BIRTH = #{birth}, 
+ 				LINE = #{line}, 
+ 				TIER = #{tier},
+ 				TEAM_ID = #{teamId}
  		WHERE 	NICKNAME = #{nickname}
  	</update>
  	
