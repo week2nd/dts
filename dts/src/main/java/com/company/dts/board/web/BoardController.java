@@ -61,17 +61,37 @@ public class BoardController {
 	
 	// 단건조회
 	@RequestMapping("/getBoard")		
-	public String getBoard(Model model, BoardVO vo) {
+	public String getBoard(Model model, BoardVO vo, HttpServletRequest request) {
+		String type = request.getParameter("type"); 
+		boardService.updateBoardHits(vo);
 		model.addAttribute("board", boardService.getBoard(vo));		
 		return "user/board/getBoard";
 	}
+	
+	
+	//조회수 추가 처리
+	@RequestMapping("/updateBoardHits")
+	public String updateBoardHits(Model model, BoardVO vo) {	
+		boardService.updateBoardHits(vo);		//조회수추가
+		model.addAttribute("board", boardService.getBoard(vo));
+		return "user/board/getBoard";		//목록요청
+	}
+	
+	//좋아요 추가 처리
+		@RequestMapping("/updateboardLike")
+		public String updateboardLike(Model model, BoardVO vo) {	
+			BoardVO nvo= new BoardVO();
+			nvo=boardService.getBoard(vo);
+			boardService.updateboardLike(vo);		//좋아요 추가
+			model.addAttribute("board", boardService.getBoard(nvo));
+			return "redirect:getBoard?boardNumber="+nvo.getBoardNumber();		
+		}
 	
 	
 	// 등록폼
 	@RequestMapping(value="/insertBoardform" , method = RequestMethod.GET )
 	public String insertBoardform(Model model, HttpServletRequest request, HttpServletResponse response) {
 		String type = request.getParameter("type"); 
-		
 		model.addAttribute("type", type);
 		return "user/board/insertBoard";
 	}
@@ -113,9 +133,7 @@ public class BoardController {
 		boardService.updateBoard(vo);		//수정처리
 		model.addAttribute("board", boardService.getBoard(vo));
 		return "user/board/getBoard";		//목록요청
-	}
-		
-	
+	}	
 	
 	
 	// 단건 삭제처리
