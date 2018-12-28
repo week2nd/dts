@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>buyMatchList</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	$(function() {
 		$(".redcheck").click(function() {
@@ -20,7 +19,7 @@
 			var a3 = $(this).closest('tr').find('.redTeamName').text();
 			var a4 = $(this).closest('tr').find('.redRate').text();
 			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' id= 'betmoney' class = 'betmoney'" 
-			+ " onkeyup='returnMoney(event);removeChar(event);' onchange='checkMileage(event)'; onkeydown='return onlyNumber(event)'></td><td id='returnmoney' class='returnmoney' ></td>";
+			+ " onkeyup='returnMoney(event);removeChar(event);' onchange='checkMileage(event)'; onkeydown='return onlyNumber(event)' placeholder='배팅금액 1000~100000'></td><td id='returnmoney' class='returnmoney' ></td>";
 			$(tr).appendTo("#gameBuytr");			
 		});
 		
@@ -32,12 +31,12 @@
 			var a3 = $(this).closest('tr').find('.blueTeamName').text();
 			var a4 = $(this).closest('tr').find('.blueRate').text();
 			var tr = "<td class='gameid'>" + a1 + "</td><td class='gamedate'>" + a2 + "</td><td class='teamid'>" + a3 + "</td><td class='rate'>" + a4 + "</td><td><input type='text' id = 'betmoney' class = 'betmoney'" 
-			+ " onkeyup='returnMoney(event);removeChar(event);' onchange='checkMileage(event)'; onkeydown='return onlyNumber(event)'></td><td id='returnmoney' class='returnmoney' ></td>";
+			+ " onkeyup='returnMoney(event);removeChar(event);' onchange='checkMileage(event)'; onkeydown='return onlyNumber(event)' placeholder='배팅금액 1000~100000'></td><td id='returnmoney' class='returnmoney' ></td>";
 			$(tr).appendTo("#gameBuytr");
 		});	
 		
 		
-		$("#buy").click(function() {
+		/* $("#buy").click(function() {
 			var gameid = $("#gameBuytr").find('.gameid').text();
 			//var gamedate = $("#gameBuytr").find('.gameDate').text();
 			var team = $("#gameBuytr").find('.teamid').text();
@@ -55,7 +54,25 @@
 			console.log(rate);
 			
 			document.gameBuy.submit();
-		}); 
+		});  */
+		
+		$('#buyModal').on('show.bs.modal', function () {
+			console.log('aaa');
+			var gameid = $("#gameBuytr").find('.gameid').text();
+			//var gamedate = $("#gameBuytr").find('.gameDate').text();
+			var team = $("#gameBuytr").find('.teamid').text();
+			var rate = $("#gameBuytr").find('.rate').text();
+			//var betmoney = $("#gameBuytr").find('.betmoneyr').val();
+			var betmoney = $("#betmoney").val();
+			//var returnmoney = $("#gameBuytr").find('.returnmoney').text();
+			document.gameBuy.gameId.value = gameid;
+			document.gameBuy.choise.value = team;
+			document.gameBuy.betDrate.value = rate;
+			document.gameBuy.betMoney.value = betmoney;		  
+		});
+		
+		
+		
 	});
 	function returnMoney(e) 
 	{ 
@@ -97,17 +114,28 @@
 				alert("게임당 배팅가능금액은 천원 이상 입니다.");
 				$("#betmoney").val(0);
 				$("#returnmoney").text(0);
-			}
+			}		
+	};	
+	
+	function checkPw() {
+		var pw1 = $('#uPw').val();
+		var pw2 = $('#cPw').val();
+		if (pw1 == pw2) {
+			$("#buyBtn").prop("disabled", false);
+		} else {
+			$("#buyBtn").prop("disabled", true);
+		}
 	};
+	
 </script>
 </head>
 <body>
-
+<div>
 	<h3>경기리스트</h3>
 	<form id="matchList">
-		<table class="table">
+		<table class="table" style="text-align:center">
 			<thead>
-				<tr>
+				<tr style="text-align:center">
 					<th>게임번호</th>
 					<th>경기일시</th>
 					<th>경기상태</th>
@@ -136,16 +164,16 @@
 					<%-- <c:if test="${match.buyCheck!=0}">	
 					<td ><input class="bluecheck" type="checkbox" disabled='disabled'></td></c:if>
 					<c:if test="${match.buyCheck==0}">
-					<td ><input class="bluecheck" type="checkbox"></td></c:if> --%>
-					
+					<td ><input class="bluecheck" type="checkbox"></td></c:if> --%>					
 				</tr>
 			</c:forEach>
 		</table>
 	</form>
-	<h3>구매</h3>
+	</div>	
 	
-
-	<button type="button" class="btn" id="buy">구매하기</button>
+	<div>
+	<h3>구매</h3>
+	<button type="button" class="btn" data-toggle="modal" data-target="#buyModal">구매하기</button>
 		<table class="table">
 			<thead>
 				<tr>
@@ -161,12 +189,59 @@
 			</tr>
 		</table>
 		
-		
-	<form id="gameBuy" name="gameBuy" action="./buyGame" method="post">
-		<input type="hidden" name="gameId"> 
-		<input type="hidden" name="betDrate"> 
-		<input type="hidden" name="betMoney"> 
-		<input type="hidden" name="choise">
-	</form>
+		<!-- <div id="buyModal1">	
+			<form id="gameBuy" name="gameBuy" action="./buyGame" method="post">
+				<input type="hidden" name="gameId"> 
+				<input type="hidden" name="betDrate"> 
+				<input type="hidden" name="betMoney"> 
+				<input type="hidden" name="choise">
+			</form>
+		</div> -->
+		<!--  -->
+		<div class="modal fade" id="buyModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!-- <button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button> -->
+						<div style="text-align:center">
+						<h4 class="modal-title" id="myModalLabel" style="text-align:center;">경기구매확인페이지</h4>
+						</div>
+					</div>
+					<div class="modal-body">
+						<form name="gameBuy" method="post" action="./insertPurchase">
+							<div class="form-group">
+							<input type="hidden" id="uId" name="uId" value="${membersession.uId }">
+							<input type="hidden" id="uPw" name="uPw" value="${membersession.uPw }">
+							<label for="gameId" class="control-label">게임번호</label>
+							<input type="text" class="form-control" id="gameId" name="gameId" readonly>
+							</div>
+							<div class="form-group">
+							<label for="betDrate" class="control-label">배당률</label>
+							<input type="text" class="form-control" id="betDrate" name="betDrate"  readonly>
+							</div>
+							<div class="form-group">
+							<label for="betMoney" class="control-label">배당금액</label>
+							<input type="text" class="form-control" id="betMoney" name="betMoney" readonly>
+							</div>
+							<div class="form-group">
+							<label for="choise" class="control-label">선택팀</label>
+							<input type="text" class="form-control" id="choise" name="choise"  readonly>
+							</div>
+							<div class="form-group">
+							<input type="password" class="form-control" id="cPw" name="cPw" placeholder="비밀번호를 입력해주세요" oninput="checkPw()">
+							</div>
+							<button type="submit" class="btn btn-primary" id="buyBtn" disabled="disabled">구매완료하기</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						</form>						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--  -->
+	</div>
 </body>
 </html>

@@ -117,5 +117,12 @@ public class PurchaseController {
 		purchaseService.setMoney(vo);
 		return "redirect:getMatchListAd";
 	}
+	
+	// 마일리지 충전페이지
+	@RequestMapping(value="/payCharge")
+	public String payCharge() {
+		return "user/common/pay";
+	}
+			
 
 }

@@ -39,7 +39,7 @@
 		
 		$("#mhistoryList").empty();
 		$("#pagination").html("");
-		console.log(vid);
+		
 		if(page == undefined || page == ""){
 			{page=1}
 		};
@@ -50,10 +50,7 @@
 		} else {
 			{vid=null}
 		};
-			
 		
-		console.log(page);
-		console.log(vid);
 		
 		$.ajax({
 			url : "getMhistoryListAjax",
@@ -123,13 +120,7 @@
 		})
 	};
 	$(function() {
-		//$("#historyAdmin").click({vid:'admin'}, go_page);
-		
-		//$("#historyAdmin").on( "click", {page:null, vid:"admin"}, go_page);
 		$("#historyAll").click(go_page);
-		
-
-
 	});
 	
 	
@@ -157,20 +148,7 @@
 		<thead>
 		</thead>
 			<tbody id = "mhistoryList">
-			</tbody>
-			<%-- <tr>
-				<c:forEach items="${mhistoryList}" var="mhistory">
-					<tr>
-						<td>${mhistory.num}</td>
-						<td>${mhistory.uId}</td>
-						<td>${mhistory.ahDate}</td>
-						<td>${mhistory.newMileage}</td>
-						<td>${mhistory.oldMileage}</td>
-						<td>${mhistory.ipAddr}</td>
-						<td>${mhistory.categorie}</td>
-					</tr>
-				</c:forEach>
-			</tr> --%>
+			</tbody>			
 		</table>
 	</div>
 	<div id="pagination" class="pagination">

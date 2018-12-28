@@ -302,5 +302,12 @@ public class MemberController {
 		return new ModelAndView("commonExcelView", emap);
 	}
 	
+	// 마일리지 추가
+		@RequestMapping("/updateMileage")
+		public String updateMileage(MemberVO vo) {
+			memberService.updateMileage(vo);		//수정처리
+			return "redirect:getMemberUser";		//목록요청
+		}
+	
 	
 }

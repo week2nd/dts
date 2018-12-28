@@ -114,6 +114,11 @@ select b.* from(select a.*, rownum rn from(
 	</if>
 </delete>
 
+<update id = "updateMileage" parameterType="member">
+	UPDATE MEMBER SET
+		   U_MILEAGE = U_MILEAGE + #{uMileage}
+		   WHERE U_ID = #{uId}
+</update>
 
 
 </mapper> 

@@ -26,9 +26,9 @@
 <!-- <link href="css/slidebars.css" rel="stylesheet"> -->
 <link rel="stylesheet" type="text/css" href="css/loaders.css" />
 <script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
+
 <script src="js/core.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <script src="js/lightbox-plus-jquery.min.js"></script>
 <script src="js/lity.min.js"></script>
 
@@ -80,7 +80,8 @@
 								style="display: inline-block; margin-top: 0em;">
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
-								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId} 보유마일리지 : ${membersession.uMileage}</p>
+								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}마일리지 : ${membersession.uMileage}<a href="payCharge" id="pay">충전</a></p>
+								
 								</div>
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
@@ -884,6 +885,7 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

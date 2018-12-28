@@ -19,8 +19,10 @@ public class MemberServiceImpl implements MemberService {
 		dao.insertMember(vo);
 	}
 	public void updateMember(MemberVO vo) {
-		System.out.println("여기왔따");
 		dao.updateMember(vo);
+	}
+	public void updateMileage(MemberVO vo) {
+		dao.updateMileage(vo);
 	}
 	public void updatePw(MemberVO vo) {
 		dao.updatePw(vo);

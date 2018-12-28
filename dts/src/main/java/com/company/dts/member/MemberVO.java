@@ -8,7 +8,7 @@ public class MemberVO {
 	private String uPhone;		// 유저 폰번호
 	private int uMileage;		// 유저 마일리지
 	private String uEmail;		// 유저 이메일
-	
+	private String uCategorie;   // 구분값
 	private String uGrant;		// 유저 권한
 	private String uBirth;		// 유저 생일
 	private String uDate;		// 유저 가입일
@@ -20,6 +20,13 @@ public class MemberVO {
 	
 	private String year;		// 차트 년도
 	
+				
+	public String getuCategorie() {
+		return uCategorie;
+	}
+	public void setuCategorie(String uCategorie) {
+		this.uCategorie = uCategorie;
+	}
 	public String getYear() {
 		return year;
 	}

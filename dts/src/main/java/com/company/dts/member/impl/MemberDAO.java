@@ -26,6 +26,9 @@ public class MemberDAO {
 		System.out.println("mybatis updateMember() 가능 처리");
 		mybatis.update("member.updateMember", vo);
 	}
+	public void updateMileage(MemberVO vo) {
+		mybatis.update("member.updateMileage", vo);
+	}
 	// 유저 비밀번호 변경
 	public void updatePw(MemberVO vo) {
 		System.out.println("mybatis updatePw() 가능 처리");
