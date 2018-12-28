@@ -170,7 +170,14 @@ function insert(){
 				<tr>
 					<td><input type="text" name="bluePick1Spell1" value="teleport" size="10" placeholder="D"></td>
 					<td rowspan="2"><input type="text" name="bluePick1" size="10" placeholder="블루 탑픽"></td>
-					<td colspan="4"><input type="text" name="blueGamer1" size="10" placeholder="블루 탑라이너"></td>
+					<td colspan="4">
+					<input type="text" name="blueGamer1" size="10" placeholder="블루 탑라이너">
+					<select name="blueGamer1">
+					<c:forEach items="${playerList}" var="player">
+						<option value="${player.nickname}">${player.nickname} </option>
+					</c:forEach>
+					</select>
+					</td>
 					<td colspan="4"><input type="text" name="redGamer1" size="10" placeholder="레드 탑라이너"></td>
 					<td rowspan="2"><input type="text" name="redPick1"  size="10" placeholder="레드 탑픽 "></td>
 					<td><input type="text" name="redPick1Spell1" value="teleport" size="10" placeholder="D"></td>

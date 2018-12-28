@@ -145,7 +145,7 @@ public class InfoController {
 
 	// 팀 입력 폼 이동
 	@RequestMapping("/insertTeamForm")
-	public String insertTeamForm(Model model, TeamVO vo) {
+	public String insertTeamForm(Model model, TeamVO vo, PlayerVO pvo) {
 		model.addAttribute("teamList", teamService.getTeamList(vo));
 		return "admin/info/insertTeam";
 	}
@@ -252,8 +252,9 @@ public class InfoController {
 
 	// 경기 입력 폼 이동
 	@RequestMapping("/insertMatchForm")
-	public String insertMatchForm(Model model, TeamVO vo) {
+	public String insertMatchForm(Model model, TeamVO vo, PlayerVO pvo) {
 		model.addAttribute("teamList", teamService.getTeamList(vo));
+		model.addAttribute("playerList", playerService.getPlayerList(pvo));
 		return "admin/info/insertMatch";
 	}
 
