@@ -8,9 +8,18 @@ public class CommentsVO {
 	private String commentsDate;	//댓글작성일자
 	private int boardNumber; // 게시글번호(참조키)
 	private String boardType; // 게시글타입(참조키)
+	private String uId;		//아이디
 	private int    pageUnit;	//검색시페이지제한
 	
 	
+
+	public String getUId() {
+		return uId;
+	}
+
+	public void setUId(String uId) {
+		this.uId = uId;
+	}
 
 	public int getPageUnit() {
 		return pageUnit;
@@ -72,8 +81,10 @@ public class CommentsVO {
 	public String toString() {
 		return "CommentsVO [commentsSeq=" + commentsSeq + ", commentsName=" + commentsName + ", commentsContent="
 				+ commentsContent + ", commentsDate=" + commentsDate + ", boardNumber=" + boardNumber + ", boardType="
-				+ boardType + "]";
+				+ boardType + ", uId=" + uId + ", pageUnit=" + pageUnit + "]";
 	}
+
+	
 
 	
 

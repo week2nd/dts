@@ -33,7 +33,8 @@
 		div.addClass('comment');
 		div[0].comment = comment; //{id:1,.... }
 
-		var str = "<strong class='commentName'>" + comment.commentsName + "</strong>"
+		var str = "<strong class='commentuId'>" + comment.uId + "</strong>"
+				+ "<strong class='commentName'>" + comment.commentsName + "</strong>"
 				+ "<span class='commentContent'>" + comment.commentsContent + "</span>"
 				+ "<button type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
 				+ "<button type=\"button\" class=\"btnDel\">삭제</button>"
@@ -144,11 +145,12 @@
 	<img src="./img/${board.uploadFileName }"/>	<!-- 이미지 파일 보여주는것 -->
 	</c:if>
 	<br>
+	<c:if test="${membersession.uId == board.uId}">
 	<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a> 
+	</c:if>
 	
-	
-	<c:if test="${membersession.uId == board.uId} ">
-	<a href="deleteBoard?boardNumber=${board.boardNumber} ">삭제</a>
+	<c:if test="${membersession.uId == board.uId}">
+	<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
 	</c:if>
 	
 	
@@ -167,6 +169,8 @@
 		<form name="addForm" id="addForm">
 			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 			<input type="hidden" name="boardType" value="${board.boardType}">
+			<input type="hidden" name="uId" value="${membersession.uId}">
+			id=${membersession.uId}<br>
 			이름: <input type="text" name="commentsName" size="10"><br /> 
 			내용: <textarea name="commentsContent" cols="20" rows="2"></textarea>
 			<br /> <input type="button" value="등록" id="btnAdd" />
@@ -179,6 +183,7 @@
 	<form name="updateForm" id="updateForm">
 	<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 	<input type="hidden" name="boardType" value="${board.boardType}"/>
+	<input type="hidden" name="uId" value="${membersession.uId}">
 	<input type="hidden" name="commentsSeq" >
 	이름: <input type="text" name="commentsName" size="10"><br/>
 	내용: <textarea name="commentsContent" cols="20" rows="2"></textarea><br/>
