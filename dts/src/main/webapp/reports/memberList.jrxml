@@ -12,13 +12,11 @@
 	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
 	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
 	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
-	<style name="korfont" 
-			pdfFontName="font/malgun.ttf" 
-			pdfEncoding="Identity-H" 
-			isPdfEmbedded="true"/>
+	<style name="korfont" pdfFontName="font/malgun.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT 
 	u_id 			as "uId",
+	u_pw 		as "uPw",
 	u_name		as "uName",
 	REPLACE(U_ADDRESS, '^', '') as "uAddress",
 	u_phone	as "uPhone",
@@ -36,6 +34,9 @@ ORDER BY u_id DESC]]>
 	<field name="uId" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="uId"/>
 	</field>
+	<field name="uPw" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="uPw"/>
+	</field>
 	<field name="uName" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="uName"/>
 	</field>
@@ -45,7 +46,7 @@ ORDER BY u_id DESC]]>
 	<field name="uPhone" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="uPhone"/>
 	</field>
-	<field name="uMileage" class="java.lang.Integer">
+	<field name="uMileage" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="uMileage"/>
 	</field>
 	<field name="uGrant" class="java.lang.String">
@@ -57,10 +58,10 @@ ORDER BY u_id DESC]]>
 	<field name="uDate" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="uDate"/>
 	</field>
-	<field name="uWin" class="java.lang.Integer">
+	<field name="uWin" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="uWin"/>
 	</field>
-	<field name="uLose" class="java.lang.Integer">
+	<field name="uLose" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="uLose"/>
 	</field>
 	<field name="uEmail" class="java.lang.String">
