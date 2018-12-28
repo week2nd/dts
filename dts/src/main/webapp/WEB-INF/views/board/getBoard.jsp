@@ -33,7 +33,7 @@
 		div.addClass('comment');
 		div[0].comment = comment; //{id:1,.... }
 
-		var str = "<strong class='commentuId'>" + comment.uId + "</strong>"
+		var str = "<strong class='uId'>" + comment.uid + "</strong>"
 				+ "<strong class='commentName'>" + comment.commentsName + "</strong>"
 				+ "<span class='commentContent'>" + comment.commentsContent + "</span>"
 				+ "<button type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
@@ -152,9 +152,10 @@
 	<c:if test="${membersession.uId == board.uId}">
 	<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
 	</c:if>
-	
-	
+		
 	<a href="getBoardList?type=${board.boardType}">게시판</a>
+	
+	<a href="updateboardLike?boardNumber=${board.boardNumber}&boardType=${board.boardType}">좋아요</a>
 
 
 	 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>

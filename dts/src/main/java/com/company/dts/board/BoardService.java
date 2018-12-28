@@ -13,4 +13,6 @@ public interface BoardService {
 	public List<BoardVO> getBoardList(BoardVO vo);			//게시판전체조회
 	public void deleteBoardList(BoardVO vo);				//게시판전체삭제
 	public int getCount(BoardVO vo);						//페이징건수가져오기
+	public void updateBoardHits(BoardVO vo);				//게시판 조회수 추가
+	public void updateboardLike(BoardVO vo);				//게시판 좋아요 추가
 }

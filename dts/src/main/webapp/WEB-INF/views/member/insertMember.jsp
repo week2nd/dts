@@ -348,6 +348,7 @@
 		border-collapse: collapse;
 		width: 50%;						/* 넓이 50%  */
 		margin: 0 0 20px 0;				/* 아랫쪽 테이블 간격 20px  */
+		
 	}
 	 
 	th, td {							/* th, td에 여백 15px, 글자 왼쪽정렬  */						
@@ -377,10 +378,9 @@
 
 </head>
 <body>
-	<h3>회원가입</h3>
 	<form action="insertMember" method="post">
 	
-		<table id="tb">
+		<table id="tb" align="center" >
 	        <tr>            
 	            <td>아이디</td>
 	            <td><input type="text" class="id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
@@ -462,7 +462,9 @@
 	            </td>
 	        </tr>        
 	    </table>
-	    <button class="joinbtn" disabled="disabled">가입</button>
+	    <div style="text-align: center">
+	    	<button class="joinbtn" disabled="disabled">가입</button>
+	    </div>
     </form>
 
 </body>

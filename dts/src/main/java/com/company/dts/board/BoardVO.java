@@ -11,8 +11,8 @@ public class BoardVO {
 	private String boardTitle;			//게시판제목
 	private String boardContent;		//게시판제목
 	private String postDate;			//작성일
-	private String boardHits;			//조회수
-	private String boardLike;			//추천수
+	private int boardHits;				//조회수
+	private int boardLike;				//추천수
 	private String uId;					//user아이디
 	private String boardType;			//게시판타입
 
@@ -76,16 +76,16 @@ public class BoardVO {
 	public void setPostDate(String postDate) {
 		this.postDate = postDate;
 	}
-	public String getBoardHits() {
+	public int getBoardHits() {
 		return boardHits;
 	}
-	public void setBoardHits(String boardHits) {
+	public void setBoardHits(int boardHits) {
 		this.boardHits = boardHits;
 	}
-	public String getBoardLike() {
+	public int getBoardLike() {
 		return boardLike;
 	}
-	public void setBoardLike(String boardLike) {
+	public void setBoardLike(int boardLike) {
 		this.boardLike = boardLike;
 	}
 	public String getuId() {

@@ -70,8 +70,8 @@
 					<td><input type="checkbox" name="bnumberList"
 						value="${board.boardNumber}" /></td>
 					<td>${board.boardNumber }</td>
-					<td><a href="./getBoard?boardNumber=${board.boardNumber }">${board.boardTitle }</a></td>
-					<td>${board.boardContent }</td>
+					<td><a href="./getBoard?boardNumber=${board.boardNumber}">${board.boardTitle}</a></td>
+					<td><a href="./getBoard?boardNumber=${board.boardNumber}">${board.boardContent }</td>
 					<td>${board.postDate }</td>
 					<td>${board.boardHits }</td>
 					<td>${board.boardLike }</td>
@@ -84,6 +84,6 @@
 
 	<my:paging paging="${paging}" jsFunc="go_page" />
 	<!-- 페이징 위해 추가  -->
-
+		<%-- <td><a href="Ncontent.do?post=<%=bean.getPost()%>&cnt=plus"><%=bean.getTitle()%></a></td> 상찬이 조언 --%>
 </body>
 </html>

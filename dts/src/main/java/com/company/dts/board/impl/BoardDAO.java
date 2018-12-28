@@ -25,7 +25,7 @@ public class BoardDAO {
 	public int getCount(BoardVO vo) {
 		return mybatis.selectOne("board.getCount", vo);
 	}
-	
+
 	// 수정
 	public void updateBoard(BoardVO vo) {
 		System.out.println("mybatis jdbc updateBoard() 기능처리");
@@ -49,12 +49,22 @@ public class BoardDAO {
 		System.out.println("mybatis jdbc getBoardList() 기능처리");
 		return mybatis.selectList("board.getBoardList", vo);
 	}
-	
-		
-		
+
 	// 단건조회
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("spring jdbc getBoard() 기능처리");
 		return mybatis.selectOne("getBoard", vo);
+	}
+
+	// 게시글조회수증가
+	public void updateBoardHits(BoardVO vo) {
+		System.out.println("mybatis jdbc updateBoardHits() 기능처리");
+		mybatis.update("updateBoardHits", vo);
+	}
+
+	// 좋아요증가
+	public void updateboardLike(BoardVO vo) {
+		System.out.println("mybatis jdbc updateboardLike() 기능처리");
+		mybatis.update("updateboardLike", vo);
 	}
 }

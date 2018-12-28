@@ -7,13 +7,19 @@
 <title>pwSearchForm.jsp</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- ajax 스크립트 -->
 <script>
-
+function checkEmail(){
+	
+}
 
 function checkId() {
 	var inputId = $('.id').val();
+	var inputEmail = $(".email").val();
+	
 	$.ajax({
         data : {
-            uId : inputId
+        	uId : inputId,
+            uEmail : inputEmail
+        
         },
         url : "checkId",
         success : function(data) {
@@ -29,10 +35,15 @@ function checkId() {
                 $(".searchBtn").css("background-color", "#aaaaaa");		// 가입버튼 회색
                 $("#chkId").css("background-color", "#FFCECE");			// 아이디 텍스트박스 빨강색
                 document.all.spanIdX.style.display="none";					// 중복 아이디 span 활성화
+                console.log(document.all.uEmail.value);
+                console.log("${member.uEmail }");
             }
             
         }
     });
+//	console.log(document.all.uEmail.value);
+//	console.log(document.all.temp.value);
+//	console.log($('.id').val());
 }
 
 $(function(){
@@ -44,20 +55,22 @@ $(function(){
 <body>
 <h3>회원 비밀번호 찾기</h3>
 	<form action="mailSend" method="post">
-	
+		
+		
 		<table id="tb">
 	        <tr>            
 	            <td>아이디</td>
-	            <td><input type="text" class="id" name="uId" id="uId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
+	            <td><input type="text" class="id" name="uId" id="uId" placeholder="아이디" oninput="checkId()"  autofocus><br>
 	            	<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>
 	            </td>
 	        </tr>
-	        <%-- <tr>
+	        <tr>
 	            <td>E-Mail</td>
-	            <td><input type="text" class="email" name="uEmail" id="uEmail" placeholder="E-Mail" value="${member.uEmail }" oninput="checkId()"></td>
-	        </tr> --%>
+	            <td><input type="text"  class="email" name="uEmail" id="uEmail" placeholder="E-Mail" oninput="checkId()"></td>
+	        </tr>
 		</table>
 	    <button class="searchBtn" disabled="disabled">비밀번호 찾기</button>
+	   <!--  <input type="hidden" class="email" name="uEmail" id="uEmail" value="${member.uEmail }"> -->
     </form>
 </body>
 </html>
