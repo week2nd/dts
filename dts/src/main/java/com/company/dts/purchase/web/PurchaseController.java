@@ -1,7 +1,6 @@
 package com.company.dts.purchase.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -127,12 +126,15 @@ public class PurchaseController {
 	// 마일리지 충전페이지
 	@RequestMapping(value="/payCharge")
 	public String payCharge(HttpSession session) {
-		MemberVO vo1 = new MemberVO();
+		MemberVO vo = new MemberVO();
 		String id = ((MemberVO) session.getAttribute("membersession")).getuId();
-		vo1.setuId(id);
-		MemberVO membervo = memberSerivce.getMember(vo1);		
+		vo.setuId(id);
+		System.out.println(id+"@@@@@@@@");
+		
+		MemberVO membervo = memberSerivce.getMember(vo);		
 		session.setAttribute("membersession", membervo);
-		return "user/common/pay";
+		
+		return "redirect:payChargePage";
 	}
 			
 
