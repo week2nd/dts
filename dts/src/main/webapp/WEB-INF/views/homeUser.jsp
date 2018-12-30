@@ -80,7 +80,7 @@
 								style="display: inline-block; margin-top: 0em;">
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
-								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}마일리지 : ${membersession.uMileage}<a href="payCharge" id="pay">충전</a></p>
+								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}마일리지 : ${membersession.uMileage}<a href="payChargePage" id="pay">충전</a></p>
 								
 								</div>
 								<div class="form-group"

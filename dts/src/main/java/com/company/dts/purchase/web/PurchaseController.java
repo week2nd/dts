@@ -93,7 +93,6 @@ public class PurchaseController {
 	// 구매완료등록
 	@RequestMapping(value = "insertPurchase", method = RequestMethod.POST)
 	public String insertPurchase(Model model, PurchaseVO vo, HttpSession session) {
-		System.out.println(vo.getuId());
 		MemberVO vo1 = new MemberVO();
 		vo1.setuId(vo.getuId());
 		purchaseService.insertPurchase(vo);
@@ -118,9 +117,21 @@ public class PurchaseController {
 		return "redirect:getMatchListAd";
 	}
 	
+	//충전페이지
+	@RequestMapping(value="/payChargePage")
+	public String pay() {
+		return "user/common/pay";
+	}
+	
+	
 	// 마일리지 충전페이지
 	@RequestMapping(value="/payCharge")
-	public String payCharge() {
+	public String payCharge(HttpSession session) {
+		MemberVO vo1 = new MemberVO();
+		String id = ((MemberVO) session.getAttribute("membersession")).getuId();
+		vo1.setuId(id);
+		MemberVO membervo = memberSerivce.getMember(vo1);		
+		session.setAttribute("membersession", membervo);
 		return "user/common/pay";
 	}
 			

@@ -31,9 +31,10 @@
 			    	console.log(rsp);	
 			    	var uid = rsp.buyer_name;
 			    	var umileage = rsp.paid_amount;
+			    	var ucategorie = '마일리지충전';
 			    	$.ajax({
 			    		url : "updateMileage",
-			    		data : {uId:uid, uMileage:umileage, categorie:'마일리지충전'},
+			    		data : {uId:uid, uMileage:umileage, uCategorie:ucategorie},
 			    		type : "POST",
 			    		dataType:"json",
 			    			error : function(xhr, status, msg) {
@@ -45,7 +46,7 @@
 			        var msg = '결제에 실패하였습니다.';
 			        msg += '에러내용 : ' + rsp.error_msg;
 			    }
-			    alert(msg);
+			    alert('결제성공');
 			});			
 		});		
 	});

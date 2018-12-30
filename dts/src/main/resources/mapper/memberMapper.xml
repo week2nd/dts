@@ -116,7 +116,7 @@ select b.* from(select a.*, rownum rn from(
 
 <update id = "updateMileage" parameterType="member">
 	UPDATE MEMBER SET
-		   U_MILEAGE = U_MILEAGE + #{uMileage} AND U_CATEGORIE = #{uCategorie}
+		   U_MILEAGE = U_MILEAGE + #{uMileage}, U_CATEGORIE = #{uCategorie}
 		   WHERE U_ID = #{uId}
 </update>
 
