@@ -34,10 +34,6 @@
 
 <script src="js/lightbox-plus-jquery.min.js"></script>
 <script src="js/lity.min.js"></script>
-<script>
-var money = ${membersession.uMileage} //2,312,000원
-
-</script>
 <style>
 body {
 font-family:'Jua';
@@ -49,11 +45,23 @@ font-family:'Jua';
 font-size : 10px;
 }
 </style>
+<script>
+$(function(){
+	var money = ${membersession.uMileage};
+	var money2 = money.toLocaleString();
+	$("#abc").text('${membersession.uName} 님    보유마일리지 : ' + money2);	
+});
+
+</script>
 
 </head>
 
 <body>
 
+		
+	
+	
+	
 	<!-- Top small banner -->
 	<header class="float-left w-100">
 		<div class="small-top float-left w-100">
@@ -108,7 +116,10 @@ font-size : 10px;
 			</div>
 		</div>
 	</header>
+	
 
+
+	
 	<!-- Top Navigation -->
 	<section class="top-nav">
 		<nav class="navbar navbar-expand-lg py-0">
@@ -124,9 +135,9 @@ font-size : 10px;
 						<li class="nav-item active"><a class="nav-link" href="#">Home
 								<span class="sr-only">(current)</span>
 						</a></li>
-						<li class="nav-item"><a class="nav-link" href="./buyMatchList">게임구매</a>
-						</li>
-							<li class="nav-item dropdown menu"><a
+						<li class="nav-item"><a class="nav-link"
+							href="./buyMatchList">게임구매</a></li>
+						<li class="nav-item dropdown menu"><a
 							class="nav-link dropdown-toggle" href="#" id="layouts"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 							aria-live="token">경기정보</a>
@@ -140,11 +151,12 @@ font-size : 10px;
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
 							aria-live="token">게시판</a>
 							<div class="dropdown-menu" aria-labelledby="layouts">
-								<a class="dropdown-item" href="./getBoardList?type=free">자유게시판</a> <a
-									class="dropdown-item" href="./getBoardList?type=analysis">분석게시판</a> <a
-									class="dropdown-item" href="./getBoardList?type=suggestion">건의게시판</a>
+								<a class="dropdown-item" href="./getBoardList?type=free">자유게시판</a>
+								<a class="dropdown-item" href="./getBoardList?type=analysis">분석게시판</a>
+								<a class="dropdown-item" href="./getBoardList?type=suggestion">건의게시판</a>
 							</div></li>
-						<li class="nav-item"><a class="nav-link" href="./getBoardList?type=notice">공지사항</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="./getBoardList?type=notice">공지사항</a></li>
 						<li class="nav-item dropdown menu"><a
 							class="nav-link dropdown-toggle" href="#" id="layouts"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -154,11 +166,14 @@ font-size : 10px;
 									class="dropdown-item" href="./getPurchaseList">내구매목록</a> <a
 									class="dropdown-item" href="./payChargePage">마일리지충전</a>
 							</div></li>
-						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>	
+						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 					</ul>
-				<div>
-					<div style="position: absolute; right: 100px; top: 10px; border-radius: 3px; font-size:17px; margin-top:4px">${membersession.uId} 님&nbsp;&nbsp;&nbsp;보유마일리지 : ${membersession.uMileage}</div>
-					<button style="margin-top:10px; margin-right:5px" type="button" class="btn btn-outline-dark " onclick="window.location.href='logout'" font->로그아웃</button>
+					<div>
+						<div
+							style="position: absolute; right: 100px; top: 10px; border-radius: 3px; font-size: 17px; margin-top: 4px"
+							id="abc"></div>
+						<button style="margin-top: 10px; margin-right: 5px" type="button" class="btn btn-outline-dark"	onclick="window.location.href='logout'">로그아웃</button>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -175,7 +190,7 @@ font-size : 10px;
 
 
 	<!-- Info Block-01 -->
-	<section class="banner-sec float-left w-100 pt-4 pb-5">
+	<!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-3">
@@ -269,7 +284,7 @@ font-size : 10px;
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 	<!-- widget block -->
 	<!-- <section class="widget-block flasher-sec float-left w-100">

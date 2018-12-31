@@ -143,7 +143,7 @@ $(function(){
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 					</ul>
 					
-					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>	
+					<div><button style="margin-top:10px; margin-right:5px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>	
 				</div>
 			</div>
 		</nav>		
