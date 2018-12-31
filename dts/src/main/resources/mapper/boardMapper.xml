@@ -70,7 +70,7 @@
 					</if>
 					)
 				VALUES(
-					#{boardNumber},	
+					#{boardNumber},			<!-- 게시판번호 -->
 					#{boardTitle},			<!-- 게시판제목 -->
 					#{boardContent},		<!-- 게시판내용 -->
 					#{uId},					<!-- 아이디 -->
@@ -90,9 +90,6 @@
 					)
 </insert>		
 
-
-				
-	
 		
 		<!-- 좋아요 취소 -->
 <delete id ="deleteLikecheck" parameterType="board">
@@ -100,6 +97,7 @@
 	 WHERE BOARD_NUMBER = #{boardNumber} and U_ID = #{uId}
 					
 </delete>
+		
 								
 <!-- 게시판 수정 -->
 <update id ="updateBoard" parameterType="board">

@@ -53,7 +53,7 @@ public class BoardServiceImpl implements BoardService {
 
 	}
 
-	/* 페이징건수가져오기 */
+	// 페이징건수가져오기 
 	public int getCount(BoardVO vo) {
 		return dao.getCount(vo);
 	}
