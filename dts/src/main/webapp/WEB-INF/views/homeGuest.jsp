@@ -17,7 +17,6 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="css/new-style.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
@@ -26,12 +25,16 @@
 <!-- <link href="css/slidebars.css" rel="stylesheet"> -->
 <link rel="stylesheet" type="text/css" href="css/loaders.css" />
 <script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<!-- <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <script src="js/core.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <script src="js/lightbox-plus-jquery.min.js"></script>
 <script src="js/lity.min.js"></script>
 
+<script>
+$('#loginForm').on('show.bs.modal', function () {
+});
+</script>
 
 </head>
 
@@ -51,7 +54,7 @@
 							</script>
 						</div>
 					</div>
-					<!-- <div class="col-lg-3 ml-auto">
+					<div class="col-lg-3 ml-auto">
             <div class="social-icon">
               <a href="#" class=" fa fa-facebook"></a>
               <a href="#" class=" fa fa-twitter"></a>
@@ -60,20 +63,17 @@
               <a href="#" class=" fa fa-youtube"></a>
               <a href="#" class=" fa fa-vimeo-square"></a>
             </div>
-          </div> -->
+          </div>
 				</div>
 			</div>
 		</div>
 		<div class="top-head left">
 			<div class="container-fluid">
 				<div class="row px-3">
-					<div class="col-md-6 col-lg-4 mt-2">
-						<h1>
-							E-Sports토토게스트메인
-							<!-- <small>1조최종프로젝트</small>  -->
-						</h1>
+					<div class="col-lg-12">
+						<h1 class="text-center" style="margin-top:10px;">E-Sports토토게스트메인</h1>
 					</div>
-					<div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
+					<!-- <div class="col-md-4 ml-auto">
 						<nav class="nav justify-content-end">
 							<form method="post" action="login"
 								style="display: inline-block; margin-top: 0em;">
@@ -95,9 +95,9 @@
 							<div class="form-group"
 									style="margin-top: 13px; margin-left: 5px display: inline-block">
 							<button onclick="window.location.href='insertMember'">회원가입</button></div>
-							
+							<button class="btn" onclick="window.location.href='loginForm'">로그인/회원가입</button>
 						</nav>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -133,19 +133,46 @@
 						<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 					</ul>
-					<form class="ml-auto">
-						<div class="search">
-							<input type="text" class="form-control" maxlength="64"
-								placeholder="Search" />
-							<button type="submit" class="btn btn-search">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</form>
+					<!-- <div><button style="margin-top:6px;"  class="btn btn-outline-dark" onclick="window.location.href='loginForm'">로그인/회원가입</button></div> -->
+					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>	
+					<!--  -->
+					
+
+					<!--  -->
 				</div>
 			</div>
 		</nav>
+		
 	</section>
+	
+	<div class="modal fade" id="loginForm" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<div style="text-align: center">
+										<h4 class="modal-title" id="myModalLabel"
+											style="text-align: center;">로그인</h4>
+									</div>
+								</div>
+								<div class="modal-body">
+									<form id="loginFrm" method="post" action="login">
+										<div class="form-group">
+											<label for="uId" class="control-label">아이디</label> 
+											<input type="text" class="form-control" id="uId" name="uId">
+										</div>
+										<div class="form-group">
+											<label for="uPw" class="control-label">비밀번호</label> 
+											<input type="text" class="form-control" id="uPw" name="uPw">
+										</div>
+										<button type="submit" class="btn btn-primary" id="loginBtn">구매완료하기</button>
+										<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+										<!-- <span class="psw">Forgot<a href="pwSearchForm">password?</a></span> -->
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 
 	<section class="banner-sec float-left w-100 pt-4 pb-5">
 		<div class="col-md-12">
@@ -851,6 +878,7 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
