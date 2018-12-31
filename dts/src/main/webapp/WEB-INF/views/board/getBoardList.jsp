@@ -29,40 +29,39 @@
 	</form>
 	<script>
 		if ("${boardVO.searchCondition}" != "") {
-
 			document.frm.searchCondition.value = "${boardVO.searchCondition}";
 		}
 	</script>
 	
 	<form action="deleteBoardList">	
-	<c:if test="${membersession.uGrant=='admin'}">
-		<input type=hidden name = "type" value = "${type}">
+	<c:if test="${membersession.uGrant=='admin'}">					<!-- admin 으로 로그인시 선택삭제가 보인다. -->
+		<input type=hidden name = "type" value = "${type}">			
 		<button>선택삭제</button>
 	</c:if>
 		<script>
-			function go_sort(sortCol) {
+			function go_sort(sortCol) {								// 정렬 기능
 				document.frm.sortCol.value = sortCol;
 				document.frm.submit();
 			}
-			function go_page(page) {
+			function go_page(page) {								// 페이징 기능
 				document.frm.page.value = page;
-				document.frm.submit(); //검색폼 
+				document.frm.submit(); 								// 검색폼 
 			}
 		</script>
-		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">
+		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">		
 		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 		</c:if>
 		<table border="1" class = "table">
 			<tr>
 				<td>선택</td>
-				<td>번호<a href="#" onclick="go_sort('boardNumber')">▲</a></td>
-				<td>제목<a href="#" onclick="go_sort('boardTitle')">▲</a></td>
-				<td>내용<a href="#" onclick="go_sort('boardContent')">▲</a></td>
-				<td>작성일<a href="#" onclick="go_sort('postDate')">▲</a></td>
-				<td>조회수<a href="#" onclick="go_sort('boardHits')">▲</a></td>
-				<td>추천수<a href="#" onclick="go_sort('boardLike')">▲</a></td>
-				<td>아이디<a href="#" onclick="go_sort('uId')">▲</a></td>
-				<td>게시판타입<a href="#" onclick="go_sort('boardType')">▲</a></td>
+				<td>번호</td>
+				<td>제목</td>
+				<td>내용</td>
+				<td>작성일</td>
+				<td>조회수</td>
+				<td>추천수</td>
+				<td>아이디</td>
+				<td>게시판타입</td>
 
 			</tr>
 			<c:forEach items="${board }" var="board">
