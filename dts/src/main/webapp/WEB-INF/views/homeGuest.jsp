@@ -133,7 +133,7 @@ $('#loginForm').on('show.bs.modal', function () {
 						<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 					</ul>
-					<!-- <div><button style="margin-top:6px;"  class="btn btn-outline-dark" onclick="window.location.href='loginForm'">로그인/회원가입</button></div> -->
+					
 					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>	
 				</div>
 			</div>

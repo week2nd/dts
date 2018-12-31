@@ -135,10 +135,11 @@
 							<div class="dropdown-menu" aria-labelledby="layouts">
 								<a class="dropdown-item" href="./getMemberUser">내정보</a> <a
 									class="dropdown-item" href="./getPurchaseList">내구매목록</a> <a
-									class="dropdown-item" href="#">다른링크</a>
+									class="dropdown-item" href="./payChargePage">마일리지충전</a>
 							</div></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>	
 					</ul>
+					<div>${membersession.uId}${membersession.uMileage}</div>
 					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" onclick="window.location.href='logout'">로그아웃</button></div>
 					<%-- <p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}마일리지 : ${membersession.uMileage}<a href="payChargePage" id="pay">충전</a></p> --%>
 				</div>

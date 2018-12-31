@@ -42,12 +42,12 @@
 			    			},
 			    			
 			    	});		        
-			    	window.location = 'http://localhost:8081/app/getMemberUser';
+			    	window.location = 'http://localhost:8081/app/payChargePage';
 			    } else {
 			        var msg = '결제에 실패하였습니다.';
 			        msg += '에러내용 : ' + rsp.error_msg;
 			    }
-			    //alert('결제성공');
+			    alert('결제성공');
 			    
 			});			
 		});		
