@@ -82,6 +82,7 @@
 <insert id ="insertLikecheck" parameterType="board">
 	INSERT INTO BOARDCHECK (LIKE_CHECK, U_ID)
 					VALUES(
+					
 					'Y'
 					#{uId}	   
 					WHERE BOARD_NUMBER=#{boardNumber}
