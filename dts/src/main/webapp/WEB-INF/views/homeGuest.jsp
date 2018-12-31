@@ -162,6 +162,8 @@ $('#loginForm').on('show.bs.modal', function () {
 										</div>
 										<button type="submit" class="btn btn-primary" id="loginBtn">로그인</button>
 										<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+										<button type="button" class="btn btn-primary" onclick="window.location.href='insertMember'">회원가입</button>
+										<button type="button" class="btn btn-link" onclick="window.location.href='pwSearchForm'">비밀번호찾기</button>
 										<!-- <span class="psw">Forgot<a href="pwSearchForm">password?</a></span> -->
 									</form>
 								</div>
