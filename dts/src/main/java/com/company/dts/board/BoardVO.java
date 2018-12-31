@@ -15,7 +15,8 @@ public class BoardVO {
 	private int boardLike;				//추천수
 	private String uId;					//user아이디
 	private String boardType;			//게시판타입
-	private String likeCheck;			//좋아요체크
+	private int likeCheck;				//좋아요체크
+	
 
 	private String uploadFileName;		//파일업로드할때 사용
 	private MultipartFile uploadFile;	//파일업로드할때 사용
@@ -28,6 +29,12 @@ public class BoardVO {
 	
 	
 	
+	public int getLikeCheck() {
+		return likeCheck;
+	}
+	public void setLikeCheck(int likeCheck) {
+		this.likeCheck = likeCheck;
+	}
 	public String getUploadFileName() {
 		return uploadFileName;
 	}

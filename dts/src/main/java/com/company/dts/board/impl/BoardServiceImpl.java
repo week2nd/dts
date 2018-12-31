@@ -69,4 +69,10 @@ public class BoardServiceImpl implements BoardService {
 	public void insertLikecheck(BoardVO vo) {
 		dao.insertLikecheck(vo);
 	}
+	
+	// 좋아요 취소
+	@Override
+	public void deleteLikecheck(BoardVO vo) {
+		dao.deleteLikecheck(vo);
+	}
 }

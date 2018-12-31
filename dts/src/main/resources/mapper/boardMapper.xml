@@ -26,7 +26,8 @@
 	<!-- 전체게시판조회 -->
 	<select id="getBoardList" resultType="board">
 	select b.* from(select a.*, rownum rn from(
-	SELECT 	*
+	SELECT 	BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, U_ID, BOARD_TYPE, BOARD_HITS, POST_DATE, UPLOADFILENAME,
+	(SELECT COUNT(*) FROM BOARDCHECK WHERE BOARDCHECK.BOARD_NUMBER=board.board_Number) as BOARD_LIKE
 	FROM	BOARD 
 	WHERE 	BOARD_TYPE= #{boardType}
 			<if test="searchKeyword != null and searchKeyword != ''">
@@ -48,7 +49,9 @@
 
 <!-- 단일게시판조회 -->
 <select id="getBoard" parameterType="board" resultType="board">
-	SELECT 	*
+	SELECT 	BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, U_ID, BOARD_TYPE, BOARD_HITS, POST_DATE, UPLOADFILENAME,
+	(SELECT COUNT(*) FROM BOARDCHECK WHERE BOARDCHECK.BOARD_NUMBER=board.board_Number) as BOARD_LIKE,
+	(SELECT COUNT(*) FROM BOARDCHECK WHERE BOARD_NUMBER = #{boardNumber} and U_ID = #{uId}) AS LIKE_CHECK
 	FROM	BOARD
 	WHERE 	BOARD_NUMBER = #{boardNumber}
 	ORDER BY BOARD_NUMBER
@@ -79,15 +82,24 @@
 </insert>
 
 	<!-- 좋아요 추가 -->
-<insert id ="insertLikecheck" parameterType="board">
-	INSERT INTO BOARDCHECK (LIKE_CHECK, U_ID)
-					VALUES(
-					
-					'Y'
+<insert id ="insertLikecheck" parameterType="board">	
+	INSERT INTO BOARDCHECK (BOARD_NUMBER, U_ID)
+					VALUES(				
+					#{boardNumber},
 					#{uId}	   
-					WHERE BOARD_NUMBER=#{boardNumber}
 					)
-</insert>							
+</insert>		
+
+
+				
+	
+		
+		<!-- 좋아요 취소 -->
+<delete id ="deleteLikecheck" parameterType="board">
+	DELETE FROM BOARDCHECK 	
+	 WHERE BOARD_NUMBER = #{boardNumber} and U_ID = #{uId}
+					
+</delete>
 								
 <!-- 게시판 수정 -->
 <update id ="updateBoard" parameterType="board">

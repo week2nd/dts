@@ -52,7 +52,7 @@
 		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">
 		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 		</c:if>
-		<table border="1">
+		<table border="1" class = "table">
 			<tr>
 				<td>선택</td>
 				<td>번호<a href="#" onclick="go_sort('boardNumber')">▲</a></td>
@@ -70,8 +70,8 @@
 					<td><input type="checkbox" name="bnumberList"
 						value="${board.boardNumber}" /></td>
 					<td>${board.boardNumber }</td>
-					<td><a href="./getBoard?boardNumber=${board.boardNumber}">${board.boardTitle}</a></td>
-					<td><a href="./getBoard?boardNumber=${board.boardNumber}">${board.boardContent }</td>
+					<td><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardTitle}</a></td>
+					<td><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardContent }</a></td>
 					<td>${board.postDate }</td>
 					<td>${board.boardHits }</td>
 					<td>${board.boardLike }</td>
@@ -81,6 +81,11 @@
 			</c:forEach>
 		</table>
 	</form>
+
+
+	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
+	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
+
 
 	<my:paging paging="${paging}" jsFunc="go_page" />
 	<!-- 페이징 위해 추가  -->

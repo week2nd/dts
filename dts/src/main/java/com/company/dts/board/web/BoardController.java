@@ -65,7 +65,6 @@ public class BoardController {
 	// 단건조회
 	@RequestMapping("/getBoard")
 	public String getBoard(Model model, BoardVO vo, HttpServletRequest request) {
-		String type = request.getParameter("type");
 		boardService.updateBoardHits(vo);
 		model.addAttribute("board", boardService.getBoard(vo));
 		return "user/board/getBoard";
@@ -81,14 +80,24 @@ public class BoardController {
 
 	// 좋아요 추가 처리
 	@RequestMapping("/insertLikecheck")
-	public String insertLikecheck(Model model, BoardVO vo) {
-		BoardVO nvo = new BoardVO();
-		nvo = boardService.getBoard(vo);
+	public String insertLikecheck(Model model, BoardVO vo, HttpServletRequest request) {
+		
 		boardService.insertLikecheck(vo); // 좋아요 추가
-		model.addAttribute("board", boardService.getBoard(nvo));
+		model.addAttribute("board", boardService.getBoard(vo));
 		return "user/board/getBoard"; // 목록요청
 	}
 
+	
+	// 좋아요 취소 처리
+	@RequestMapping("/deleteLikecheck")
+	public String deleteLikecheck(Model model, BoardVO vo, HttpServletRequest request) {
+	
+		boardService.deleteLikecheck(vo); // 삭제처리를 한다.
+		System.out.println(vo.getBoardType());
+		model.addAttribute("board", boardService.getBoard(vo));														
+		return "user/board/getBoard";
+	}
+	
 
 	// 등록폼
 	@RequestMapping(value = "/insertBoardform", method = RequestMethod.GET)

@@ -67,4 +67,10 @@ public class BoardDAO {
 		System.out.println("mybatis jdbc insertLikecheck() 기능처리");
 		mybatis.update("insertLikecheck", vo);
 	}
+	
+	// 좋아요취소
+		public void deleteLikecheck(BoardVO vo) {
+			System.out.println("mybatis jdbc deleteLikecheck() 기능처리");
+			mybatis.update("deleteLikecheck", vo);
+		}
 }

@@ -11,124 +11,109 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-
 	//댓글 목록조회 요청
 	function loadCommentList() {
 		var params = {
-				boardNumber : '${board.boardNumber}'
+			boardNumber : '${board.boardNumber}'
 		};
-		$.getJSON("getCommentsList", params,
-				function(datas) {
-					for (i = 0; i < datas.length; i++) {
-						var div = makeCommentView(datas[i]);
-						$(div).appendTo("#commentsList");
-					}
+		$.getJSON("getCommentsList", params, function(datas) {
+			for (i = 0; i < datas.length; i++) {
+				var div = makeCommentView(datas[i]);
+				$(div).appendTo("#commentsList");
+			}
 
-				});
+		});
 	}
-	
-	
+
 	function makeCommentView(comment) {
 		var div = $("<div>");
 		div.attr("id", "c" + comment.commentsSeq);
 		div.addClass('comment');
 		div[0].comment = comment; //{id:1,.... }
-
+		var btn = "";
+		if (comment.uid == "${membersession.uId}") {
+			btn = "<button type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
+					+ "<button type=\"button\" class=\"btnDel\">삭제</button>"
+		}
 		var str = "<strong class='uId'>" + comment.uid + "</strong>"
-				+ "<strong class='commentName'>" + comment.commentsName + "</strong>"
-				+ "<span class='commentContent'>" + comment.commentsContent + "</span>"
-				+ "<button type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
-				+ "<button type=\"button\" class=\"btnDel\">삭제</button>"
-				
+				+ "<strong class='commentName'>" + comment.commentsName
+				+ "</strong>" + "<span class='commentContent'>"
+				+ comment.commentsContent + "</span>" + btn
+
 		div.html(str);
-				
+
 		return div;
 	}
-	
 
 	$(function() {
 		loadCommentList();
 
-
-
 		//댓글등록처리
-		$("#btnAdd").click(function() {					//버튼 클릭시 btnAdd 작업 수행.
-			var params = $("#addForm").serialize();		//params 안에 값을 담는다.
-			console.log(params);						//params 값을 콘솔창에 출력해줌.
-			$.getJSON("insertComments", params, function(datas) {	
+		$("#btnAdd").click(function() { //버튼 클릭시 btnAdd 작업 수행.
+			var params = $("#addForm").serialize(); //params 안에 값을 담는다.
+			console.log(params); //params 값을 콘솔창에 출력해줌.
+			$.getJSON("insertComments", params, function(datas) {
 				console.log(datas)
 				var div = makeCommentView(datas);
 				$(div).prependTo("#commentsList");
 			});
-		});	// end btnAdd click event
-				
-		
-		
-		
+		}); // end btnAdd click event
+
 		//댓글 삭제 이벤트
-		$("#commentsList").on("click", ".btnDel", function(){
+		$("#commentsList").on("click", ".btnDel", function() {
 			var commentsSeq = $(this).parent().attr("id").substr(1);
-			if(confirm("삭제할까요?")) {
-				var params = "commentsSeq="+ commentsSeq;  // { commentsSeq : commentsSeq };
+			if (confirm("삭제할까요?")) {
+				var params = "commentsSeq=" + commentsSeq; // { commentsSeq : commentsSeq };
 				var url = "deleteComments";
-				$.getJSON(url, params, function(datas){
-					$('#c'+datas.commentsSeq).remove();
+				$.getJSON(url, params, function(datas) {
+					$('#c' + datas.commentsSeq).remove();
 				});
 			}
 		});
-	
-		
+
 		//댓글 수정 이벤트
-		$("#btnUpd").click(function(){			
+		$("#btnUpd").click(function() {
 			console.log("===============================+++++++++++++")
 			var params = $("[name=updateForm]").serialize();
 			var url = "updateComments";
 			console.log(params);
-			$.getJSON(url, params, function(datas){
-				 console.log(datas) 
+			$.getJSON(url, params, function(datas) {
+				console.log(datas)
 				var newDiv = makeCommentView(datas);
-				var oldDiv = $("#c"+datas.commentsSeq);
-				$(document.body).append($('#commentUpdate')); //그래서 위쪽 body로 수정폼을 옮겨서 가능하게 해야 한다.
-				$(newDiv).replaceAll(oldDiv);  // replaceAll 을 해버리면 수정 폼도 없어지게 된다.
+				var oldDiv = $("#c" + datas.commentsSeq);
 				$("#btnCancel").click();
-				
-
-			});			
-		});	 
-
-		
-		//수정폼 이벤트(수정할 댓글밑에 수정폼 보이게 함)
-		$("#commentsList").on("click", ".btnUpdFrm", function(){
-			console.log("===============================" )
-			console.log($(this).parent().children()[1].innerText)    
-			
-  			var commentsSeq = $(this).parent().attr("id").substr(1);			
-			var commentsName = $(this).parent().children()[0].innerText;		
-			var commentsContent = $(this).parent().children()[1].innerText; 	 
- 
- 			$("#commentUpdate").css("display","inline")   
-			
-			//수정할 데이터 입력필드에 셋팅
- 			$("#updateForm [name=commentsSeq]").val(commentsSeq);    
-			$("#updateForm [name=commentsName]").val(commentsName);
-			$("#updateForm [name=commentsContent]").val(commentsContent); 
-			//수정할 댓글밑으로 이동하고 보이게
-			$("#c"+commentsSeq).append($('#commentUpdate'));  
-			$('#commentUpdate').show();   
+				$(newDiv).replaceAll(oldDiv); // replaceAll 을 해버리면 수정 폼도 없어지게 된다.
+			});
 		});
-		
-	});
 
-	
-	
+		//수정폼 이벤트(수정할 댓글밑에 수정폼 보이게 함)
+		$("#commentsList").on("click", ".btnUpdFrm", function() {
+			console.log("===============================")
+			console.log($(this).parent().children()[1].innerText)
+
+			var commentsSeq = $(this).parent().attr("id").substr(1);
+			var commentsName = $(this).parent().children()[0].innerText;
+			var commentsContent = $(this).parent().children()[1].innerText;
+
+			$("#commentUpdate").css("display", "inline")
+
+			//수정할 데이터 입력필드에 셋팅
+			$("#updateForm [name=commentsSeq]").val(commentsSeq);
+			$("#updateForm [name=commentsName]").val(commentsName);
+			$("#updateForm [name=commentsContent]").val(commentsContent);
+			//수정할 댓글밑으로 이동하고 보이게
+			$("#c" + commentsSeq).append($('#commentUpdate'));
+			$('#commentUpdate').show();
+		});
+
+
 	//수정 취소 이벤트
-	$("#btnCancel").click(function(){
-		$("[name=updateForm]")[0].reset();   //폼 필드 클리어
-		$("#comments").append( $("#commentUpdate") );//수정 폼(div)를 이동
-		$("#commentUpdate").hide();    // 수정폼 숨기기
-	}); //$() end ready event
-	
-	
+	$("#btnCancel").click(function() {
+		$("[name=updateForm]")[0].reset(); //폼 필드 클리어
+		$(document.body).append($('#commentUpdate')); //그래서 위쪽 body로 수정폼을 옮겨서 가능하게 해야 한다.
+		$("#commentUpdate").hide(); // 수정폼 숨기기
+	});
+}); //$() end ready event
 </script>
 </head>
 <body>
@@ -156,10 +141,12 @@
 		<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
 	</c:if>
 	<a href="getBoardList?type=${board.boardType}">게시판</a>
-	
-	
-	
-	<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}">좋아요</a>
+	<c:if test="${board.likeCheck == 0}">
+		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">좋아요</a>
+	</c:if>
+	<c:if test="${board.likeCheck == 1}">
+		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">좋아요취소</a>
+	</c:if>
 
 
 
