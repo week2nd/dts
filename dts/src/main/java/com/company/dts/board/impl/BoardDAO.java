@@ -63,8 +63,8 @@ public class BoardDAO {
 	}
 
 	// 좋아요증가
-	public void updateboardLike(BoardVO vo) {
-		System.out.println("mybatis jdbc updateboardLike() 기능처리");
-		mybatis.update("updateboardLike", vo);
+	public void insertLikecheck(BoardVO vo) {
+		System.out.println("mybatis jdbc insertLikecheck() 기능처리");
+		mybatis.update("insertLikecheck", vo);
 	}
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
 <title>getBoard.jsp</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
 
 	//댓글 목록조회 요청
@@ -131,37 +132,41 @@
 </script>
 </head>
 <body>
-<h3>게시판보기</h3>
-	게시판번호 : ${board.boardNumber } <br>
-	게시판제목 : ${board.boardTitle} <br>
-	게시판내용 : ${board.boardContent } <br>
-	작성일시 : ${board.postDate } <br>
-	조회수 : ${board.boardHits } <br>
-	추천수 : ${board.boardLike} <br>
-	아이디 : ${board.uId } <br>
-	게시판타입 : ${board.boardType } <br> 
-	<c:if test="${not empty board.uploadFileName}">		<!-- 이미지 파일 보여주는것 -->
-	<a href="FileDown?atchFileId=${board.uploadFileName}">${board.uploadFileName }</a>
-	<img src="./img/${board.uploadFileName }"/>	<!-- 이미지 파일 보여주는것 -->
+	<h3>게시판보기</h3>
+	게시판번호 : ${board.boardNumber }
+	<br> 게시판제목 : ${board.boardTitle}
+	<br> 게시판내용 : ${board.boardContent }
+	<br> 작성일시 : ${board.postDate }
+	<br> 조회수 : ${board.boardHits }
+	<br> 추천수 : ${board.boardLike}
+	<br> 아이디 : ${board.uId }
+	<br> 게시판타입 : ${board.boardType }
+	<br>
+	<c:if test="${not empty board.uploadFileName}">
+		<!-- 이미지 파일 보여주는것 -->
+		<a href="FileDown?atchFileId=${board.uploadFileName}">${board.uploadFileName }</a>
+		<img src="./img/${board.uploadFileName }" />
+		<!-- 이미지 파일 보여주는것 -->
 	</c:if>
 	<br>
 	<c:if test="${membersession.uId == board.uId}">
-	<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a> 
+		<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a>
 	</c:if>
-	
 	<c:if test="${membersession.uId == board.uId}">
-	<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
+		<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
 	</c:if>
-		
 	<a href="getBoardList?type=${board.boardType}">게시판</a>
 	
-	<a href="updateboardLike?boardNumber=${board.boardNumber}&boardType=${board.boardType}">좋아요</a>
+	
+	
+	<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}">좋아요</a>
 
 
-	 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
-	 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
-	 	
-	 <hr>
+
+	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
+	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
+
+	<hr>
 	<h3>댓글</h3>
 	<div id="commentsList"></div>
 
@@ -171,27 +176,27 @@
 			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 			<input type="hidden" name="boardType" value="${board.boardType}">
 			<input type="hidden" name="uId" value="${membersession.uId}">
-			id=${membersession.uId}<br>
-			이름: <input type="text" name="commentsName" size="10"><br /> 
-			내용: <textarea name="commentsContent" cols="20" rows="2"></textarea>
+			id=${membersession.uId}<br> 이름: <input type="text"
+				name="commentsName" size="10"><br /> 내용:
+			<textarea name="commentsContent" cols="20" rows="2"></textarea>
 			<br /> <input type="button" value="등록" id="btnAdd" />
 		</form>
 	</div>
 	<!-- 댓글등록끝 -->
-	
+
 	<!-- 댓글수정폼시작 -->
-<div id="commentUpdate" style="display:none">
-	<form name="updateForm" id="updateForm">
-	<input type="hidden" name="boardNumber" value="${board.boardNumber}">
-	<input type="hidden" name="boardType" value="${board.boardType}"/>
-	<input type="hidden" name="uId" value="${membersession.uId}">
-	<input type="hidden" name="commentsSeq" >
-	이름: <input type="text" name="commentsName" size="10"><br/>
-	내용: <textarea name="commentsContent" cols="20" rows="2"></textarea><br/>
-	<input type="button" value="등록" id="btnUpd"/>
-	<input type="button" value="취소" id="btnCancel"/>
-	</form>
-</div>
-<!-- 댓글수정폼끝 -->
+	<div id="commentUpdate" style="display: none">
+		<form name="updateForm" id="updateForm">
+			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
+			<input type="hidden" name="boardType" value="${board.boardType}" />
+			<input type="hidden" name="uId" value="${membersession.uId}">
+			<input type="hidden" name="commentsSeq"> 이름: <input
+				type="text" name="commentsName" size="10"><br /> 내용:
+			<textarea name="commentsContent" cols="20" rows="2"></textarea>
+			<br /> <input type="button" value="등록" id="btnUpd" /> <input
+				type="button" value="취소" id="btnCancel" />
+		</form>
+	</div>
+	<!-- 댓글수정폼끝 -->
 </body>
 </html>

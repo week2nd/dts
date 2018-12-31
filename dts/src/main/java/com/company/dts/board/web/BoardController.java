@@ -20,149 +20,142 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.company.dts.board.BoardService;
 import com.company.dts.board.BoardVO;
+import com.company.dts.board.CommentsVO;
 import com.company.dts.common.Paging;
 import com.company.dts.member.MemberVO;
 
 @Controller
 public class BoardController {
-@Autowired BoardService boardService;
+	@Autowired
+	BoardService boardService;
 
-	
 	// 전체조회(getAnalysisBoard)
-		@RequestMapping("/getBoardList")
-		public String getAnalysisBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request, HttpSession session)  {
-			
-			if( paging.getPage() == null) {			//get으로 받아온 page가 null이면 1page를 set으로 1페이지를 받아온다.				
-				paging.setPage(1); }
-			paging.setPageUnit(5);					//한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
-			vo.setFirst(paging.getFirst());			//게시판 숫자에 따라서 first, last 값 가져옴
-			vo.setLast(paging.getLast());
-			vo.setBoardType(request.getParameter("type"));		//homeUser의 게시판 클릭시 type 받아오는 Parameter
-			paging.setTotalRecord(boardService.getCount(vo));	//바로 위에서 받은 type을 기반으로 getCount(페이징갯수조회) 실행
-			
-			vo.setBoardType(request.getParameter("type"));		//homeUser의 게시판 클릭시 type 받아오는 Parameter		
-			model.addAttribute("paging", paging);				//model 안에 페이징 작업 넣기
-			model.addAttribute("type", request.getParameter("type"));	//받아온 type을 model 안에 넣기
-			model.addAttribute("board", boardService.getBoardList(vo));	//getAnalysisBoard 실행
-			String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
-			if (grant.equals("admin")) {
-				return "admin/board/getBoardList";
-			} else {
-				return "user/board/getBoardList";
-			}
-			
+	@RequestMapping("/getBoardList")
+	public String getAnalysisBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request,
+			HttpSession session) {
+
+		if (paging.getPage() == null) { // get으로 받아온 page가 null이면 1page를 set으로 1페이지를 받아온다.
+			paging.setPage(1);
 		}
-	
-	
+		paging.setPageUnit(5); // 한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
+		vo.setFirst(paging.getFirst()); // 게시판 숫자에 따라서 first, last 값 가져옴
+		vo.setLast(paging.getLast());
+		vo.setBoardType(request.getParameter("type")); // homeUser의 게시판 클릭시 type 받아오는 Parameter
+		paging.setTotalRecord(boardService.getCount(vo)); // 바로 위에서 받은 type을 기반으로 getCount(페이징갯수조회) 실행
+
+		vo.setBoardType(request.getParameter("type")); // homeUser의 게시판 클릭시 type 받아오는 Parameter
+		model.addAttribute("paging", paging); // model 안에 페이징 작업 넣기
+		model.addAttribute("type", request.getParameter("type")); // 받아온 type을 model 안에 넣기
+		model.addAttribute("board", boardService.getBoardList(vo)); // getAnalysisBoard 실행
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/board/getBoardList";
+		} else {
+			return "user/board/getBoardList";
+		}
+
+	}
+
 	// 단건조회
-	@RequestMapping("/getBoard")		
+	@RequestMapping("/getBoard")
 	public String getBoard(Model model, BoardVO vo, HttpServletRequest request) {
-		String type = request.getParameter("type"); 
+		String type = request.getParameter("type");
 		boardService.updateBoardHits(vo);
-		model.addAttribute("board", boardService.getBoard(vo));		
+		model.addAttribute("board", boardService.getBoard(vo));
 		return "user/board/getBoard";
 	}
-	
-	
-	//조회수 추가 처리
+
+	// 조회수 추가 처리
 	@RequestMapping("/updateBoardHits")
-	public String updateBoardHits(Model model, BoardVO vo) {	
-		boardService.updateBoardHits(vo);		//조회수추가
+	public String updateBoardHits(Model model, BoardVO vo) {
+		boardService.updateBoardHits(vo); // 조회수추가
 		model.addAttribute("board", boardService.getBoard(vo));
-		return "user/board/getBoard";		//목록요청
+		return "user/board/getBoard"; // 목록요청
 	}
-	
-	//좋아요 추가 처리
-		@RequestMapping("/updateboardLike")
-		public String updateboardLike(Model model, BoardVO vo) {	
-			BoardVO nvo= new BoardVO();
-			nvo=boardService.getBoard(vo);
-			boardService.updateboardLike(vo);		//좋아요 추가
-			model.addAttribute("board", boardService.getBoard(nvo));
-			return "redirect:getBoard?boardNumber="+nvo.getBoardNumber();		
-		}
-	
-	
+
+	// 좋아요 추가 처리
+	@RequestMapping("/insertLikecheck")
+	public String insertLikecheck(Model model, BoardVO vo) {
+		BoardVO nvo = new BoardVO();
+		nvo = boardService.getBoard(vo);
+		boardService.insertLikecheck(vo); // 좋아요 추가
+		model.addAttribute("board", boardService.getBoard(nvo));
+		return "user/board/getBoard"; // 목록요청
+	}
+
+
 	// 등록폼
-	@RequestMapping(value="/insertBoardform" , method = RequestMethod.GET )
+	@RequestMapping(value = "/insertBoardform", method = RequestMethod.GET)
 	public String insertBoardform(Model model, HttpServletRequest request, HttpServletResponse response) {
-		String type = request.getParameter("type"); 
+		String type = request.getParameter("type");
 		model.addAttribute("type", type);
 		return "user/board/insertBoard";
 	}
-	
 
 	// 등록처리
-		@RequestMapping( value="/insertBoard", method = {RequestMethod.POST, RequestMethod.GET})
-		public String insertBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request, HttpServletResponse response ) throws IllegalStateException, IOException {	// 커맨드 객체
-			
-			
-			String path = request.getSession().getServletContext().getRealPath("/img");
-			System.out.println("path======" + path);
-			// ServletContext == 내장객체 Application과 동일하다.
-			// 첨부파일이 있으면 첨부파일을 업로드(업로더 폴더로 저장)
-			MultipartFile uploadFile = vo.getUploadFile();
-			if (!uploadFile.isEmpty() && uploadFile.getSize() > 0) { // 파일크기로 첨부여부확인
-				String filename = uploadFile.getOriginalFilename(); // 업로드파일명
-				uploadFile.transferTo(new File(path, filename)); // 파일이름
-				vo.setUploadFileName(filename);
-			}
-			boardService.insertBoard(vo);		//등록처리
-			
-			return "redirect:getBoardList?type="+vo.getBoardType();
+	@RequestMapping(value = "/insertBoard", method = { RequestMethod.POST, RequestMethod.GET })
+	public String insertBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request,
+			HttpServletResponse response) throws IllegalStateException, IOException { // 커맨드 객체
+
+		String path = request.getSession().getServletContext().getRealPath("/img");
+		System.out.println("path======" + path);
+		// ServletContext == 내장객체 Application과 동일하다.
+		// 첨부파일이 있으면 첨부파일을 업로드(업로더 폴더로 저장)
+		MultipartFile uploadFile = vo.getUploadFile();
+		if (!uploadFile.isEmpty() && uploadFile.getSize() > 0) { // 파일크기로 첨부여부확인
+			String filename = uploadFile.getOriginalFilename(); // 업로드파일명
+			uploadFile.transferTo(new File(path, filename)); // 파일이름
+			vo.setUploadFileName(filename);
 		}
-	
-		
-		
-	
-	//수정
+		boardService.insertBoard(vo); // 등록처리
+
+		return "redirect:getBoardList?type=" + vo.getBoardType();
+	}
+
+	// 수정
 	@RequestMapping("/updateBoardform")
-	public String updateBoardform(Model model, BoardVO vo) {	
+	public String updateBoardform(Model model, BoardVO vo) {
 		model.addAttribute("board", boardService.getBoard(vo));
 		return "user/board/updateBoard";
 	}
-	
-	//수정처리
+
+	// 수정처리
 	@RequestMapping("/updateBoard")
 	public String updateBoard(Model model, BoardVO vo) {
-		boardService.updateBoard(vo);		//수정처리
+		boardService.updateBoard(vo); // 수정처리
 		model.addAttribute("board", boardService.getBoard(vo));
-		return "user/board/getBoard";		//목록요청
-	}	
-	
-	
+		return "user/board/getBoard"; // 목록요청
+	}
+
 	// 단건 삭제처리
 	@RequestMapping("/deleteBoard")
-	public String deleteBoard(Model model, BoardVO vo, HttpServletRequest request)  {
-		BoardVO nvo= new BoardVO();
-		nvo=boardService.getBoard(vo);			//getBoard의 자료를 nvo 안에 담아놓고
-		boardService.deleteBoard(vo);			//삭제처리를 한다.
+	public String deleteBoard(Model model, BoardVO vo, HttpServletRequest request) {
+		BoardVO nvo = new BoardVO();
+		nvo = boardService.getBoard(vo); // getBoard의 자료를 nvo 안에 담아놓고
+		boardService.deleteBoard(vo); // 삭제처리를 한다.
 		System.out.println(nvo.getBoardType());
-		model.addAttribute("board", boardService.getBoardList(nvo));	//그리고 nvo 안에 담겨져 있는 type을 활용하여 AnalysisBoard를 불러온다.
-		return "redirect:getBoardList?type="+nvo.getBoardType();
+		model.addAttribute("board", boardService.getBoardList(nvo)); // 그리고 nvo 안에 담겨져 있는 type을 활용하여 AnalysisBoard를
+																		// 불러온다.
+		return "redirect:getBoardList?type=" + nvo.getBoardType();
 	}
-	
 
-	
 	// 여러개 삭제
 	@RequestMapping("/deleteBoardList")
 	public String deleteBoardList(Model model, BoardVO vo, HttpServletRequest request) {
-		String type = request.getParameter("type"); 	
+		String type = request.getParameter("type");
 		vo.setBoardType(type);
-		boardService.deleteBoardList(vo);	//여러개 삭제처리	
-		
-		return "redirect:getBoardList?type="+type;
+		boardService.deleteBoardList(vo); // 여러개 삭제처리
+
+		return "redirect:getBoardList?type=" + type;
 	}
-	
-	
-	
-	
-	private String getBrowser(HttpServletRequest request) {		//한글 안깨지게 하기 위해 필요
+
+	private String getBrowser(HttpServletRequest request) { // 한글 안깨지게 하기 위해 필요
 		String header = request.getHeader("User-Agent");
 		if (header.indexOf("MSIE") > -1) {
 			return "MSIE";
@@ -175,7 +168,7 @@ public class BoardController {
 		}
 		return "Firefox";
 	}
-	
+
 	private void setDisposition(String filename, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String browser = getBrowser(request);

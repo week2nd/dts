@@ -15,6 +15,7 @@ public class BoardVO {
 	private int boardLike;				//추천수
 	private String uId;					//user아이디
 	private String boardType;			//게시판타입
+	private String likeCheck;			//좋아요체크
 
 	private String uploadFileName;		//파일업로드할때 사용
 	private MultipartFile uploadFile;	//파일업로드할때 사용
@@ -124,15 +125,14 @@ public class BoardVO {
 	public void setBnumberList(String[] bnumberList) {
 		this.bnumberList = bnumberList;
 	}
+	
 	@Override
 	public String toString() {
 		return "BoardVO [boardNumber=" + boardNumber + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
 				+ ", postDate=" + postDate + ", boardHits=" + boardHits + ", boardLike=" + boardLike + ", uId=" + uId
-				+ ", boardType=" + boardType + ", searchCondition=" + searchCondition + ", searchKeyword="
+				+ ", boardType=" + boardType + ", likeCheck=" + likeCheck + ", uploadFileName=" + uploadFileName
+				+ ", uploadFile=" + uploadFile + ", searchCondition=" + searchCondition + ", searchKeyword="
 				+ searchKeyword + ", sortCol=" + sortCol + ", bnumberList=" + Arrays.toString(bnumberList) + ", first="
 				+ first + ", last=" + last + "]";
 	}
-	
-
-
 }

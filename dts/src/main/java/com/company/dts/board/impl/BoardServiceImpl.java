@@ -66,7 +66,7 @@ public class BoardServiceImpl implements BoardService {
 
 	// 좋아요 추가
 	@Override
-	public void updateboardLike(BoardVO vo) {
-		dao.updateboardLike(vo);
+	public void insertLikecheck(BoardVO vo) {
+		dao.insertLikecheck(vo);
 	}
 }
