@@ -13,7 +13,10 @@
 <link rel="icon" href="">
 
 <title>E-SPORT토토유저메인</title>
-
+<link href="https://fonts.googleapis.com/css?family=Gothic+A1:100" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Sunflower:500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
+<link href="resources/style.css" rel="stylesheet">
 <script src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +34,21 @@
 
 <script src="js/lightbox-plus-jquery.min.js"></script>
 <script src="js/lity.min.js"></script>
+<script>
+var money = ${membersession.uMileage} //2,312,000원
 
+</script>
+<style>
+body {
+font-family:'Jua';
+
+}
+
+.Jua {
+font-family:'Jua';
+font-size : 10px;
+}
+</style>
 
 </head>
 
@@ -69,7 +86,7 @@
 			<div class="container-fluid">
 				<div class="row px-3">
 					<div class="col-lg-12">
-						<h1 class="text-center" style="margin-top:10px;">E-Sports토토유저메인</h1>
+						<h1 class="text-center">E-Sports토토유저메인</h1>
 					</div>
 					<!-- <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
 						<nav class="nav justify-content-end">
@@ -103,7 +120,7 @@
 					<i class="fa fa-bars" aria-hidden="true"></i>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav">
+					<ul class="navbar-nav Jua">
 						<li class="nav-item active"><a class="nav-link" href="#">Home
 								<span class="sr-only">(current)</span>
 						</a></li>
@@ -139,9 +156,9 @@
 							</div></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>	
 					</ul>
-					<div>${membersession.uId}${membersession.uMileage}</div>
-					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" onclick="window.location.href='logout'">로그아웃</button></div>
-					<%-- <p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}마일리지 : ${membersession.uMileage}<a href="payChargePage" id="pay">충전</a></p> --%>
+				<div>
+					<div style="position: absolute; right: 100px; top: 10px; border-radius: 3px; font-size:17px; margin-top:4px">${membersession.uId} 님&nbsp;&nbsp;&nbsp;보유마일리지 : ${membersession.uMileage}</div>
+					<button style="margin-top:10px; margin-right:5px" type="button" class="btn btn-outline-dark " onclick="window.location.href='logout'" font->로그아웃</button>
 				</div>
 			</div>
 		</nav>
@@ -158,7 +175,7 @@
 
 
 	<!-- Info Block-01 -->
-	<!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
+	<section class="banner-sec float-left w-100 pt-4 pb-5">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-3">
@@ -252,7 +269,7 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
 	<!-- widget block -->
 	<!-- <section class="widget-block flasher-sec float-left w-100">

@@ -304,6 +304,7 @@ public class MemberController {
 	
 	// 마일리지 추가
 		@RequestMapping("/updateMileage")
+		@ResponseBody
 		public MemberVO updateMileage(MemberVO vo,HttpSession session) {
 			memberService.updateMileage(vo);		//수정처리
 			MemberVO membervo = memberService.getMember(vo);

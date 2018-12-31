@@ -113,7 +113,7 @@
             <li class="nav-item"> <a class="nav-link" href="./totalpage">통계관리</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>
           </ul>
-          <div>${membersession.uId}${membersession.uMileage}</div>
+          <div style="position: absolute; right: 100px; top: 10px; border-radius: 3px;">${membersession.uId} 님</div>
           <div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" onclick="window.location.href='logout'">로그아웃</button></div>
         </div>
       </div>
