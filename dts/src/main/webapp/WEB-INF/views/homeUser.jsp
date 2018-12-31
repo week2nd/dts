@@ -13,7 +13,10 @@
 <link rel="icon" href="">
 
 <title>E-SPORT토토유저메인</title>
-
+<link href="https://fonts.googleapis.com/css?family=Gothic+A1:100" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Sunflower:500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
+<link href="resources/style.css" rel="stylesheet">
 <script src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +34,21 @@
 
 <script src="js/lightbox-plus-jquery.min.js"></script>
 <script src="js/lity.min.js"></script>
+<script>
+var money = ${membersession.uMileage} //2,312,000원
 
+</script>
+<style>
+body {
+font-family:'Jua';
+
+}
+
+.Jua {
+font-family:'Jua';
+font-size : 10px;
+}
+</style>
 
 </head>
 
@@ -52,7 +69,7 @@
 							</script>
 						</div>
 					</div>
-					<!-- <div class="col-lg-3 ml-auto">
+					<div class="col-lg-3 ml-auto">
             <div class="social-icon">
               <a href="#" class=" fa fa-facebook"></a>
               <a href="#" class=" fa fa-twitter"></a>
@@ -61,35 +78,32 @@
               <a href="#" class=" fa fa-youtube"></a>
               <a href="#" class=" fa fa-vimeo-square"></a>
             </div>
-          </div> -->
+          </div>
 				</div>
 			</div>
 		</div>
 		<div class="top-head left">
 			<div class="container-fluid">
 				<div class="row px-3">
-					<div class="col-md-6 col-lg-4 mt-2">
-						<h1>
-							E-Sports토토유저페이지
-							<!-- <small>1조최종프로젝트</small>  -->
-						</h1>
+					<div class="col-lg-12">
+						<h1 class="text-center">E-Sports토토유저메인</h1>
 					</div>
-					<div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
+					<!-- <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
 						<nav class="nav justify-content-end">
 							<form method="post" 
 								style="display: inline-block; margin-top: 0em;">
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
-								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}마일리지 : ${membersession.uMileage}<a href="payChargePage" id="pay">충전</a></p>
 								
-								</div>
+								
+								</div> 
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
 								<a href="logout">로그아웃</a>
-								</div>
+								</div> 
 							</form>
 						</nav>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -106,7 +120,7 @@
 					<i class="fa fa-bars" aria-hidden="true"></i>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav">
+					<ul class="navbar-nav Jua">
 						<li class="nav-item active"><a class="nav-link" href="#">Home
 								<span class="sr-only">(current)</span>
 						</a></li>
@@ -138,19 +152,13 @@
 							<div class="dropdown-menu" aria-labelledby="layouts">
 								<a class="dropdown-item" href="./getMemberUser">내정보</a> <a
 									class="dropdown-item" href="./getPurchaseList">내구매목록</a> <a
-									class="dropdown-item" href="#">다른링크</a>
+									class="dropdown-item" href="./payChargePage">마일리지충전</a>
 							</div></li>
-						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>	
 					</ul>
-					<!-- <form class="ml-auto">
-						<div class="search">
-							<input type="text" class="form-control" maxlength="64"
-								placeholder="Search" />
-							<button type="submit" class="btn btn-search">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</form> -->
+				<div>
+					<div style="position: absolute; right: 100px; top: 10px; border-radius: 3px; font-size:17px; margin-top:4px">${membersession.uId} 님&nbsp;&nbsp;&nbsp;보유마일리지 : ${membersession.uMileage}</div>
+					<button style="margin-top:10px; margin-right:5px" type="button" class="btn btn-outline-dark " onclick="window.location.href='logout'" font->로그아웃</button>
 				</div>
 			</div>
 		</nav>
@@ -167,7 +175,7 @@
 
 
 	<!-- Info Block-01 -->
-	<!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
+	<section class="banner-sec float-left w-100 pt-4 pb-5">
     <div class="container-fluid">
       <div class="row px-3">
         <div class="col-md-3">
@@ -261,7 +269,7 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
 	<!-- widget block -->
 	<!-- <section class="widget-block flasher-sec float-left w-100">

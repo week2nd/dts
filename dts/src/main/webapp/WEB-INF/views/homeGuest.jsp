@@ -32,8 +32,17 @@
 <script src="js/lity.min.js"></script>
 
 <script>
-$('#loginForm').on('show.bs.modal', function () {
+$(function(){
+	$('#loginForm').on('show.bs.modal', function () {
+		console.log('aaaaaa');
+		$("#loginFrm")[0].reset();
+	});
+	$('#loginForm').on('shown.bs.modal', function () {
+
+		$("#uId")[0].focus();
+	});
 });
+
 </script>
 
 </head>
@@ -133,16 +142,11 @@ $('#loginForm').on('show.bs.modal', function () {
 						<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 					</ul>
-					<!-- <div><button style="margin-top:6px;"  class="btn btn-outline-dark" onclick="window.location.href='loginForm'">로그인/회원가입</button></div> -->
-					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>	
-					<!--  -->
 					
-
-					<!--  -->
+					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>	
 				</div>
 			</div>
-		</nav>
-		
+		</nav>		
 	</section>
 	
 	<div class="modal fade" id="loginForm" tabindex="-1" role="dialog"
@@ -159,14 +163,16 @@ $('#loginForm').on('show.bs.modal', function () {
 									<form id="loginFrm" method="post" action="login">
 										<div class="form-group">
 											<label for="uId" class="control-label">아이디</label> 
-											<input type="text" class="form-control" id="uId" name="uId">
+											<input type="text" class="form-control" id="uId" name="uId" >
 										</div>
 										<div class="form-group">
 											<label for="uPw" class="control-label">비밀번호</label> 
-											<input type="text" class="form-control" id="uPw" name="uPw">
+											<input type="password" class="form-control" id="uPw" name="uPw">
 										</div>
-										<button type="submit" class="btn btn-primary" id="loginBtn">구매완료하기</button>
+										<button type="submit" class="btn btn-primary" id="loginBtn">로그인</button>
 										<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+										<button type="button" class="btn btn-primary" onclick="window.location.href='insertMember'">회원가입</button>
+										<button type="button" class="btn btn-link" onclick="window.location.href='pwSearchForm'">비밀번호찾기</button>
 										<!-- <span class="psw">Forgot<a href="pwSearchForm">password?</a></span> -->
 									</form>
 								</div>

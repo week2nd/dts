@@ -163,12 +163,12 @@ a.text-primary:hover,a.text-primary:focus{
 .top-head {
     background-color: #141517;
     float: left;
-    height: 70px;
+    height: 100px;
     width: 100%;
 }
 .top-head h1 {
     color: #fff;
-    font-size: 40px;
+    font-size: 75px;
     font-weight: 600;
 }
 .top-head small {
@@ -225,7 +225,7 @@ a.text-primary:hover,a.text-primary:focus{
 .top-nav li a {
     border-bottom: 2px solid #fff;
     color: #141517;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
     padding: 0 10px;
     text-transform: uppercase;
@@ -338,7 +338,7 @@ a.text-primary:hover,a.text-primary:focus{
 	padding-bottom: 0;
 }
 .top-nav .dropdown-menu a {
-    font-size: 13px;
+    font-size: 17px;
     font-weight: 400;
     padding: 10px 19px;
     text-transform: none;

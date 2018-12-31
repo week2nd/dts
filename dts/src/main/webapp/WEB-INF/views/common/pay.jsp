@@ -40,14 +40,17 @@
 			    			error : function(xhr, status, msg) {
 			    				alert("상태값 :" + status + "Http에러메시지 :" + msg);
 			    			},
-			    			
+			    			success : function(result) {
+			    			window.location = 'getMemberUser';
+			    			}
+			    					
 			    	});		        
-			    	window.location = 'http://localhost:8081/app/getMemberUser';
+			    	
 			    } else {
 			        var msg = '결제에 실패하였습니다.';
 			        msg += '에러내용 : ' + rsp.error_msg;
 			    }
-			    //alert('결제성공');
+			    alert('결제성공');
 			    
 			});			
 		});		

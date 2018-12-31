@@ -221,6 +221,7 @@
 							</div>
 							<div class="form-group">
 							<label for="betDrate" class="control-label">배당률</label>
+							<br />
 							<input type="text" class="form-control" id="betDrate" name="betDrate"  readonly>
 							</div>
 							<div class="form-group">
@@ -229,6 +230,7 @@
 							</div>
 							<div class="form-group">
 							<label for="choise" class="control-label">선택팀</label>
+							<br />
 							<input type="text" class="form-control" id="choise" name="choise"  readonly>
 							</div>
 							<div class="form-group">

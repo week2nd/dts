@@ -123,7 +123,7 @@ public class PurchaseController {
 	}
 	
 	
-	// 마일리지 충전페이지
+	/*// 마일리지 충전페이지
 	@RequestMapping(value="/payCharge")
 	public String payCharge(HttpSession session) {
 		MemberVO vo = new MemberVO();
@@ -134,8 +134,8 @@ public class PurchaseController {
 		MemberVO membervo = memberSerivce.getMember(vo);		
 		session.setAttribute("membersession", membervo);
 		
-		return "redirect:payChargePage";
+		return "user/member/getMemberUser";
 	}
-			
+			*/
 
 }

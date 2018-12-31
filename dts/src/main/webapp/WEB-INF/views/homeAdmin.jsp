@@ -25,9 +25,9 @@
   <!-- <link href="css/slidebars.css" rel="stylesheet"> -->
   <link rel="stylesheet" type="text/css" href="css/loaders.css" />
   <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+
   <script src="js/core.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
   <script src="js/lightbox-plus-jquery.min.js"></script>
   <script src="js/lity.min.js"></script>
 
@@ -35,57 +35,45 @@
 </head>
 
 <body>
-  <%
-		String id = (String) session.getAttribute("uid");				
-	%>
   <!-- Top small banner -->
-  <header class="float-left w-100">
-    <div class="small-top float-left w-100">
-      <div class="container-fluid">
-        <div class="row px-3">
-          <div class="col-lg-4 date-sec">
-            <div id="Date" class="mt-1">
-              <script>
+	<header class="float-left w-100">
+		<div class="small-top float-left w-100">
+			<div class="container-fluid">
+				<div class="row px-3">
+					<div class="col-lg-4 date-sec">
+						<div id="Date" class="mt-1">
+							<script>
                 var today = new Date()
                 document.write(today.getFullYear(), "년 ",
                   today.getMonth() + 1, "월 ", today.getDate(), "일") 
               </script>
-            </div>
-          </div>
-          <!-- <div class="col-lg-3 ml-auto">
-            <div class="social-icon">
-              <a href="#" class=" fa fa-facebook"></a>
-              <a href="#" class=" fa fa-twitter"></a>
-              <a href="#" class=" fa fa-google-plus"></a>
-              <a href="#" class=" fa fa-linkedin"></a>
-              <a href="#" class=" fa fa-youtube"></a>
-              <a href="#" class=" fa fa-vimeo-square"></a>
-            </div>
-          </div> -->
-        </div>
-      </div>
-    </div>
-    <div class="top-head left">
-      <div class="container-fluid">
-        <div class="row px-3">
-          <div class="col-md-6 col-lg-4 mt-2">
-            <h1>E-Sports토토관리자페이지
-              <!-- <small>1조최종프로젝트</small>  -->
-            </h1>
-          </div>
-          <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
-            <nav class="nav justify-content-end">
-              <form method="post" action="logout" style="display: inline-block; margin-top: 0em;">
-                ${membersession.uId }<button>로그아웃</button>
-              </form>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+						</div>
+					</div>
+					<div class="col-lg-3 ml-auto">
+						<div class="social-icon">
+							<a href="#" class=" fa fa-facebook"></a> <a href="#"
+								class=" fa fa-twitter"></a> <a href="#"
+								class=" fa fa-google-plus"></a> <a href="#"
+								class=" fa fa-linkedin"></a> <a href="#" class=" fa fa-youtube"></a>
+							<a href="#" class=" fa fa-vimeo-square"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top-head left">
+			<div class="container-fluid">
+				<div class="row px-3">
+					<div class="col-lg-12">
+						<h1 class="text-center" style="margin-top: 10px;">E-Sports토토관리자</h1>
+					</div>
 
-<!-- Top Navigation -->
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Top Navigation -->
   <section class="top-nav">
     <nav class="navbar navbar-expand-lg py-0">
       <div class="container-fluid">
@@ -125,7 +113,8 @@
             <li class="nav-item"> <a class="nav-link" href="./totalpage">통계관리</a> </li>
             <li class="nav-item"> <a class="nav-link" href="#">고객센터</a> </li>
           </ul>
-          
+          <div style="position: absolute; right: 100px; top: 10px; border-radius: 3px;">${membersession.uId} 님</div>
+          <div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" onclick="window.location.href='logout'">로그아웃</button></div>
         </div>
       </div>
     </nav>
@@ -873,6 +862,7 @@
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

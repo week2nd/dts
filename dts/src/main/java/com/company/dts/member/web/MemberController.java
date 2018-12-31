@@ -304,9 +304,12 @@ public class MemberController {
 	
 	// 마일리지 추가
 		@RequestMapping("/updateMileage")
-		public String updateMileage(MemberVO vo) {
+		@ResponseBody
+		public MemberVO updateMileage(MemberVO vo,HttpSession session) {
 			memberService.updateMileage(vo);		//수정처리
-			return "redirect:getMemberUser";		//목록요청
+			MemberVO membervo = memberService.getMember(vo);
+			session.setAttribute("membersession", membervo);
+			return vo;		//목록요청
 		}
 	
 	
