@@ -52,7 +52,7 @@
 							</script>
 						</div>
 					</div>
-					<!-- <div class="col-lg-3 ml-auto">
+					<div class="col-lg-3 ml-auto">
             <div class="social-icon">
               <a href="#" class=" fa fa-facebook"></a>
               <a href="#" class=" fa fa-twitter"></a>
@@ -61,35 +61,32 @@
               <a href="#" class=" fa fa-youtube"></a>
               <a href="#" class=" fa fa-vimeo-square"></a>
             </div>
-          </div> -->
+          </div>
 				</div>
 			</div>
 		</div>
 		<div class="top-head left">
 			<div class="container-fluid">
 				<div class="row px-3">
-					<div class="col-md-6 col-lg-4 mt-2">
-						<h1>
-							E-Sports토토유저페이지
-							<!-- <small>1조최종프로젝트</small>  -->
-						</h1>
+					<div class="col-lg-12">
+						<h1 class="text-center" style="margin-top:10px;">E-Sports토토유저메인</h1>
 					</div>
-					<div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
+					<!-- <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
 						<nav class="nav justify-content-end">
 							<form method="post" 
 								style="display: inline-block; margin-top: 0em;">
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
-								<p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}마일리지 : ${membersession.uMileage}<a href="payChargePage" id="pay">충전</a></p>
 								
-								</div>
+								
+								</div> 
 								<div class="form-group"
 									style="margin-top: 5px; display: inline-block">
 								<a href="logout">로그아웃</a>
-								</div>
+								</div> 
 							</form>
 						</nav>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -140,17 +137,10 @@
 									class="dropdown-item" href="./getPurchaseList">내구매목록</a> <a
 									class="dropdown-item" href="#">다른링크</a>
 							</div></li>
-						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>	
 					</ul>
-					<!-- <form class="ml-auto">
-						<div class="search">
-							<input type="text" class="form-control" maxlength="64"
-								placeholder="Search" />
-							<button type="submit" class="btn btn-search">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</form> -->
+					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" onclick="window.location.href='logout'">로그아웃</button></div>
+					<%-- <p class="font-weight-bold" style="marygin: 0em;">${membersession.uId}마일리지 : ${membersession.uMileage}<a href="payChargePage" id="pay">충전</a></p> --%>
 				</div>
 			</div>
 		</nav>

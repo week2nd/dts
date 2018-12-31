@@ -135,14 +135,9 @@ $('#loginForm').on('show.bs.modal', function () {
 					</ul>
 					<!-- <div><button style="margin-top:6px;"  class="btn btn-outline-dark" onclick="window.location.href='loginForm'">로그인/회원가입</button></div> -->
 					<div><button style="margin-top:6px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>	
-					<!--  -->
-					
-
-					<!--  -->
 				</div>
 			</div>
-		</nav>
-		
+		</nav>		
 	</section>
 	
 	<div class="modal fade" id="loginForm" tabindex="-1" role="dialog"
@@ -163,9 +158,9 @@ $('#loginForm').on('show.bs.modal', function () {
 										</div>
 										<div class="form-group">
 											<label for="uPw" class="control-label">비밀번호</label> 
-											<input type="text" class="form-control" id="uPw" name="uPw">
+											<input type="password" class="form-control" id="uPw" name="uPw">
 										</div>
-										<button type="submit" class="btn btn-primary" id="loginBtn">구매완료하기</button>
+										<button type="submit" class="btn btn-primary" id="loginBtn">로그인</button>
 										<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 										<!-- <span class="psw">Forgot<a href="pwSearchForm">password?</a></span> -->
 									</form>
