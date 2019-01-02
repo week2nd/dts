@@ -69,7 +69,7 @@ function insert(){
 			<tr>
 				<!-- <td colspan="6"><input type="text" name="blueTeamName" size="7" placeholder="블루팀명"></td> -->
 				<td colspan="6"><select id="blueTeamId" name="blueTeamName" onchange="teamCheck()">
-						<option >BLUE팀ID</option>
+						<option value="미정">BLUE팀ID</option>
 							<c:forEach items="${teamList}" var="team">
 						<option value="${team.teamId}">${team.teamId}</option>
 							</c:forEach>
@@ -90,7 +90,7 @@ function insert(){
 				</td>
 				<!-- <td align="right" colspan="6"><input type="text" name="redTeamName" size="7" placeholder="레드팀명"></td> -->
 				<td align="right" colspan="6"><select id="redTeamId" name="redTeamName" onchange="teamCheck()" >
-						<option >RED팀ID</option>
+						<option value="미정">RED팀ID</option>
 							<c:forEach items="${teamList}" var="team">
 						<option value="${team.teamId}">${team.teamId}</option>
 							</c:forEach>

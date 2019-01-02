@@ -57,4 +57,8 @@ public class MatchDAO {
 		return mybatis.selectOne("match.getCount", vo);
 	}
 	
+	// 미리보기
+	public MatchVO preView(MatchVO vo) {
+		return mybatis.selectOne("match.preView", vo);
+	}
 }

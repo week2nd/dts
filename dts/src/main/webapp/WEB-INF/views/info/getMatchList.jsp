@@ -41,7 +41,9 @@
 				<th>경기번호</th>
 				<th>날짜</th>
 				<th>경기제목</th>
-				<th colspan="5">맞대결 전적</th>
+				<th colspan="2"> </th>
+				<th>맞대결 전적</th>
+				<th colspan="2"> </th>
 				<th>세부정보</th>
 				<!-- 경기 일시 -->
 				<th>결과확인</th>
@@ -50,15 +52,19 @@
 			<c:forEach items="${matchList}" var="match">
 				<tr>
 					<td>${match.gameId}</td>
-					<td>${match.matchDate}17:00</td>
+					<td>${match.matchDate} 17:00</td>
 					<td>${match.matchInfo}</td>
 					<td><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
 					<td>${match.blueTeamKillsum}</td>
 					<td>${match.gameStatus}</td>
 					<td>${match.redTeamKillsum}</td>
 					<td><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
-					<td></td>
-					<td><a href="getMatch?gameId=${match.gameId}">결과확인</a></td>
+					<td><a href="preView?blueTeamName=${match.blueTeamName}&redTeamName=${match.redTeamName}">미리보기</a></td>
+					
+					<td><c:if test="${match.gameStatus == '후'}">
+					<a href="getMatch?gameId=${match.gameId}">결과확인</a>
+					</c:if></td>
+					
 					<c:if test="${membersession.uGrant=='admin'}">
 					<td><a href="getMhistoryList">마일리지 관리</a></td>
 					</c:if>

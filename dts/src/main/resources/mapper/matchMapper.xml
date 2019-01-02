@@ -123,6 +123,48 @@
 		WHERE	GAME_ID = #{gameId}
 	</select>
 	
+	<select id="preView" parameterType="match" resultType="match">
+		SELECT	BLUETEAMNAME blueTeamName,
+                REDTEAMNAME redTeamName,
+                PLAYERMATCH playerMatch,
+                WIN win,
+                LOSE lose, 
+				100*WIN/REPLACE((WIN+LOSE),0) blueRate,
+				100*LOSE/REPLACE((WIN+LOSE),0) redRate,  
+				0.9/REPLACE((WIN/REPLACE((WIN+LOSE),0,0)),0,1*(1/REPLACE(LOSE,0,1))) blueDrate,
+				0.9/REPLACE((LOSE/REPLACE((WIN+LOSE),0,0)),0,1*(1/REPLACE(WIN,0,1))) redDrate
+		FROM	(SELECT BLUETEAMNAME,
+						REDTEAMNAME,
+						COUNT(BLUERESULT) PLAYERMATCH,
+		        		SUM(CASE WHEN BLUERESULT = 'win' THEN '1' ELSE '0' END) WIN,
+	     		   		COUNT(CASE WHEN BLUERESULT = 'lose' THEN '1' ELSE NULL END) LOSE
+	        	FROM	(SELECT MATCHDATE,
+	        					MATCHNAME,
+		        				MATCHINFO,
+		        				PLAYTIME,
+		        				BLUETEAMNAME,
+		        				REDTEAMNAME,
+		        				BLUERESULT,
+		        				REDRESULT
+		  				FROM	INGAME
+						WHERE	BLUETEAMNAME = #{blueTeamName}
+		 				 AND 	REDTEAMNAME = #{redTeamName}
+		 				UNION ALL
+		 				SELECT 	MATCHDATE, 
+		 						MATCHNAME, 
+		 						MATCHINFO, 
+		 						PLAYTIME, 
+		 						REDTEAMNAME, 
+		 						BLUETEAMNAME, 
+		 						REDRESULT, 
+		 						BLUERESULT
+		  				FROM 	INGAME
+		  				WHERE 	REDTEAMNAME = #{blueTeamName}
+		   				 AND 	BLUETEAMNAME = #{redTeamName}) A 
+		 		GROUP BY 	BLUETEAMNAME, REDTEAMNAME ) B
+	
+	</select>
+	
 <!-- 	<select id="getMatch" parameterType="match" resultType="match">
 		SELECT 	*
 		FROM	(SELECT	RANK() OVER(ORDER BY WIN DESC, LOSE ASC) rank,	
@@ -219,9 +261,10 @@
 	<update id="updateMatch" parameterType="match">
 		UPDATE	INGAME
 		SET		MATCHDATE=#{matchDate},
+				GAMESTATUS=#{gameStatus},
 				MATCHNAME=#{matchName},
 				MATCHINFO=#{matchInfo},
-				PLAYTIME=to_char(to_date(#{playTime},':mi:ss'),'mi:ss'),
+				PLAYTIME=#{playTime},
 				BLUETEAMNAME=#{blueTeamName},	REDTEAMNAME=#{redTeamName},
 				BLUERESULT=#{blueResult},		REDRESULT=#{redResult},
 				BLUEPICK1=#{bluePick1}, 	BLUEPICK2=#{bluePick2}, 	BLUEPICK3=#{bluePick3}, 	BLUEPICK4=#{bluePick4}, 	BLUEPICK5=#{bluePick5},

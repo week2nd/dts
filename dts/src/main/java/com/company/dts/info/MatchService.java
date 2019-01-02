@@ -16,6 +16,9 @@ public interface MatchService {
 	// 단일 경기 검색
 	public MatchVO getMatch(MatchVO vo);
 	
+	// 미리보기
+	public MatchVO preView(MatchVO vo);
+	
 	// 경기결과 등록
 	public void insertMatch(MatchVO vo);
 	

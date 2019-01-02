@@ -13,29 +13,29 @@
 
 <table class="table" border="1">
 	<tr>
-		<td></td>
-		<td>팀명</td>
-		<td></td>
+		<td>${preView.blueTeamName}</td>
+		<td>팀명</td>	
+		<td>${preView.redTeamName}</td>
 	</tr>
 	<tr>
-		<td></td>
+		<td>${preView.win}승 ${preView.lose}패</td>
 		<td>최근성적</td>
-		<td></td>
+		<td>${preView.lose}승 ${preView.win}패</td>
 	</tr>
 	<tr>
-		<td></td>
+		<td>${preView.playerMatch}</td>
 		<td>경기수</td>
-		<td></td>
+		<td>${preView.playerMatch}</td>
 	</tr>
 	<tr>
-		<td></td>
+		<td>${preView.blueRate}</td>
 		<td>승률</td>
-		<td></td>
+		<td>${preView.redRate}</td>
 	</tr>
 	<tr>
-		<td></td>
+		<td>${preView.blueDrate}</td>
 		<td>배당률</td>
-		<td></td>
+		<td>${preView.redDrate}</td>
 	</tr>
 </table>
 

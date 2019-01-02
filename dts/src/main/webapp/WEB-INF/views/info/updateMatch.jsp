@@ -26,16 +26,17 @@ function teamCheck() {
 		alert("중복팀을 선택 할 수 없습니다");		
 	}	
 }
-
-$("#deleteMatchBtn").click(function() {
-	var delcon = confirm("삭제하시겠습니까?");
-	if(delcon == true) {
-		document.write("삭제했습니다.")
-	} else if(delcon == false) {
-		document.write("취소했습니다.")
+/* 
+$("#updateBtn").click(function() {
+	if(confirm("이대로 수정하시겠습니까?")) {
+		alert("수정했습니다.")
+		return true;
+	else
+		alert("취소하였습니다.")
+		return false;
 	}
-	
-});
+}); */
+
 </script>
 </head>
 <body>
@@ -44,6 +45,7 @@ $("#deleteMatchBtn").click(function() {
 
 <form action="updateMatch">
 <input type="text" name="gameId" value="${match.gameId}" readonly="readonly">
+<input type="text" name="gameStatus" value="${match.gameStatus}">
 	<div align="center">
 		<table class="table">
 			<tr>
@@ -53,16 +55,26 @@ $("#deleteMatchBtn").click(function() {
 			</tr>
 			<tr>
 				<td colspan="6"><select id="blueTeamId" name="blueTeamName" onchange="teamCheck()">
-						<option >BLUE팀ID</option>
+						<option value="미정">BLUE팀ID</option>
 							<c:forEach items="${teamList}" var="team">
 						<option <c:if test="${team.teamId == match.blueTeamName}"> selected="true" </c:if> value="${team.teamId}" > ${team.teamId}</option>
 							</c:forEach>
 					</select></td>
-				<td align="center" colspan="2"><input type="text" name="blueResult" value="${match.blueResult}" size="10" placeholder="블루팀 결과"></td>
+				<td align="center" colspan="2">
+					<select name = "blueResult">
+						<option <c:if test="${match.blueResult == 'win'}"> selected="selected" </c:if> value="win" >W</option>
+						<option <c:if test="${match.blueResult == 'lose'}"> selected="selected" </c:if> value="lose" >L</option>
+					</select>
+				</td>
 				<td>${match.bluePick1Kill}:${match.redPick1Kill}</td>
-				<td align="center" colspan="2"><input type="text" name="redResult" value="${match.redResult}" size="10" placeholder="레드팀 결과"></td>
+				<td align="center" colspan="2">
+					<select name = "redResult">
+						<option <c:if test="${match.redResult == 'win'}"> selected="selected" </c:if> value="win" >W</option>
+						<option <c:if test="${match.redResult == 'lose'}"> selected="selected" </c:if> value="lose" >L</option>
+					</select>
+				</td>
 				<td align="right" colspan="6"><select id="redTeamId" name="redTeamName" onchange="teamCheck()" >
-						<option >RED팀ID</option>
+						<option value="미정">RED팀ID</option>
 							<c:forEach items="${teamList}" var="team">
 						<option <c:if test="${team.teamId == match.redTeamName}"> selected="selected" </c:if> value="${team.teamId}">${team.teamId}</option>
 							</c:forEach>

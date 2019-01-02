@@ -9,9 +9,7 @@
 
 <script>
 $(function(){
-	
-
-$("#deleteMatchBtn").click(function() {
+	$("#deleteMatchBtn").click(function() {
 		if(confirm("정말 삭제하시겠습니까??")) {
 			alert("삭제했습니다.")
 			return true;

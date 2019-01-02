@@ -63,4 +63,10 @@ public class MatchServiceImpl implements MatchService {
 			return dao.getCount(vo);
 		}
 
+		// 미리보기
+		@Override
+		public MatchVO preView(MatchVO vo) {
+			return dao.preView(vo);
+		}
+
 }

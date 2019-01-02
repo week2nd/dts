@@ -210,6 +210,12 @@ public class MatchVO {
 	}
 
 	// 통계 데이터
+	private int playerMatch;
+	private int win;
+	private int lose;
+	private int blueDrate;
+	private int redDrate;
+	
 	private int bluePick1Kda;
 	private int bluePick2Kda;
 	private int bluePick3Kda;
@@ -229,6 +235,18 @@ public class MatchVO {
 	private int redTeamAssistsum;
 	private int redTeamKda;
 
+	public int getBlueDrate() {
+		return blueDrate;
+	}
+	public void setBlueDrate(int blueDrate) {
+		this.blueDrate = blueDrate;
+	}
+	public int getRedDrate() {
+		return redDrate;
+	}
+	public void setRedDrate(int redDrate) {
+		this.redDrate = redDrate;
+	}
 	public String getSearchCondition() {
 		return searchCondition;
 	}
@@ -245,6 +263,18 @@ public class MatchVO {
 		this.searchKeyword = searchKeyword;
 	}
 
+	public int getWin() {
+		return win;
+	}
+	public void setWin(int win) {
+		this.win = win;
+	}
+	public int getLose() {
+		return lose;
+	}
+	public void setLose(int lose) {
+		this.lose = lose;
+	}
 	public int getGameId() {
 		return gameId;
 	}
@@ -1140,4 +1170,11 @@ public class MatchVO {
 	public void setRedTeamKda(int redTeamKda) {
 		this.redTeamKda = redTeamKda;
 	}
+	public int getPlayerMatch() {
+		return playerMatch;
+	}
+	public void setPlayerMatch(int playerMatch) {
+		this.playerMatch = playerMatch;
+	}
+
 }

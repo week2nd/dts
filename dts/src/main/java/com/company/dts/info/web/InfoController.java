@@ -131,9 +131,10 @@ public class InfoController {
 
 	// 경기 프리뷰 
 	@RequestMapping("/preView")
-	public String preView(Model model, TeamVO vo, HttpSession session) {
+	public String preView(Model model, TeamVO vo, MatchVO mvo, HttpSession session) {
 		
-		/*model.addAttribute("vsTeam", teamService.vsTeamList(vo));*/
+		model.addAttribute("match", matchService.getMatch(mvo));
+		model.addAttribute("preView", matchService.preView(mvo));
 		
 		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
 		if (grant.equals("admin")) {
