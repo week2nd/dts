@@ -156,7 +156,7 @@ $(function(){
 								<div class="modal-header">
 									<div style="text-align: center">
 										<h4 class="modal-title" id="myModalLabel"
-											style="text-align: center;">로그인</h4>
+											style="text-align: center;">LOGIN PAGE</h4>
 									</div>
 								</div>
 								<div class="modal-body">
@@ -169,9 +169,9 @@ $(function(){
 											<label for="uPw" class="control-label">비밀번호</label> 
 											<input type="password" class="form-control" id="uPw" name="uPw">
 										</div>
-										<button type="submit" class="btn btn-primary" id="loginBtn">로그인</button>
-										<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-										<button type="button" class="btn btn-primary" onclick="window.location.href='insertMember'">회원가입</button>
+										<button type="submit" class="btn btn-outline-primary" id="loginBtn">로그인</button>
+										<button type="button" class="btn btn-outline-primary" onclick="window.location.href='insertMember'">회원가입</button>
+										<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
 										<button type="button" class="btn btn-link" onclick="window.location.href='pwSearchForm'">비밀번호찾기</button>
 										<!-- <span class="psw">Forgot<a href="pwSearchForm">password?</a></span> -->
 									</form>

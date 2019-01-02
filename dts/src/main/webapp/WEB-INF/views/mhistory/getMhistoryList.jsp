@@ -129,7 +129,9 @@
 </script>
 </head>
 <body>
-	<button class= "btn" id="historyAll">전체목록조회</button> <input class="btn" type="button" id="historyAdmin" onclick='go_page("","admin")') value="관리자조회" />
+<div class="pull-right">
+	<button class= "btn btn-outline-secondary" id="historyAll">전체목록조회</button> 
+	<input class="btn btn-outline-secondary" type="button" id="historyAdmin" onclick='go_page("","admin")' value="관리자조회" /></div>
 		<table class="table">
 			<thead>
 				<tr>

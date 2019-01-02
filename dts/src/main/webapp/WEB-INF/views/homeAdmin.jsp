@@ -200,7 +200,7 @@
                         </li>
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-calendar-alt"></i>게시판관리</a>
+                                <i class="fas fa-table"></i>게시판관리</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="./getBoardList?type=notice">공지사항</a>
@@ -218,7 +218,7 @@
                         </li>
                         <li>
                             <a href="./getMemberList">
-                                <i class="fas fa-calendar-alt"></i>회원정보</a>
+                                <i class="far fa-check-square"></i>회원정보</a>
                         </li>
                         <li>
                             <a href="#">
@@ -236,7 +236,7 @@
             <header class="header-desktop">
                 <div class="section__content section__content--p30" style="height:32px">
                     <div class="container-fluid">
-                    		<div style="position:absolute; right:10px">${membersession.uId} 님
+                    		<div style="position:absolute; right:10px; font-size: 19px">${membersession.uId} 님
                     		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="window.location.href='logout'">로그아웃</button>
                     		</div>
                         <!-- <div class="header-wrap">
