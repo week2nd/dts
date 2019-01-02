@@ -61,10 +61,15 @@ public class BoardController {
 
 	// 단건조회
 	@RequestMapping("/getBoard")
-	public String getBoard(Model model, BoardVO vo, HttpServletRequest request) {
+	public String getBoard(Model model, BoardVO vo, HttpServletRequest request, HttpSession session) {
 		boardService.updateBoardHits(vo);							// 페이지 들어가면 조회수 1 추가됨
 		model.addAttribute("board", boardService.getBoard(vo));		// model에 단건조회 작업를 추가한다.
-		return "user/board/getBoard";								// getBoard 목록요청
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/board/getBoard";
+		} else {
+			return "user/board/getBoard";
+		}
 	}
 
 	// 조회수 추가 처리

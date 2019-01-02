@@ -62,23 +62,25 @@
 		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">		
 		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 		</c:if>
-		
-		<table border="1" class = "table">
+		  <div class="table-responsive table--no-card m-b-30">
+		<table border="1" class = "table table-borderless table-data3">
+		<thead>
 			<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
-				<td>선택</td>
+				<th>선택</th>
 				</c:if>
-				<td>번호</td>
-				<td>제목</td>
-				<td>내용</td>
-				<td>작성일</td>
-				<td>조회수</td>
-				<td>추천수</td>
-				<td>아이디</td>
+				<th>번호</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>작성일</th>
+				<th>조회수</th>
+				<th>추천수</th>
+				<th>아이디</th>
 				<c:if test="${membersession.uGrant=='admin'}">
-				<td>게시판타입</td>
+				<th>게시판타입</th>
 				</c:if>
 			</tr>
+			</thead>
 			<c:forEach items="${board }" var="board">
 				<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
@@ -98,6 +100,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+		</div>
 	</form>
 
 
