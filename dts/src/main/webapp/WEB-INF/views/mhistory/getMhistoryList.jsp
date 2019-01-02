@@ -48,11 +48,12 @@
 		if(vid=="admin") {
 			{vid="admin"}
 		} else {
-			{vid=null}
+			{vid=""}
 		};
-		
+		/* console.log(vid); */
 		
 		$.ajax({
+			
 			url : "getMhistoryListAjax",
 			data : {page:page, uId:vid},
 			type : "POST",
@@ -61,21 +62,24 @@
 				alert("상태값 :" + status + "Http에러메시지 :" + msg);
 			},
 			success : function(data) {
-				//console.log(data);
-				//console.log(data.mhistoryList);
+				
+				console.log(data.mhistoryList);
 			//	console.log(data.mhistoryList[1].num);
 				for (i = 0; i < data.mhistoryList.length; i++) {
-					var tr = "<tr><td>" + data.mhistoryList[i].num + 
-					"</td><td>" + data.mhistoryList[i].uId + 
-					"</td><td>" + data.mhistoryList[i].ahDate + 
-					"</td><td>" + data.mhistoryList[i].oldMileage + 
-					"</td><td>" + data.mhistoryList[i].newMileage + 
-					"</td><td>" + data.mhistoryList[i].ipAddr + 
-					"</td><td>"	+ data.mhistoryList[i].categorie + 
+					var tr = "<tr><td style='width:8%'>" + data.mhistoryList[i].num + 
+					"</td><td style='width:10%'>" + data.mhistoryList[i].uId + 
+					"</td><td style='width:15%'>" + data.mhistoryList[i].ahDate + 
+					"</td><td style='width:20%'>" + data.mhistoryList[i].oldMileage + 
+					"</td><td style='width:20%'>" + data.mhistoryList[i].newMileage + 
+					"</td><td style='width:15%'>" + data.mhistoryList[i].ipAddr + 
+					"</td><td style='width:12%'>"	+ data.mhistoryList[i].categorie + 
 					"</td></tr>"
 					$(tr).appendTo("#mhistoryList");
 				}
-				if(data.mhistoryList[0].uId != "admin") {
+				console.log(data.uId+"aaaaaa");
+				
+				if(data.uId != "admin") {
+					
 					
 				var dd = "<a href='#' onclick='go_page(1)' >&laquo;</a>";
 				$(dd).appendTo("#pagination");
@@ -129,33 +133,37 @@
 </script>
 </head>
 <body>
-<div class="pull-right">
-	<button class= "btn btn-outline-secondary" id="historyAll">전체목록조회</button> 
-	<input class="btn btn-outline-secondary" type="button" id="historyAdmin" onclick='go_page("","admin")' value="관리자조회" /></div>
-		<table class="table">
-			<thead>
+	<div class="top-campaign">
+		<div class="pull-right" style="margin-bottom:10px">
+			<button class="btn btn-outline-secondary" id="historyAll">전체목록조회</button>
+			<input class="btn btn-outline-secondary" type="button"
+				id="historyAdmin" onclick='go_page("","admin")' value="관리자조회" />
+		</div>
+		<table class="table table-borderless table-data3" style="text-align: center;">
+			<thead style="text-align: center;">
 				<tr>
-					<th>번호</th>
-					<th>아이디</th>
-					<th>업데이트날짜</th>
-					<th>이전마일리지</th>
-					<th>현재마일리지</th>
-					<th>아이피</th>
-					<th>구분</th>
+					<th style="width:8%">번호</th>
+					<th style="width:10%">아이디</th>
+					<th style="width:15%">입력날짜</th>
+					<th style="width:20%">이전마일리지</th>
+					<th style="width:20%">현재마일리지</th>
+					<th style="width:15%">아이피</th>
+					<th style="width:12%">구분</th>
 				</tr>
 			</thead>
 		</table>
-	<div>
-		<table class="table">
-		<thead>
-		</thead>
-			<tbody id = "mhistoryList">
-			</tbody>			
-		</table>
+		<div>
+			<table class="table">
+				<thead>
+				</thead>
+				<tbody id="mhistoryList" style="text-align: center;">
+				</tbody>
+			</table>
+		</div>
+		<div align="center">
+		<div id="pagination" class="pagination"></div>
+		</div>
 	</div>
-	<div id="pagination" class="pagination">
-	</div>
-
 
 </body>
 </html>

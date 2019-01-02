@@ -236,7 +236,7 @@
             <header class="header-desktop">
                 <div class="section__content section__content--p30" style="height:32px">
                     <div class="container-fluid">
-                    		<div style="position:absolute; right:10px; font-size: 19px">${membersession.uId} 님
+                    		<div style="position:absolute; right:10px; font-size: 19px">${membersession.uId} mode
                     		<button type="button" class="btn btn-outline-secondary btn-sm" onclick="window.location.href='logout'">로그아웃</button>
                     		</div>
                         <!-- <div class="header-wrap">

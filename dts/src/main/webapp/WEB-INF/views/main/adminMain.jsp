@@ -19,6 +19,7 @@
 
 		
 	function drawChart() {
+		drawChart1();
 		$.ajax({
 			url : "totalChart",
 			//data : {page : page,uId : vid},
@@ -226,10 +227,10 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row" >
 			<div class="col-md-12">
-				<div class="overview-wrap">
-					<h2 class="title-1">Statistical Chart</h2>
+				<div class="overview-wrap" style="margin-bottom:10px;">
+					<h2 class="title-1" style="width: 100%; text-align: center;">Statistical Chart</h2>
 				</div>
 			</div>
 		</div>
@@ -269,7 +270,7 @@
 				<div class="au-card recent-report">
 					<form name="frm" action="./getMemberListChartData" method="post">
 						<input type="hidden" name="year" value="${memberVO.year }">
-						<select name="year" id="year" oninput="drawChart1()">
+						<select name="year" id="year" onchange="drawChart1()">
 							<option value="2019">2019</option>
 							<option value="2018">2018</option>
 							<option value="2017">2017</option>
