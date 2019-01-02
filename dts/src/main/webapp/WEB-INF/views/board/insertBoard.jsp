@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,18 @@
 <title>게시판등록</title>
 </head>
 <body>
-	<h3>게시판 등록</h3>
-
+	<c:if test="${type=='notice'}">
+	<h3>공지게시판</h3>
+	</c:if>
+	<c:if test="${type=='free'}">
+	<h3>자유게시판</h3>
+	</c:if>
+	<c:if test="${type=='analysis'}">
+	<h3>분석게시판</h3>
+	</c:if>
+	<c:if test="${type=='suggestion'}">
+	<h3>건의게시판</h3>
+	</c:if>
 	
 	
 	<form action="./insertBoard" method="post" enctype="multipart/form-data">

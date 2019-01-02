@@ -92,15 +92,15 @@
 			console.log($(this).parent().children()[1].innerText)
 
 			var commentsSeq = $(this).parent().attr("id").substr(1);
-			var commentsName = $(this).parent().children()[0].innerText;
-			var commentsContent = $(this).parent().children()[1].innerText;
+			var commentsName = $(this).parent().children()[1].innerText;
+			var commentsContent = $(this).parent().children()[2].innerText;
 
 			$("#commentUpdate").css("display", "inline")
 
 			//수정할 데이터 입력필드에 셋팅
-			$("#updateForm [name=commentsSeq]").val(commentsSeq);
+ 			$("#updateForm [name=commentsSeq]").val(commentsSeq);
 			$("#updateForm [name=commentsName]").val(commentsName);
-			$("#updateForm [name=commentsContent]").val(commentsContent);
+			$("#updateForm [name=commentsContent]").val(commentsContent); 
 			//수정할 댓글밑으로 이동하고 보이게
 			$("#c" + commentsSeq).append($('#commentUpdate'));
 			$('#commentUpdate').show();
@@ -117,15 +117,19 @@
 </script>
 </head>
 <body>
-	<h3>게시판보기</h3>
-	게시판번호 : ${board.boardNumber }
+	<div align="center">
+	<h3>게시글보기</h3>
+	
+	<br> 게시판번호 : ${board.boardNumber }
 	<br> 게시판제목 : ${board.boardTitle}
 	<br> 게시판내용 : ${board.boardContent }
 	<br> 작성일시 : ${board.postDate }
 	<br> 조회수 : ${board.boardHits }
 	<br> 추천수 : ${board.boardLike}
 	<br> 아이디 : ${board.uId }
+	<c:if test="${membersession.uGrant=='admin'}">
 	<br> 게시판타입 : ${board.boardType }
+	</c:if>
 	<br>
 	<c:if test="${not empty board.uploadFileName}">
 		<!-- 이미지 파일 보여주는것 -->
@@ -134,21 +138,21 @@
 		<!-- 이미지 파일 보여주는것 -->
 	</c:if>
 	<br>
-	<c:if test="${membersession.uId == board.uId}">
+	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 수정 가능 -->
 		<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a>
 	</c:if>
-	<c:if test="${membersession.uId == board.uId}">
+	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 삭제 가능 -->
 		<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
 	</c:if>
 	<a href="getBoardList?type=${board.boardType}">게시판</a>
-	<c:if test="${board.likeCheck == 0}">
-		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">좋아요</a>
+	<c:if test="${board.likeCheck == 0}">					<!-- 유저 ID 비교후 좋아요 기록 없으면 좋아요 1 추가 -->
+		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♥</a>
 	</c:if>
-	<c:if test="${board.likeCheck == 1}">
-		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">좋아요취소</a>
+	<c:if test="${board.likeCheck == 1}">					<!-- 유저 ID 비교후 자신이 좋아요 한 기록 -1 -->
+		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♡</a>
 	</c:if>
 
-
+	</div>	<!-- center로 보내는 div -->
 
 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->

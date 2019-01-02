@@ -41,7 +41,7 @@ public class BoardController {
 		if (paging.getPage() == null) {		 // get으로 받아온 page가 null이면 1page를 set으로 1페이지를 받아온다.
 			paging.setPage(1);
 		}
-		paging.setPageUnit(5); 				// 한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
+		paging.setPageUnit(10); 				// 한 페이지에 보여주는 레코드 건수, first와 last 가져오기 전에 적어줘야함
 		vo.setFirst(paging.getFirst()); 	// 게시판 숫자에 따라서 first, last 값 가져옴
 		vo.setLast(paging.getLast());
 		vo.setBoardType(request.getParameter("type")); 		// homeUser의 게시판 클릭시 type 받아오는 Parameter

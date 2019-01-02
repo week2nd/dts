@@ -11,10 +11,21 @@
 
 </head>
 <body>
-	<h3>게시판</h3>
-
-
-
+	<div align="center">
+	<c:if test="${type=='notice'}">
+	<h3>공지게시판</h3>
+	</c:if>
+	<c:if test="${type=='free'}">
+	<h3>자유게시판</h3>
+	</c:if>
+	<c:if test="${type=='analysis'}">
+	<h3>분석게시판</h3>
+	</c:if>
+	<c:if test="${type=='suggestion'}">
+	<h3>건의게시판</h3>
+	</c:if>
+	</div>
+	
 	<form name="frm">
 		<!-- 게시판 검색!! -->
 
@@ -53,7 +64,9 @@
 		</c:if>
 		<table border="1" class = "table">
 			<tr>
+				<c:if test="${membersession.uGrant=='admin'}">
 				<td>선택</td>
+				</c:if>
 				<td>번호</td>
 				<td>제목</td>
 				<td>내용</td>
@@ -61,13 +74,16 @@
 				<td>조회수</td>
 				<td>추천수</td>
 				<td>아이디</td>
+				<c:if test="${membersession.uGrant=='admin'}">
 				<td>게시판타입</td>
-
+				</c:if>
 			</tr>
 			<c:forEach items="${board }" var="board">
 				<tr>
+				<c:if test="${membersession.uGrant=='admin'}">
 					<td><input type="checkbox" name="bnumberList"
 						value="${board.boardNumber}" /></td>
+				</c:if>
 					<td>${board.boardNumber }</td>
 					<td><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardTitle}</a></td>
 					<td><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardContent }</a></td>
@@ -75,7 +91,9 @@
 					<td>${board.boardHits }</td>
 					<td>${board.boardLike }</td>
 					<td>${board.uId }</td>
+					<c:if test="${membersession.uGrant=='admin'}">
 					<td>${board.boardType }</td>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</table>
@@ -85,9 +103,10 @@
 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
 
-
-	<my:paging paging="${paging}" jsFunc="go_page" />
+	<div align="center">
 	<!-- 페이징 위해 추가  -->
-		<%-- <td><a href="Ncontent.do?post=<%=bean.getPost()%>&cnt=plus"><%=bean.getTitle()%></a></td> 상찬이 조언 --%>
+	<my:paging paging="${paging}" jsFunc="go_page" />
+	</div>
+
 </body>
 </html>
