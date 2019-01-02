@@ -6,8 +6,7 @@
 <meta charset="UTF-8">
 <title>getMemberUserForm.jsp</title>
 
-<script
-	src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
+<script	src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
 <script>
 	daum.postcode.load(function() {
 		/*  new daum.Postcode({
@@ -149,7 +148,7 @@
 
 	
 	$(function (){		
-		
+		console.log("asdfasdfadfadfasdfasdfvasdjvalsjkdnf");
 		var addressSplit=$('#uAddress').val().split('^');			// 주소 '^'만 제외하고 넣기
 		document.all.roadAddress.value = addressSplit[0];
  		if(addressSplit[1]!=null){									// 상세주소 입력 되어 있을 경우 두개 붙이기 (막아놨는데)
