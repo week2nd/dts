@@ -7,6 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>getMatchList</title>
+
+<style>
+	th {text-align : center;}
+</style>
 	<script>
 		function go_page(page){
 			location.href="getMatchList?page="+page;
@@ -40,35 +44,37 @@
 				<th>경기번호</th>
 				<th>날짜</th>
 				<th>경기제목</th>
-				<th colspan="2"> </th>
+				<th> </th>
 				<th>맞대결 전적</th>
-				<th colspan="2"> </th>
+				<th> </th>
 				<th>세부정보</th>
 				<!-- 경기 일시 -->
 				<th>결과확인</th>
 				<th>게임 구매</th>
+				<th>경기 상태</th>
 			</tr>
 			<c:forEach items="${matchList}" var="match">
 				<tr>
-					<td>${match.gameId}</td>
-					<td>${match.matchDate} 17:00</td>
-					<td>${match.matchInfo}</td>
-					<td><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
-					<td>${match.blueTeamKillsum}</td>
-					<td>${match.gameStatus}</td>
-					<td>${match.redTeamKillsum}</td>
+					<td align="center">${match.gameId}</td>
+					<td align="center">${match.matchDate} 17:00</td>
+					<td align="center">${match.matchInfo}</td>
+					<td align="right"><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
+					<td align="center">${match.blueTeamKillsum} : ${match.redTeamKillsum}</td>
 					<td><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
-					<td><a href="preView?blueTeamName=${match.blueTeamName}&redTeamName=${match.redTeamName}">미리보기</a></td>
-					<td><c:if test="${match.gameStatus == '후' || membersession.uGrant == 'admin'}">
+					<td align="center"><a href="preView?blueTeamName=${match.blueTeamName}&redTeamName=${match.redTeamName}">미리보기</a></td>
+					<td align="center"><c:if test="${match.gameStatus == '후' || membersession.uGrant == 'admin'}">
 					<a href="getMatch?gameId=${match.gameId}">결과확인</a>
 					</c:if></td>
 					
 					<c:if test="${membersession.uGrant=='admin'}">
 					<td><a href="getMhistoryList">마일리지 관리</a></td>
 					</c:if>
-					<c:if test="${membersession.uGrant!='admin'}">
-					<td><a href="buyMatchList"> 구매 </a></td>
+					<td align="center">
+					<c:if test="${membersession.uGrant!='admin' && match.gameStatus == '전'}">
+					<a href="buyMatchList"> 구매 </a>
 					</c:if>
+					</td>
+					<td align="center">${match.gameStatus}</td>
 				</tr>
 			</c:forEach>
 		</table>
