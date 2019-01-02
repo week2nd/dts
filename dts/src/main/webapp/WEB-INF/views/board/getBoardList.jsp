@@ -28,7 +28,6 @@
 	
 	<form name="frm">
 		<!-- 게시판 검색!! -->
-
 		<select name="searchCondition">
 			<option value="board_Title">제목
 			<option value="board_Content">내용
@@ -37,6 +36,7 @@
 		<button>검색</button>
 		<input type="hidden" name="sortCol" /> <input type="hidden"
 			name="page" /> <input type="hidden" name="type" value="${type}" />
+	
 	</form>
 	<script>
 		if ("${boardVO.searchCondition}" != "") {
@@ -62,6 +62,7 @@
 		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">		
 		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 		</c:if>
+		
 		<table border="1" class = "table">
 			<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
