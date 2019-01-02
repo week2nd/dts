@@ -76,12 +76,17 @@
 		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
 		width: 5%;						/* 버튼 넓이 7% */
 	}
+	table tr:nth-child(1){
+		background-color: #000000;
+		color: white;
+	}
 	
 	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
 		border: 1px solid #f2f2f2; 
 		border-collapse: collapse;
 		width: 100%;					/* 넓이 100%  */
 		margin: 0 0 20px 0;				/* 아랫쪽 테이블 간격 20px  */
+	
 	}
 	 
 	th, td {							/* th, td에 여백 15px, 글자 왼쪽정렬  */						
@@ -207,8 +212,8 @@
 	<a href="getMemberListChart?year=${memberVO.year }"><input id="chartBtn" type="button" value="회원차트">
 				</a>
 	<!-- ?year=${member.year } -->
-	<table border="1" >
-		<tr>
+	<table border="1">
+		<tr style="border-radius:20px;">
 			<th>선택</th>
 			<th>아이디<a href="#" onclick="go_sort('u_id')">▲</a></th>
 			<th>비밀번호<a href="#" onclick="go_sort('u_pw')">▲</a></th>				

@@ -162,7 +162,6 @@ body { /* 글자 폰트 */
 	padding: 8px 20px; /* 버튼 크기 위아래 8px, 좌우 20px */
 	margin: 20px 0; /* 상하 여백 20px, 좌우 여백 0px */
 	cursor: pointer; /* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
-	width: 20%; /* 버튼 넓이 7% */
 }
 
 #updateBtn:hover, #deleteBtn:hover, #cancelBtn:hover {
@@ -207,6 +206,8 @@ input {
 <body>
 	<h3>관리자가 단일유저 정보보기</h3>
 	<form action="updateMember" method="post">
+		<div class="top-campaign">
+		
 		<input type="hidden" name="uId" value="${member.uId }" />
 		<table id="tb">
 			<tr>
@@ -295,15 +296,20 @@ input {
 
 		<table >
 			<tr>
-				<td><a href="updateMember?uId=${member.uId }">
-						<button id="updateBtn">회원수정</button>
-				</a> <a href="deleteMember?uId=${member.uId }"> <input
-						id="deleteBtn" type="button" value="회원탈퇴">
-					</button>
-				</a> <a href="getMemberList"><input id="cancelBtn" type="button"
-						value="&nbsp;취 소&nbsp;"></a></td>
+				<td>
+					<a href="updateMember?uId=${member.uId }">
+					<button id="updateBtn">회원수정</button></a>
+				</td>
+				<td> 
+					<a href="deleteMember?uId=${member.uId }"> 
+					<input id="deleteBtn" type="button" value="회원탈퇴"></a>
+				</td>
+				<td>
+					<a href="getMemberList"><input id="cancelBtn" type="button"	value="&nbsp;취 소&nbsp;"></a>
+				</td>
 			</tr>
 		</table>
+		</div>
 	</form>
 
 </body>

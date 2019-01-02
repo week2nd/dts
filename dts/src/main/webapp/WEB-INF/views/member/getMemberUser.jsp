@@ -75,7 +75,7 @@
 	
 </script>
 
-
+<!-- 
 <style>
 	body {								/* 글자 폰트 */
 		font-family: Arial, Helvetica, sans-serif;
@@ -125,78 +125,184 @@
 		
 </style>
 
-
+ -->
 
 
 
 
 </head>
 <body>
-	<h3>유저가 개인정보보기</h3>
 	<form action="updateMemberForm" method="post">
-		<input type="hidden" name="uId" value="${member.uId }" />
-		<input type="hidden" id="chkpw2" value="${member.uPw }">
-		<input type="hidden" id="uName" value="${member.uName }">			<!-- 구글차트에서 이름 필요 -->
-		<input type="hidden" id="uAddress" value="${member.uAddress }">
-		<input type="hidden" id="uWin" value="${member.uWin}">				<!-- 구글차트에서 맞춘횟수 필요 -->
-		<input type="hidden" id="uLose" value="${member.uLose}">			<!-- 구글차트에서 틀린횟수 필요 -->
-		<input type="hidden" id="uEmail" value="${member.uEmail}">
-		<table style="width: 70%" >
-			<tr>
-				<td><div >아이디</div></td>
-				<td>${member.uId }</td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="uPw" id="chkpw1" autofocus></td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td>${member.uName }</td>
-			</tr>
-			<tr>
-				<td>주소</td>
-				<td>
-					<label id="tempAddress"></label>  
-				</td>
-			</tr>
-			<tr>
-				<td>휴대폰번호</td>
-				<td>${member.uPhone }</td>
-			</tr>
-			
-			<tr>
-				<td>생년월일</td>
-				<td>${member.uBirth}</td>
-			</tr>
-			<tr>
-				<td>E-Mail</td>
-				<td>${member.uEmail}</td>
-			</tr>
-			<tr>
-				<td>마일리지</td>
-				<td>${member.uMileage}</td>
-			</tr>
-			<tr>
-				<td>맞춘횟수</td>
-				<td>${member.uWin}</td>
-			</tr>
-			<tr>
-				<td>틀린횟수</td>
-				<td>${member.uLose}</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<div id="piechart" style="width: 700px; height: 700px;"></div>
-				</td>
-			</tr>
-		</table>
+	<input type="hidden" name="uId" value="${member.uId }" />
+	<input type="hidden" id="chkpw2" value="${member.uPw }">
+	<input type="hidden" id="uName" value="${member.uName }">			<!-- 구글차트에서 이름 필요 -->
+	<input type="hidden" id="uAddress" value="${member.uAddress }">
+	<input type="hidden" id="uWin" value="${member.uWin}">				<!-- 구글차트에서 맞춘횟수 필요 -->
+	<input type="hidden" id="uLose" value="${member.uLose}">			<!-- 구글차트에서 틀린횟수 필요 -->
+	<input type="hidden" id="uEmail" value="${member.uEmail}">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="overview-wrap">
+					<h3>유저가 개인정보보기</h3>
+				</div>
+			</div>
+		</div>
 		
-		<a href="updateMember?uId=${member.uId }">
-			<button	class="updateBtn" >회원수정</button></a>
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					아이디
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					${member.uId }
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					비밀번호
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					<input type="password" name="uPw" id="chkpw1" autofocus>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					이름
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					${member.uName }
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					주소
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					<label id="tempAddress"></label>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					휴대폰번호
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					${member.uPhone }
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					생년월일
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					${member.uBirth}
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					E-Mail
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					${member.uEmail}
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					마일리지
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					${member.uMileage}
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					맞춘횟수
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					${member.uWin}
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="au-card recent-report">
+					틀린횟수
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					${member.uLose}
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					<div id="piechart" style="width: 700px; height: 700px;"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					<a href="updateMember?uId=${member.uId }">
+					<button	class="updateBtn btn btn-primary btn-lg" >회원수정</button></a>
 				
-		<a href="deleteMemberUser?uId=${member.uId }">
-			<input type="button" value="회원탈퇴"	class="deleteBtn" ></a>
+					<a href="deleteMemberUser?uId=${member.uId }">
+					<input type="button" value="회원탈퇴"	class="deleteBtn btn btn-primary btn-lg" ></a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+		
+		
 				
 	</form>
 

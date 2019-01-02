@@ -45,7 +45,11 @@ $("#updateBtn").click(function() {
 
 <form action="updateMatch">
 <input type="text" name="gameId" value="${match.gameId}" readonly="readonly">
-<input type="text" name="gameStatus" value="${match.gameStatus}">
+<select name="gameStatus">
+	<option value="전">전</option>
+	<option value="중">중</option>
+	<option value="후">후</option>
+</select>
 	<div align="center">
 		<table class="table">
 			<tr>

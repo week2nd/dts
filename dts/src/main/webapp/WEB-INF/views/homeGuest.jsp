@@ -65,12 +65,18 @@ $(function(){
 					</div>
 					<div class="col-lg-3 ml-auto">
             <div class="social-icon">
-              <a href="#" class=" fa fa-facebook"></a>
-              <a href="#" class=" fa fa-twitter"></a>
-              <a href="#" class=" fa fa-google-plus"></a>
-              <a href="#" class=" fa fa-linkedin"></a>
-              <a href="#" class=" fa fa-youtube"></a>
-              <a href="#" class=" fa fa-vimeo-square"></a>
+              <a href="http://www.sktt1.net/"><img src="img\skt.png"></a>
+              <a href="https://post.naver.com/teamgriffin"><img src="img\griffin.png"></a>
+              <a href="http://kt-sports.co.kr/sports/site/esports/rolster/bi.do"><img src="img\kt.png"></a>
+              <a href="https://www.facebook.com/GenGLOL"><img src="img\geng.png"></a>
+              <a href="https://www.facebook.com/SandboxGamingNL"><img src="img\sandbox.png"></a>
+              <a href="https://www.facebook.com/IMteam"><img src="img\kingzone.png"></a>
+              <a href="https://www.facebook.com/HLE.lol"><img src="img\hanwha.png"></a>
+              
+              <a href="https://www.facebook.com/AfreecaFreecs"><img src="img\afreeca.png"></a>
+              <a href="https://www.facebook.com/TeamAwesome001"><img src="img\damwon.png"></a>
+              <a href="http://greenwings.jinair.com/Story/Notice.aspx"><img src="img\jinair.png"></a>
+              
             </div>
           </div>
 				</div>
