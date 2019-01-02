@@ -144,11 +144,29 @@
         } */
     }
 	
-
+	// 휴대폰번호 숫자만 입력가능하게
+	function onlyNumber(event) {
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105)
+				|| keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39
+				|| keyID == 9)
+			return;
+		else
+			return false;
+	}
+	// 휴대폰번호 숫자가 아닐 시 삭제
+	function removeChar(event) {
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if (keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39)
+			return;
+		else
+			event.target.value = event.target.value.replace(/[^0-9]/g, "");
+	}
 
 	
 	$(function (){		
-		console.log("asdfasdfadfadfasdfasdfvasdjvalsjkdnf");
 		var addressSplit=$('#uAddress').val().split('^');			// 주소 '^'만 제외하고 넣기
 		document.all.roadAddress.value = addressSplit[0];
  		if(addressSplit[1]!=null){									// 상세주소 입력 되어 있을 경우 두개 붙이기 (막아놨는데)
@@ -179,6 +197,21 @@
 	   			alert("수정 완료 되었습니다.");
 			}
     	});
+
+		
+		//한글입력 안되게 처리
+		$("input[name=uEmail1]").keyup(function(event) { // input name이 uEmail1에 키 입력시
+			if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
+				var inputVal = $(this).val();
+				$(this).val(inputVal.replace(/[^a-z0-9]/gi, ''));
+			}
+		});
+		$("input[name=uEmail2]").keyup(function(event) { // input name이 uEmail2에 키 입력시
+			if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
+				var inputVal = $(this).val();
+				$(this).val(inputVal.replace(/[^a-z0-9.]/gi, '')); // '.'도 입력할 수 있게 출력
+			}
+		});
 
 	});
 </script>
@@ -242,7 +275,16 @@
 
 </head>
 <body>
-	<h3>단일유저 정보 수정폼</h3>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="voerview-wrap">
+					<h3>단일유저 정보 수정폼</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<form action="updateMemberUser" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" /> 
 		<input type="hidden" id="uAddress" name="uAddress" value="${member.uAddress }">
@@ -294,8 +336,10 @@
                        <option value="017">017</option>
                        <option value="018">018</option>
                        <option value="019">019</option> 
-				</select>  <input type="text" name="phone2" id="phone2" maxlength=4 oninput="checkPwd()">
-					 <input type="text" name="phone3"  id="phone3" maxlength=4 oninput="checkPwd()">
+				</select>  <input type="text" name="phone2" id="phone2" maxlength=4 onkeydown='return onlyNumber(event)'
+					onkeyup='removeChar(event)' oninput="checkPwd()">
+					 <input type="text" name="phone3"  id="phone3" maxlength=4 onkeydown='return onlyNumber(event)'
+					onkeyup='removeChar(event)' oninput="checkPwd()">
 					 
 				</td>
 			</tr>

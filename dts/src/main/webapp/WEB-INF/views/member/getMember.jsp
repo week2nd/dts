@@ -293,7 +293,7 @@ input {
         </tr> -->
 		</table>
 
-		<table style="width: 100%">
+		<table >
 			<tr>
 				<td><a href="updateMember?uId=${member.uId }">
 						<button id="updateBtn">회원수정</button>
