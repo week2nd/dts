@@ -117,7 +117,7 @@
 </script>
 </head>
 <body>
-	<div align="center">
+<div align="center">
 	<h3>게시글보기</h3>
 	
 	<br> 게시판번호 : ${board.boardNumber }
@@ -130,6 +130,7 @@
 	<c:if test="${membersession.uGrant=='admin'}">
 	<br> 게시판타입 : ${board.boardType }
 	</c:if>
+	
 	<br>
 	<c:if test="${not empty board.uploadFileName}">
 		<!-- 이미지 파일 보여주는것 -->
@@ -137,14 +138,15 @@
 		<img src="./img/${board.uploadFileName }" />
 		<!-- 이미지 파일 보여주는것 -->
 	</c:if>
+	
 	<br>
 	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 수정 가능 -->
-		<a href="updateBoardform?boardNumber=${board.boardNumber}">수정</a>
+		<a href="updateBoardform?boardNumber=${board.boardNumber}&uId=${board.uId}">수정</a>
 	</c:if>
 	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 삭제 가능 -->
-		<a href="deleteBoard?boardNumber=${board.boardNumber}">삭제</a>
+		<a href="deleteBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">삭제</a>
 	</c:if>
-	<a href="getBoardList?type=${board.boardType}">게시판</a>
+	<a href="getBoardList?type=${board.boardType}">리스트</a>
 	<c:if test="${board.likeCheck == 0}">					<!-- 유저 ID 비교후 좋아요 기록 없으면 좋아요 1 추가 -->
 		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♥</a>
 	</c:if>
@@ -153,7 +155,7 @@
 	</c:if>
 
 	</div>	<!-- center로 보내는 div -->
-
+	
 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
 

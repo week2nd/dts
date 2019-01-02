@@ -102,6 +102,7 @@
 <!-- 게시판 수정 -->
 <update id ="updateBoard" parameterType="board">
 	UPDATE BOARD SET 
+					U_ID=#{uId},
 					BOARD_TITLE=#{boardTitle},
 					BOARD_CONTENT=#{boardContent}		   
 					WHERE BOARD_NUMBER=#{boardNumber}
@@ -111,6 +112,7 @@
 <!-- 조회수 추가 -->
 <update id ="updateBoardHits" parameterType="board">
 	UPDATE BOARD SET 
+					
 					BOARD_HITS=BOARD_HITS+1	   
 					WHERE BOARD_NUMBER=#{boardNumber}
 </update>
