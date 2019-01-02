@@ -20,8 +20,15 @@ public class PurchaseVO {
 	private int gameMoney;
 	private int gameReturnMoney;
 	private int teamCnt;
+	private String vsTeam;
 		
 	
+	public String getVsTeam() {
+		return vsTeam;
+	}
+	public void setVsTeam(String vsTeam) {
+		this.vsTeam = vsTeam;
+	}
 	public int getTeamCnt() {
 		return teamCnt;
 	}

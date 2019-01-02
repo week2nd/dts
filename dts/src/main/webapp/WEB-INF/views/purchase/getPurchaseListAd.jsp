@@ -16,48 +16,56 @@
 </script>
 </head>
 <body>
-	<form name="frm">
-		<select name="searchCondition">
-			<option value="GAME_ID">게임번호
-			<option value="U_Id">아이디
-		</select> <input type="text" name="searchKeyword">
-		<button>검색</button>
-	</form>
+	<div class="top-campaign">
+		<div style="margin-bottom: 10px">
+			<form name="frm">
+				<select name="searchCondition" class="custom-select" style="width:15%">
+					<option value="GAME_ID">게임번호
+					<option value="U_Id">아이디
+					<option value="CHOISE">선택팀
+				</select> <input type="text" name="searchKeyword" style="margin-left:10px; border-bottom: 2px solid black; text-align:right">
+				<button class="btn btn-outline-link">검색</button>
+			</form>
+		</div>
 
-	<form>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>구매번호</th>
-					<th>아이디</th>
-					<th>게임번호</th>
-					<th>베팅금액</th>
-					<th>배당률</th>
-					<th>적중유무</th>
-					<th>구매일</th>
-					<th>선택팀</th>
-					<th>지급확인</th>
-				</tr>
-			</thead>
-
-			<tr>
-				<c:forEach items="${purchaseList}" var="purchase">
+		<form>
+			<table class="table table-borderless table-data3" style="text-align: center;">
+				<thead>
 					<tr>
-						<td>${purchase.purchaseNum}</td>
-						<td>${purchase.uId}</td>
-						<td>${purchase.gameId}</td>
-						<td>${purchase.betMoney}</td>
-						<td>${purchase.betDrate}</td>
-						<td>${purchase.accuracy}</td>
-						<td>${purchase.betDate}</td>
-						<td>${purchase.choise}</td>
-						<td>${purchase.returnCheck}
+						<th>구매번호</th>
+						<th>아이디</th>
+						<th>게임번호</th>
+						<th>베팅금액</th>
+						<th>배당률</th>
+						<th>적중유무</th>
+						<th>구매일</th>
+						<th>선택팀</th>
+						<th>상대팀</th>
+						<th>지급확인</th>
 					</tr>
+				</thead>
 
-				</c:forEach>
-			</tr>
-		</table>
-	</form>
-	<my:paging paging="${paging}" jsFunc="go_page"/>
+				
+					<c:forEach items="${purchaseList}" var="purchase">				
+						<tr>		
+							<td>${purchase.purchaseNum}</td>
+							<td>${purchase.uId}</td>
+							<td>${purchase.gameId}</td>
+							<td>${purchase.betMoney}</td>
+							<td>${purchase.betDrate}</td>
+							<td>${purchase.accuracy}</td>
+							<td>${purchase.betDate}</td>
+							<td>${purchase.choise}</td>
+							<td>${purchase.vsTeam}</td>
+							<td>${purchase.returnCheck}</td>
+						<tr>						
+					</c:forEach>
+				
+			</table>
+		</form>
+		<div align="center" style="margin-top:10px">
+			<my:paging paging="${paging}" jsFunc="go_page" />
+		</div>
+	</div>
 </body>
 </html>

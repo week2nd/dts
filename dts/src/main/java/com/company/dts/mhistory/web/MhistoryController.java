@@ -49,7 +49,7 @@ public class MhistoryController {
 	@ResponseBody
 	public Map getMhistoryListAjax(MhistoryVO vo, Paging paging) {
 		HashMap map = new HashMap();
-		
+		System.out.println(vo);
 		if (paging.getPage() == null) {
 			paging.setPage(1);
 		}
@@ -62,6 +62,7 @@ public class MhistoryController {
 		paging.setTotalRecord(mhistoryService.getCount(vo));
 
 		map.put("paging", paging);
+		map.put("uId", vo.getuId());
 		map.put("mhistoryList", mhistoryService.getMhistoryListAjax(vo));
 		
 		return map;

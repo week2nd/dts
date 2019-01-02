@@ -82,6 +82,12 @@ public class MhistoryVO {
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
 	}
+	@Override
+	public String toString() {
+		return "MhistoryVO [num=" + num + ", uId=" + uId + ", ahDate=" + ahDate + ", oldMileage=" + oldMileage
+				+ ", newMileage=" + newMileage + ", ipAddr=" + ipAddr + ", categorie=" + categorie + ", cntMileage="
+				+ cntMileage + ", day=" + day + ", first=" + first + ", last=" + last + "]";
+	}
 	
 	
 
