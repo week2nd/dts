@@ -98,20 +98,20 @@ function insert(){
 			</tr>
 			<tr>
 				<td>K</td>
-				<td><input type="text" name="bluePick1Kill" value="0" size="7" placeholder="블루팀 처치합계"></td>
+				<td><input type="text" name="blueTeamKillsum" value="0" size="7" placeholder="블루팀 처치합계"></td>
 				<td>D</td>
-				<td><input type="text" name="bluePick1Death" value="0" size="7" placeholder="블루팀 죽음합계"></td>
+				<td><input type="text" name="blueTeamDeathsum" value="0" size="7" placeholder="블루팀 죽음합계"></td>
 				<td>A</td>
-				<td><input type="text" name="bluePick1Assist" value="0" size="7" placeholder="블루팀 지원합계"></td>
+				<td><input type="text" name="blueTeamAssistsum" value="0" size="7" placeholder="블루팀 지원합계"></td>
 				<td>KDA</td>
 				<td>#.#</td>
 				<td>Play Time</td>
 				<td>K</td>
-				<td><input type="text" name="redPick1Kill" value="0" size="7" placeholder="레드팀 처치합계"></td>
+				<td><input type="text" name="redTeamKillsum" value="0" size="7" placeholder="레드팀 처치합계"></td>
 				<td>D</td>
-				<td><input type="text" name="redPick1Death" value="0" size="7" placeholder="레드팀 죽음합계"></td>
+				<td><input type="text" name="redTeamDeathsum" value="0" size="7" placeholder="레드팀 죽음합계"></td>
 				<td>A</td>
-				<td><input type="text" name="redPick1Assist" value="0" size="7" placeholder="레드팀 지원합계"></td>
+				<td><input type="text" name="redTeamAssistsum" value="0" size="7" placeholder="레드팀 지원합계"></td>
 				<td>KDA</td>
 				<td>#.#</td>
 			</tr>
@@ -171,7 +171,6 @@ function insert(){
 					<td><input type="text" name="bluePick1Spell1" value="teleport" size="10" placeholder="D"></td>
 					<td rowspan="2"><input type="text" name="bluePick1" size="10" placeholder="블루 탑픽"></td>
 					<td colspan="4">
-					<input type="text" name="blueGamer1" size="10" placeholder="블루 탑라이너">
 					<select name="blueGamer1">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>

@@ -37,6 +37,18 @@ $("#updateBtn").click(function() {
 	}
 }); */
 
+$(function(){
+	$("#updateBtn").click(function() {
+		if(confirm("수정할 내용이 정확합니까?")) {
+			alert("수정을 완료하였습니다")
+			return true;
+		} else {
+			alert("취소되었습니다")
+			return false;
+		}
+	})
+});
+
 </script>
 </head>
 <body>
@@ -86,20 +98,20 @@ $("#updateBtn").click(function() {
 			</tr>
 			<tr>
 				<td>K</td>
-				<td><input type="text" name="bluePick1Kill" value="${match.bluePick1Kill}" size="10" placeholder="블루팀 처치합계"></td>
+				<td><input type="text" name="blueTeamKillsum" value="${match.bluePick1Kill}" size="10" placeholder="블루팀 처치합계"></td>
 				<td>D</td>
-				<td><input type="text" name="bluePick1Death" value="${match.bluePick1Death}" size="10" placeholder="블루팀 죽음합계"></td>
+				<td><input type="text" name="blueTeamDeathsum" value="${match.bluePick1Death}" size="10" placeholder="블루팀 죽음합계"></td>
 				<td>A</td>
-				<td><input type="text" name="bluePick1Assist" value="${match.bluePick1Assist}" size="10" placeholder="블루팀 지원합계"></td>
+				<td><input type="text" name="blueTeamAssistsum" value="${match.bluePick1Assist}" size="10" placeholder="블루팀 지원합계"></td>
 				<td>KDA</td>
 				<td>#.#</td>
 				<td>Play Time</td>
 				<td>K</td>
-				<td><input type="text" name="redPick1Kill" value="${match.redPick1Kill}" size="10" placeholder="레드팀 처치합계"></td>
+				<td><input type="text" name="redTeamKillsum" value="${match.redPick1Kill}" size="10" placeholder="레드팀 처치합계"></td>
 				<td>D</td>
-				<td><input type="text" name="redPick1Death" value="${match.redPick1Death}" size="10" placeholder="레드팀 죽음합계"></td>
+				<td><input type="text" name=redTeamDeathsum value="${match.redPick1Death}" size="10" placeholder="레드팀 죽음합계"></td>
 				<td>A</td>
-				<td><input type="text" name="redPick1Assist" value="${match.redPick1Assist}" size="10" placeholder="레드팀 지원합계"></td>
+				<td><input type="text" name="redTeamAssistsum" value="${match.redPick1Assist}" size="10" placeholder="레드팀 지원합계"></td>
 				<td>KDA</td>
 				<td>#.#</td>
 			</tr>
@@ -269,7 +281,7 @@ $("#updateBtn").click(function() {
 			</table>
 		</div>
 	</div>
-		<input type="submit" value="경기 수정"><br>
+		<input type="submit" id="updateBtn" value="경기 수정"><br>
 </form>
 
 

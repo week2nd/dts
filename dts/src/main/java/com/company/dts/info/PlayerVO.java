@@ -22,7 +22,7 @@ public class PlayerVO {
 	private int playerRank; // 선수 순위
 	private int match; // win + lose 경기수
 	private int winrate; // WIN/(WIN+LOSE) 승률
-	private int kda; // ROUND((KILL+ASSIST)/DEATH,1) KDA
+	private float kda; // ROUND((KILL+ASSIST)/DEATH,1) KDA
 
 	// 조인내용
 	private String matchDate;
@@ -206,11 +206,11 @@ public class PlayerVO {
 		this.winrate = winrate;
 	}
 
-	public int getKda() {
+	public float getKda() {
 		return kda;
 	}
 
-	public void setKda(int kda) {
+	public void setKda(float kda) {
 		this.kda = kda;
 	}
 
