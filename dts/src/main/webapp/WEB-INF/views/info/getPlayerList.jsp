@@ -59,5 +59,9 @@
 			</c:forEach>
 		</table>
 	</form>
+	
+	<a href="#">위로가기</a>
+	
+	</div>
 </body>
 </html>

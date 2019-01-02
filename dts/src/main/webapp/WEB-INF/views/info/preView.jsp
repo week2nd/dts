@@ -18,9 +18,15 @@
 		<td>${preView.redTeamName}</td>
 	</tr>
 	<tr>
-		<td>${preView.win}승 ${preView.lose}패</td>
+		<td><c:if test="${preView.win >= preView.lose }"> <font color="red">${preView.win}승 ${preView.lose}패</font></c:if>
+			<c:if test="${preView.win < preView.lose }"> <font color="blue"> ${preView.win}승 ${preView.lose}패</font></c:if>
+		</td>
+		
 		<td>최근성적</td>
-		<td>${preView.lose}승 ${preView.win}패</td>
+		<td><c:if test="${preView.lose >= preView.win }"> <font color="red">${preView.lose}승 ${preView.win}패</font></c:if>
+			<c:if test="${preView.lose < preView.win }"> <font color="blue"> ${preView.lose}승 ${preView.win}패</font></c:if>
+		</td>
+		
 	</tr>
 	<tr>
 		<td>${preView.playerMatch}</td>
@@ -37,6 +43,10 @@
 		<td>배당률</td>
 		<td>${preView.redDrate}</td>
 	</tr>
+</table>
+
+<table>
+
 </table>
 
 

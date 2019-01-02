@@ -235,7 +235,7 @@ $(function(){
 				</div>
 			</div>
 			<c:if test="${membersession.uGrant=='admin'}">
-			<a href="deleteMatch?gameId=${match.gameId}"><input type="button" id="deleteMatchBtn"value="삭제"></a>
+			<a href="deleteMatch?gameId=${match.gameId}"><input type="button" id="deleteMatchBtn" value="삭제"></a>
 			</c:if>
 		</form>
 	<%-- </c:forEach> --%>

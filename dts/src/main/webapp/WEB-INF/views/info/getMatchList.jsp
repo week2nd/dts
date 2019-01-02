@@ -16,8 +16,7 @@
 <body>
 
 	<h3>경기 정보</h3>
-	
-	
+	<div class="top-campaign">
 	
 	<c:if test="${membersession.uGrant=='admin'}">
 		<button type="button" onclick="location.href='insertMatchForm'"
@@ -60,8 +59,7 @@
 					<td>${match.redTeamKillsum}</td>
 					<td><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
 					<td><a href="preView?blueTeamName=${match.blueTeamName}&redTeamName=${match.redTeamName}">미리보기</a></td>
-					
-					<td><c:if test="${match.gameStatus == '후'}">
+					<td><c:if test="${match.gameStatus == '후' || membersession.uGrant == 'admin'}">
 					<a href="getMatch?gameId=${match.gameId}">결과확인</a>
 					</c:if></td>
 					
@@ -75,7 +73,9 @@
 			</c:forEach>
 		</table>
 	</form>
-	
-	<my:paging paging="${paging}" jsFunc="go_page"/>
+	<div align="center">
+		<my:paging paging="${paging}" jsFunc="go_page"/>
+	</div>
+	</div>
 </body>
 </html>
