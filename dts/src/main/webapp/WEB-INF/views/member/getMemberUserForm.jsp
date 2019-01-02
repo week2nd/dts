@@ -216,7 +216,7 @@
 	});
 </script>
 
-
+<!-- 
 <style>
 	body {								/* 글자 폰트 */
 		font-family: Arial, Helvetica, sans-serif;
@@ -269,37 +269,133 @@
 
 
 
+ -->
 
 
 
 
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="voerview-wrap">
-					<h3>단일유저 정보 수정폼</h3>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<form action="updateMemberUser" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" /> 
 		<input type="hidden" id="uAddress" name="uAddress" value="${member.uAddress }">
 		<input type="hidden" id="uPhone" name="uPhone" value="${member.uPhone }">
 		<input type="hidden" name="uPw" id="uPw" value="${member.uPw }" />
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="overview-wrap">
+						<h3>단일유저 정보 수정폼</h3>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="overview-wrap">
+						아이디
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="overview-wrap">
+						${member.uId }
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-2">
+					<div class="overview-wrap">
+						기존 비밀번호
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="overview-wrap">
+						<input type="password" id="chkPw" oninput="checkPwd()" autofocus>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-2">
+					<div class="overview-wrap">
+						이름
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="overview-wrap">
+						${member.uName }
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-2">
+					<div class="overview-wrap">
+						주소
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="overview-wrap">
+						<input type="button" onclick="sample4_execDaumPostcode()"value="우편번호 찾기"><br>
+						<input type="text" id="roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()"  readonly> 
+						<input type="text" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()" > 
+						 
+						<span id="guide" style="color: #999"></span>
+					</div>
+				</div>
+			</div>
 		
-		<table style="width: 50%" >
-			<tr>
-				<td>아이디</td>
-				<td>${member.uId }</td>
-			</tr>
-			<tr>
-				<td>기존 비밀번호</td>
-				<td><input type="password" id="chkPw" oninput="checkPwd()" autofocus></td>
-			</tr>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="overview-wrap">
+						휴대폰번호
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="overview-wrap">
+						<select id="phone1" name="phone1" oninput="checkPwd()">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="012">012</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="018">018</option>
+							<option value="019">019</option> 
+						</select>
+						<input type="text" name="phone2" id="phone2" maxlength=4 onkeydown='return onlyNumber(event)'
+							onkeyup='removeChar(event)' oninput="checkPwd()">
+						<input type="text" name="phone3"  id="phone3" maxlength=4 onkeydown='return onlyNumber(event)'
+							onkeyup='removeChar(event)' oninput="checkPwd()">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-2">
+					<div class="overview-wrap">
+						E-Mail
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="overview-wrap">
+						<input type="hidden" name="uEmail" id="uEmail" value="${member.uEmail }">
+					<input type="text" name="uEmail1" id="chkEmail1" oninput="checkPwd()" >
+					<input type="text" name="uEmail2" id="chkEmail2" oninput="checkPwd()">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="overview-wrap">
+						<button class="updateBtn btn btn-primary btn-lg">수정</button>
+						<a href="updatePwForm?uId=${member.uId }"><input type="button" class="pwBtn btn btn-outline-secondary btn-lg" value="비밀번호 변경"></a> 
+						<a href="getMemberUser"><input type="button" class="cancelBtn btn btn-primary btn-lg" value="취소"></a>
+					</div>
+				</div>
+			</div>
+	</div>
+
 			<!-- <tr>
 				<td>새 비밀번호</td>
 				<td>
@@ -312,49 +408,8 @@
 				<td>새 비밀번호 확인</td>
 				<td><input type="password" id="newPw2" oninput="checkPwd()"></td>
 			</tr> -->
-			<tr>
-				<td>이름</td>
-				<td>${member.uName }</td>
-			</tr>
-			<tr>
-				<td>주소</td>
-				<td>
-					<input type="button" onclick="sample4_execDaumPostcode()"value="우편번호 찾기"><br>
-					<input type="text" id="roadAddress" placeholder="도로명주소" value="${member.uAddress }" oninput="checkPwd()"  readonly> 
-					<input type="text" id="detailAddress" placeholder="상세주소 입력창" oninput="checkPwd()" > 
-					 
-					<span id="guide" style="color: #999"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>휴대폰번호</td>
-				<td><select id="phone1" name="phone1" oninput="checkPwd()">
-					   <option value="010">010</option>
-                       <option value="011">011</option>
-                       <option value="012">012</option>
-                       <option value="016">016</option>
-                       <option value="017">017</option>
-                       <option value="018">018</option>
-                       <option value="019">019</option> 
-				</select>  <input type="text" name="phone2" id="phone2" maxlength=4 onkeydown='return onlyNumber(event)'
-					onkeyup='removeChar(event)' oninput="checkPwd()">
-					 <input type="text" name="phone3"  id="phone3" maxlength=4 onkeydown='return onlyNumber(event)'
-					onkeyup='removeChar(event)' oninput="checkPwd()">
-					 
-				</td>
-			</tr>
-			<tr>
-				<td>E-Mail</td>
-				<td>
-					<input type="hidden" name="uEmail" id="uEmail" value="${member.uEmail }">
-					<input type="text" name="uEmail1" id="chkEmail1" oninput="checkPwd()" >
-					<input type="text" name="uEmail2" id="chkEmail2" oninput="checkPwd()">
-				</td>
-			</tr>
-		</table>
-		<button class="updateBtn">수정</button>
-		<a href="updatePwForm?uId=${member.uId }"><input type="button" class="pwBtn" value="비밀번호 변경"></a> 
-		<a href="getMemberUser"><input type="button" class="cancelBtn" value="취소"></a>
+		
+		
 	</form>
 </body>
 </html>

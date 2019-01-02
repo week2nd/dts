@@ -79,51 +79,52 @@ $(function (){
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-1">
-				<div class="au-card recent-report">
-					기존 비밀번호
+			
+			<div class="row">
+				<div class="col-lg-2">
+					<div class="au-card recent-report">
+						기존 비밀번호
+					</div>
+				</div>		
+				<div class="col-lg-6">
+					<div class="au-card recent-report">
+						<input type="password" id="chkPw" class="form-contorl" oninput="checkPwd()" autofocus>
+					</div>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="col-lg-2">
+					<div class="au-card recent-report">
+						새 비밀번호
+					</div>
 				</div>
-			</div>		
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
-					<input type="password" id="chkPw" class="form-contorl" oninput="checkPwd()" autofocus>
-				</div>
-			</div>	
-		</div>
-		<div class="row">
-			<div class="col-lg-1">
-				<div class="au-card recent-report">
-					새 비밀번호
+				<div class="col-lg-6">
+					<div class="au-card recent-report">
+						<input type="password" id="newPw1" class="form-contorl" oninput="checkPwd()"><br>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
-					<input type="password" id="newPw1" class="form-contorl" oninput="checkPwd()"><br>
+			
+			<div class="row">
+				<div class="col-lg-2">
+					<div class="au-card recent-report">
+						새 비밀번호 확인
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="au-card recent-report">
+						<input type="password" id="newPw2" class="form-contorl" oninput="checkPwd()">
+						<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
+	            		<span id="spanPwO" style="display: none">비밀번호가 일치합니다.</span>
+					</div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-lg-1">
-				<div class="au-card recent-report">
-					새 비밀번호 확인
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
-					<input type="password" id="newPw2" class="form-contorl" oninput="checkPwd()">
-					<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
-            		<span id="spanPwO" style="display: none">비밀번호가 일치합니다.</span>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="au-card recent-report">
-					<button class="updateBtn btn btn-primary btn-lg" disabled="disabled">수정</button>
-					<a href="getMemberUser"><input type="button" class="cancelBtn btn btn-primary btn-lg" value="취소"></a> 
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="au-card recent-report">
+						<button class="updateBtn btn btn-primary btn-lg" disabled="disabled">수정</button>
+						<a href="getMemberUser"><input type="button" class="cancelBtn btn btn-primary btn-lg" value="취소"></a> 
+					</div>
 				</div>
 			</div>
 		</div>
