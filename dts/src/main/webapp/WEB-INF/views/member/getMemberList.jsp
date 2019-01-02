@@ -17,10 +17,11 @@
 		document.frm.page.value=page;
 		document.frm.submit();			// 검색폼
 	}
- 	
+
  	
  	$(function(){
  		$(".deleteBtn").click(function(){									// 다중 삭제 버튼을 눌렀을 경우
+ 			
  			if($(".hide:checked").length==0){
  				alert("체크박스를 선택하세요");
  				return false;
@@ -43,8 +44,9 @@
 
  			document.frm.searchCondition.value="${memberVO.searchCondition}";
  		}
+ 		
  	});
- 	
+
  	
 </script>
 <style>
@@ -185,7 +187,7 @@
 	onclick="location.href='./memberExcel'"/>
 <hr>
 
-<h3>getUserList아아아아</h3>
+<h3>관리자 회원정보</h3>
 
 <form name="frm">
 	<select id="ab" name="searchCondition"  >
@@ -201,7 +203,7 @@
 
  <form action="deleteMemberList" >	
 
-	<button class="deleteBtn">선택삭제</button>
+	<button onclick="deleteBtn()" class="deleteBtn">선택삭제</button>
 	<a href="getMemberListChart?year=${memberVO.year }"><input id="chartBtn" type="button" value="회원차트">
 				</a>
 	<!-- ?year=${member.year } -->
