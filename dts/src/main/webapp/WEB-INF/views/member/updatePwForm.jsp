@@ -67,30 +67,66 @@ $(function (){
 
 </script>
 <body>
-	<h3>유저 비밀번호 수정</h3>
+	
 	<form action="updatePw" method="post">
-		<input type="hidden" name="uId" value="${member.uId }" /> 
-		<input type="hidden" name="uPw" id="uPw" value="${member.uPw }" />
-		<table style="width: 50%" >
-			<tr>
-				<td>기존 비밀번호</td>
-				<td><input type="password" id="chkPw" oninput="checkPwd()" autofocus></td>
-			</tr>
-			<tr>
-				<td>새 비밀번호</td>
-				<td>
-					<input type="password" id="newPw1" oninput="checkPwd()"><br>
+	<input type="hidden" name="uId" value="${member.uId }" /> 
+	<input type="hidden" name="uPw" id="uPw" value="${member.uPw }" />
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="overview-wrap">
+						<h3>유저 비밀번호 수정</h3>						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-1">
+				<div class="au-card recent-report">
+					기존 비밀번호
+				</div>
+			</div>		
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					<input type="password" id="chkPw" class="form-contorl" oninput="checkPwd()" autofocus>
+				</div>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="col-lg-1">
+				<div class="au-card recent-report">
+					새 비밀번호
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					<input type="password" id="newPw1" class="form-contorl" oninput="checkPwd()"><br>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-1">
+				<div class="au-card recent-report">
+					새 비밀번호 확인
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					<input type="password" id="newPw2" class="form-contorl" oninput="checkPwd()">
 					<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
             		<span id="spanPwO" style="display: none">비밀번호가 일치합니다.</span>
-				</td>
-			</tr>
-			<tr>
-				<td>새 비밀번호 확인</td>
-				<td><input type="password" id="newPw2" oninput="checkPwd()"></td>
-			</tr>
-		</table>
-		<button class="updateBtn" disabled="disabled">수정</button> 
-		<a href="getMemberUser"><input type="button" class="cancelBtn" value="취소"></a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="au-card recent-report">
+					<button class="updateBtn btn btn-primary btn-lg" disabled="disabled">수정</button>
+					<a href="getMemberUser"><input type="button" class="cancelBtn btn btn-primary btn-lg" value="취소"></a> 
+				</div>
+			</div>
+		</div>
 	</form>
 </body>
 </html>
