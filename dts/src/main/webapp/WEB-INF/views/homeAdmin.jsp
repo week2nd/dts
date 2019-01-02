@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,10 +38,10 @@
 
 </head>
 
-<body class="animsition">
+<body >
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
+        <!-- <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
@@ -151,7 +154,7 @@
                     </ul>
                 </div>
             </nav>
-        </header>
+        </header> -->
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
@@ -166,19 +169,19 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>게시판</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Dashboard 1</a>
+                                    <a href="./getBoardList?type=notice">공지사항</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Dashboard 2</a>
+                                    <a href="./getBoardList?type=analysis">분석게시판</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <a href="./getBoardList?type=suggestion">건의게시판</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">Dashboard 4</a>
+                                    <a href="./getBoardList?type=free">자유게시판</a>
                                 </li>
                             </ul>
                         </li>
@@ -195,8 +198,8 @@
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                            <a href="./getMemberList">
+                                <i class="fas fa-calendar-alt"></i>회원정보</a>
                         </li>
                         <li>
                             <a href="map.html">
@@ -441,7 +444,10 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                    <div class="container-fluid">
+					<div class="col-md-12">
+						<tiles:insertAttribute name="content" />
+					</div>
+					<!-- <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
@@ -968,7 +974,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -976,7 +982,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- END MAIN CONTENT-->
