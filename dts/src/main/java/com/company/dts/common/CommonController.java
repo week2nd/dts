@@ -127,6 +127,10 @@ public class CommonController {
 
 	}
 	
+	@RequestMapping(value="/adminMain")
+	public String adminmain() {		
+	return "admin/main/adminMain";
+	}
 	
 
 		
