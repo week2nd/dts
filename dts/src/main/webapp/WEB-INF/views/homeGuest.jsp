@@ -52,8 +52,8 @@ $(function(){
 	<header class="float-left w-100">
 		<div class="small-top float-left w-100">
 			<div class="container-fluid">
-				<div class="row px-3">
-					<div class="col-lg-4 date-sec">
+				<div class="row px-1">
+					<div class="col-lg-2 date-sec">
 						<div id="Date" class="mt-1">
 							<script>
 								var today = new Date()
@@ -63,8 +63,8 @@ $(function(){
 							</script>
 						</div>
 					</div>
-					<div class="col-lg-3 ml-auto">
-            <div class="social-icon">
+					<div class="col-lg-5 ml-auto lp-6">
+
               <a href="http://www.sktt1.net/"><img src="img\skt.png"></a>
               <a href="https://post.naver.com/teamgriffin"><img src="img\griffin.png"></a>
               <a href="http://kt-sports.co.kr/sports/site/esports/rolster/bi.do"><img src="img\kt.png"></a>
@@ -77,7 +77,7 @@ $(function(){
               <a href="https://www.facebook.com/TeamAwesome001"><img src="img\damwon.png"></a>
               <a href="http://greenwings.jinair.com/Story/Notice.aspx"><img src="img\jinair.png"></a>
               
-            </div>
+
           </div>
 				</div>
 			</div>

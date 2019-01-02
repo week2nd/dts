@@ -236,7 +236,7 @@ public class MemberController {
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate(); // 세션 무효화 (로그아웃)
-		return "guest/main/guestMain";
+		return "redirect:guestMain";
 	}
 	
 	
