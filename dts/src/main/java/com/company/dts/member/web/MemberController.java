@@ -2,6 +2,7 @@ package com.company.dts.member.web;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -215,13 +216,22 @@ public class MemberController {
 	
 	
 	@RequestMapping("login")   // 
-	public String login(MemberVO vo, HttpSession session) {
+	public String login(MemberVO vo, HttpSession session, HttpServletResponse response) throws Exception {
 		// id 단건조회
 		MemberVO membervo = memberService.getMember(vo);
+		response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
 		// id가 있으면 패스워드 비교
 		if(membervo == null) { // id 없으면
+			/*response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = response.getWriter();*/
+            out.println("<script>alert('회원정보가 없습니다.');</script>");
+            out.flush();
 			return "guest/member/loginForm";
+			
 		} else if (! vo.getuPw().equals(membervo.getuPw())) { // ! <- not
+			out.println("<script>alert('비밀번호를 확인해주세요.');</script>");
+            out.flush();
 			return "guest/member/loginForm";
 		} else {
 			session.setAttribute("membersession", membervo);

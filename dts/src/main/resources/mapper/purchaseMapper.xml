@@ -17,7 +17,8 @@
 		BETDRATE,
 		ACCURACY,
 		BETDATE,
-		CHOISE
+		CHOISE,
+		TRUNC(BETMONEY*BETDRATE) AS gameReturnMoney
 		FROM PURCHASE
 		<if test="uId!=null and uId!=''">
 			WHERE U_ID = #{uId}
