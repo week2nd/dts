@@ -326,10 +326,11 @@
 <style>
 	body {								/* 글자 폰트 */
 		font-family: Arial, Helvetica, sans-serif;
+		background-color: #bbbbbb;
 	}
 
 	.joinbtn {						/* delete 버튼 */
-		background-color:  #363636;
+		background-color:  #aaaaaa;
 		color: white;					/* 글자색 */
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
@@ -358,6 +359,9 @@
 	 
 	tr:nth-child(even) {				/* 짝수번째 연한 회색 */			
 		background-color: #f2f2f2;
+	}
+	tr:nth-child(odd) {				/* 짝수번째 연한 회색 */			
+		background-color: #d9d9d9;
 	}
 		
 	input{
@@ -388,9 +392,7 @@
 	            	<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>
 	            	<span id="countId">네글자 이상 아이디를 입력하세요.</span>
 	            </td>
-	            <td>
-	            	
-	            </td>
+
 	        </tr>
 	        <tr>
 	            <td>비밀번호</td>

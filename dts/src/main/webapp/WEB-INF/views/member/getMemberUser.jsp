@@ -26,7 +26,8 @@
 					 ]);
 	
 			var options = {
-				title : $('#uName').val()+'님 적중률'
+				title : $('#uName').val()+'님 적중률',
+				backgroundColor: '#E6E6FA'
 			};
 	
 			var chart = new google.visualization.PieChart(document
@@ -71,6 +72,13 @@
 				return false;
 			}
     	});
+		
+		
+		var money = ${member.uMileage};
+		var money2 = money.toLocaleString();
+		$("#point").text(money2);	
+	
+		
 	});
 	
 </script>
@@ -131,7 +139,7 @@
 
 
 </head>
-<body>
+<body style="background-color:#aaaaaa;">
 	<form action="updateMemberForm" method="post">
 	<input type="hidden" name="uId" value="${member.uId }" />
 	<input type="hidden" id="chkpw2" value="${member.uPw }">
@@ -148,6 +156,26 @@
 				</div>
 			</div>
 		</div>
+	<div style="width: 40%; margin:auto; background-color:#f3f3f3;">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+					<a href="updateMember?uId=${member.uId }">
+					<button	class="updateBtn btn btn-primary btn-lg" >회원수정</button></a>
+				
+					<a href="deleteMemberUser?uId=${member.uId }">
+					<input type="button" value="회원탈퇴"	class="deleteBtn btn btn-primary btn-lg" ></a>
+				</div>
+			</div>
+			<div class="col-lg-6" style="float:; width:100px; height:100px;">
+				<div class="au-card recent-report">
+					<div id="piechart" style="width: 500px; height: 500px;">
+				</div>
+			</div>
+		</div>
+			
+		</div>
+		
 		
 		<div class="row">
 			<div class="col-lg-2">
@@ -155,7 +183,7 @@
 					아이디
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
 					${member.uId }
 				</div>
@@ -168,9 +196,9 @@
 					비밀번호
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					<input type="password" name="uPw" id="chkpw1" autofocus>
+					<input class="form-control" type="password" name="uPw" id="chkpw1" autofocus>
 				</div>
 			</div>
 		</div>
@@ -181,7 +209,7 @@
 					이름
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
 					${member.uName }
 				</div>
@@ -194,7 +222,7 @@
 					주소
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
 					<label id="tempAddress"></label>
 				</div>
@@ -207,7 +235,7 @@
 					휴대폰번호
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
 					${member.uPhone }
 				</div>
@@ -220,7 +248,7 @@
 					생년월일
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
 					${member.uBirth}
 				</div>
@@ -233,7 +261,7 @@
 					E-Mail
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
 					${member.uEmail}
 				</div>
@@ -246,9 +274,9 @@
 					마일리지
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					${member.uMileage}
+					<div id="point"></div>
 				</div>
 			</div>
 		</div>
@@ -259,7 +287,7 @@
 					맞춘횟수
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
 					${member.uWin}
 				</div>
@@ -272,35 +300,22 @@
 					틀린횟수
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<div class="au-card recent-report">
 					${member.uLose}
 				</div>
 			</div>
+			
 		</div>
 		
 		<div class="row">
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
-					<div id="piechart" style="width: 700px; height: 700px;"></div>
-				</div>
-			</div>
+			
 		</div>
 		
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
-					<a href="updateMember?uId=${member.uId }">
-					<button	class="updateBtn btn btn-primary btn-lg" >회원수정</button></a>
-				
-					<a href="deleteMemberUser?uId=${member.uId }">
-					<input type="button" value="회원탈퇴"	class="deleteBtn btn btn-primary btn-lg" ></a>
-				</div>
-			</div>
-		</div>
+		
 		
 	</div>
-	
+	</div>
 		
 		
 				

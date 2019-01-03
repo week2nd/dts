@@ -193,7 +193,7 @@
 				document.all.chkPw.value = "";
 				return false;
 			}else{
-		        document.all.uPw.value = $('#newPw1').val();	 
+		        document.all.uPw.value = $('#chkPw').val();	 
 	   			alert("수정 완료 되었습니다.");
 			}
     	});
