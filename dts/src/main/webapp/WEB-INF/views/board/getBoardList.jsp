@@ -70,7 +70,6 @@
 				</c:if>
 				<th>번호</th>
 				<th>제목</th>
-				<th>내용</th>
 				<th>작성일</th>
 				<th>조회수</th>
 				<th>추천수</th>
@@ -88,7 +87,6 @@
 				</c:if>
 					<td>${board.boardNumber }</td>
 					<td><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardTitle}</a></td>
-					<td><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardContent }</a></td>
 					<td>${board.postDate }</td>
 					<td>${board.boardHits }</td>
 					<td>${board.boardLike }</td>

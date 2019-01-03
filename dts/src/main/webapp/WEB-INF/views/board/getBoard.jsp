@@ -169,7 +169,7 @@
 			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 			<input type="hidden" name="boardType" value="${board.boardType}">
 			<input type="hidden" name="uId" value="${membersession.uId}">
-			id=${membersession.uId}<br> 이름: <input type="text"
+			<br> 이름: <input type="text"
 				name="commentsName" size="10"><br /> 내용:
 			<textarea name="commentsContent" cols="20" rows="2"></textarea>
 			<br /> <input type="button" value="등록" id="btnAdd" />
