@@ -6,17 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title>getPlayer</title>
+
+<style>
+	.table-head { text-align: center;
+				border: 1px solid;
+				max-width: 98%;
+				width: 100%;
+				height: 2cm;}
+	.table-head td {
+	padding: 5px;
+	border: 1px solid;
+	}
+	.table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+	background-color: transparent
+}				
+</style>
 </head>
 <body>
-	<input type="hidden" value="${player.playerId}">
-	<input type="hidden" value="${player.name}">
-	<input type="hidden" value="${player.nickname}">
-	<input type="hidden" value="${player.teamId}">
-	<input type="hidden" value="${player.win}">
-	<input type="hidden" value="${player.lose}">
-	<input type="hidden" value="${player.kill}">
-	<input type="hidden" value="${player.death}">
-	<input type="hidden" value="${player.assist}">
+	<%-- <input type="hidden" name="playerId" value="${player.playerId}">
+	<input type="hidden" name="name" value="${player.name}">
+	<input type="hidden" name="nickname" value="${player.nickname}"> --%>
+	<input type="hidden" name="line" value="${player.line}">
+	<%-- <input type="hidden" name="teamId" value="${player.teamId}">
+	<input type="hidden" name="win" value="${player.win}">
+	<input type="hidden" name="lose" value="${player.lose}">
+	<input type="hidden" name="kill" value="${player.kill}">
+	<input type="hidden" name="death" value="${player.death}">
+	<input type="hidden" name="assist" value="${player.assist}"> --%>
 
 	<h3>getPlayer</h3>
 
@@ -31,20 +50,25 @@
 		<input type="hidden" name="playerId" value="${player.playerId}">
 			<a href="deletePlayer?nickname=${player.nickname}"> 선수 삭제 </a>
 		</c:if>
-			<table border="1">
+			<div class="top-campaign">
+			<table class="table-head">
 				<tr>
 					<td><h3>${player.teamId} ${player.nickname }</h3></td>
 					<td><h5>${player.name}</h5></td>
 					<td width="64%"></td>
-					<td align="right"><h4>${player.teamname }</h4></a></td>
+					<td><h4>${player.teamname }</h4></a></td>
 					<%-- <input type="hidden" value="${player.nickname}">
 					<input type="hidden" name="playerId" value="${player.playerId}"> --%>
 				</tr>
 			</table>
+			<!-- </div>
 	</div>
 
 
+		
 	<div>
+	<div class="top-campaign"> -->
+		<h4>상대 전적	</h4><hr/>
 		<table class="table">
 			<tr>
 				<th>일자</th>
@@ -59,6 +83,7 @@
 				<th>A</th>
 				
 			</tr>
+			
 			<c:forEach items="${playerRecordList}" var="rec">
 				<tr>
 					<td>${rec.matchDate}</td>
@@ -74,7 +99,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		
+		</div>
 	</div>
 
 </body>

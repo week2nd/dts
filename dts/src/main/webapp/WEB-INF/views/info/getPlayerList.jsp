@@ -4,6 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<style>
+	th, td {text-align : center;}
+	p {background-color : white;
+		size: 10cm;	}
+	.search {background-color: white;}
+</style>
+
 <meta charset="UTF-8">
 <title>getPlayerList</title>
 </head>
@@ -12,20 +20,23 @@
 	<h3>선수 정보</h3>
 	
 	<form name="playerFrm">
+	<div>
 		<select name="searchCondition">
 			<option value="nickname">소환사명</option>
 			<option value="team_id">최근 소속팀</option>
 			<option value="name">선수이름</option> 
 		</select>
 		<input type="text" name="searchKeyword">
-		<button> 검색 </button>
+		<button > 검색 </button>
+	</div>		
 	</form>
 	
 	<form action="insertPlayerForm">
 		<c:if test="${membersession.uGrant=='admin'}">
-			<input type="submit" value="선수 등록">
+			<input type="submit" value="선수 등록 " class="search">
 		</c:if>
-		<table border="1">
+		<div class="top-campaign">
+		<table class="table">
 			<tr>
 				<td>순위</td>
 				<td>이름</td>
@@ -53,15 +64,16 @@
 					<td>${player.kill}</td>
 					<td>${player.death}</td>
 					<td>${player.assist}</td>
-					<td>${player.kda}</td>
+					<td>${player.kda} %</td>
 					<input type="hidden" name="playerId" value="${player.playerId}">
+					<input type="hidden" name="line" value="${player.line}">
 				</tr>
 			</c:forEach>
 		</table>
+		</div>
 	</form>
 	
 	<a href="#">위로가기</a>
 	
-	</div>
 </body>
 </html>

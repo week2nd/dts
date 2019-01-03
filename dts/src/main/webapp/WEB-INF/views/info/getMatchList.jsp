@@ -49,9 +49,10 @@
 				<th> </th>
 				<th>세부정보</th>
 				<!-- 경기 일시 -->
+				<th>경기 상태</th>
 				<th>결과확인</th>
 				<th>게임 구매</th>
-				<th>경기 상태</th>
+				
 			</tr>
 			<c:forEach items="${matchList}" var="match">
 				<tr>
@@ -61,20 +62,23 @@
 					<td align="right"><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
 					<td align="center">${match.blueTeamKillsum} : ${match.redTeamKillsum}</td>
 					<td><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
-					<td align="center"><a href="preView?blueTeamName=${match.blueTeamName}&redTeamName=${match.redTeamName}">미리보기</a></td>
+					<td align="center"><a href="preView?blueTeamName=${match.blueTeamName}&redTeamName=${match.redTeamName}">전적</a></td>
+					<td align="center">${match.gameStatus}</td>
 					<td align="center"><c:if test="${match.gameStatus == '후' || membersession.uGrant == 'admin'}">
 					<a href="getMatch?gameId=${match.gameId}">결과확인</a>
 					</c:if></td>
 					
 					<c:if test="${membersession.uGrant=='admin'}">
-					<td><a href="getMhistoryList">마일리지 관리</a></td>
+					<td align="center"><a href="getMhistoryList">마일리지 관리</a></td>
 					</c:if>
+					
+					<c:if test="${membersession.uGrant !='admin' && match.gameStatus == '전'}">
 					<td align="center">
-					<c:if test="${membersession.uGrant!='admin' && match.gameStatus == '전'}">
 					<a href="buyMatchList"> 구매 </a>
-					</c:if>
 					</td>
-					<td align="center">${match.gameStatus}</td>
+					</c:if>
+					
+					
 				</tr>
 			</c:forEach>
 		</table>
