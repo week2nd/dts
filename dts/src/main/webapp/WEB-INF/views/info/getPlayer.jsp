@@ -53,13 +53,17 @@
 			<div class="top-campaign">
 			<table class="table-head">
 				<tr>
-					<td><h3>${player.teamId} ${player.nickname }</h3></td>
-					<td><h5>${player.name}</h5></td>
-					<td width="64%"></td>
-					<td><h4>${player.teamname }</h4></a></td>
+					<td rowspan="2" width="20%"><h3>${player.teamId} ${player.nickname }</h3></td>
+					<td rowspan="2" width="40%"><h3>${player.name}</h3></td>
+					<td> 포지션 </td>
+					<td rowspan="2" width="20%"><h3>${player.teamname } </h3></a></td>
 					<%-- <input type="hidden" value="${player.nickname}">
 					<input type="hidden" name="playerId" value="${player.playerId}"> --%>
 				</tr>
+				<tr>
+					<td width="10%"><b>${player.line}</b> </td>
+				</tr>
+				
 			</table>
 			<!-- </div>
 	</div>

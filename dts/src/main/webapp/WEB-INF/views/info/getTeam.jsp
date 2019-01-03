@@ -9,11 +9,11 @@
 </head>
 <body>
 
-	<div>
 		<form action="updateTeamForm">
 		<c:if test="${membersession.uGrant=='admin'}">
 			<input class="btn" type="submit" value="수정">
 		</c:if>
+		<div class="top compagin">
 			<table class="table">
 				<tr>
 					<td><h3>${team.teamId}</h3></td>
@@ -38,6 +38,7 @@
 				
 				</tr>
 			</table>
+			</div>
 		</form>
 		
 		<form>
@@ -88,12 +89,10 @@
 				</tr>
 			</c:forEach>
 			</table>
-	</div>
 	<c:if test="${membersession.uGrant=='admin'}">
 	<div>
 		<a class="badge-light[href]:focus" href="deleteTeam?teamId=${team.teamId}">삭제</a>
 	</div>
 	</c:if>
-
 </body>
 </html>
