@@ -121,7 +121,7 @@ public class CommonController {
 				
 		MatchVO mv = new MatchVO();
 		mv.setFirst(1); // 게시판 숫자에 따라서 first, last 값 가져옴
-		mv.setLast(5);
+		mv.setLast(6);
 		model.addAttribute("matchList", matchService.getMatchList(mv));
 		return "guest/main/guestMain";
 
