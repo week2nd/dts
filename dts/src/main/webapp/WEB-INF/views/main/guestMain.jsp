@@ -152,7 +152,7 @@
 		
          <div class="row">
             <div class="col-4 notice">
-               <table border="1" class="table">
+               <table border="0" class="table">
                   <tr>
                      <td>번호</td>
                      <td>제목</td>
@@ -171,7 +171,7 @@
                </table>
             </div>
             <div class="col-4 free" style="display: none;">
-               <table border="1" class="table">
+               <table border="0" class="table">
                   <tr>
                      <td>번호</td>
                      <td>제목</td>
@@ -191,7 +191,7 @@
             </div>
 
             <div class="col-4 analysis" style="display: none;">
-               <table border="1" class="table">
+               <table border="0" class="table">
                   <tr>
                      <td>번호</td>
                      <td>제목</td>
@@ -210,7 +210,7 @@
                </table>
             </div>
             <div class="col-4 suggestion" style="display: none;">
-               <table border="1" class="table">
+               <table border="0" class="table">
                   <tr>
                      <td>번호</td>
                      <td>제목</td>
