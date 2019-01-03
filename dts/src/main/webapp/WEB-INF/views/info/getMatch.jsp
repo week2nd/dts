@@ -27,7 +27,7 @@ $(function(){
 
 
 	<h3>경기 결과 보기</h3>
-
+<div class="top-campaign">
 	<%-- <c:forEach items="${matchList}" var="match"> --%>
 		<form action="updateMatchForm">
 			<div align="center">
@@ -103,18 +103,18 @@ $(function(){
 				<div align="center">
 					<table class="minitable">
 						<tr>
-							<td>Spell</td>
-							<td>Champ</td>
-							<td>Kill</td>
-							<td>Death</td>
-							<td>Assist</td>
-							<td>KDA</td>
-							<td>Kill</td>
-							<td>Death</td>
-							<td>Assist</td>
-							<td>KDA</td>
-							<td>Champ</td>
-							<td>Spell</td>
+							<th width="8%">Spell </th>
+							<th width="10%">Champ </th>
+							<th width="8%">Kill </th>
+							<th width="8%">Death </th>
+							<th width="8%">Assist </th>
+							<th width="8%">KDA </th>
+							<th width="8%">Kill </th>
+							<th width="8%">Death </th>
+							<th width="8%">Assist </th>
+							<th width="8%">KDA </th>
+							<th width="10%">Champ </th>
+							<th width="8%">Spell </th>
 						</tr>
 						<!-- Pick1 -->
 						<tr>
@@ -227,13 +227,17 @@ $(function(){
 							<td>${match.redPick5Spell2}</td>
 						</tr>
 						<c:if test="${membersession.uGrant=='admin'}">
-						<tr>
+						<!-- <tr>
 							<td><input type="submit" value="수정"></td>
-						</tr>
+						</tr> -->
 						</c:if>
 					</table>
 				</div>
+				
 			</div>
+			<c:if test="${membersession.uGrant=='admin'}">
+					<input type="submit" value="수정">
+					</c:if>
 			<c:if test="${membersession.uGrant=='admin'}">
 			<a href="deleteMatch?gameId=${match.gameId}"><input type="button" id="deleteMatchBtn" value="삭제"></a>
 			</c:if>
@@ -241,6 +245,6 @@ $(function(){
 	<%-- </c:forEach> --%>
 
 
-
+</div>
 </body>
 </html>
