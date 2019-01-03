@@ -83,7 +83,7 @@ public class MhistoryController {
 		map.put("mhistoryList", mhistoryService.totalChartMileage(vo));
 		map.put("purchaseList", purchaseService.getPurchaseListChart(vo1));
 		map.put("purchaseGame", purchaseService.getPurchaseGameChart(null));
-		map.put("purchaseGameMoney", purchaseService.getPurchaseGameMoney(null));
+		map.put("purchaseGameMoney", purchaseService.getPurchaseGameMoney(vo1));
 		map.put("purchaseTeam",  purchaseService.getPurchaseTeam(null));
 		return map;
 	}

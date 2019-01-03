@@ -104,7 +104,8 @@
 	UPDATE BOARD SET 
 					U_ID=#{uId},
 					BOARD_TITLE=#{boardTitle},
-					BOARD_CONTENT=#{boardContent}		   
+					BOARD_CONTENT=#{boardContent},
+					UPLOADFILENAME=#{uploadFileName}
 					WHERE BOARD_NUMBER=#{boardNumber}
 </update>
 

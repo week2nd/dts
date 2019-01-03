@@ -141,7 +141,7 @@
 	
 	<br>
 	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 수정 가능 -->
-		<a href="updateBoardform?boardNumber=${board.boardNumber}&uId=${board.uId}">수정</a>
+		<a href="updateBoardform?boardNumber=${board.boardNumber}&uId=${board.uId}&boardType=${board.boardType}">수정</a>
 	</c:if>
 	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 삭제 가능 -->
 		<a href="deleteBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">삭제</a>

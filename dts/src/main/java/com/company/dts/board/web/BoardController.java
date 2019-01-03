@@ -136,7 +136,17 @@ public class BoardController {
 
 	// 수정처리
 	@RequestMapping("/updateBoard")
-	public String updateBoard(Model model, BoardVO vo) {
+	public String updateBoard(Model model, BoardVO vo, HttpServletRequest request) throws IllegalStateException, IOException {
+		String path = request.getSession().getServletContext().getRealPath("/img");
+		System.out.println("path======" + path);
+		// ServletContext == 내장객체 Application과 동일하다.
+		// 첨부파일이 있으면 첨부파일을 업로드(업로더 폴더로 저장)
+		MultipartFile uploadFile = vo.getUploadFile();
+		if (!uploadFile.isEmpty() && uploadFile.getSize() > 0) { 	// 파일크기로 첨부여부확인
+			String filename = uploadFile.getOriginalFilename(); 	// 업로드파일명
+			uploadFile.transferTo(new File(path, filename)); 		// 파일이름
+			vo.setUploadFileName(filename);
+		}
 		boardService.updateBoard(vo); 								// 수정처리
 		model.addAttribute("board", boardService.getBoard(vo));		// model에 단건조회 작업를 추가한다.
 		return "user/board/getBoard"; 								// getBoard 목록요청
