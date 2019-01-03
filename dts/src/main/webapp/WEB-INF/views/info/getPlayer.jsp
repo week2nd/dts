@@ -23,7 +23,22 @@
 	margin-bottom: 1rem;
 	background-color: transparent
 }				
+			}
 </style>
+
+<script>
+$(function(){
+	$("#deleteMatchBtn").click(function() {
+		if(confirm("정말 삭제하시겠습니까??")) {
+			alert("삭제했습니다.")
+			return true;
+		} else {
+			return false;
+		}
+	})
+});
+</script>
+
 </head>
 <body>
 	<%-- <input type="hidden" name="playerId" value="${player.playerId}">
@@ -41,14 +56,11 @@
 
 	<h3>전적 정보</h3>
 
-	<c:if test="${membersession.uGrant=='admin'}">
-	<a href="updatePlayerForm?nickname=${player.nickname}">선수 정보 변경</a>
-	</c:if>
-
+	
+<input type="hidden" name="playerId" value="${player.playerId}">
 	<div>
 		<c:if test="${membersession.uGrant=='admin'}">
-		<input type="hidden" name="playerId" value="${player.playerId}">
-			<a href="deletePlayer?nickname=${player.nickname}"> 선수 삭제 </a>
+			<p align="right"><a class="btn btn-outline-secondary" href="updatePlayerForm?nickname=${player.nickname}">선수 정보 변경</a></p>
 		</c:if>
 			<div class="top-campaign">
 			<table class="table-head">
@@ -72,6 +84,8 @@
 		
 	<div>
 	<div class="top-campaign"> -->
+	<br>
+	
 		<h4>상대 전적	</h4><hr/>
 		<table class="table">
 			<tr>
@@ -103,7 +117,11 @@
 				</tr>
 			</c:forEach>
 		</table>
+		
 		</div>
+		<c:if test="${membersession.uGrant=='admin'}">
+			<p align="right"><a class="btn btn-outline-secondary" href="deletePlayer?nickname=${player.nickname}"> <input type="button" id="deleteMatchBtn" value="선수 삭제"> </a></p>
+		</c:if>
 	</div>
 
 </body>

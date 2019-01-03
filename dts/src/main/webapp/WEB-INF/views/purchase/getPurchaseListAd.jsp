@@ -52,8 +52,16 @@
 							<td>${purchase.uId}</td>
 							<td>${purchase.gameId}</td>
 							<td>${purchase.betMoney}</td>
-							<td>${purchase.betDrate}</td>
+							<td>${purchase.betDrate}</td>							
+							<c:if test="${purchase.accuracy=='적중성공'}">
+							<td style="color:red">${purchase.accuracy}</td>
+							</c:if>
+							<c:if test="${purchase.accuracy=='적중실패'}">
+							<td style="color:blue">${purchase.accuracy}</td>
+							</c:if>
+							<c:if test="${purchase.accuracy==null}">
 							<td>${purchase.accuracy}</td>
+							</c:if>
 							<td>${purchase.betDate}</td>
 							<td>${purchase.choise}</td>
 							<td>${purchase.vsTeam}</td>

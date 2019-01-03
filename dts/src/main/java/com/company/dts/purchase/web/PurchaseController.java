@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.company.dts.common.Paging;
 import com.company.dts.member.MemberService;
 import com.company.dts.member.MemberVO;
+import com.company.dts.mhistory.MhistoryService;
+import com.company.dts.mhistory.MhistoryVO;
 import com.company.dts.purchase.PurchaseService;
 import com.company.dts.purchase.PurchaseVO;
 
@@ -25,6 +27,8 @@ public class PurchaseController {
 	PurchaseService purchaseService;
 	@Autowired
 	MemberService memberSerivce;
+	@Autowired
+	MhistoryService mhistoryService;
 
 	// 유저구매전체조회
 	@RequestMapping("/getPurchaseList")
@@ -118,7 +122,11 @@ public class PurchaseController {
 	
 	//충전페이지
 	@RequestMapping(value="/payChargePage")
-	public String pay() {
+	public String pay(Model model, MhistoryVO vo, HttpSession session) {
+		/*mhistoryService.checkCharge(vo);*/		
+		String id = ((MemberVO) session.getAttribute("membersession")).getuId();
+		vo.setuId(id);
+		model.addAttribute("mhistoryList", mhistoryService.chargeCheck(vo));
 		return "user/common/pay";
 	}
 	

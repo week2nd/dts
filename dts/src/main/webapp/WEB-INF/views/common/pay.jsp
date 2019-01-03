@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
 	var IMP = window.IMP; // 생략가능
@@ -59,15 +61,34 @@
 </script>
 </head>
 <body>
-결제금액을 선택하세요 단위 만원
+결제금액을 선택하세요
 <select name ="won">
-<option value="100">100</option>
-<option value="10000">10000</option>
-<option value="20000">20000</option>
-<option value="30000">30000</option>
-<option value="40000">40000</option>
-<option value="50000">50000</option>
+<option value="100">100원</option>
+<option value="10000">10000원</option>
+<option value="20000">20000원</option>
+<option value="30000">30000원</option>
+<option value="40000">40000원</option>
+<option value="50000">50000원</option>
 </select>
 <input type="button" value="결제" id="payBtn"/>
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>충전일</th>
+					<th>충전금액</th>
+				</tr>
+			</thead>
+			<c:forEach items="${mhistoryList}" var="mhistory">
+				<tr>
+					<td>${mhistory.chargeDate }</td>
+					<td>${mhistory.chargeMoney }</td>
+				</tr>
+			</c:forEach>
+				
+		</table>
+
+	</div>
+
 </body>
 </html>

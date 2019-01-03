@@ -34,4 +34,7 @@ public class MhistoryDAO {
 	public List<MhistoryVO> totalChartMileage(MhistoryVO vo) {
 		return mybatis.selectList("mhistory.totalChartMileage", vo);
 	}
+	public List<MhistoryVO> chargeCheck(MhistoryVO vo) {
+		return mybatis.selectList("mhistory.chargeCheck", vo);
+	}
 }

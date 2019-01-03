@@ -312,8 +312,8 @@
 				MATCHDATE AS GAMEDATE
 				<if test="uId!=null and uId!=''">,
 				(SELECT count(*) FROM PURCHASE b WHERE a.GAME_ID = b.GAME_ID AND b.U_ID = #{uId}) AS BUYCHECK</if>
-		 FROM INGAME a
-		ORDER BY 1
+		 FROM INGAME a WHERE a.GAMESTATUS = '전'
+		ORDER BY 1 DESC
 	</select>
 	
 	<!-- 관리자경기전체조회 -->

@@ -14,6 +14,7 @@
 			console.log(gameid);
 			document.setResultfrm.gameId.value = gameid;
 			document.setResultfrm.submit();
+			alert("구매결과입력 완료");
 		});
 		
 		$(".setMoneyBtn").click(function() {
@@ -22,6 +23,7 @@
 			console.log(gameid);
 			document.setMoneyfrm.gameId.value = gameid;
 			document.setMoneyfrm.submit();
+			alert("적중금액지급 완료");
 		});
 	});
 </script>
