@@ -9,7 +9,19 @@
 	th, td {text-align : center;}
 	p {background-color : white;
 		size: 10cm;	}
-	.search {background-color: white;}
+	.search {background-color: white;
+			border-radius: 10px;
+			border: 1px solid black;
+			color:black;
+			padding: 5px;
+			margin-top:-5px;
+			margin-bottom: -5px; 
+			
+	}
+	
+	#border {border-radius : 1px;
+			border-top : 1px solid black;
+			padding: 10px;	}
 </style>
 
 <meta charset="UTF-8">
@@ -27,13 +39,13 @@
 			<option value="name">선수이름</option> 
 		</select>
 		<input type="text" name="searchKeyword">
-		<button > 검색 </button>
+		<button class="search" > 검색 </button>
 	</div>		
 	</form>
 	
 	<form action="insertPlayerForm">
 		<c:if test="${membersession.uGrant=='admin'}">
-			<input type="submit" value="선수 등록 " class="search">
+			<div align="right"> <input type="submit" value="선수 등록 " class="search" > </div>
 		</c:if>
 		<div class="top-campaign">
 		<table class="table">
@@ -70,10 +82,11 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<div id="border" align="right"><a href="#">위로가기</a></div>
 		</div>
 	</form>
 	
-	<a href="#">위로가기</a>
+	
 	
 </body>
 </html>

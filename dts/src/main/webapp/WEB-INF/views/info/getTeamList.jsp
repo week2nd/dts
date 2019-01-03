@@ -6,18 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	th { border-bottom: 1px solid black;}
+	th, td {	text-align: center;}
+</style>
 </head>
 <body>
 
 	<h3>팀 정보</h3>
 <c:if test="${membersession.uGrant=='admin'}">
-<a href="insertTeamForm"><button class="btn">새 팀 입력</button></a>
+<p align="right" ><a href="insertTeamForm"><button class="btn btn-outline-secondary">새 팀 입력</button></a></p>
 </c:if>
 	
 	<form name="teamFrm">
-		<span><input type="hidden" name="searchCondition" value="team_id">팀 이름</span>
-		<input type="text" name="searchKeyword">
-		<button> 검색 </button>	
+		<div class="btn btn-outline-secondary">
+			<input type="hidden" name="searchCondition" value="team_id"><b>팀 이름 &nbsp;</b>
+			<input type="text" name="searchKeyword">
+			<button> 검색 </button>	
+		</div>
 	</form>
 
 	<div>
