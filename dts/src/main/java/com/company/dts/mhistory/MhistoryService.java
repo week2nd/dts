@@ -13,5 +13,7 @@ public interface MhistoryService {
 	public List<MhistoryVO> totalChart(MhistoryVO vo);
 	
 	public List<MhistoryVO> totalChartMileage(MhistoryVO vo);
+	
+	public List<MhistoryVO> chargeCheck(MhistoryVO vo);
 
 }

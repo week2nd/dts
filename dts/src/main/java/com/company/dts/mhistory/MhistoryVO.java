@@ -15,8 +15,22 @@ public class MhistoryVO {
 	private int last;
 	private int month;
 	private int year;
+	private String chargeDate;
+	private int chargeMoney;
 	
 		
+	public String getChargeDate() {
+		return chargeDate;
+	}
+	public void setChargeDate(String chargeDate) {
+		this.chargeDate = chargeDate;
+	}
+	public int getChargeMoney() {
+		return chargeMoney;
+	}
+	public void setChargeMoney(int chargeMoney) {
+		this.chargeMoney = chargeMoney;
+	}
 	public int getMonth() {
 		return month;
 	}

@@ -62,7 +62,7 @@
 		
 		var options = {
 				height : "500px",
-			title : '일자별 판매',
+			/* title : '일자별 판매', */
 			/* curveType : 'function',
 			legend : {
 				position : 'bottom'
@@ -86,8 +86,8 @@
 		var options1 = {
 			chart : {
 				height : "500px",
-				title : '일자별 이익',
-				subtitle : 'Sales, Expenses, and Profit: 2014-2017',
+				/* title : '일자별 이익',
+				subtitle : 'Sales, Expenses, and Profit: 2014-2017', */
 				//seriesType: 'bars',
 		        bar: { groupWidth: '30%' }						
 				
@@ -113,8 +113,8 @@
 	var options2 = {
 			
 			chart : {
-				title : '게임별 판매수',
-				subtitle : 'Member, Number, and Profit: 2017-2019',
+				/* title : '게임별 판매수',
+				subtitle : 'Member, Number, and Profit: 2017-2019', */
 				height : '500px'
 			}
 		};
@@ -142,8 +142,8 @@
 					
 				} ,
 		          chart: {
-		            title: '게임수익',
-		            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+		           /*  title: '게임수익',
+		            subtitle: 'Sales, Expenses, and Profit: 2014-2017', */
 		            height : "500px"
 		          },
 		          colors: ['#1b9e77', '#d95f02', '#7570b3']
@@ -164,7 +164,7 @@
 		}
 
         var options4 = {
-                title: 'My Daily Activities',
+                /* title: 'My Daily Activities', */
                 pieHole: 0.4,
               };
 
@@ -212,8 +212,8 @@
 					var options = {
 							
 						chart : {
-							title : 'DTS Company Performance',
-							subtitle : 'Member, Number, and Profit: 2017-2019',
+							/* title : 'DTS Company Performance',
+							subtitle : 'Member, Number, and Profit: 2017-2019', */
 							height : '500px'
 						}
 					};
@@ -275,19 +275,20 @@
 					<option value="11">11</option>
 					<option value="12">12</option>
 				</select>
-				<button type="button" onclick="drawChart()">버튼</button>
+				<button type="button" class="btn btn-outline-secondary btn-sm" onclick="drawChart()">검색</button>
 			</form>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" style="margin-top:10px">
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
-				<h3 class="title-2">일자별 판매차트</h3>
+				<h3 class="title-2" style="margin-bottom:20px">일자별 판매차트</h3>
 					<div id="curve_chart" style="height: 500px"></div>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">일자별 수익</h3>
 					<div id="columnchart_material" style="height: 500px;"></div>
 				</div>
 			</div>
@@ -295,11 +296,13 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">경기별 판매/적중금액</h3>
 					<div id="chart_div" style="height: 500px;"></div>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">경기별 판매수</h3>
 					<div id="columnchart_material2" style="height: 500px;"></div>
 				</div>
 			</div>
@@ -308,12 +311,14 @@
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">팀선택 비율</h3>
 					<div id="donutchart" style="height: 500px;"></div>
 				</div>
 			</div>
 			
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">월별 가입자수</h3>
 					<div id="columnchart_material1" style="height: 500px;"></div>
 				</div>
 			</div>

@@ -22,6 +22,7 @@
 		<if test="uId!=null and uId!=''">
 			WHERE U_ID = #{uId}
 		</if>
+		ORDER BY 1 DESC
 	</select>
 
 	<select id="getPurchaseListAd" parameterType="purchase"
@@ -47,7 +48,7 @@
 			<!-- AND ${searchCondition} like '%' || #{searchKeyword} || '%' -->
 			AND ${searchCondition} like #{searchKeyword} 
 		</if>
-		ORDER BY 1
+		ORDER BY 1 DESC
 		) a ) b where rn between #{first} and #{last}
 	</select>
 
