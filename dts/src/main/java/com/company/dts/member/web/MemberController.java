@@ -228,7 +228,7 @@ public class MemberController {
 			if (membervo.getuGrant().equals("admin")) {
 				return "admin/main/adminMain";
 			} else {
-				return "user/main/userMain";				
+				return "redirect:userMain";				
 			}			
 		}
 	}

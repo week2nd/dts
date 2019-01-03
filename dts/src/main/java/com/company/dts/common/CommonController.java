@@ -127,6 +127,43 @@ public class CommonController {
 
 	}
 	
+	// 전체조회(getAnalysisBoard)
+		@RequestMapping("/userMain")
+		public String getAnalysisBoardUser(Model model, BoardVO vo, HttpServletRequest request,
+				HttpSession session) {
+
+			// 공지사항
+			vo.setFirst(1); // 게시판 숫자에 따라서 first, last 값 가져옴
+			vo.setLast(5);
+			vo.setBoardType("notice"); // homeUser의 게시판 클릭시 type 받아오는 Parameter
+			model.addAttribute("noticeboard", boardService.getBoardList(vo)); // getAnalysisBoard 실행
+			
+			// suggestion
+			vo.setFirst(1); // 게시판 숫자에 따라서 first, last 값 가져옴
+			vo.setLast(5);
+			vo.setBoardType("suggestion"); // homeUser의 게시판 클릭시 type 받아오는 Parameter
+			model.addAttribute("suggestionboard", boardService.getBoardList(vo)); // getAnalysisBoard 실행
+			
+			// free
+			vo.setFirst(1); // 게시판 숫자에 따라서 first, last 값 가져옴
+			vo.setLast(5);
+			vo.setBoardType("free"); // homeUser의 게시판 클릭시 type 받아오는 Parameter
+			model.addAttribute("freeboard", boardService.getBoardList(vo)); // getAnalysisBoard 실행
+			
+			// analysis
+			vo.setFirst(1); // 게시판 숫자에 따라서 first, last 값 가져옴
+			vo.setLast(5);
+			vo.setBoardType("analysis"); // homeUser의 게시판 클릭시 type 받아오는 Parameter
+			model.addAttribute("analysisboard", boardService.getBoardList(vo)); // getAnalysisBoard 실행
+					
+			MatchVO mv = new MatchVO();
+			mv.setFirst(1); // 게시판 숫자에 따라서 first, last 값 가져옴
+			mv.setLast(6);
+			model.addAttribute("matchList", matchService.getMatchList(mv));
+			return "user/main/userMain";
+
+		}
+	
 	@RequestMapping(value="/adminMain")
 	public String adminmain() {		
 	return "admin/main/adminMain";
