@@ -39,7 +39,7 @@
 		ORDER BY 1
 	</select>
 
-	<select id="totalChartMileage" resultType="mhistory">
+	<select id="totalChartMileage" resultType="mhistory" parameterType="mhistory">
 	
 		SELECT SUBSTR(C.AHDATE,9,2) AS DAY, OLD_MILEAGE, NEW_MILEAGE, (NEW_MILEAGE-OLD_MILEAGE) AS
 		CNTMILEAGE FROM
@@ -55,6 +55,10 @@
 		WHERE U_ID ='admin' GROUP BY TO_CHAR(AH_DATE,'yyyy/mm/dd')) B
 		WHERE A.NUM = B.MAXNUM) D
 		ON C.AHDATE = D.AHDATE
+		<if test="year!=null and year!='' and month!=null and month!=''">
+			WHERE SUBSTR(C.AHDATE,3,2) = #{year} AND SUBSTR(C.AHDATE,6,2) = #{month}
+		</if>
+		ORDER BY 1
 	</select>
 
 </mapper>

@@ -84,7 +84,11 @@
 
 	<select id="getPurchaseListChart" parameterType="purchase"
 		resultType="purchase">
-		select substr(betdate,7,2) as day, count(*) as cnt from purchase where 1=1 group by substr(betdate,7,2)
+		select substr(betdate,7,2) as day, count(*) as cnt from purchase
+		<if test="year!=null and year!='' and month!=null and month!=''">
+		where substr(betdate,1,2) = #{year} AND substr(betdate,4,2) = #{month}
+		</if>
+		group by substr(betdate,7,2)
 	</select>
 	
 	<select id="getPurchaseGameChart" resultType="purchase">
