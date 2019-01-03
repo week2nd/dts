@@ -8,6 +8,8 @@
 <title>게시판등록</title>
 </head>
 <body>
+<form action="./insertBoard" method="post"
+			enctype="multipart/form-data">
 		<div align="center">
 		<c:if test="${type=='notice'}">
 			<h3>공지게시판입력</h3>
@@ -23,8 +25,7 @@
 		</c:if>
 
 
-<form action="./insertBoard" method="post"
-			enctype="multipart/form-data">
+
 
 	<div class="col-lg-6">
 		<div class="card">
@@ -55,9 +56,9 @@
 					</div>								
 					<div class="row form-group">
 						<div class="col col-md-1" style="font-size:20px; margin-left:100px;">
-							<label for="file-input" class=" form-control-label">파일 올리기</label>
+							<label for="file-input" class=" form-control-label"></label>
 						</div>
-						<div class="col-202 col-md-9" >
+						<div class="col-202 col-md-9" style="algin:right">
 							<input type="file" id="uploadFile" name="uploadFile"
 								class="form-control-file">
 						</div>
@@ -67,8 +68,7 @@
 			<!-- <input	type="file" name="uploadFile"><br> -->
 			
 				<button name="boardType" value="${type}">저장</button>
-		
-
+				<a href="./getBoardList?type=${type}">취소</a>
 			</div>
 			</form>
 </body>

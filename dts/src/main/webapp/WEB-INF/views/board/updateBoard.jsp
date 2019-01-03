@@ -8,12 +8,13 @@
 <title>updateUser.jsp</title>
 </head>
 <body>
+	<form action="./updateBoard" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 	<div align="center">
 
 			<h3>게시판수정</h3>
 
-	<form action="./updateBoard" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="boardNumber" value="${board.boardNumber}">
+
 <div class="col-lg-6">
 		<div class="card">
 			<div class="card-body card-block">			
@@ -42,10 +43,10 @@
 							
 							<input type="hidden" id="uId" name="uId"
 							value="${membersession.uId}" readonly>		
-														
+					</div>									
 					<div class="row form-group">
 						<div class="col col-md-1" style="font-size:20px;  margin-left:70px;">
-							<label for="file-input" class=" form-control-label">파일 올리기</label>
+							<label for="file-input" class=" form-control-label"></label>
 						</div>
 						<div class="col-12 col-md-9">
 							<input type="file" id="uploadFile" name="uploadFile"
@@ -57,7 +58,7 @@
 			<!-- <input	type="file" name="uploadFile"><br> -->
 			
 				<button name="boardType" value="${type}">저장</button>
-		
+				<a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">취소</a>
 
 			</div>
 			</form>
