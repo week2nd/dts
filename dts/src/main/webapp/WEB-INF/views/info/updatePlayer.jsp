@@ -73,7 +73,6 @@
 				<td>${player.kill}		</td>
 				<td>${player.death}		</td>
 				<td>${player.assist}	</td>
-			
 		</table>
 		</div>
 		<!-- <input type="submit" value="정보 변경"> -->
