@@ -17,17 +17,19 @@
 </head>
 <body>
 	<div class="top-campaign">
-		<div style="margin-bottom: 10px">
-			<form name="frm">
+		<div style="margin-bottom: 10px; display: inline-flex; width:100%" >
+			<form name="frm" style="width:95%;">
 				<select name="searchCondition" class="custom-select" style="width:15%">
 					<option value="GAME_ID">게임번호
 					<option value="U_Id">아이디
 					<option value="CHOISE">선택팀
-				</select> <input type="text" name="searchKeyword" style="margin-left:10px; border-bottom: 2px solid black; text-align:right">
-				<button class="btn btn-outline-link">검색</button>
+				</select> <input type="text" name="searchKeyword" style="margin-left:10px; border-bottom: 2px solid black;">
+				<button class="btn btn-outline-secondary">검색</button>
 			</form>
+			<div style="display: inline-block;"><button  class="btn btn-outline-secondary" onclick="window.location.href='getPurchaseListAd'">전체보기</button>
+			</div>
 		</div>
-
+		
 		<form>
 			<table class="table table-borderless table-data3" style="text-align: center;">
 				<thead>
@@ -54,10 +56,10 @@
 							<td>${purchase.betMoney}</td>
 							<td>${purchase.betDrate}</td>							
 							<c:if test="${purchase.accuracy=='적중성공'}">
-							<td style="color:red">${purchase.accuracy}</td>
+							<td style="color:#28a745">${purchase.accuracy}</td>
 							</c:if>
 							<c:if test="${purchase.accuracy=='적중실패'}">
-							<td style="color:blue">${purchase.accuracy}</td>
+							<td style="color:red">${purchase.accuracy}</td>
 							</c:if>
 							<c:if test="${purchase.accuracy==null}">
 							<td>${purchase.accuracy}</td>

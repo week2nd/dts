@@ -4,9 +4,27 @@
 <mapper namespace="purchase">
 
 	<select id="getCount" resultType="int">
-		SELECT COUNT(*)
-		FROM PURCHASE
-		ORDER BY 1
+		SELECT COUNT(*) FROM
+			(SELECT PURCHASE_NUM, U_ID, P.GAME_ID, BETMONEY, BETDRATE,
+			      ACCURACY,
+			      BETDATE,
+			      CHOISE, REDTEAMNAME vsTeam, RETURNCHECK FROM PURCHASE P JOIN INGAME I
+			ON P.GAME_ID = I.GAME_ID
+			AND P.CHOISE = I.BLUETEAMNAME 
+			UNION ALL
+			SELECT PURCHASE_NUM, U_ID, P.GAME_ID, BETMONEY, BETDRATE,
+			      ACCURACY,
+			      BETDATE,
+			      CHOISE, BLUETEAMNAME vsTeam, RETURNCHECK
+			    FROM PURCHASE P JOIN INGAME I
+			ON P.GAME_ID = I.GAME_ID
+			AND P.CHOISE = I.REDTEAMNAME) 
+			WHERE 1 = 1
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<!-- AND ${searchCondition} like '%' || #{searchKeyword} || '%' -->
+			AND ${searchCondition} like #{searchKeyword} 
+		</if>
+		ORDER BY 1 DESC
 	</select>
 
 	<select id="getPurchaseList" resultType="purchase">

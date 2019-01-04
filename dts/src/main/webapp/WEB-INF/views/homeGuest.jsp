@@ -121,7 +121,7 @@ $(function(){
 	<!-- Top Navigation -->
 	<section class="top-nav">
 		<nav class="navbar navbar-expand-lg py-0">
-			<div class="container-fluid">
+			<div class="container">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -186,7 +186,7 @@ $(function(){
 						</div>
 					</div>
 
-	<section class="banner-sec float-left w-100 pt-4 pb-5">
+	<section class="container">
 		<div class="col-md-12">
 			<tiles:insertAttribute name="content" />
 		</div>

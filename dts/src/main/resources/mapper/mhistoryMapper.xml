@@ -6,8 +6,19 @@
 	<select id="getCount" resultType="int">
 		SELECT COUNT(*)
 		FROM ADMINHISTORY
+		WHERE 1=1
 		<if test="uId!=null and uId!=''">
-			WHERE U_ID = #{uId}
+			AND U_ID = #{uId}
+		</if>
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<!-- <if test="searchCondition.equals('AH_DATE')"> -->
+			<if test="searchCondition == 'AH_DATE'">
+				AND SUBSTR(${searchCondition},1,2)||SUBSTR(${searchCondition},4,2)||SUBSTR(${searchCondition},7,2) LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'U_ID' or searchCondition == 'CATEGORIE'">
+				AND ${searchCondition} like #{searchKeyword}
+			</if> 
+			<!-- AND ${searchCondition} like '%' || #{searchKeyword} || '%' -->			 
 		</if>
 		ORDER BY 1
 	</select>
@@ -15,7 +26,7 @@
 	<select id="getMhistoryList" resultType="mhistory">
 		<!-- select b.* from ( select a.*, rownum rn from ( -->
 		SELECT *
-		FROM ADMINHISTORY
+		FROM ADMINHISTORY		
 		ORDER BY 1 DESC
 		<!-- ) a ) b where rn between #{first} and #{last} -->
 	</select>
@@ -25,8 +36,19 @@
 		select b.* from ( select a.*, rownum rn from (
 		SELECT *
 		FROM ADMINHISTORY
+		WHERE 1=1
 		<if test="uId!=null and uId!=''">
-			WHERE U_ID = #{uId}
+			AND U_ID = #{uId}
+		</if>
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<!-- <if test="searchCondition.equals('AH_DATE')"> -->
+			<if test="searchCondition == 'AH_DATE'">
+				AND SUBSTR(${searchCondition},1,2)||SUBSTR(${searchCondition},4,2)||SUBSTR(${searchCondition},7,2) LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'U_ID' or searchCondition == 'CATEGORIE'">
+				AND ${searchCondition} like #{searchKeyword}
+			</if> 
+			<!-- AND ${searchCondition} like '%' || #{searchKeyword} || '%' -->			 
 		</if>
 		ORDER BY 1 DESC
 		) a ) b where rn between #{first} and #{last}

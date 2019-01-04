@@ -35,27 +35,35 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
-	function go_page(page, vid) {
+	function go_page(page,type) {
 		
 		$("#mhistoryList").empty();
 		$("#pagination").html("");
-		
-		if(page == undefined || page == ""){
-			{page=1}
-		};
-		
-		
-		if(vid=="admin") {
-			{vid="admin"}
+		if(type==undefined) {
+			type = $("#searchType").val();
 		} else {
-			{vid=""}
-		};
-		/* console.log(vid); */
+			$("#searchType").val(type);
+		}
+		
+		if(type==1)	{
+			$("#uId").val("");
+		} else if(type==2) {
+			$("#uId").val("");
+			$("#searchKeyword").val("");
+		} else if(type==3) {
+			$("#uId").val("admin");
+		}
+				
+		if(page == undefined || page == ""){
+			page=1
+			
+		};		
+		$("#page").val(page);
 		
 		$.ajax({
 			
 			url : "getMhistoryListAjax",
-			data : {page:page, uId:vid},
+			data : $("#frm").serialize(),
 			type : "POST",
 			dataType : "json",
 			error : function(xhr, status, msg) {
@@ -64,7 +72,6 @@
 			success : function(data) {
 				
 				console.log(data.mhistoryList);
-			//	console.log(data.mhistoryList[1].num);
 				for (i = 0; i < data.mhistoryList.length; i++) {
 					var tr = "<tr><td style='width:8%'>" + data.mhistoryList[i].num + 
 					"</td><td style='width:10%'>" + data.mhistoryList[i].uId + 
@@ -77,9 +84,7 @@
 					$(tr).appendTo("#mhistoryList");
 				}
 				console.log(data.uId+"aaaaaa");
-				
-				if(data.uId != "admin") {
-					
+		
 					
 				var dd = "<a href='#' onclick='go_page(1)' >&laquo;</a>";
 				$(dd).appendTo("#pagination");
@@ -99,34 +104,16 @@
 				var ee = "<a href='#' onclick='go_page("+data.paging.lastPage+")'>&raquo;</a>";
 				$(ee).appendTo("#pagination");
 				
-				} else {
-					
-					var dd = "<a href='#' onclick='go_page(1,\"admin\")' >&laquo;</a>";
-					$(dd).appendTo("#pagination");
-					var vid = "admin";
-					
-					var begin = data.paging.startPage;
-					var end = data.paging.endPage;					
-					for(j = begin; j <= end; j++ ) {
-						if(j != data.paging.page) {
-							var bb = "<a href='#' onclick='go_page("+j+","+"\"admin\""+")'>"+j+"</a>";
-							$(bb).appendTo("#pagination");
-						}
-					    else if(j == data.paging.page) {
-							var cc = "<a href='#' class='active'>"+j+"</a>";
-							$(cc).appendTo("#pagination");
-						}
-					}
-					var ee = "<a href='#' onclick='go_page("+data.paging.lastPage+",\"admin\")'>&raquo;</a>";
-					$(ee).appendTo("#pagination");
-				}
 			}
 		})
 	};
-	$(function() {
-		$("#historyAll").click(go_page);
-	});
 	
+/* 	function hisBtn(){
+		var con = $("#searchCondition").val();
+		var key = $("#searchKeyword").val();
+		go_page("","",con,key);	
+		
+	} */
 	
 	
 	
@@ -134,11 +121,24 @@
 </head>
 <body>
 	<div class="top-campaign">
-		<div class="pull-right" style="margin-bottom:10px">
-			<button class="btn btn-outline-secondary" id="historyAll">전체목록조회</button>
-			<input class="btn btn-outline-secondary" type="button"
-				id="historyAdmin" onclick='go_page("","admin")' value="관리자조회" />
-		</div>
+		<div style="margin-bottom: 10px; display: inline-flex; width:100%">
+			<form name="frm" id="frm" style="width:27%;">
+				<select name="searchCondition" id="searchCondition" class="custom-select" style="width:40%">
+					<option value="U_ID">아이디
+					<option value="AH_DATE">입력날짜
+					<option value="CATEGORIE">구분
+				</select> <input type="text" name="searchKeyword" id="searchKeyword" style="margin-left:10px; border-bottom: 2px solid black;">
+				<input type="hidden" name="uId" id="uId" >
+				<input type="hidden" name="page" id="page" >
+				<input type="hidden" name="searchType" id="searchType" >
+			</form>
+				<button style="margin-right:5px" class="btn btn-outline-secondary" id="historyBtn" onclick='go_page(1,1)'>검색</button>
+			<div style="display: inline-block;">
+				<button class="btn btn-outline-secondary" id="historyAll" onclick="go_page(1,2)">전체목록조회</button>
+				<input class="btn btn-outline-secondary" type="button"
+					id="historyAdmin" onclick='go_page(1,3)' value="관리자조회" />
+			</div>
+		</div>		
 		<table class="table table-borderless table-data3" style="text-align: center;">
 			<thead style="text-align: center;">
 				<tr>

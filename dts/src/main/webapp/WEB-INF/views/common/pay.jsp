@@ -44,6 +44,7 @@
 			    			},
 			    			success : function(result) {
 			    			window.location = 'getMemberUser';
+			    			alert('결제성공');
 			    			}
 			    					
 			    	});		        
@@ -52,43 +53,58 @@
 			        var msg = '결제에 실패하였습니다.';
 			        msg += '에러내용 : ' + rsp.error_msg;
 			    }
-			    alert('결제성공');
+			    
 			    
 			});			
 		});		
 	});
 
 </script>
+<!-- <style>
+.table t1 {
+width : 50%;
+}
+</style> -->
 </head>
 <body>
-결제금액을 선택하세요
-<select name ="won">
-<option value="100">100원</option>
-<option value="10000">10000원</option>
-<option value="20000">20000원</option>
-<option value="30000">30000원</option>
-<option value="40000">40000원</option>
-<option value="50000">50000원</option>
-</select>
-<input type="button" value="결제" id="payBtn"/>
-	<div class="row">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>충전일</th>
-					<th>충전금액</th>
-				</tr>
-			</thead>
-			<c:forEach items="${mhistoryList}" var="mhistory">
-				<tr>
-					<td>${mhistory.chargeDate }</td>
-					<td>${mhistory.chargeMoney }</td>
-				</tr>
-			</c:forEach>
-				
-		</table>
+	<div align="center">
+		<div class="row" style="width: 20%;">
+			<select name="won">
+				<option value="100">100원</option>
+				<option value="10000">10000원</option>
+				<option value="20000">20000원</option>
+				<option value="30000">30000원</option>
+				<option value="40000">40000원</option>
+				<option value="50000">50000원</option>
+				<option value="60000">60000원</option>
+				<option value="70000">70000원</option>
+				<option value="80000">80000원</option>
+				<option value="90000">90000원</option>
+				<option value="100000">100000원</option>
+			</select> <input type="button" value="충전하기" id="payBtn" />
+		</div>
+		<div class="row" style="width: 45%">
+			<p style="font-size:30px">나의 충전내역</p>
+		</div>
+		<div class="row" style="width: 50%; margin-top: 10px;">
 
+			<table class="table t1" style="width: 70%; text-align: center;">
+				<thead>
+					<tr>
+						<th style="text-align: center">충전일</th>
+						<th style="text-align: center">충전금액</th>
+					</tr>
+				</thead>
+				<c:forEach items="${mhistoryList}" var="mhistory">
+					<tr>
+						<td>${mhistory.chargeDate }</td>
+						<td>${mhistory.chargeMoney }</td>
+					</tr>
+				</c:forEach>
+
+			</table>
+
+		</div>
 	</div>
-
 </body>
 </html>
