@@ -151,91 +151,121 @@
 
 
 <style>
-body { /* 글자 폰트 */
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-}
+	#all{
+		background-color: #606060;
+		margin:auto;  
+		border-radius: 2em;
+		color: white;
+	}
+	#uPw{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 100%;
+		margin: 20px 0px;
+	}
+	#addressSearch{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 30%;
+		margin: 20px 0px 0px 0px;
+	}
+	#roadAddress{
+		size: 40px;
+	 	border: 1px solid #c1c1c1; 
+	 	padding: 8px 20px;
+		width: 49%;
+		margin: 0px 0px 20px 0px;
+		background-color:#c1c1c1;
+	}
+	#detailAddress{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 49%;
+		margin: 0px 0px 20px 0px;
+	}
+	
+	#phone1, #phone2, #phone3{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 30%;
+		margin: 20px 0px;
+	}
+	#chkEmail1, #chkEmail2 {
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 46%;
+		margin: 20px 0px;
+	}
+	label{
+		margin: 20px 0px;
+	}
 
-#updateBtn, #deleteBtn, #cancelBtn { /* delete 버튼 */
-	background-color: #aaaaaa;
-	color: white; /* 글자색 */
-	padding: 8px 20px; /* 버튼 크기 위아래 8px, 좌우 20px */
-	margin: 20px 0; /* 상하 여백 20px, 좌우 여백 0px */
-	cursor: pointer; /* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
-}
-
-#updateBtn:hover, #deleteBtn:hover, #cancelBtn:hover {
-	/* delete버튼 마우스 hover 시 */
-	opacity: 0.8;
-	background-color: #3e8e41; /* 배경색깔 기존 색보다 좀 더 연하게 */
-	box-shadow: 3px 2px #666; /* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
-	transform: translateY(2px); /* 그림자 길이 2px */
-}
-
-#tb { /* th, td에 여백 15px, 글자 왼쪽정렬 */
-	border: 1px solid #f2f2f2;
-	border-collapse: collapse;
-	/*	width: 80%;					 넓이 100%  */
-	margin: 0 0 20px 0; /* 아랫쪽 테이블 간격 20px  */
-}
-
-th, td { /* th, td에 여백 15px, 글자 왼쪽정렬  */
-	padding: 15px;
-	text-align: left;
-}
-
-tr:nth-child(even) { /* 짝수번째 연한 회색 */
-	background-color: #f2f2f2;
-}
-
-input {
-	size: 40px;
-	border: 1px solid #f2f2f2;
-	padding: 8px 20px;
-}
-
-#phone1 {
-	size: 40px;
-	border: 1px solid #f2f2f2;
-	padding: 10px 20px;
-}
+	#button, #deleteBtn, #cancelBtn{
+		margin: 20px 0px 20px 0px;
+	}
 </style>
 
 
 </head>
 <body>
-	<h3>관리자가 단일유저 정보보기</h3>
+	<h2 align="center">관리자가 단일유저 정보보기</h2><br>
 	<form action="updateMember" method="post">
-		<div class="top-campaign">
-		
 		<input type="hidden" name="uId" value="${member.uId }" />
-		<table id="tb">
-			<tr>
-				<td>아이디</td>
-				<td>${member.uId }</td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="uPw" id="uPw"
-					value="${member.uPw }"></td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td>${member.uName }</td>
-			</tr>
-			<tr>
-				<td>주소</td>
-				<td><input type="button" onclick="sample4_execDaumPostcode()"
+		<div id="all" class="col-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-3">
+					<label id="label1">아이디</label>
+				</div>
+				<div class="col-9">
+					<label id="label2">${member.uId }</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label3">비밀번호</label>
+				</div>
+				<div class="col-9">
+					<input type="password" name="uPw" id="uPw" value="${member.uPw }">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label4">이름</label>
+				</div>
+				<div class="col-9">
+					<label id="label5">${member.uName }</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label6">주소</label>
+				</div>
+				<div class="col-9">
+					<input type="button" onclick="sample4_execDaumPostcode()" id="addressSearch" class="btn btn-warning btn-sm"
 					value="우편번호 찾기"><br> <input type="text"
 					id="roadAddress" placeholder="지번주소" oninput="sum()" readonly>
 					<input type="text" id="detailAddress" placeholder="상세주소 입력창"
 					oninput="sum()"> <input type="hidden" id="uAddress"
 					name="uAddress" value="${member.uAddress }"> <span
-					id="guide" style="color: #999"></span></td>
-			</tr>
-			<tr>
-				<td>휴대폰번호</td>
-				<td><select name="phone1" id="phone1" oninput="sum()">
+					id="guide" style="color: #999"></span>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label7">휴대폰번호</label>
+				</div>
+				<div class="col-9">
+					<select name="phone1" id="phone1" oninput="sum()">
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="012">012</option>
@@ -249,40 +279,91 @@ input {
 					type="text" name="phone3" id="phone3" oninput="sum()" maxlength=4
 					onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
 					<input type="hidden" name="uPhone" id="uPhone"
-					value="${member.uPhone }"></td>
-			</tr>
-			<tr>
-				<td>E-Mail</td>
-				<td><input type="hidden" name="uEmail" id="uEmail"
+					value="${member.uPhone }">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label8">E-Mail</label>
+				</div>
+				<div class="col-9">
+					<input type="hidden" name="uEmail" id="uEmail"
 					value="${member.uEmail }"> <input type="text"
 					name="uEmail1" id="chkEmail1" placeholder="이메일 아이디" oninput="sum()">&nbsp;@
 					<input type="text" name="uEmail2" id="chkEmail2"
-					placeholder="해당 홈페이지" oninput="sum()"></td>
-			</tr>
-			<tr>
-				<td>마일리지</td>
-				<td>${member.uMileage}</td>
-			</tr>
-			<tr>
-				<td>권한</td>
-				<td>${member.uGrant}</td>
-			</tr>
-			<tr>
-				<td>생년월일</td>
-				<td>${member.uBirth}</td>
-			</tr>
-			<tr>
-				<td>가입일시</td>
-				<td>${member.uDate}</td>
-			</tr>
-			<tr>
-				<td>맞춘횟수</td>
-				<td>${member.uWin}</td>
-			</tr>
-			<tr>
-				<td>틀린횟수</td>
-				<td>${member.uLose}</td>
-			</tr>
+					placeholder="해당 홈페이지" oninput="sum()">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label9">마일리지</label>
+				</div>
+				<div class="col-9">
+					<label id="label10">${member.uMileage}</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label11">권한</label>
+				</div>
+				<div class="col-9">
+					<label id="label12">${member.uGrant}</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label13">생년월일</label>
+				</div>
+				<div class="col-9">
+					<label id="label14">${member.uBirth}</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label15">가입일시</label>
+				</div>
+				<div class="col-9">
+					<label id="label16">${member.uDate}</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label17">맞춘횟수</label>
+				</div>
+				<div class="col-9">
+					<label id="label18">${member.uWin}</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<label id="label19">틀린횟수</label>
+				</div>
+				<div class="col-9">
+					<label id="label20">${member.uLose}</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-12">
+					<div style="text-align: center">
+						<a href="updateMember?uId=${member.uId }">
+						<button id="updateBtn" class="btn btn-primary btn-lg">회원수정</button></a>
+						<a href="deleteMember?uId=${member.uId }"> 
+						<input id="deleteBtn" class="updateBtn btn btn-primary btn-lg" type="button" value="회원탈퇴"></a>
+						<a href="getMemberList"><input id="cancelBtn" type="button" class="updateBtn btn btn-primary btn-lg" value="&nbsp;취 소&nbsp;"></a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		</div>
+		
 			<!--      <tr >
             <td colspan="5" > 
     <!--     <a href="updateMemberform?uId=${member.uId }"><input type="button" value="수정"></a> 
@@ -292,24 +373,9 @@ input {
             </td>
             
         </tr> -->
-		</table>
 
-		<table >
-			<tr>
-				<td>
-					<a href="updateMember?uId=${member.uId }">
-					<button id="updateBtn">회원수정</button></a>
-				</td>
-				<td> 
-					<a href="deleteMember?uId=${member.uId }"> 
-					<input id="deleteBtn" type="button" value="회원탈퇴"></a>
-				</td>
-				<td>
-					<a href="getMemberList"><input id="cancelBtn" type="button"	value="&nbsp;취 소&nbsp;"></a>
-				</td>
-			</tr>
-		</table>
-		</div>
+	
+		
 	</form>
 
 </body>

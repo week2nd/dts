@@ -52,25 +52,74 @@ $(function(){
 	});
 });
 </script>
+<style>
+	#all{
+		background-color: #f2f2f2;
+		margin:auto;  
+		border-radius: 2em;
+	}
+	#uId, #uEmail{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 100%;
+		margin: 20px 0px;
+	}
+	label{
+		margin: 20px 0px;
+	}
+	.searchBtn{
+		margin: 0px 0px 20px 0px;
+	}
+</style>
 <body>
-<h3>회원 비밀번호 찾기</h3>
+
 	<form action="mailSend" method="post">
 		
-		
-		<table id="tb">
-	        <tr>            
-	            <td>아이디</td>
-	            <td><input type="text" class="id" name="uId" id="uId" placeholder="아이디" oninput="checkId()"  autofocus><br>
-	            	<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>E-Mail</td>
-	            <td><input type="text"  class="email" name="uEmail" id="uEmail" placeholder="E-Mail" oninput="checkId()"></td>
-	        </tr>
-		</table>
-	    <button class="searchBtn" disabled="disabled">비밀번호 찾기</button>
-	   <!--  <input type="hidden" class="email" name="uEmail" id="uEmail" value="${member.uEmail }"> -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="overview-wrap">
+						<h2 align="center">회원 비밀번호 찾기</h2><br>
+					</div>
+				</div>
+			</div>
+			<div id="all" class="col-lg-5">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="overview-wrap">
+						<label id="label1">아이디</label>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="overview-wrap">
+						<input type="text" class="id" name="uId" id="uId" placeholder="아이디" oninput="checkId()"  autofocus><br>
+	            		<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>	
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="overview-wrap">
+						<label id="label2">E-Mail</label>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="overview-wrap">
+						<input type="text"  class="email" name="uEmail" id="uEmail" placeholder="E-Mail" oninput="checkId()">	
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div style="text-align: center">
+					
+						<button class="searchBtn btn btn-primary btn-lg" disabled="disabled">비밀번호 찾기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	    </div>
     </form>
 </body>
 </html>

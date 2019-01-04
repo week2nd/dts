@@ -66,39 +66,61 @@ $(function (){
 });
 
 </script>
+
+<style>
+	#all{
+		background-color: #f2f2f2;
+		margin:auto;  
+		border-radius: 2em;
+	}
+	#chkPw, #newPw1, #newPw2{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 100%;
+		margin: 20px 0px;
+	}
+	label{
+		margin: 20px 0px;
+	}
+	#button1, #button2{
+		margin: 0px 0px 20px 0px;
+	}
+</style>
 <body>
 	
 	<form action="updatePw" method="post">
 	<input type="hidden" name="uId" value="${member.uId }" /> 
 	<input type="hidden" name="uPw" id="uPw" value="${member.uPw }" />
-		<div class="container-fluid">
+		
 			<div class="row">
 				<div class="col-md-12">
 					<div class="overview-wrap">
-						<h3>유저 비밀번호 수정</h3>						
+						<h2 align="center">유저 비밀번호 수정</h2>			<br>			
 					</div>
 				</div>
 			</div>
-			
+			<div id="all" class="col-lg-5">
+			<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-lg-3">
 					<div class="au-card recent-report">
-						기존 비밀번호
+						<label id="label1">기존 비밀번호</label>
 					</div>
 				</div>		
-				<div class="col-lg-6">
+				<div class="col-lg-9">
 					<div class="au-card recent-report">
 						<input type="password" id="chkPw" class="form-contorl" oninput="checkPwd()" autofocus>
 					</div>
 				</div>	
 			</div>
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-lg-3">
 					<div class="au-card recent-report">
-						새 비밀번호
+						<label id="label2">새 비밀번호</label>
 					</div>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-9">
 					<div class="au-card recent-report">
 						<input type="password" id="newPw1" class="form-contorl" oninput="checkPwd()"><br>
 					</div>
@@ -106,12 +128,12 @@ $(function (){
 			</div>
 			
 			<div class="row">
-				<div class="col-lg-2">
+				<div class="col-lg-3">
 					<div class="au-card recent-report">
-						새 비밀번호 확인
+						<label id="label3">새 비밀번호 확인</label>
 					</div>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-9">
 					<div class="au-card recent-report">
 						<input type="password" id="newPw2" class="form-contorl" oninput="checkPwd()">
 						<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
@@ -120,13 +142,16 @@ $(function (){
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="au-card recent-report">
-						<button class="updateBtn btn btn-primary btn-lg" disabled="disabled">수정</button>
-						<a href="getMemberUser"><input type="button" class="cancelBtn btn btn-primary btn-lg" value="취소"></a> 
+				<div class="col-12">
+					<div style="text-align: center">
+						<div class="au-card recent-report">
+							<button class="updateBtn btn btn-primary btn-lg" disabled="disabled" id="button1">수정</button>
+							<a href="getMemberUser"><input type="button" class="cancelBtn btn btn-primary btn-lg" value="취소" id="button2"></a> 
+						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</form>
 </body>

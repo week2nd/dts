@@ -324,57 +324,89 @@
 
 
 <style>
-	body {								/* 글자 폰트 */
-		font-family: Arial, Helvetica, sans-serif;
-		background-color: #bbbbbb;
+
+/*	.joinbtn {						/* delete 버튼 */
+/*		background-color:  #aaaaaa;
+/*		color: white;					/* 글자색 */
+/*		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
+/*		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
+/*		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
+/*		width: 7%;						/* 버튼 넓이 7% */
+/*	}
+/* 	.joinbtn:hover {					/* delete버튼 마우스 hover 시 */
+/*		opacity: 0.8;					
+/*		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
+/*		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
+/*	  	transform: translateY(2px);		/* 그림자 길이 2px */
+/*	}*/ 
+ 	#all{
+		background-color: #f2f2f2;
+		margin:auto;  
+		border-radius: 2em;
 	}
 
-	.joinbtn {						/* delete 버튼 */
-		background-color:  #aaaaaa;
-		color: white;					/* 글자색 */
-		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
-		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
-		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
-		width: 7%;						/* 버튼 넓이 7% */
-	}
-/* 	.joinbtn:hover {					/* delete버튼 마우스 hover 시 */
-		opacity: 0.8;					
-		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
-		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
-	  	transform: translateY(2px);		/* 그림자 길이 2px */
-	} */
-	 
-	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
-		border: 1px solid #f2f2f2; 		/* 선 굵기 1px, 실선, 회색 */
-		border-collapse: collapse;
-		width: 50%;						/* 넓이 50%  */
-		margin: 0 0 20px 0;				/* 아랫쪽 테이블 간격 20px  */
-		
-	}
-	 
-	th, td {							/* th, td에 여백 15px, 글자 왼쪽정렬  */						
- 		padding: 15px;
- 		text-align: left;
-	}
-	 
-	tr:nth-child(even) {				/* 짝수번째 연한 회색 */			
-		background-color: #f2f2f2;
-	}
-	tr:nth-child(odd) {				/* 짝수번째 연한 회색 */			
-		background-color: #d9d9d9;
-	}
-		
-	input{
+	input {
 	 	size: 40px;
 	 	border: 1px solid #f2f2f2; 
 	 	padding: 8px 20px;
+	 	width: 100%;
 	 }
-	#phone1{
-	 	size: 40px;
+	#chkPw{
+		size: 40px;
 	 	border: 1px solid #f2f2f2; 
-	 	padding: 10px 20px;
-	 }
-		
+	 	padding: 8px 20px;
+		width: 100%;
+		margin: 20px 0px;
+	}
+	#addressSearch{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 30%;
+		margin: 20px 0px 0px 0px;
+	}
+	#roadAddress{
+		size: 40px;
+	 	border: 1px solid #c1c1c1; 
+	 	padding: 8px 20px;
+		width: 49%;
+		margin: 0px 0px 20px 0px;
+		background-color:#c1c1c1;
+	}
+	#detailAddress{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 49%;
+		margin: 0px 0px 20px 0px;
+	}
+	
+	#phone1, #phone2, #phone3{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 29%;
+		margin: 20px 0px;
+	}
+	#chkBirth, #chkName, #chkPw2{
+		margin: 20px 0px;
+	}
+	#chkPw1, #chkId{
+		margin: 20px 0px 0px 0px;
+	}
+	#chkEmail1, #chkEmail2 {
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 46%;
+		margin: 20px 0px;
+	}
+	label{
+		margin: 20px 0px;
+	}
+	.joinbtn{
+		margin: 20px 0px 20px 0px;
+	}
 </style>
 
 
@@ -382,50 +414,70 @@
 
 </head>
 <body>
+	<h2 align="center">회원가입</h2><br>
 	<form action="insertMember" method="post">
-	
-		<table id="tb" align="center" >
-	        <tr>            
-	            <td>아이디</td>
-	            <td><input type="text" class="id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
+		<div id="all" class="col-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-3">
+					<label id="label1">아이디</label>
+				</div>
+				<div class="col-9">
+					<input type="text" class="id" name="uId" id="chkId" placeholder="아이디" value="${member.uId }" oninput="checkId()"  autofocus><br>
 	            	<span id="spanIdO" style="display: none">사용가능한 아이디 입니다.</span>
 	            	<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>
 	            	<span id="countId">네글자 이상 아이디를 입력하세요.</span>
-	            </td>
-
-	        </tr>
-	        <tr>
-	            <td>비밀번호</td>
-	            <td>
-	            	<input type="password" name="uPw" id="chkPw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkId()"><br>&nbsp;
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label2">비밀번호</label>
+				</div>
+				<div class="col-9">
+					<input type="password" name="uPw" id="chkPw1" placeholder="비밀번호" value="${member.uPw }" oninput="checkId()"><br>&nbsp;
 	            	<span id="spanPwX" style="display: none">비밀번호가 일치하지 않습니다.</span>
               		<span id="spanPwO" style="display: none">비밀번호가 일치합니다.</span>
-            	</td>
-	            
-	        </tr>
-	        <tr>
-	            <td>비밀번호 확인</td>
-	            <td><input type="password" name="member" id="chkPw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkId()"></td>
-	        </tr>
-	        <tr>
-	            <td>이름</td>
-	            <td><input type="text"  name="uName" id="chkName" placeholder="이름" value="${member.uName }" oninput="checkId()"></td>
-	            
-	        </tr>
-	        <tr>
-	            <td>주소</td>       
-	            <td>
-	            	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label3">비밀번호 확인</label>
+				</div>
+				<div class="col-9">
+					<input type="password" name="member" id="chkPw2" placeholder="비밀번호 확인" value="${member.uPw }" oninput="checkId()">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label4">이름</label>
+				</div>
+				<div class="col-9">
+					<input type="text"  name="uName" id="chkName" placeholder="이름" value="${member.uName }" oninput="checkId()">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label5">주소</label>
+				</div>
+				<div class="col-9">
+					<input type="button" id="addressSearch" class="btn btn-warning btn-sm" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 	                <input type="text" id="roadAddress" placeholder="지번주소" value="${member.uAddress }" oninput="checkId()" readonly>
 	                <input type="text" id="detailAddress" placeholder="상세주소 입력창" oninput="checkId()"><br>
 	                <input type="hidden" id="uAddress" name="uAddress">
 	                <span id="guide" style="color:#999"></span>
-	            </td>
-	        </tr>
-	        <tr>
-               <td>휴대폰번호</td>
-               <td>
-                   <select name="phone1" id="phone1" oninput="checkId()">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label6">휴대폰번호</label>
+				</div>
+				<div class="col-9">
+					<select name="phone1" id="phone1" oninput="checkId()">
                        <option value="010">010</option>
                        <option value="011">011</option>
                        <option value="012">012</option>
@@ -438,18 +490,24 @@
                    &nbsp;-&nbsp;&nbsp;<input type="text" id="phone2" name="member" maxlength=4 placeholder="휴대폰번호 앞자리" value="${member.uPhone }" oninput="checkId()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>&nbsp;&nbsp;-&nbsp;
                    <input type="text" id="phone3" maxlength=4 placeholder="휴대폰번호 뒷자리" id="${member.uPhone }" oninput="checkId()"   onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)'>
                    <input type="hidden" name="uPhone" id="uPhone" oninput="checkId()">
-               </td>
-           </tr>
-	        <tr>
-	            <td>생년월일</td>
-	            <td>
-	            	<input type="date" name="uBirth" id="chkBirth" value="${member.uBirth }" oninput="checkId()">
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>E-Mail</td>
-	            <td>
-	            	<input type="hidden" id="uEmail" name="uEmail"  value="${member.uEmail }">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label7">생년월일</label>
+				</div>
+				<div class="col-9">
+					<input type="date" name="uBirth" id="chkBirth" value="${member.uBirth }" oninput="checkId()">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-3">
+					<label id="label8">E-Mail</label>
+				</div>
+				<div class="col-9">
+					<input type="hidden" id="uEmail" name="uEmail"  value="${member.uEmail }">
 	            	<input type="text" name="uEmail1" id="chkEmail1" placeholder="이메일 아이디"  oninput="checkId()">&nbsp;&nbsp;@&nbsp;
 	            	<input type="text" name="uEmail2" id="chkEmail2" placeholder="해당 홈페이지"  oninput="checkId()">
 	            	<input type="hidden" id="uDate" value="${member.uDate }">
@@ -461,12 +519,19 @@
                        <option value="nate.com">네이트</option>
                        <option value="direct">직접입력</option>
                    </select> -->
-	            </td>
-	        </tr>        
-	    </table>
-	    <div style="text-align: center">
-	    	<button class="joinbtn" disabled="disabled">가입</button>
-	    </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div style="text-align: center">
+	    				<button class="joinbtn btn btn-primary btn-lg" disabled="disabled">가입</button>
+	    			</div>
+				</div>
+			</div>
+			
+		</div>
+		</div>
+	    
     </form>
 
 </body>
