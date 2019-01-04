@@ -47,6 +47,6 @@ public class EmailController {
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		return "home";
+		return "redirect:guestMain";
 	}
 }
