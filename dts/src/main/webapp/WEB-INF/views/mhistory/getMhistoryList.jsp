@@ -38,6 +38,7 @@
 	function go_page(page,type) {
 		
 		$("#mhistoryList").empty();
+		$("#mhistoryList").text(null);
 		$("#pagination").html("");
 		if(type==undefined) {
 			type = $("#searchType").val();
