@@ -13,7 +13,7 @@
 <link rel="icon" href="">
 
 <title>E-SPORT토토게스트</title>
-
+<link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
 <script src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,12 @@
 
 <script src="js/lightbox-plus-jquery.min.js"></script>
 <script src="js/lity.min.js"></script>
+<style>
+body {
+font-family:'Jua';
 
+}
+</style>
 <script>
 $(function(){
 	$('#loginForm').on('show.bs.modal', function () {

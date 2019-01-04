@@ -64,6 +64,7 @@
             <mvc:exclude-mapping path="/logout"/>
             <mvc:exclude-mapping path="/guestMain"/>
             <mvc:exclude-mapping path="/insertMember"/>
+            <mvc:exclude-mapping path="/pwSearchForm"/>
             <ref bean="authenticationInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
