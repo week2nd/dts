@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>경기 결과 보기</title>
 
+
+
 <script>
 $(function(){
 	$("#deleteMatchBtn").click(function() {

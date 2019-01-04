@@ -8,6 +8,7 @@
 <title>게시판등록</title>
 </head>
 <body>
+
 <form action="./insertBoard" method="post"
 			enctype="multipart/form-data">
 		<div align="center">
@@ -24,8 +25,30 @@
 			<h3>건의게시판입력</h3>
 		</c:if>
 
+<script>
+//게시판 입력시 알람 띄우는것
+$(function() {
+	
+	$(".insertbo").click(function(){	
+		if( $('#boardTitle').val() == ""){					
+			alert("제목을 입력해주세요.");
+			return false;
+		} else if($('#boardContent').val() == ""){
+			alert("내용을 입력해주세요.");
+			return false;
+		}
+		else if($('#boardTitle').val() != ""){
+			alert("입력되었습니다");
+		}
+		
+	});
+	
+	//	var text = document.querySelector('textarea');
+	
+	
+});
 
-
+</script>
 
 	<div class="col-lg-6">
 		<div class="card">
@@ -37,7 +60,7 @@
 						</div> 
 						<div class="col-202 col-md-9">
 							<input type="text" id="boardTitle" name="boardTitle"
-								class="form-control" placeholder="제목을 입력하세요"> <small
+								class="form-control" placeholder="제목을 입력하세요" > <small
 								class="form-text text-muted"></small>
 						</div>
 					</div>
@@ -47,7 +70,7 @@
 						</div>
 						<div class="col-202 col-md-9" >
 							<textarea name="boardContent" id="boardContent" rows="9"
-								class="form-control" placeholder="내용을 입력하세요"></textarea>
+								class="form-control" placeholder="내용을 입력하세요" oninput="abc()"></textarea>
 								<small class="form-text text-muted"></small>
 						</div>
 					</div>					
@@ -67,9 +90,11 @@
 			
 			<!-- <input	type="file" name="uploadFile"><br> -->
 			
-				<button name="boardType" value="${type}">저장</button>
-				<a href="./getBoardList?type=${type}">취소</a>
+				<button name="boardType" value="${type}" class="insertbo">저장</button>
+				<a href="./getBoardList?type=${type}"><input type="button" value="취소"  /></a>
 			</div>
 			</form>
+			
+			
 </body>
 </html>

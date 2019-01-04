@@ -27,7 +27,7 @@
 	
 			var options = {
 				title : $('#uName').val()+'님 적중률',
-				backgroundColor: '#E6E6FA'
+				backgroundColor: '#f2f2f2'
 			};
 	
 			var chart = new google.visualization.PieChart(document
@@ -83,63 +83,73 @@
 	
 </script>
 
-<!-- 
 <style>
-	body {								/* 글자 폰트 */
-		font-family: Arial, Helvetica, sans-serif;
-	}
 
-	.updateBtn, .deleteBtn {						/* delete 버튼 */
-		background-color: #aaaaaa;
-		color: white;					/* 글자색 */
-		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
-		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
-		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
-		width: 7%;						/* 버튼 넓이 7% */
-	}
-	.updateBtn:hover, .deleteBtn:hover {					/* delete버튼 마우스 hover 시 */
-		opacity: 0.8;					
-		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
-		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
-	  	transform: translateY(2px);		/* 그림자 길이 2px */
-	}
-	 
-	table {								/* th, td에 여백 15px, 글자 왼쪽정렬 */
-		border: 1px solid #f2f2f2; 		/* 선 굵기 1px, 실선, 회색 */
-		border-collapse: collapse;
-		width: 50%;						/* 넓이 50%  */
-		margin: 0 0 20px 0;				/* 아랫쪽 테이블 간격 20px  */
-	}
-	 
-	th, td {							/* th, td에 여백 15px, 글자 왼쪽정렬  */						
- 		padding: 15px;
- 		text-align: left;
-	}
-	 
-	tr:nth-child(even) {				/* 짝수번째 연한 회색 */			
+	#all{
 		background-color: #f2f2f2;
+		margin:auto;  
+		border-radius: 2em;
 	}
-		
-	input{
-	 	size: 40px;
+	#chkPw{
+		size: 40px;
 	 	border: 1px solid #f2f2f2; 
 	 	padding: 8px 20px;
-	 }
-	#phone1{
-	 	size: 40px;
+		width: 100%;
+		margin: 20px 0px;
+	}
+	#addressSearch{
+		size: 40px;
 	 	border: 1px solid #f2f2f2; 
-	 	padding: 10px 20px;
-	 }
-		
-</style>
+	 	padding: 8px 20px;
+		width: 30%;
+		margin: 20px 0px 0px 0px;
+	}
+	#roadAddress{
+		size: 40px;
+	 	border: 1px solid #c1c1c1; 
+	 	padding: 8px 20px;
+		width: 49%;
+		margin: 0px 0px 20px 0px;
+		background-color:#c1c1c1;
+	}
+	#detailAddress{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 49%;
+		margin: 0px 0px 20px 0px;
+	}
+	
+	#phone1, #phone2, #phone3{
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 30%;
+		margin: 20px 0px;
+	}
+	#chkEmail1, #chkEmail2 {
+		size: 40px;
+	 	border: 1px solid #f2f2f2; 
+	 	padding: 8px 20px;
+		width: 46%;
+		margin: 20px 0px;
+	}
+	label{
+		margin: 20px 0px;
+	}
 
- -->
+	#button1, #button2{
+		margin: 20px 0px 20px 0px;
+	}
+
+
+</style>
 
 
 
 
 </head>
-<body style="background-color:#aaaaaa;">
+<body>
 	<form action="updateMemberForm" method="post">
 	<input type="hidden" name="uId" value="${member.uId }" />
 	<input type="hidden" id="chkpw2" value="${member.uPw }">
@@ -152,19 +162,19 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="overview-wrap">
-					<h3>유저가 개인정보보기</h3>
+					<h2 align="center">유저가 개인정보보기</h2>
 				</div>
 			</div>
 		</div>
-	<div style="width: 40%; margin:auto; background-color:#f3f3f3;">
+	<div class="col-lg-7" id="all">
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
 					<a href="updateMember?uId=${member.uId }">
-					<button	class="updateBtn btn btn-primary btn-lg" >회원수정</button></a>
+					<button	class="updateBtn btn btn-primary btn-lg" id="button1" >회원수정</button></a>
 				
 					<a href="deleteMemberUser?uId=${member.uId }">
-					<input type="button" value="회원탈퇴"	class="deleteBtn btn btn-primary btn-lg" ></a>
+					<input type="button" value="회원탈퇴"	class="deleteBtn btn btn-primary btn-lg" id="button2" ></a>
 				</div>
 			</div>
 			<div class="col-lg-6" style="float:; width:100px; height:100px;">
@@ -180,12 +190,12 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					아이디
+					<label id="label1">아이디</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					${member.uId }
+					<label id="label2">${member.uId }</label>
 				</div>
 			</div>
 		</div>
@@ -193,7 +203,7 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					비밀번호
+					<label id="label3">비밀번호</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
@@ -206,12 +216,12 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					이름
+					<label id="label4">이름</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					${member.uName }
+					<label id="label5">${member.uName }</label>
 				</div>
 			</div>
 		</div>
@@ -219,7 +229,7 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					주소
+					<label id="label6">주소</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
@@ -232,12 +242,12 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					휴대폰번호
+					<label id="label7">휴대폰번호</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					${member.uPhone }
+					<label id="label8">${member.uPhone }</label>
 				</div>
 			</div>
 		</div>
@@ -245,12 +255,12 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					생년월일
+					<label id="label9">생년월일</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					${member.uBirth}
+					<label id="label10">${member.uBirth}</label>
 				</div>
 			</div>
 		</div>
@@ -258,12 +268,12 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					E-Mail
+					<label id="label11">E-Mail</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					${member.uEmail}
+					<label id="label12">${member.uEmail}</label>
 				</div>
 			</div>
 		</div>
@@ -271,7 +281,7 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					마일리지
+					<label id="label13">마일리지</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
@@ -284,12 +294,12 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					맞춘횟수
+					<label id="label14">맞춘횟수</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					${member.uWin}
+					<label id="label15">${member.uWin}</label>
 				</div>
 			</div>
 		</div>
@@ -297,12 +307,12 @@
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="au-card recent-report">
-					틀린횟수
+					<label id="label16">틀린횟수</label>
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="au-card recent-report">
-					${member.uLose}
+					<label id="label17">${member.uLose}</label>
 				</div>
 			</div>
 			
