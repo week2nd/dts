@@ -271,9 +271,10 @@ public class InfoController {
 
 	// 경기 정보 수정 폼 이동
 	@RequestMapping("/updateMatchForm")
-	public String updateMatchForm(Model model, MatchVO vo, TeamVO tvo) {
+	public String updateMatchForm(Model model, MatchVO vo, TeamVO tvo, PlayerVO pvo) {
 		model.addAttribute("teamList", teamService.getTeamList(tvo));
 		model.addAttribute("match", matchService.getMatch(vo));
+		model.addAttribute("playerList", playerService.getPlayerList(pvo));
 		return "admin/info/updateMatch";
 	}
 

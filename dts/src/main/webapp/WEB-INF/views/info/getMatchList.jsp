@@ -59,7 +59,7 @@ th {
 				<c:forEach items="${matchList}" var="match">
 					<tr>
 						<td align="center">${match.gameId}			</td>
-						<td align="center">${match.matchDate}17:00	</td>
+						<td align="center">${match.matchDate}&nbsp; 17:00	</td>
 						<td align="center">${match.matchInfo}		</td>
 						<td align="right"><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a>	</td>
 						<td align="center">${match.blueTeamKillsum}:

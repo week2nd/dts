@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>경기 결과 보기</title>
-
-
-
 <script>
 $(function(){
 	$("#deleteMatchBtn").click(function() {
@@ -23,12 +21,8 @@ $(function(){
 </script>
 </head>
 <body>
-
-
-	
-
-
 	<h3>경기 결과 보기</h3>
+	<br>
 <div class="top-campaign">
 	<%-- <c:forEach items="${matchList}" var="match"> --%>
 		<form action="updateMatchForm">
@@ -50,13 +44,13 @@ $(function(){
 					</tr>
 					<tr>
 						<td>K</td>
-						<td>${match.bluePick1Kill}</td>
+						<td>${match.bluePick1Kill + match.bluePick2Kill + match.bluePick3Kill + match.bluePick4Kill + match.bluePick5Kill}</td>
 						<td>D</td>
 						<td>${match.bluePick1Death}</td>
 						<td>A</td>
 						<td>${match.bluePick1Assist}</td>
 						<td>KDA</td>
-						<td>#.#</td>
+						<td>##.##</td>
 						<td align="center">Play Time</td>
 						<td>K</td>
 						<td>${match.redPick1Kill}</td>
@@ -65,7 +59,7 @@ $(function(){
 						<td>A</td>
 						<td>${match.redPick1Assist}</td>
 						<td>KDA</td>
-						<td>#.#</td>
+						<td>##.##</td>
 					</tr>
 					<tr>
 						<td align="center" colspan="2">PICK</td>
@@ -132,12 +126,12 @@ $(function(){
 							<td>${match.bluePick1Kill}</td>
 							<td>${match.bluePick1Death}</td>
 							<td>${match.bluePick1Assist}</td>
-							<td>#.#</td>
+							<td><fmt:formatNumber value="${(match.bluePick1Kill + match.bluePick1Assist)/match.bluePick1Death}" pattern=".##"></fmt:formatNumber></td>
 							<!-- bluePick1Kda -->
 							<td>${match.redPick1Kill}</td>
 							<td>${match.redPick1Death}</td>
 							<td>${match.redPick1Assist}</td>
-							<td>#.#</td>
+							<td><fmt:formatNumber value="${(match.redPick1Kill + match.redPick1Assist)/match.redPick1Death}" pattern=".##"></fmt:formatNumber></td>
 							<td>${match.redPick1Spell2}</td>
 						</tr>
 						<!-- Pick2 -->
@@ -154,12 +148,12 @@ $(function(){
 							<td>${match.bluePick2Kill}</td>
 							<td>${match.bluePick2Death}</td>
 							<td>${match.bluePick2Assist}</td>
-							<td>#.#</td>
+							<td><fmt:formatNumber value="${(match.bluePick2Kill + match.bluePick2Assist)/match.bluePick2Death}" pattern=".00"></fmt:formatNumber></td>
 							<!-- bluePick2Kda -->
 							<td>${match.redPick2Kill}</td>
 							<td>${match.redPick2Death}</td>
 							<td>${match.redPick2Assist}</td>
-							<td>#.#</td>
+							<td><fmt:formatNumber value="${(match.redPick2Kill + match.redPick2Assist)/match.redPick2Death}" pattern=".00"></fmt:formatNumber></td>
 							<td>${match.redPick2Spell2}</td>
 						</tr>
 						<!-- Pick3 -->
@@ -228,25 +222,19 @@ $(function(){
 							<td>#.#</td>
 							<td>${match.redPick5Spell2}</td>
 						</tr>
-						<c:if test="${membersession.uGrant=='admin'}">
-						<!-- <tr>
-							<td><input type="submit" value="수정"></td>
-						</tr> -->
-						</c:if>
 					</table>
 				</div>
 				
 			</div>
-			<c:if test="${membersession.uGrant=='admin'}">
-					<input type="submit" value="수정">
-					</c:if>
-			<c:if test="${membersession.uGrant=='admin'}">
-			<a href="deleteMatch?gameId=${match.gameId}"><input type="button" id="deleteMatchBtn" value="삭제"></a>
-			</c:if>
+			<div align="right">
+				<c:if test="${membersession.uGrant=='admin'}">	<input class="btn btn-outline-secondary" type="submit" value="수정">
+				 
+				<a href="deleteMatch?gameId=${match.gameId}"><input class="btn btn-outline-danger" type="button" id="deleteMatchBtn" value="삭제"></a>
+				</c:if>
+			</div>
 		</form>
 	<%-- </c:forEach> --%>
-
-
 </div>
+		
 </body>
 </html>
