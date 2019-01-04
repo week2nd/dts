@@ -10,7 +10,7 @@
 <title>getBoardList.jsp</title>
 <style>
 			table {
-				width: 500px;
+				width: 100px;
 			}
 </style>
 </head>
@@ -66,37 +66,37 @@
 		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 		</c:if>
 		  <div class="table-responsive table--no-card m-b-30">
-		<table border="1"  class = "table table-borderless table-data3">
+		<table border="1" width="500" class = "table table-borderless table-data3">
 		<thead>
 			<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
-				<th>선택</th>
+				<th align="center">선택</th>
 				</c:if>
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성일</th>
-				<th>조회수</th>
-				<th>추천수</th>
-				<th>아이디</th>
+				<th align="center">번호</th>
+				<th align="center">제목</th>
+				<th align="center">작성일</th>
+				<th align="center">조회수</th>
+				<th align="center">추천수</th>
+				<th align="center">아이디</th>
 				<c:if test="${membersession.uGrant=='admin'}">
-				<th>게시판타입</th>
+				<th align="center">게시판타입</th>
 				</c:if>
 			</tr>
 			</thead>
 			<c:forEach items="${board }" var="board">
 				<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
-					<td><input type="checkbox" name="bnumberList"
+					<td align="center"><input type="checkbox" name="bnumberList"
 						value="${board.boardNumber}" /></td>
 				</c:if>
-					<td>${board.boardNumber }</td>
-					<td><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardTitle}</a></td>
-					<td>${board.postDate }</td>
-					<td>${board.boardHits }</td>
-					<td>${board.boardLike }</td>
-					<td>${board.uId }</td>
+					<td align="center">${board.boardNumber }</td>
+					<td align="center"><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardTitle}</a></td>
+					<td align="center">${board.postDate }</td>
+					<td align="center">${board.boardHits }</td>
+					<td align="center">${board.boardLike }</td>
+					<td align="center">${board.uId }</td>
 					<c:if test="${membersession.uGrant=='admin'}">
-					<td>${board.boardType }</td>
+					<td align="center">${board.boardType }</td>
 					</c:if>
 				</tr>
 			</c:forEach>
