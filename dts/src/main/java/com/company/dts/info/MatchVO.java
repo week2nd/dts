@@ -213,8 +213,8 @@ public class MatchVO {
 	private int playerMatch;
 	private int win;
 	private int lose;
-	private int blueDrate;
-	private int redDrate;
+	private float blueDrate;
+	private float redDrate;
 	
 	private int bluePick1Kda;
 	private int bluePick2Kda;
@@ -235,16 +235,16 @@ public class MatchVO {
 	private int redTeamAssistsum;
 	private int redTeamKda;
 
-	public int getBlueDrate() {
+	public float getBlueDrate() {
 		return blueDrate;
 	}
-	public void setBlueDrate(int blueDrate) {
+	public void setBlueDrate(float blueDrate) {
 		this.blueDrate = blueDrate;
 	}
-	public int getRedDrate() {
+	public float getRedDrate() {
 		return redDrate;
 	}
-	public void setRedDrate(int redDrate) {
+	public void setRedDrate(float redDrate) {
 		this.redDrate = redDrate;
 	}
 	public String getSearchCondition() {

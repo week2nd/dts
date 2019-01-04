@@ -9,33 +9,27 @@
 </head>
 <body>
 	<form action="insertTeam" method="post" enctype="multipart/form-data">
-		<div>
-			<table>
+		<div class="top-campaign">
+			<table class="table">
 				<tr>
-					<th>팀 약어</th>
-					<th>감독</th>
-					<th>헤드코치</th>
-					<th>팀명</th>
-					<th>Win</th>
-					<th>Lose</th>
-					<th>Rate</th>
+					<th>팀 약어	</th>
+					<th>감독		</th>
+					<th>헤드코치	</th>
+					<th>팀명		</th>
 				</tr>
 				<tr>
-					<td><input type="text" name="teamId" value="${team.teamId}"></td>
-					<td><input type="text" name="director"
-						value="${team.director }"></td>
-					<td><input type="text" name="headCoach"
-						value="${team.headCoach }"></td>
-					<td><input type="text" name="name" value="${team.name }">
-					</td>
-					<td>0</td>
-					<td>0</td>
-					<td>${team.rate}%</td>
+					<td><input type="text" name="teamId" 	value="${team.teamId}"		placeholder="팀 약어">	</td>
+					<td><input type="text" name="director"	value="${team.director}"	placeholder="감독">		</td>
+					<td><input type="text" name="headCoach"	value="${team.headCoach}"	placeholder="헤드코치">	</td>
+					<td><input type="text" name="name" 		value="${team.name }"		placeholder="팀이름">		</td>
 				</tr>
 			</table>
-			<input type="file" name="uploadFile" value="${team.fileName }">${team.fileName}
+			<p align="right"><input class="btn btn-outline-success" type="file" name="uploadFile" value="${team.fileName }">${team.fileName}	</p>
+			<div align="right">
+			<input class="btn btn-outline-secondary" type="submit" value="입력" >
 		</div>
-		<input type="submit" value="입력">
+		</div>
+		
 	</form>
 
 </body>
