@@ -99,22 +99,30 @@
 	};
 	
 	function checkMileage(event) {
+		$("#buyPopBtn").attr("disabled", true);
+		//$("#buyPopBtn").prop("disabled", true); // 비활성화
 		var mileage = ${membersession.uMileage};
 		var betmoney = $("#gameBuytr").find('.betmoney').val();
-		
+		if(betmoney=="") {
+			alert("배팅금액을 입력하세요.");
+		}
 		if (mileage < betmoney) {
 				alert("보유 마일리지보다 큰 금액을 입력할 수 없습니다.");
-				$("#betmoney").val(0);
-				$("#returnmoney").text(0);
+				$("#betmoney").val("");
+				$("#returnmoney").empty();
+				return
 			} else if (betmoney > 100000) {
 				alert("게임당 배팅가능금액은 10만원 이하 입니다.");
-				$("#betmoney").val(0);
-				$("#returnmoney").text(0);
+				$("#betmoney").val("");
+				$("#returnmoney").empty();
+				return
 			} else if (betmoney < 1000) {
 				alert("게임당 배팅가능금액은 천원 이상 입니다.");
-				$("#betmoney").val(0);
-				$("#returnmoney").text(0);
-			}		
+				$("#betmoney").val("");
+				$("#returnmoney").empty();
+				return
+			}	
+		$("#buyPopBtn").attr("disabled", false);	
 	};	
 	
 	function checkPw() {
@@ -173,7 +181,7 @@
 	
 	<div>
 	<h3>구매</h3>
-	<button type="button" class="btn" data-toggle="modal" data-target="#buyModal">구매하기</button>
+	<button type="button" class="btn" id="buyPopBtn" data-toggle="modal" data-target="#buyModal" disabled>구매하기</button>
 		<table class="table">
 			<thead>
 				<tr>

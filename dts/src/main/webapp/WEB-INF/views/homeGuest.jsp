@@ -14,6 +14,7 @@
 
 <title>E-SPORT토토게스트</title>
 <link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
+<link href="resources/style.css" rel="stylesheet">
 <script src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +40,6 @@ font-family:'Jua';
 <script>
 $(function(){
 	$('#loginForm').on('show.bs.modal', function () {
-		console.log('aaaaaa');
 		$("#loginFrm")[0].reset();
 	});
 	$('#loginForm').on('shown.bs.modal', function () {
@@ -122,11 +122,12 @@ $(function(){
 			</div>
 		</div>
 	</header>
-
+	
+<!-- <div class="col-7 mx-auto"> -->
 	<!-- Top Navigation -->
 	<section class="top-nav">
 		<nav class="navbar navbar-expand-lg py-0">
-			<div class="container">
+			<div class="container-fluid">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -152,44 +153,47 @@ $(function(){
 						<li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
-					</ul>
-					
-					<div><button style="margin-top:10px; margin-right:5px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>	
-				</div>
+					</ul> 
+					<div><button style="margin-top:10px; margin-right:5px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>
+				</div>				
 			</div>
 		</nav>		
 	</section>
-	
+
 	<div class="modal fade" id="loginForm" tabindex="-1" role="dialog"
-						aria-labelledby="myModalLabel">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<div style="text-align: center">
-										<h4 class="modal-title" id="myModalLabel"
-											style="text-align: center;">LOGIN PAGE</h4>
-									</div>
-								</div>
-								<div class="modal-body">
-									<form id="loginFrm" method="post" action="login">
-										<div class="form-group">
-											<label for="uId" class="control-label">아이디</label> 
-											<input type="text" class="form-control" id="uId" name="uId" >
-										</div>
-										<div class="form-group">
-											<label for="uPw" class="control-label">비밀번호</label> 
-											<input type="password" class="form-control" id="uPw" name="uPw">
-										</div>
-										<button type="submit" class="btn btn-outline-primary" id="loginBtn">로그인</button>
-										<button type="button" class="btn btn-outline-primary" onclick="window.location.href='insertMember'">회원가입</button>
-										<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
-										<button type="button" class="btn btn-link" onclick="window.location.href='pwSearchForm'">비밀번호찾기</button>
-										<!-- <span class="psw">Forgot<a href="pwSearchForm">password?</a></span> -->
-									</form>
-								</div>
-							</div>
-						</div>
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div style="text-align: center">
+						<h4 class="modal-title" id="myModalLabel"
+							style="text-align: center;">LOGIN PAGE</h4>
 					</div>
+				</div>
+				<div class="modal-body">
+					<form id="loginFrm" method="post" action="login">
+						<div class="form-group">
+							<label for="uId" class="control-label" style="width: 50%">아이디</label>
+							<input type="text" class="form-control" id="uId" name="uId">
+						</div>
+						<div class="form-group">
+							<label for="uPw" class="control-label">비밀번호</label> <input
+								type="password" class="form-control" id="uPw" name="uPw">
+						</div>
+						<button type="submit" class="btn btn-outline-primary"
+							id="loginBtn">로그인</button>
+						<button type="button" class="btn btn-outline-primary"
+							onclick="window.location.href='insertMember'">회원가입</button>
+						<button type="button" class="btn btn-outline-secondary"
+							data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-link"
+							onclick="window.location.href='pwSearchForm'">비밀번호찾기</button>
+						<!-- <span class="psw">Forgot<a href="pwSearchForm">password?</a></span> -->
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<section class="container">
 		<div class="col-md-12">
@@ -197,6 +201,7 @@ $(function(){
 		</div>
 
 	</section>
+	<!-- </div> -->
 	<!-- Info Block-01 -->
 	<!-- <section class="banner-sec float-left w-100 pt-4 pb-5">
     <div class="container-fluid">

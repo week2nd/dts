@@ -76,15 +76,10 @@ $(function(){
 
 	<form action="mailSend" method="post">
 		
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="overview-wrap">
-						<h2 align="center">회원 비밀번호 찾기</h2><br>
-					</div>
-				</div>
-			</div>
+		
+			<h2 align="center">회원 비밀번호 찾기</h2><br>
 			<div id="all" class="col-lg-5">
+			<div class="container">
 			<div class="row">
 				<div class="col-md-3">
 					<div class="overview-wrap">
