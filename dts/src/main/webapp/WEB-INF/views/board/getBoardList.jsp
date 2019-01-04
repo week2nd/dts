@@ -8,10 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>getBoardList.jsp</title>
-<style>
-			table {
-				width: 100px;
-			}
+<style type="text/css">
+.table-data3 tbody tr td:last-child {
+	text-align: left;
+}
 </style>
 </head>
 <body>
@@ -20,7 +20,7 @@
 	<h3>공지게시판</h3>
 	</c:if>
 	<c:if test="${type=='free'}">
-	<h3>자유게시판</h3>
+	<h1>자유게시판</h1>
 	</c:if>
 	<c:if test="${type=='analysis'}">
 	<h3>분석게시판</h3>
@@ -30,7 +30,9 @@
 	</c:if>
 	</div>
 	
+	
 	<form name="frm">
+	<div style="border:1px solid black; width:14%; box-sizing:content-box;">
 		<!-- 게시판 검색!! -->
 		<select name="searchCondition">
 			<option value="board_Title">제목
@@ -40,7 +42,9 @@
 		<button>검색</button>
 		<input type="hidden" name="sortCol" /> <input type="hidden"
 			name="page" /> <input type="hidden" name="type" value="${type}" />
+	</div>
 	</form>
+	
 	<script>
 		if ("${boardVO.searchCondition}" != "") {
 			document.frm.searchCondition.value = "${boardVO.searchCondition}";
@@ -62,49 +66,52 @@
 				document.frm.submit(); 								// 검색폼 
 			}
 		</script>
-		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">		
-		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
-		</c:if>
-		  <div class="table-responsive table--no-card m-b-30">
-		<table border="1" width="500" class = "table table-borderless table-data3">
+
+		
+		<!-- 테이블시작 -->
+		  <div align="center" class="table-responsive table--no-card m-b-30">
+		<table style="width: 100%;" border="1" class = "table table-borderless table-data3">
 		<thead>
 			<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
-				<th align="center">선택</th>
+				<th>선택</th>
 				</c:if>
-				<th align="center">번호</th>
-				<th align="center">제목</th>
-				<th align="center">작성일</th>
-				<th align="center">조회수</th>
-				<th align="center">추천수</th>
-				<th align="center">아이디</th>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성일</th>
+				<th>조회수</th>
+				<th>추천수</th>
+				<th>아이디</th>
 				<c:if test="${membersession.uGrant=='admin'}">
-				<th align="center">게시판타입</th>
+				<th>게시판타입</th>
 				</c:if>
 			</tr>
 			</thead>
 			<c:forEach items="${board }" var="board">
 				<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
-					<td align="center"><input type="checkbox" name="bnumberList"
+					<td><input type="checkbox" name="bnumberList"
 						value="${board.boardNumber}" /></td>
 				</c:if>
-					<td align="center">${board.boardNumber }</td>
-					<td align="center"><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardTitle}</a></td>
-					<td align="center">${board.postDate }</td>
-					<td align="center">${board.boardHits }</td>
-					<td align="center">${board.boardLike }</td>
+					<td>${board.boardNumber }</td>
+					<td><a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">${board.boardTitle}</a></td>
+					<td>${board.postDate }</td>
+					<td>${board.boardHits }</td>
+					<td>${board.boardLike }</td>
 					<td align="center">${board.uId }</td>
 					<c:if test="${membersession.uGrant=='admin'}">
-					<td align="center">${board.boardType }</td>
+					<td align="left">${board.boardType }</td>
 					</c:if>
 				</tr>
 			</c:forEach>
 		</table>
 		</div>
 	</form>
-
-
+		<div align="right" style="padding: 0px 40px 0px 0px;">
+		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">		
+		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
+		</c:if>
+		</div>
 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
 

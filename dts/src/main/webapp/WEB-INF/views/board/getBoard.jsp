@@ -161,7 +161,33 @@
 </head>
 <body>
 <div align="center">
-	<h3>게시글보기</h3>
+	<h1>게시글보기</h1>
+	
+	<div class="col-lg-6">
+		<div class="card">
+			<div class="card-body card-block">			
+					</div>
+ 					<div class="row form-group">
+						<div class="col col-md-1" style="font-size:20px; margin-left:70px;" >
+							<label  for="text-input" class=" form-control-label">제목</label>	
+						</div> 
+						<div class="col-202 col-md-9">
+							<input type="text" id="boardTitle" name="boardTitle"
+								class="form-control" value="${board.boardTitle}" > <small
+								class="form-text text-muted"></small>
+						</div>
+					</div>
+					<div class="row form-group">
+ 						<div class="col col-md-1" style="font-size:20px; margin-left:70px;" >
+							<label for="text-input" class=" form-control-label">내용</label> 
+						</div>
+						<div class="col-202 col-md-9" >
+							<input type="text" name="boardContent" id="boardContent"
+								class="form-control" span id="boardContent" value="${board.boardContent}" >
+								<small class="form-text text-muted"></small>
+						</div>
+					</div>			
+	</div>	
 	
 	<br> 게시판번호 : ${board.boardNumber }
 	<br> 게시판제목 : ${board.boardTitle}
@@ -240,5 +266,6 @@
 	</div>
 	<!-- 댓글수정폼끝 -->
 	</div>	<!-- center로 보내는 div -->
+	</div>
 </body>
 </html>
