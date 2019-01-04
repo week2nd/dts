@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +54,9 @@
 							<td>${purchase.purchaseNum}</td>
 							<td>${purchase.uId}</td>
 							<td>${purchase.gameId}</td>
-							<td>${purchase.betMoney}</td>
+							<%-- <td>${purchase.betMoney}</td> --%>
+							
+							<td><fmt:formatNumber value="${purchase.betMoney}" pattern="##,###,###"></fmt:formatNumber></td>
 							<td>${purchase.betDrate}</td>							
 							<c:if test="${purchase.accuracy=='적중성공'}">
 							<td style="color:#28a745">${purchase.accuracy}</td>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,16 +72,16 @@ width : 50%;
 		<div class="row" style="width: 20%;">
 			<select name="won">
 				<option value="100">100원</option>
-				<option value="10000">10000원</option>
-				<option value="20000">20000원</option>
-				<option value="30000">30000원</option>
-				<option value="40000">40000원</option>
-				<option value="50000">50000원</option>
-				<option value="60000">60000원</option>
-				<option value="70000">70000원</option>
-				<option value="80000">80000원</option>
-				<option value="90000">90000원</option>
-				<option value="100000">100000원</option>
+				<option value="10000">10,000원</option>
+				<option value="20000">20,000원</option>
+				<option value="30000">30,000원</option>
+				<option value="40000">40,000원</option>
+				<option value="50000">50,000원</option>
+				<option value="60000">60,000원</option>
+				<option value="70000">70,000원</option>
+				<option value="80000">80,000원</option>
+				<option value="90000">90,000원</option>
+				<option value="100000">100,000원</option>
 			</select> <input type="button" value="충전하기" id="payBtn" />
 		</div>
 		<div class="row" style="width: 45%">
@@ -98,7 +99,7 @@ width : 50%;
 				<c:forEach items="${mhistoryList}" var="mhistory">
 					<tr>
 						<td>${mhistory.chargeDate }</td>
-						<td>${mhistory.chargeMoney }</td>
+						<td><fmt:formatNumber value="${mhistory.chargeMoney }" pattern="##,###,###"></fmt:formatNumber></td>
 					</tr>
 				</c:forEach>
 

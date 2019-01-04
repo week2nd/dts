@@ -36,35 +36,11 @@
 		});	
 		
 		
-		/* $("#buy").click(function() {
-			var gameid = $("#gameBuytr").find('.gameid').text();
-			//var gamedate = $("#gameBuytr").find('.gameDate').text();
-			var team = $("#gameBuytr").find('.teamid').text();
-			var rate = $("#gameBuytr").find('.rate').text();
-			//var betmoney = $("#gameBuytr").find('.betmoneyr').val();
-			var betmoney = $("#betmoney").val();
-			//var returnmoney = $("#gameBuytr").find('.returnmoney').text();
-			document.gameBuy.gameId.value = gameid;
-			document.gameBuy.choise.value = team;
-			document.gameBuy.betDrate.value = rate;
-			document.gameBuy.betMoney.value = betmoney;
-			console.log(gameid);
-			console.log(team);
-			console.log(betmoney);
-			console.log(rate);
-			
-			document.gameBuy.submit();
-		});  */
-		
 		$('#buyModal').on('show.bs.modal', function () {
-			console.log('aaa');
 			var gameid = $("#gameBuytr").find('.gameid').text();
-			//var gamedate = $("#gameBuytr").find('.gameDate').text();
 			var team = $("#gameBuytr").find('.teamid').text();
 			var rate = $("#gameBuytr").find('.rate').text();
-			//var betmoney = $("#gameBuytr").find('.betmoneyr').val();
 			var betmoney = $("#betmoney").val();
-			//var returnmoney = $("#gameBuytr").find('.returnmoney').text();
 			document.gameBuy.gameId.value = gameid;
 			document.gameBuy.choise.value = team;
 			document.gameBuy.betDrate.value = rate;
@@ -78,7 +54,7 @@
 	{ 
 	    var rate = $(e.target).closest('tr').find('.rate').text();
 	    var money = $(e.target).closest('tr').find('.betmoney').val();
-	    var rm = parseInt(rate*money);
+	    var rm = parseInt(rate*money).toLocaleString();
 	    $(e.target).closest('tr').find('.returnmoney').text(rm);		    
 	};
 	function onlyNumber(event){		
@@ -233,7 +209,7 @@
 							<input type="text" class="form-control" id="betDrate" name="betDrate"  readonly>
 							</div>
 							<div class="form-group">
-							<label for="betMoney" class="control-label">배당금액</label>
+							<label for="betMoney" class="control-label">배팅금액</label>
 							<input type="text" class="form-control" id="betMoney" name="betMoney" readonly>
 							</div>
 							<div class="form-group">

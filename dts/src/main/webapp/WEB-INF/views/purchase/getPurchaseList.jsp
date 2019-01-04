@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +33,9 @@
             		<td>${purchase.purchaseNum}</td>
             		<td>${purchase.uId}</td>
             		<td>${purchase.gameId}</td>
-            		<td>${purchase.betMoney}</td>           	            	
+            		<td><fmt:formatNumber value="${purchase.betMoney}" pattern="##,###,###"></fmt:formatNumber></td>           	            	
             		<td>${purchase.betDrate}</td>
-            		<c:if test="${purchase.accuracy=='null'}">        	
+            		<c:if test="${purchase.accuracy==null}">        	
             		<td>-</td>
             		</c:if>
             		<c:if test="${purchase.accuracy=='적중실패'}">        	
@@ -47,7 +48,8 @@
             		<td>0</td>
             		</c:if>
             		<c:if test="${purchase.accuracy=='적중성공'}">
-            		<td>${purchase.gameReturnMoney}</td> 
+            		<td><fmt:formatNumber value="${purchase.gameReturnMoney}" pattern="##,###,###"></fmt:formatNumber></td>
+            		<%-- <td>${purchase.gameReturnMoney}</td>  --%>
             		</c:if>
             		<td>${purchase.betDate}</td>           	            	
             		<td>${purchase.choise}</td>    	            	

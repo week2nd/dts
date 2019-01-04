@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <%@ page import="com.company.dts.common.Paging" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,13 +71,12 @@
 			},
 			success : function(data) {
 				
-				console.log(data.mhistoryList);
 				for (i = 0; i < data.mhistoryList.length; i++) {
 					var tr = "<tr><td style='width:8%'>" + data.mhistoryList[i].num + 
 					"</td><td style='width:10%'>" + data.mhistoryList[i].uId + 
 					"</td><td style='width:15%'>" + data.mhistoryList[i].ahDate + 
-					"</td><td style='width:20%'>" + data.mhistoryList[i].oldMileage + 
-					"</td><td style='width:20%'>" + data.mhistoryList[i].newMileage + 
+ 					"</td><td style='width:20%'>" + data.mhistoryList[i].oldMileage.toLocaleString() + 
+					"</td><td style='width:20%'>" + data.mhistoryList[i].newMileage.toLocaleString() +
 					"</td><td style='width:15%'>" + data.mhistoryList[i].ipAddr + 
 					"</td><td style='width:12%'>"	+ data.mhistoryList[i].categorie + 
 					"</td></tr>"
