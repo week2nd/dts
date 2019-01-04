@@ -65,6 +65,9 @@
             <mvc:exclude-mapping path="/guestMain"/>
             <mvc:exclude-mapping path="/insertMember"/>
             <mvc:exclude-mapping path="/pwSearchForm"/>
+            <mvc:exclude-mapping path="/checkId*"/>
+            <mvc:exclude-mapping path="/mailSend*"/>
+            
             <ref bean="authenticationInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

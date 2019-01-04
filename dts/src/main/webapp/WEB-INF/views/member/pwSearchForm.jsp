@@ -14,6 +14,7 @@ function checkEmail(){
 function checkId() {
 	var inputId = $('.id').val();
 	var inputEmail = $(".email").val();
+	console.log(inputId);
 	
 	$.ajax({
         data : {
@@ -88,7 +89,7 @@ $(function(){
 				</div>
 				<div class="col-md-9">
 					<div class="overview-wrap">
-						<input type="text" class="id" name="uId" id="uId" placeholder="아이디" oninput="checkId()"  autofocus><br>
+						<input type="text" class="id" name="uId" placeholder="아이디" oninput="checkId()"  autofocus><br>
 	            		<span id="spanIdX" style="display: none">중복 아이디 입니다.</span>	
 					</div>
 				</div>
