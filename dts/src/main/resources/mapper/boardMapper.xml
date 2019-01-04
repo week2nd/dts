@@ -123,6 +123,7 @@
 
 
 <!-- 게시판 삭제 -->
+
 <delete id ="deleteBoard" parameterType="board">
 	DELETE FROM BOARD WHERE BOARD_NUMBER = #{boardNumber}
 					

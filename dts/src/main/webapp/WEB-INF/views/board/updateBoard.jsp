@@ -14,6 +14,16 @@
 
 			<h3>게시판수정</h3>
 
+<script>
+//게시판 입력시 알람 띄우는것
+$(function() {
+	
+	$(".updatebo").click(function(){		
+		alert("수정되었습니다");
+	});
+});
+
+</script>
 
 <div class="col-lg-6">
 		<div class="card">
@@ -49,15 +59,18 @@
 							<label for="file-input" class=" form-control-label"></label>
 						</div>
 						<div class="col-12 col-md-9">
+							
 							<input type="file" id="uploadFile" name="uploadFile"
 								class="form-control-file">
+						<input type="text" id="uploadFileName" name="uploadFileName" value="${board.uploadFileName}"> 
+						
 						</div>
 					</div>
 			</div>
 			
 			<!-- <input	type="file" name="uploadFile"><br> -->
 			
-				<button name="boardType" value="${type}">저장</button>
+				<button name="boardType" value="${type}" class="updatebo">저장</button>
 				<a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">취소</a>
 
 			</div>

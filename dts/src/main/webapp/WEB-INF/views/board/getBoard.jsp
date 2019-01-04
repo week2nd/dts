@@ -12,6 +12,8 @@
 
 <script>
 	//댓글 목록조회 요청
+
+	
 	function loadCommentList() {
 		var params = {
 			boardNumber : '${board.boardNumber}'
@@ -46,11 +48,38 @@
 	}
 
 	$(function() {
+	
+    	$(".like1").click(function(){		// 가입버튼 누르면 뜨는 alert
+    		alert("추천하셨습니다.");
+    	});
+		$(".likecancel1").click(function() {
+			alert("추천취소하셨습니다.");
+		});
+		$(".boarddelete").click(function() {
+			alert("삭제처리되었습니다.");
+		});
+		
+		
+		var text = $('#boardContent').html();
+		var result = text.replace(/(\n|\r\n)/g, '<br>');
+		$('#boardContent').html(result);
+	
 		loadCommentList();
-
+		
+		
 		//댓글등록처리
 		$("#btnAdd").click(function() { //버튼 클릭시 btnAdd 작업 수행.
 			var params = $("#addForm").serialize(); //params 안에 값을 담는다.
+				if( $('#commentsName').val() == ""){					
+					alert("제목을 입력해주세요.");
+					return false;
+				} else if($('#commentsContent').val() == ""){
+					alert("내용을 입력해주세요.");
+					return false;
+				}
+				else if($('#commentsName').val() != ""){
+					alert("입력되었습니다");
+				}
 			console.log(params); //params 값을 콘솔창에 출력해줌.
 			$.getJSON("insertComments", params, function(datas) {
 				console.log(datas)
@@ -73,9 +102,19 @@
 
 		//댓글 수정 이벤트
 		$("#btnUpd").click(function() {
-			console.log("===============================+++++++++++++")
 			var params = $("[name=updateForm]").serialize();
+			if( $('#commentsName').val() == ""){					
+				alert("제목을 입력해주세요.");
+				return false;
+			} else if($('#commentsContent').val() == ""){
+				alert("내용을 입력해주세요.");
+				return false;
+			}
+			else if($('#commentsName').val() != ""){
+				alert("수정되었습니다");
+			}
 			var url = "updateComments";
+			console.log("+++++++++++++++++++++++++++++")
 			console.log(params);
 			$.getJSON(url, params, function(datas) {
 				console.log(datas)
@@ -89,15 +128,15 @@
 		//수정폼 이벤트(수정할 댓글밑에 수정폼 보이게 함)
 		$("#commentsList").on("click", ".btnUpdFrm", function() {
 			console.log("===============================")
-			console.log($(this).parent().children()[1].innerText)
-
+			console.log($(this).parent().children()[1].innerText)		
 			var commentsSeq = $(this).parent().attr("id").substr(1);
 			var commentsName = $(this).parent().children()[1].innerText;
 			var commentsContent = $(this).parent().children()[2].innerText;
-
+			
 			$("#commentUpdate").css("display", "inline")
 
 			//수정할 데이터 입력필드에 셋팅
+			
  			$("#updateForm [name=commentsSeq]").val(commentsSeq);
 			$("#updateForm [name=commentsName]").val(commentsName);
 			$("#updateForm [name=commentsContent]").val(commentsContent); 
@@ -113,7 +152,11 @@
 		$(document.body).append($('#commentUpdate')); //그래서 위쪽 body로 수정폼을 옮겨서 가능하게 해야 한다.
 		$("#commentUpdate").hide(); // 수정폼 숨기기
 	});
-}); //$() end ready event
+		
+});
+ //$() end ready event
+
+	
 </script>
 </head>
 <body>
@@ -122,7 +165,7 @@
 	
 	<br> 게시판번호 : ${board.boardNumber }
 	<br> 게시판제목 : ${board.boardTitle}
-	<br> 게시판내용 : ${board.boardContent }
+	<br> 게시판내용 : <span id="boardContent">${board.boardContent }</span>
 	<br> 작성일시 : ${board.postDate }
 	<br> 조회수 : ${board.boardHits }
 	<br> 추천수 : ${board.boardLike}
@@ -141,55 +184,61 @@
 	
 	<br>
 	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 수정 가능 -->
-		<a href="updateBoardform?boardNumber=${board.boardNumber}&uId=${board.uId}&boardType=${board.boardType}">수정</a>
+		<a href="updateBoardform?boardNumber=${board.boardNumber}&uId=${board.uId}&boardType=${board.boardType}&uploadFileName=${board.uploadFileName}"><input type="button" value="수정"  /></a>
 	</c:if>
 	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 삭제 가능 -->
-		<a href="deleteBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">삭제</a>
+		<a href="deleteBoard?boardNumber=${board.boardNumber}&uId=${board.uId}"><button class="boarddelete">삭제</button></a>
 	</c:if>
-	<a href="getBoardList?type=${board.boardType}">리스트</a>
+	
+	
+	<a href="getBoardList?type=${board.boardType}"><input type="button" value="리스트"  /></a>
+	
 	<c:if test="${board.likeCheck == 0}">					<!-- 유저 ID 비교후 좋아요 기록 없으면 좋아요 1 추가 -->
-		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♥</a>
+		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}"><button class="like1">♥</button></a>
 	</c:if>
 	<c:if test="${board.likeCheck == 1}">					<!-- 유저 ID 비교후 자신이 좋아요 한 기록 -1 -->
-		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♡</a>
+		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}"><button class="likecancel1">♡</button></a>
 	</c:if>
 
-	</div>	<!-- center로 보내는 div -->
+	
 	
 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
 
 	<hr>
 	<h3>댓글</h3>
+	
 	<div id="commentsList"></div>
 
 	<!-- 댓글등록시작 -->
-	<div id="commentAdd">
+	<div id="commentAdd" align="center">
 		<form name="addForm" id="addForm">
 			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 			<input type="hidden" name="boardType" value="${board.boardType}">
 			<input type="hidden" name="uId" value="${membersession.uId}">
-			<br> 이름: <input type="text"
-				name="commentsName" size="10"><br /> 내용:
-			<textarea name="commentsContent" cols="20" rows="2"></textarea>
-			<br /> <input type="button" value="등록" id="btnAdd" />
+			<br> 
+			이름: <input type="text" id="commentsName" name="commentsName" size="10" maxlength=120><br /> 
+			내용: <textarea id="commentsContent" name="commentsContent" cols="20" rows="2"></textarea>
+			<br /> 
+			<input type="button" value="등록" id="btnAdd" />
 		</form>
 	</div>
 	<!-- 댓글등록끝 -->
 
 	<!-- 댓글수정폼시작 -->
-	<div id="commentUpdate" style="display: none">
+	<div id="commentUpdate" style="display: none" align="center">
 		<form name="updateForm" id="updateForm">
 			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 			<input type="hidden" name="boardType" value="${board.boardType}" />
 			<input type="hidden" name="uId" value="${membersession.uId}">
 			<input type="hidden" name="commentsSeq"> 이름: <input
-				type="text" name="commentsName" size="10"><br /> 내용:
-			<textarea name="commentsContent" cols="20" rows="2"></textarea>
-			<br /> <input type="button" value="등록" id="btnUpd" /> <input
+				type="text" id="commentsName" name="commentsName" size="10"><br /> 내용:
+			<textarea id="commentsContent" name="commentsContent" cols="20" rows="2"></textarea>
+			<br /> <input type="button" value="등록" id="btnUpd" maxlength=120/> <input
 				type="button" value="취소" id="btnCancel" />
 		</form>
 	</div>
 	<!-- 댓글수정폼끝 -->
+	</div>	<!-- center로 보내는 div -->
 </body>
 </html>

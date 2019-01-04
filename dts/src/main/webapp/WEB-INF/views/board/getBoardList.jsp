@@ -8,7 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>getBoardList.jsp</title>
-
+<style>
+			table {
+				width: 500px;
+			}
+</style>
 </head>
 <body>
 	<div align="center">
@@ -62,7 +66,7 @@
 		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 		</c:if>
 		  <div class="table-responsive table--no-card m-b-30">
-		<table border="1" class = "table table-borderless table-data3">
+		<table border="1"  class = "table table-borderless table-data3">
 		<thead>
 			<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
