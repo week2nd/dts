@@ -7,10 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <title>경기 결과 보기</title>
+
+<style type="text/css">
+ .minitable td, th{
+ 	 padding-left: 10px;
+ 	 padding-right: 10px;
+ }
+ .minitable {
+ border:1px solid gray;
+ }
+</style>
 <script>
-$(function(){
+$(function() {
 	$("#deleteMatchBtn").click(function() {
-		if(confirm("정말 삭제하시겠습니까??")) {
+		if (confirm("정말 삭제하시겠습니까??")) {
 			alert("삭제했습니다.")
 			return true;
 		} else {
@@ -46,18 +56,21 @@ $(function(){
 						<td>K</td>
 						<td>${match.bluePick1Kill + match.bluePick2Kill + match.bluePick3Kill + match.bluePick4Kill + match.bluePick5Kill}</td>
 						<td>D</td>
-						<td>${match.bluePick1Death}</td>
+						<td>${match.bluePick1Death + match.bluePick2Death + match.bluePick3Death + match.bluePick4Death + match.bluePick5Death}</td>
 						<td>A</td>
-						<td>${match.bluePick1Assist}</td>
+						<td>${match.bluePick1Assist + match.bluePick2Assist + match.bluePick3Assist + match.bluePick4Assist + match.bluePick5Assist}</td>
 						<td>KDA</td>
-						<td>##.##</td>
+						<td>${(match.bluePick1Kill + match.bluePick2Kill + match.bluePick3Kill + match.bluePick4Kill + match.bluePick5Kill
+							+ match.bluePick1Assist + match.bluePick2Assist + match.bluePick3Assist + match.bluePick4Assist + match.bluePick5Assist)
+							/ match.bluePick1Death + match.bluePick2Death + match.bluePick3Death + match.bluePick4Death + match.bluePick5Death 
+							}</td>
 						<td align="center">Play Time</td>
 						<td>K</td>
-						<td>${match.redPick1Kill}</td>
+						<td>${match.redPick1Kill + match.redPick2Kill + match.redPick3Kill + match.redPick4Kill + match.redPick5Kill}</td>
 						<td>D</td>
-						<td>${match.redPick1Death}</td>
+						<td>${match.redPick1Death + match.redPick2Death + match.redPick3Death + match.redPick4Death + match.redPick5Death}</td>
 						<td>A</td>
-						<td>${match.redPick1Assist}</td>
+						<td>${match.redPick1Assist + match.redPick2Assist + match.redPick3Assist + match.redPick4Assist + match.redPick5Assist}</td>
 						<td>KDA</td>
 						<td>##.##</td>
 					</tr>
@@ -96,6 +109,8 @@ $(function(){
 						<td align="center" colspan="2">BAN</td>
 					</tr>
 				</table>
+				
+				<br>
 				<div align="center">
 					<table class="minitable">
 						<tr>
@@ -117,7 +132,7 @@ $(function(){
 							<td>${match.bluePick1Spell1}</td>
 							<td rowspan="2">${match.bluePick1}</td>
 							<td colspan="4">${match.blueGamer1}</td>
-							<td colspan="4">${match.redGamer1}</td>
+							<td align="right" colspan="4">${match.redGamer1}</td>
 							<td rowspan="2">${match.redPick1}</td>
 							<td>${match.redPick1Spell1}</td>
 						</tr>

@@ -42,7 +42,11 @@ p {
 
 	<h3>선수 정보</h3>
 
-	<form name="playerFrm">
+	
+
+	
+	<div class="top-campaign">
+		<form name="playerFrm">
 		<div>
 			<select name="searchCondition">
 				<option value="nickname">소환사명		</option>
@@ -52,15 +56,15 @@ p {
 			<button class="btn btn-outline-secondary">검색	</button>
 		</div>
 	</form>
-
-	<form action="insertPlayerForm">
+		
+		<form action="insertPlayerForm">
 		<c:if test="${membersession.uGrant=='admin'}">
 			<div align="right">
 				<input type="submit" value="선수 등록 "
 					class="btn btn-outline-secondary">
 			</div>
 		</c:if>
-		<div class="top-campaign">
+		<br>
 			<table class="table">
 				<tr>
 					<th>순위					</th>
@@ -98,8 +102,9 @@ p {
 			<div id="border" align="right">
 				<a href="#">위로가기</a>
 			</div>
+			</form>
 		</div>
-	</form>
+	
 
 
 

@@ -218,7 +218,7 @@ public class InfoController {
 		
 
 		// 페이지당 최대수
-		paging.setPageUnit(5);
+		paging.setPageUnit(10);
 
 		vo.setFirst(paging.getFirst());
 		vo.setLast(paging.getLast());

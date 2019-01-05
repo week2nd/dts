@@ -19,13 +19,12 @@ th, td {
 <body>
 
 	<h3>팀 정보</h3>
-	<c:if test="${membersession.uGrant=='admin'}">
-		<p align="right">
-			<a href="insertTeamForm"><button
-					class="btn btn-outline-secondary">새 팀 입력</button></a>
-		</p>
-	</c:if>
+	
 
+	
+
+	<div class="top-campaign">
+	
 	<form name="teamFrm">
 		<table>
 			<tr>
@@ -34,10 +33,17 @@ th, td {
 				<td><button class="btn btn-outline-secondary">검색</button>	</td>		
 			</tr>
 		</table>
-		
 	</form>
-
-	<div class="top-campaign">
+	
+	<c:if test="${membersession.uGrant=='admin'}">
+		<p align="right">
+			<a href="insertTeamForm"><button
+					class="btn btn-outline-secondary">새 팀 입력</button></a>
+		</p>
+	</c:if>
+	
+	
+	<br>
 		<table class="table">
 			<tr>
 				<th>순위		</th>

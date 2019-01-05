@@ -6,9 +6,12 @@
 	<!-- 페이징 전체 -->
 	<select id="getCount" resultType="int">
 		SELECT	COUNT(*)
-		FROM	INGAME
-	
-		ORDER BY	MATCHDATE DESC, GAME_ID DESC	
+		FROM 	INGAME
+		<if test="searchKeyword != null and searchKeyword != ''">
+		WHERE 	${searchCondition} LIKE '%'||#{searchKeyword}||'%'
+		OR		REDTEAMNAME LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		ORDER BY	MATCHDATE DESC, GAME_ID DESC
 	</select>
 
 	<!-- 경기 전체 보기 -->

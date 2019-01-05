@@ -8,7 +8,7 @@
 <title>updateMatch</title>
 
 <style>
-	body {
+	.body {
 	text-align: center;
 	}
 	
@@ -73,7 +73,7 @@ $(function(){
 </script>
 </head>
 <body>
-
+<div class="body">
  <!--  ctrl + shift + f 자동정렬 하지마세요! -->
 <div class="top-campaign">
 <form action="updateMatch">
@@ -313,9 +313,11 @@ $(function(){
 			</table>
 		</div>
 	</div>
-		<input type="submit" id="updateBtn" value="경기 수정"><br>
+	<div align="right">
+		<input class="btn btn-outline-secondary" type="submit" id="updateBtn" value="경기 수정"><br>
+	</div>
 </form>
 </div>
-
+</div>
 </body>
 </html>

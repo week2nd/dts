@@ -44,7 +44,7 @@ function teamCheck() {
 					<td><input type="hidden"	name="teamId" 		value="${team.teamId}">${team.teamId}		</td>
 					<td><input class="tdborder"	type="text"		name="director"		value="${team.director }">	</td>
 					<td><input class="tdborder"	type="text"		name="headCoach"	value="${team.headCoach }">	</td>
-					<td><input type="hidden"	name="name"			value="${team.name}">${team.name}			</td>
+					<td><input class="tdborder" type="text"		name="name"			value="${team.name}">		</td>
 				</tr>
 			</table>
 				<div align="right">

@@ -75,7 +75,7 @@ function insert(){
 <form action="insertMatch">
 
 <input type="hidden" name="gameId" value="0" readonly="readonly">
-	<h3 align="left">거시적 경기정보</h3>
+	<h3 align="left"> Pick / Ban </h3>
 	<br>
 	<div class="top-campaign" align="center">
 		<table class="table">
@@ -147,32 +147,32 @@ function insert(){
 			</tr>
 		</table>
 		</div>
-		<h3 align="left">미시적 경기정보</h3>
+		<h3 align="left"> 경기 선수별 세부정보 </h3>
 		<br>
 		<div class="top-campaign">
 		<table class="table" style="margin: auto; width: 80%">
 				<tr>
-					<td width="8%">Spell</td>
-					<td width="10%">Champ</td>
-					<td width="8%">Kill</td>
-					<td width="8%">Death</td>
-					<td width="8%">Assist</td>
-					<td width="8%">Kill</td>
-					<td width="8%">Death</td>
-					<td width="8%">Assist</td>
-					<td width="10%">Champ</td>
-					<td width="8%">Spell</td>
+					<th width="8%">Spell</th>
+					<th width="10%">Champ</th>
+					<th width="8%">Kill</th>
+					<th width="8%">Death</th>
+					<th width="8%">Assist</th>
+					<th width="8%">Kill</th>
+					<th width="8%">Death</th>
+					<th width="8%">Assist</th>
+					<th width="10%">Champ</th>
+					<th width="8%">Spell</th>
 				</tr>
 				<!-- Pick1 -->
 				<tr>
 					<td><input type="text" name="bluePick1Spell1" value="teleport" size="7" placeholder="D"></td>
 					<td rowspan="2"><input type="text" name="bluePick1" size="7" placeholder="블루 탑픽"></td>
-					<td colspan="3"><select name="blueGamer1">
+					<td style="text-align: right"colspan="3"><select name="blueGamer1">
 						<c:forEach items="${playerList}" var="player">
 							<option value="${player.nickname}">${player.nickname} </option>
 						</c:forEach>
 					</select></td>
-					<td colspan="3"><select name="redGamer1">
+					<td style="text-align: left" colspan="3"><select name="redGamer1">
 						<c:forEach items="${playerList}" var="player">
 							<option value="${player.nickname}">${player.nickname} </option>
 						</c:forEach>
@@ -197,13 +197,13 @@ function insert(){
 				<tr>
 					<td><input type="text" name="bluePick2Spell1" value="smite" size="7" placeholder="D"></td>
 					<td rowspan="2"><input type="text" name="bluePick2"  size="7" placeholder="블루 정글픽"></td>
-					<td colspan="3">
+					<td style="text-align: right"colspan="3">
 					<select name="blueGamer2">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>
 					</c:forEach>
 					</select></td>
-					<td colspan="3">
+					<td style="text-align: left"colspan="3">
 					<select name="redGamer2">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>
@@ -229,13 +229,13 @@ function insert(){
 				<tr>
 					<td><input type="text" name="bluePick3Spell1" value="ignite" size="7" placeholder="D"></td>
 					<td rowspan="2"><input type="text" name="bluePick3" value="${match.bluePick3}" size="7" placeholder="블루 미드픽"></td>
-					<td colspan="3">
+					<td style="text-align: right"colspan="3">
 					<select name="blueGamer3">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>
 					</c:forEach>
 					</select></td>
-					<td colspan="3">
+					<td style="text-align: left"colspan="3">
 					<select name="redGamer3">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>
@@ -261,13 +261,13 @@ function insert(){
 				<tr>
 					<td><input type="text" name="bluePick4Spell1" value="heal" size="7" placeholder="D"></td>
 					<td rowspan="2"><input type="text" name="bluePick4" size="7" placeholder="블루 원딜픽"></td>
-					<td colspan="3">
+					<td style="text-align: right"colspan="3">
 					<select name="blueGamer4">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>
 					</c:forEach>
 					</select></td>
-					<td colspan="3">
+					<td style="text-align: left"colspan="3">
 					<select name="redGamer4">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>
@@ -293,13 +293,13 @@ function insert(){
 				<tr>
 					<td><input type="text" name="bluePick5Spell1" value="exhaust" size="7" placeholder="D"></td>
 					<td rowspan="2"><input type="text" name="bluePick5"  size="7" placeholder="블루 서포터픽"></td>
-					<td colspan="3">
+					<td style="text-align: right"colspan="3">
 					<select name="blueGamer5">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>
 					</c:forEach>
 					</select></td>
-					<td colspan="3">
+					<td style="text-align: left"colspan="3">
 					<select name="redGamer5">
 					<c:forEach items="${playerList}" var="player">
 						<option value="${player.nickname}">${player.nickname} </option>

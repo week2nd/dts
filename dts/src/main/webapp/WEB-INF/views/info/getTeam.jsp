@@ -14,6 +14,19 @@ th {
 	height: 60%;
 }
 </style>
+
+<script type="text/javascript">
+$(function() {
+	$("#deleteMatchBtn").click(function() {
+		if (confirm("정말 삭제하시겠습니까??")) {
+			alert("삭제했습니다.")
+			return true;
+		} else {
+			return false;
+		}
+	})
+});
+</script>
 <title>getTeam.jsp</title>
 </head>
 <body>
@@ -101,9 +114,9 @@ th {
 		</table>
 	</div>
 	<c:if test="${membersession.uGrant=='admin'}">
-		<div>
-			<a class="badge-light[href]:focus"
-				href="deleteTeam?teamId=${team.teamId}">삭제</a>
+		<div align="right">
+			<a class="btn btn-outline-secondary"	href="deleteTeam?teamId=${team.teamId}"
+			id="deleteMatchBtn">삭제</a>
 		</div>
 	</c:if>
 </body>
