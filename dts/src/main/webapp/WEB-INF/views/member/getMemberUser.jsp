@@ -87,7 +87,7 @@
 
 	#all{
 		background-color: #f2f2f2;
-		margin:auto;  
+		margin: auto;  
 		border-radius: 2em;
 	}
 	#chkPw{
@@ -150,6 +150,8 @@
 
 </head>
 <body>
+	
+	<h2 align="center">유저가 개인정보보기</h2><br>
 	<form action="updateMemberForm" method="post">
 	<input type="hidden" name="uId" value="${member.uId }" />
 	<input type="hidden" id="chkpw2" value="${member.uPw }">
@@ -159,14 +161,8 @@
 	<input type="hidden" id="uLose" value="${member.uLose}">			<!-- 구글차트에서 틀린횟수 필요 -->
 	<input type="hidden" id="uEmail" value="${member.uEmail}">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="overview-wrap">
-					<h2 align="center">유저가 개인정보보기</h2>
-				</div>
-			</div>
-		</div>
-	<div class="col-lg-7" id="all">
+		
+	<div class="col-lg-12" id="all">
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
@@ -179,7 +175,7 @@
 			</div>
 			<div class="col-lg-6" style="float:; width:100px; height:100px;">
 				<div class="au-card recent-report">
-					<div id="piechart" style="width: 500px; height: 500px;">
+					<div id="piechart" style="width: 450px; height: 450px;">
 				</div>
 			</div>
 		</div>
@@ -327,6 +323,7 @@
 		
 				
 	</form>
+	<br>
 
 </body>
 </html>

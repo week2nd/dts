@@ -341,7 +341,7 @@
 /*	}*/ 
  	#all{
 		background-color: #f2f2f2;
-		margin:auto;  
+		margin: auto;  
 		border-radius: 2em;
 	}
 
@@ -362,7 +362,7 @@
 		size: 40px;
 	 	border: 1px solid #f2f2f2; 
 	 	padding: 8px 20px;
-		width: 30%;
+		width: 49%;
 		margin: 20px 0px 0px 0px;
 	}
 	#roadAddress{
@@ -416,7 +416,7 @@
 <body>
 	<h2 align="center">회원가입</h2><br>
 	<form action="insertMember" method="post">
-		<div id="all" class="col-5">
+		<div id="all" class="col-8">
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
@@ -533,6 +533,6 @@
 		</div>
 	    
     </form>
-
+	<br>
 </body>
 </html>

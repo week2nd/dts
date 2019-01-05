@@ -88,19 +88,13 @@ $(function (){
 	}
 </style>
 <body>
-	
+	<h2 align="center">유저 비밀번호 수정</h2>	<br>			
 	<form action="updatePw" method="post">
 	<input type="hidden" name="uId" value="${member.uId }" /> 
 	<input type="hidden" name="uPw" id="uPw" value="${member.uPw }" />
 		
-			<div class="row">
-				<div class="col-md-12">
-					<div class="overview-wrap">
-						<h2 align="center">유저 비밀번호 수정</h2>			<br>			
-					</div>
-				</div>
-			</div>
-			<div id="all" class="col-lg-5">
+			
+			<div id="all" class="col-lg-7">
 			<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-3">
@@ -154,5 +148,6 @@ $(function (){
 		</div>
 		</div>
 	</form>
+	<br>
 </body>
 </html>

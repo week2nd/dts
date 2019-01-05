@@ -334,6 +334,7 @@
 
 </head>
 <body>
+		<h2 align="center">단일유저 정보 수정폼</h2><br>
 	<form action="updateMemberUser" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" /> 
 		<input type="hidden" id="uAddress" name="uAddress" value="${member.uAddress }">
@@ -341,14 +342,8 @@
 		<input type="hidden" name="uPw" id="uPw" value="${member.uPw }" />
 		
 		
-			<div class="row">
-				<div class="col-md-12">
-					<div class="overview-wrap">
-						<h2 align="center">단일유저 정보 수정폼</h2><br>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-5" id="all">
+			
+			<div class="col-lg-8" id="all">
 			<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-3">
@@ -473,5 +468,6 @@
 		
 		
 	</form>
+	<br>
 </body>
 </html>
