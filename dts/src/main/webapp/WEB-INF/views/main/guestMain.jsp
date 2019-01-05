@@ -134,7 +134,7 @@
 		<br><br>
 		<div class="container2">
 		<div class="row">
-		<div class="col-8">
+		<div class="col-6">
 		<ul class="nav nav-pills mb-3">
 			<li class="nav-item">
 				<a class="nav-link active show" onclick="change1()"
@@ -158,7 +158,7 @@
 				</li>
 		</ul>
 		
-         <div class="row">
+         <div class="row" style="width:150%;">
             <div class="col-8 notice">
                <table border="0" class="table">
                   <tr>
@@ -240,7 +240,7 @@
          </div>
          <div class="col-4">
 	         <div>
-	         	<a href="./helper"><img src="img\skt2.png"></a>
+	         	<a href="./helper"><img src="img\helper.PNG"></a>
 	         </div>
 	     </div>
          </div>
