@@ -292,7 +292,7 @@ a.text-primary:hover,a.text-primary:focus{
 	background: #d0d0d0;
 }
 .top-nav .btn {
-	position: absolute;
+	/* position: absolute; */
 	right: 0;
 	top: -3px;
 	border-radius:3px;

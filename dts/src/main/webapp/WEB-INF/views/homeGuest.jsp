@@ -108,7 +108,7 @@ $(function(){
 	<!-- Top Navigation -->
 	<section class="top-nav">
 		<nav class="navbar navbar-expand-lg py-0">
-			<div class="container-fluid">
+			<div class="container-fluid" style="width:68%">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -135,7 +135,7 @@ $(function(){
 						<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 					</ul> 
-					<div><button style="margin-top:10px; margin-right:5px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>
+					<div><button style="margin-left:400px;" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginForm">로그인/회원가입</button></div>
 				</div>				
 			</div>
 		</nav>		
@@ -176,7 +176,7 @@ $(function(){
 		</div>
 	</div>
 
-	<section class="container">
+	<section class="container" style="padding-top:240px;">
 		<div class="col-md-12">
 			<tiles:insertAttribute name="content" />
 		</div>

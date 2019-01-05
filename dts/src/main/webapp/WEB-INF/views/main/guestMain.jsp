@@ -30,7 +30,21 @@
      color: white;
      text-align: center;
 }
+#all{
+	width: 10%;
+	height: 10%;
+	
+}
+#abc{
+	/* float:; width:900px; height:100px; */
 
+ /*  	width: 500px;
+    height: 500px; */
+/*    margin: 500px 100px 100px 100px;*/
+
+/* 	position: relative;
+	top:300px; */
+}
 	
 </style>
 <script>
@@ -92,8 +106,8 @@
 </script>
 </head>
 <body>
-
-   <h3>게스트 메인페이지</h3>
+	<div id="abc">
+   <h3 >게스트 메인페이지</h3>
 	
    <form>
       <div class="container">
@@ -104,9 +118,9 @@
 		         		<input type="hidden" id="matchDate${status.count}" name="matchDate" value="${match.matchDate}"><br>
 		         		<h4>경기번호 : ${match.gameId}<br>
 		         		날짜 : <label id="temp${status.count}"></label><br>
-		         		<a href="getTeam?teamId=${match.blueTeamName}">매치 : ${match.blueTeamName}</a>
+		         		매치 : <a href="getTeam?teamId=${match.blueTeamName}"><input type="button" class="btn btn-outline-primary" value="${match.blueTeamName}"></a>
 		         		vs
-		                <a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a><br>
+		                <a href="getTeam?teamId=${match.redTeamName}"><input type="button" class="btn btn-outline-primary" value="${match.redTeamName}"></a><br>
 		         		<c:if test="${membersession.uGrant!='admin'}">
 		         		<a href="buyMatchList">
 		                	<input type="button" value="구매" class="deleteBtn btn btn-primary" > 
@@ -230,6 +244,6 @@
             </div>
          </div>
    </form>
-
+</div>
 </body>
 </html>
