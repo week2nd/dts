@@ -208,6 +208,7 @@
 	#button, #deleteBtn, #cancelBtn{
 		margin: 20px 0px 20px 0px;
 	}
+
 </style>
 
 
@@ -216,7 +217,7 @@
 	<h2 align="center">관리자가 단일유저 정보보기</h2><br>
 	<form action="updateMember" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" />
-		<div id="all" class="col-5">
+		<div id="all" class="col-6">
 		<div class="container">
 			<div class="row">
 				<div class="col-3">

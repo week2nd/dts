@@ -109,6 +109,7 @@
 	 	size: 40px;
 	 	border: 1px solid #f2f2f2; 
 	 	padding: 8px 20px;
+	 	border: 1px solid #ff0000
 	}	
 	#ab{
 	 	size: 40px;

@@ -35,16 +35,7 @@
 	height: 10%;
 	
 }
-#abc{
-	/* float:; width:900px; height:100px; */
 
- /*  	width: 500px;
-    height: 500px; */
-/*    margin: 500px 100px 100px 100px;*/
-
-/* 	position: relative;
-	top:300px; */
-}
 	
 </style>
 <script>
@@ -140,7 +131,10 @@
                 </c:forEach>
 			</div>
 		</div>
-
+		<br><br>
+		<div class="container2">
+		<div class="row">
+		<div class="col-8">
 		<ul class="nav nav-pills mb-3">
 			<li class="nav-item">
 				<a class="nav-link active show" onclick="change1()"
@@ -165,7 +159,7 @@
 		</ul>
 		
          <div class="row">
-            <div class="col-4 notice">
+            <div class="col-8 notice">
                <table border="0" class="table">
                   <tr>
                      <td>번호</td>
@@ -184,7 +178,7 @@
                   </c:forEach>
                </table>
             </div>
-            <div class="col-4 free" style="display: none;">
+            <div class="col-8 free" style="display: none;">
                <table border="0" class="table">
                   <tr>
                      <td>번호</td>
@@ -204,7 +198,7 @@
                </table>
             </div>
 
-            <div class="col-4 analysis" style="display: none;">
+            <div class="col-8 analysis" style="display: none;">
                <table border="0" class="table">
                   <tr>
                      <td>번호</td>
@@ -223,7 +217,7 @@
                   </c:forEach>
                </table>
             </div>
-            <div class="col-4 suggestion" style="display: none;">
+            <div class="col-8 suggestion" style="display: none;">
                <table border="0" class="table">
                   <tr>
                      <td>번호</td>
@@ -242,6 +236,14 @@
                   </c:forEach>
                </table>
             </div>
+         </div>
+         </div>
+         <div class="col-4">
+	         <div>
+	         	<a href="./helper"><img src="img\skt2.png"></a>
+	         </div>
+	     </div>
+         </div>
          </div>
    </form>
 </div>
