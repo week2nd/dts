@@ -10,8 +10,7 @@
 	
 <script type="text/javascript">
 	google.charts.load('current', {'packages' : [ 'corechart', 'bar']});
-	google.charts.setOnLoadCallback(drawChart);     
-    
+	google.charts.setOnLoadCallback(drawChart); 
 	$(function(){
 		var today = new Date(); 
 		var tyear = today.getFullYear(); 
@@ -54,10 +53,10 @@
 			
 	function chart1(data) {
 		var myArray = [];
-		myArray.push(["day", "발매티켓수"]);
+		myArray.push(["일자별", "발매티켓수"]);
 		
 		for(var i=0; i<data.purchaseList.length; i++) {
-			myArray.push([data.purchaseList[i].day, data.purchaseList[i].cnt]);
+			myArray.push([data.purchaseList[i].day+"일", data.purchaseList[i].cnt]);
 		}
 		
 		var options = {
@@ -76,10 +75,10 @@
 			
 	function chart2(data){
 		var myArray1 = [];
-		myArray1.push(["날짜", "이익"]);
+		myArray1.push(["일자별", "이익"]);
 		
 		for(var j=0; j<data.mhistoryList.length; j++) {
-			myArray1.push([data.mhistoryList[j].betdate, data.mhistoryList[j].cntMileage]);
+			myArray1.push([data.mhistoryList[j].day+"일", data.mhistoryList[j].cntMileage]);
 		}
 		
 	
@@ -104,25 +103,30 @@
 	
 	function chart3(data) {
 		var myArray2 = [];
-		myArray2.push(["게임번호", "구입갯수"]);
+		myArray2.push(["게임번호", "판매수","적중수"]);
 		
 		for(var j=0; j<data.purchaseGame.length; j++) {
-			myArray2.push([data.purchaseGame[j].gameId, data.purchaseGame[j].gameCnt]);
+			myArray2.push([data.purchaseGame[j].gameId, data.purchaseGame[j].gameCnt, data.purchaseGame[j].gameCntAcu]);
 		}
-
+		
 	var options2 = {
-			
-			chart : {
-				/* title : '게임별 판매수',
-				subtitle : 'Member, Number, and Profit: 2017-2019', */
+			vAxis: {title: '판매갯수'},
+	        hAxis: {title: '게임번호'},
+			seriesType: 'bars',
+			series: {1: {type: 'line'}}
+/* 			series: {1: {type: 'bar'}} */
+			/* chart : {
+				title : '게임별 판매수',
+				subtitle : 'Member, Number, and Profit: 2017-2019',
 				height : '500px'
+			} */
 			}
-		};
+			
+		/* var datas2= google.visualization.arrayToDataTable(myArray2); */
+		var datas2 = google.visualization.arrayToDataTable(myArray2);
+		var chart2 = new google.visualization.ComboChart(document.getElementById('columnchart_material2'));
 
-		var datas2= google.visualization.arrayToDataTable(myArray2);
-		var chart2 = new google.charts.Bar(document.getElementById('columnchart_material2'));
-
-		chart2.draw(datas2, google.charts.Bar.convertOptions(options2));
+		chart2.draw(datas2, options2);
 	}
 			
 		
@@ -136,11 +140,7 @@
 
 		var options3 = {
 				
-				vAxis : {
-					minValue: 5000,
-		            maxValue: 1000000
-					
-				} ,
+				
 		          chart: {
 		           /*  title: '게임수익',
 		            subtitle: 'Sales, Expenses, and Profit: 2014-2017', */

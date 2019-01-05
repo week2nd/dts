@@ -13,6 +13,12 @@
 <script>
 	function go_page(page) {
 		location.href = "getPurchaseListAd?page=" + page;
+		document.frm.page.value=page;
+		document.frm.submit();
+		
+		/* if("${purchaseVO.searchCondition}" != "") {
+			document.frm.searchCondition.value = "${purchaseVO.searchCondition}"; */
+		
 	}
 </script>
 </head>
@@ -21,10 +27,11 @@
 		<div style="margin-bottom: 10px; display: inline-flex; width:100%" >
 			<form name="frm" style="width:95%;">
 				<select name="searchCondition" class="custom-select" style="width:15%">
-					<option value="GAME_ID">게임번호
-					<option value="U_Id">아이디
-					<option value="CHOISE">선택팀
-				</select> <input type="text" name="searchKeyword" style="margin-left:10px; border-bottom: 2px solid black;">
+					<option <c:if test="${purchaseVO.searchCondition=='GAME_ID'}">selected</c:if>value="GAME_ID">게임번호
+					<option <c:if test="${purchaseVO.searchCondition=='U_ID'}">selected</c:if>value="U_Id">아이디
+					<option <c:if test="${purchaseVO.searchCondition=='CHOISE'}">selected </c:if>value="CHOISE">선택팀
+				</select> <input type="text" name="searchKeyword" value="${purchaseVO.searchKeyword}" style="margin-left:10px; border-bottom: 2px solid black;">
+				<input type="hidden" name="page"/>
 				<button class="btn btn-outline-secondary">검색</button>
 			</form>
 			<div style="display: inline-block;"><button  class="btn btn-outline-secondary" onclick="window.location.href='getPurchaseListAd'">전체보기</button>

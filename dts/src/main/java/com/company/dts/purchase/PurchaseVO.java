@@ -17,6 +17,7 @@ public class PurchaseVO {
 	private int first;
 	private int last;
 	private int gameCnt;
+	private int gameCntAcu;
 	private int gameMoney;
 	private int gameReturnMoney;
 	private int teamCnt;
@@ -25,6 +26,12 @@ public class PurchaseVO {
 	private int month;
 		
 	
+	public int getGameCntAcu() {
+		return gameCntAcu;
+	}
+	public void setGameCntAcu(int gameCntAcu) {
+		this.gameCntAcu = gameCntAcu;
+	}
 	public int getYear() {
 		return year;
 	}

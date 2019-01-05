@@ -112,11 +112,18 @@
 	</select>
 	
 	<select id="getPurchaseGameChart" resultType="purchase">
-		SELECT GAME_ID,
+<!-- 		SELECT GAME_ID,
 			   COUNT(GAME_ID) AS gameCnt
 		  FROM PURCHASE
 		  GROUP BY GAME_ID
-		  ORDER BY GAME_ID
+		  ORDER BY GAME_ID -->
+		  
+		  SELECT GAME_ID, 
+				  	COUNT(*) AS gameCnt, 
+				  	SUM(CASE WHEN ACCURACY = '적중성공' THEN 1
+		    		ELSE 0 END) AS gameCntAcu 
+    		FROM PURCHASE A GROUP BY GAME_ID ORDER BY 1
+		  
 	</select>
 	
 	<select id="getPurchaseGameMoney" resultType="purchase">
