@@ -113,6 +113,12 @@ public class MemberController {
 	public String insertMemberform() {
 		return "guest/member/insertMember";
 	}
+	
+	// 약관 폼
+	@RequestMapping("/insertContract")
+	public String insertContractform() {
+		return "guest/member/insertContract";
+	}
 		
 	// 회원가입 등록처리
 	@RequestMapping(value="insertMember", method = RequestMethod.POST)

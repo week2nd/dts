@@ -67,6 +67,7 @@
             <mvc:exclude-mapping path="/pwSearchForm"/>
             <mvc:exclude-mapping path="/checkId*"/>
             <mvc:exclude-mapping path="/mailSend*"/>
+            <mvc:exclude-mapping path="/insertContract"/>
             
             <ref bean="authenticationInterceptor"/>
         </mvc:interceptor>
