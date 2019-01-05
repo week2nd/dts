@@ -25,7 +25,7 @@ $(function() {
 
 </script>
 
-<div class="col-lg-6">
+<div class="col-lg-45" style="height: 700px;">
 		<div class="card">
 			<div class="card-body card-block">			
 					</div>
@@ -66,12 +66,13 @@ $(function() {
 						
 						</div>
 					</div>
+				<button name="boardType" value="${type}" class="updatebo">저장</button>
+				<a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">취소</a>
 			</div>
 			
 			<!-- <input	type="file" name="uploadFile"><br> -->
 			
-				<button name="boardType" value="${type}" class="updatebo">저장</button>
-				<a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">취소</a>
+
 
 			</div>
 			</form>

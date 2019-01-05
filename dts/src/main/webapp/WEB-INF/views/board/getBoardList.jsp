@@ -15,6 +15,7 @@
 </style>
 </head>
 <body>
+<div class="top-campaign">
 	<div align="center">
 	<c:if test="${type=='notice'}">
 	<h3>공지게시판</h3>
@@ -32,7 +33,7 @@
 	
 	
 	<form name="frm">
-	<div style="border:1px solid black; width:14%; box-sizing:content-box;">
+	<div style="border:1px solid black; width:28%; box-sizing:content-box;">
 		<!-- 게시판 검색!! -->
 		<select name="searchCondition">
 			<option value="board_Title">제목
@@ -53,10 +54,18 @@
 	</script>
 	
 	<form action="deleteBoardList">	
+	<div align="right">
+	
 	<c:if test="${membersession.uGrant=='admin'}">					<!-- admin 으로 로그인시 선택삭제가 보인다. -->
+	<div class="btn btn-outline-secondary">
 		<input type=hidden name = "type" value = "${type}">			
 		<button>선택삭제</button>
+	</div>
 	</c:if>
+	</div>
+	
+	
+	
 		<script>
 			function go_sort(sortCol) {								// 정렬 기능
 				document.frm.sortCol.value = sortCol;
@@ -107,12 +116,15 @@
 			</c:forEach>
 		</table>
 		</div>
+		
 	</form>
-		<div align="right" style="padding: 0px 40px 0px 0px;">
+	<div style="text-align:right;" >
+		<div class="btn btn-outline-secondary">
 		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">		
 		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
 		</c:if>
 		</div>
+	</div>
 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
 
@@ -120,6 +132,6 @@
 	<!-- 페이징 위해 추가  -->
 	<my:paging paging="${paging}" jsFunc="go_page" />
 	</div>
-
+</div>
 </body>
 </html>

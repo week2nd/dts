@@ -52,12 +52,12 @@ $(function() {
 
 </script>
 
-	<div class="col-lg-6">
+	<div class="col-lg-45" style="height: 700px;">
 		<div class="card">
 			<div class="card-body card-block">			
 					</div>
  					<div class="row form-group">
-						<div class="col col-md-1" style="font-size:20px; margin-left:70px;" >
+						<div class="col col-md-2" style="font-size:20px; margin-left:70px;" >
 							<label  for="text-input" class=" form-control-label">제목</label>	
 						</div> 
 						<div class="col-202 col-md-9">
@@ -67,7 +67,7 @@ $(function() {
 						</div>
 					</div>
 					<div class="row form-group">
- 						<div class="col col-md-1" style="font-size:20px; margin-left:70px;" >
+ 						<div class="col col-md-2" style="font-size:20px; margin-left:70px;" >
 							<label for="text-input" class=" form-control-label">내용</label> 
 						</div>
 						<div class="col-202 col-md-9" >
@@ -88,15 +88,15 @@ $(function() {
 								class="form-control-file">
 						</div>
 					</div>
+				<button name="boardType" value="${type}" class="insertbo">저장</button>
+				<a href="./getBoardList?type=${type}"><input type="button" value="취소"  /></a>
 			</div>
 			
 			<!-- <input	type="file" name="uploadFile"><br> -->
 			
-				<button name="boardType" value="${type}" class="insertbo">저장</button>
-				<a href="./getBoardList?type=${type}"><input type="button" value="취소"  /></a>
+	
 			</div>
 			</form>
-			
-			
+				
 </body>
 </html>

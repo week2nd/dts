@@ -37,16 +37,23 @@
 			btn = "<button type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
 					+ "<button type=\"button\" class=\"btnDel\">삭제</button>"
 		}
-		var str = "<strong class='uId'>" + comment.uid + "</strong>"
+		var str =
+				"<strong class='uId'>" + comment.uid + "</strong>"
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" 
 				+ "<strong class='commentName'>" + comment.commentsName
-				+ "</strong>" + "<span class='commentContent'>"
-				+ comment.commentsContent + "</span>" + btn
-
+				+ "<br>" 
+				+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" 
+				+"</strong>" + "<span class='commentContent'>"+ comment.commentsContent + "</span>" 
+				+ "<br>"
+				+ btn
+				
 		div.html(str);
 
 		return div;
 	}
 
+	
+	
 	$(function() {
 	
     	$(".like1").click(function(){		// 가입버튼 누르면 뜨는 alert
@@ -61,9 +68,9 @@
 		
 		
 		//단일 게시판 내용 엔터키 가능
-		var text = $('#boardContent').html();
+		var text = $('#boardContent').value();
 		var result = text.replace(/(\n|\r\n)/g, '<br>');
-		$('#boardContent').html(result);
+		$('#boardContent').value(result);
 	
 		loadCommentList();
 		
@@ -161,81 +168,81 @@
 </script>
 </head>
 <body>
+<div class="top-campaign">
 <div align="center">
 	<h1>게시글보기</h1>
 	
-	<div class="col-lg-6">
+	<div class="col-lg-45">
 		<div class="card">
 			<div class="card-body card-block">			
 					</div>
  					<div class="row form-group">
-						<div class="col col-md-1" style="font-size:20px; margin-left:70px;" >
+						<div class="col col-md-2" style="font-size:20px; margin-left:70px;" >
 							<label  for="text-input" class=" form-control-label">제목</label>	
 						</div> 
-						<div class="col-202 col-md-9">
+						<div class="col-202 col-md-7">
 							<input type="text" id="boardTitle" name="boardTitle"
-								class="form-control" value="${board.boardTitle}" > <small
+								class="form-control" value="${board.boardTitle}" readonly> <small
 								class="form-text text-muted"></small>
 						</div>
 					</div>
 					<div class="row form-group">
- 						<div class="col col-md-1" style="font-size:20px; margin-left:70px;" >
+ 						<div class="col col-md-2" style="font-size:20px; margin-left:70px;" >
 							<label for="text-input" class=" form-control-label">내용</label> 
 						</div>
-						<div class="col-202 col-md-9" >
+						<div class="col-202 col-md-7">
 							<input type="text" name="boardContent" id="boardContent"
-								class="form-control" value="${board.boardContent}" >
+								class="form-control"  value="${board.boardContent}" readonly>
 								<small class="form-text text-muted"></small>
 						</div>
 					</div>	
+										
 					
-					
-					<div style="display:inline;min-width:100%;">	
 					<div class="row form-group">
- 						<div class="col col-md-1" style="font-size:20px; margin-left:70px; float: left; width: 10%;
+ 						<div class="col col-md-2" style="font-size:20px; margin-left:70px; float: left; width: 10%;
  						display:inline;float:left;width:10%">
 							<label for="text-input" class=" form-control-label">작성일시</label> 
 						</div>
-						<div class="col-202 col-md-2" style="display:inline;float:left;width:100px;">
+						<div class="col-202 col-md-7" style="display:inline;float:left;">
 							<input type="text" name="postDate" id="postDate"
-								class="form-control" value="${board.postDate}" >
+								class="form-control" value="${board.postDate}" readonly>
 								<small class="form-text text-muted"></small>
 						</div>
 					</div>		
 					<div class="row form-group">
- 						<div class="col col-md-1" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
+ 						<div class="col col-md-2" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
 							<label for="text-input" class=" form-control-label">아이디</label> 
 						</div>
-						<div class="col-202 col-md-2" style="display:inline;float:left;width:10%;">
+						<div class="col-202 col-md-7" style="display:inline;float:left;">
 							<input type="text" name="uId" id="uId"
-								class="form-control" value="${board.uId}" >
+								class="form-control" value="${board.uId}" readonly>
 								<small class="form-text text-muted"></small>
 						</div>
 					</div>		
 					<div class="row form-group">
- 						<div class="col col-md-1" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
+ 						<div class="col col-md-2" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
 							<label for="text-input" class=" form-control-label">조회수</label> 
-						</div>
-						<div class="col-202 col-md-2" style="display:inline;float:left;width:10%;">
+						</div> 
+						<div class="col-202 col-md-7" style="display:inline;float:left;">
 							<input type="text" name="boardHits" id="boardHits"
-								class="form-control" value="${board.boardHits}" >
+								class="form-control" value="${board.boardHits}" readonly>
 								<small class="form-text text-muted"></small>
 						</div>
 					</div>		
 						<div class="row form-group">
- 						<div class="col col-md-1" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
+  						<div class="col col-md-2" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
 							<label for="text-input" class=" form-control-label">추천수</label> 
-						</div>
-						<div class="col-202 col-md-2" style="fdisplay:inline;float:left;width:10%;">
+						</div> 
+						<div class="col-202 col-md-7" style="fdisplay:inline;float:left;">
 							<input type="text" name="boardLike" id="boardLike"
-								class="form-control" value="${board.boardLike}" >
+								class="form-control" value="${board.boardLike}" readonly>
 								<small class="form-text text-muted"></small>
 						</div>
 					</div>
-						</div>	
+
 	</div>	
 	
-	<br> 게시판번호 : ${board.boardNumber }
+<%-- 	<br> 게시판번호 : ${board.boardNumber }
 	<br> 게시판제목 : ${board.boardTitle}
 	<br> 게시판내용 : <span id="boardContent">${board.boardContent }</span>
 	<br> 작성일시 : ${board.postDate }
@@ -244,32 +251,49 @@
 	<br> 아이디 : ${board.uId }
 	<c:if test="${membersession.uGrant=='admin'}">
 	<br> 게시판타입 : ${board.boardType }
-	</c:if>
+	</c:if> 
 	
-	<br>
+	<br>--%>
+	
+<br><br>	
 	<c:if test="${not empty board.uploadFileName}">
 		<!-- 이미지 파일 보여주는것 -->
 		<a href="FileDown?atchFileId=${board.uploadFileName}">${board.uploadFileName }</a>
 		<img src="./img/${board.uploadFileName }" />
 		<!-- 이미지 파일 보여주는것 -->
 	</c:if>
-	
-	<br>
+
+	<br><br><br>
 	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 수정 가능 -->
-		<a href="updateBoardform?boardNumber=${board.boardNumber}&uId=${board.uId}&boardType=${board.boardType}&uploadFileName=${board.uploadFileName}"><input type="button" value="수정"  /></a>
-	</c:if>
-	<c:if test="${membersession.uId == board.uId}">			<!-- 작성자 id로 로그인시 삭제 가능 -->
-		<a href="deleteBoard?boardNumber=${board.boardNumber}&uId=${board.uId}"><button class="boarddelete">삭제</button></a>
+	<div class="btn btn-outline-secondary">
+		<a href="updateBoardform?boardNumber=${board.boardNumber}&uId=${board.uId}&boardType=${board.boardType}&uploadFileName=${board.uploadFileName}">수정</a>
+		</div>	
 	</c:if>
 	
 	
-	<a href="getBoardList?type=${board.boardType}"><input type="button" value="리스트"  /></a>
+	<c:if test="${membersession.uId == board.uId || membersession.uGrant=='admin'}">			<!-- 작성자 id로 로그인시 삭제 가능 -->
+	<div class="btn btn-outline-secondary">
+		<a href="deleteBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">삭제</a>
+		</div>
+	</c:if>
+	
+	
+	<div class="btn btn-outline-secondary">
+	<a href="getBoardList?type=${board.boardType}">리스트</a>
+	</div>
+	
 	
 	<c:if test="${board.likeCheck == 0}">					<!-- 유저 ID 비교후 좋아요 기록 없으면 좋아요 1 추가 -->
-		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}"><button class="like1">♥</button></a>
+	<div class="btn btn-outline-secondary">
+		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♥</a>
+	</div>
 	</c:if>
+	
+	
 	<c:if test="${board.likeCheck == 1}">					<!-- 유저 ID 비교후 자신이 좋아요 한 기록 -1 -->
-		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}"><button class="likecancel1">♡</button></a>
+	<div class="btn btn-outline-secondary">					
+		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♡</a>
+		</div>
 	</c:if>
 
 	
@@ -278,24 +302,34 @@
 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
 
 	<hr>
+	<div align="center">
 	<h3>댓글</h3>
+	</div>
 	
-	<div id="commentsList"></div>
-
-	<!-- 댓글등록시작 -->
+		<!-- 댓글등록시작 -->
 	<div id="commentAdd" align="center">
 		<form name="addForm" id="addForm">
 			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 			<input type="hidden" name="boardType" value="${board.boardType}">
 			<input type="hidden" name="uId" value="${membersession.uId}">
-			<br> 
-			이름: <input type="text" id="commentsName" name="commentsName" size="10" maxlength=120><br /> 
-			내용: <textarea id="commentsContent" name="commentsContent" cols="20" rows="2"></textarea>
-			<br /> 
+			<br>	
+			이름 : <input style="margin-left: 10px; border: 1px solid black;" type="text" id="commentsName" name="commentsName" size="22" maxlength=120><br />	
+			내용: <textarea style="margin-left: 10px; border: 1px solid black;" id="commentsContent" name="commentsContent" cols="20" rows="2"></textarea><br />	
+			<div class="btn btn-outline-secondary"> 	
 			<input type="button" value="등록" id="btnAdd" />
+			</div>
 		</form>
 	</div>
 	<!-- 댓글등록끝 -->
+	<br>
+	
+	<div align="center">
+	<div id="commentsList"></div>
+	</div>	
+	<br>
+	
+
+
 
 	<!-- 댓글수정폼시작 -->
 	<div id="commentUpdate" style="display: none" align="center">
@@ -303,15 +337,16 @@
 			<input type="hidden" name="boardNumber" value="${board.boardNumber}">
 			<input type="hidden" name="boardType" value="${board.boardType}" />
 			<input type="hidden" name="uId" value="${membersession.uId}">
-			<input type="hidden" name="commentsSeq"> 이름: <input
-				type="text" id="commentsName" name="commentsName" size="10"><br /> 내용:
-			<textarea id="commentsContent" name="commentsContent" cols="20" rows="2"></textarea>
-			<br /> <input type="button" value="등록" id="btnUpd" maxlength=120/> <input
+			<input type="hidden" name="commentsSeq"> 
+			이름: <input style="margin-left: 10px; border: 1px solid black;" type="text" id="commentsName" name="commentsName" size="20"><br /> 
+			내용:<textarea style="margin-left: 10px; border: 1px solid black;" id="commentsContent" name="commentsContent" cols="20" rows="2"></textarea><br /> 
+			<input type="button" value="등록" id="btnUpd" maxlength=120/> <input
 				type="button" value="취소" id="btnCancel" />
 		</form>
 	</div>
 	<!-- 댓글수정폼끝 -->
 	</div>	<!-- center로 보내는 div -->
+	</div>
 	</div>
 </body>
 </html>
