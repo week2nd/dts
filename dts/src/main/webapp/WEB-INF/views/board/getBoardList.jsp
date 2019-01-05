@@ -40,8 +40,9 @@
 		</select> <input type="text" name="searchKeyword"
 			value="${boardVO.searchKeyword}">
 		<button>검색</button>
-		<input type="hidden" name="sortCol" /> <input type="hidden"
-			name="page" /> <input type="hidden" name="type" value="${type}" />
+		<input type="hidden" name="sortCol" /> 
+		<input type="hidden" name="page" /> 
+			<input type="hidden" name="type" value="${type}" />
 	</div>
 	</form>
 	

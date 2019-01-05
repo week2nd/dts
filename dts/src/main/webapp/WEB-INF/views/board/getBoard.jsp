@@ -60,6 +60,7 @@
 		});
 		
 		
+		//단일 게시판 내용 엔터키 가능
 		var text = $('#boardContent').html();
 		var result = text.replace(/(\n|\r\n)/g, '<br>');
 		$('#boardContent').html(result);
@@ -183,10 +184,55 @@
 						</div>
 						<div class="col-202 col-md-9" >
 							<input type="text" name="boardContent" id="boardContent"
-								class="form-control" span id="boardContent" value="${board.boardContent}" >
+								class="form-control" value="${board.boardContent}" >
 								<small class="form-text text-muted"></small>
 						</div>
-					</div>			
+					</div>	
+					
+					
+					<div style="display:inline;min-width:100%;">	
+					<div class="row form-group">
+ 						<div class="col col-md-1" style="font-size:20px; margin-left:70px; float: left; width: 10%;
+ 						display:inline;float:left;width:10%">
+							<label for="text-input" class=" form-control-label">작성일시</label> 
+						</div>
+						<div class="col-202 col-md-2" style="display:inline;float:left;width:100px;">
+							<input type="text" name="postDate" id="postDate"
+								class="form-control" value="${board.postDate}" >
+								<small class="form-text text-muted"></small>
+						</div>
+					</div>		
+					<div class="row form-group">
+ 						<div class="col col-md-1" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
+							<label for="text-input" class=" form-control-label">아이디</label> 
+						</div>
+						<div class="col-202 col-md-2" style="display:inline;float:left;width:10%;">
+							<input type="text" name="uId" id="uId"
+								class="form-control" value="${board.uId}" >
+								<small class="form-text text-muted"></small>
+						</div>
+					</div>		
+					<div class="row form-group">
+ 						<div class="col col-md-1" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
+							<label for="text-input" class=" form-control-label">조회수</label> 
+						</div>
+						<div class="col-202 col-md-2" style="display:inline;float:left;width:10%;">
+							<input type="text" name="boardHits" id="boardHits"
+								class="form-control" value="${board.boardHits}" >
+								<small class="form-text text-muted"></small>
+						</div>
+					</div>		
+						<div class="row form-group">
+ 						<div class="col col-md-1" style="font-size:20px; margin-left:70px; float: left; width: 10%;" >
+							<label for="text-input" class=" form-control-label">추천수</label> 
+						</div>
+						<div class="col-202 col-md-2" style="fdisplay:inline;float:left;width:10%;">
+							<input type="text" name="boardLike" id="boardLike"
+								class="form-control" value="${board.boardLike}" >
+								<small class="form-text text-muted"></small>
+						</div>
+					</div>
+						</div>	
 	</div>	
 	
 	<br> 게시판번호 : ${board.boardNumber }

@@ -44,7 +44,9 @@ $(function() {
 	});
 	
 	//	var text = document.querySelector('textarea');
-	
+	var text = $('#boardContent').html();
+	var result = text.replace(/(\n|\r\n)/g, '<br>');
+	$('#boardContent').html(result);
 	
 });
 
