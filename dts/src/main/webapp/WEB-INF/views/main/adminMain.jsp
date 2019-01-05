@@ -190,7 +190,7 @@
 				console.log(result);
 				if(result!=""){			// result 값이 null이 아닌경우(DB에 값이 있을 경우만)
 					var myArray=[];		// 배열 담는 변수
-					myArray.push([ "Member", "Number" ]);		// 회원, 가입인원
+					myArray.push([ "월별", "회원수" ]);		// 회원, 가입인원
 					var temp=0;			// 
 					var resultcnt = result.length;				// result 값
 					for(var i=1; i<13; i++){
@@ -240,7 +240,8 @@
 	 	size: 40px;
 	 	border: 1px solid #f2f2f2; 
 	 	padding: 10px 20px;
-	 }
+	}
+
 </style>
 </head>
 <body>
@@ -256,12 +257,12 @@
 			<div class="col-md-12">
 				<form name="frm">
 				<input type="hidden" name="year">
-				<select name="year" id="year">
+				<select name="year" id="year" style="height:30px">
 					<option value="2019">2019</option>					
 					<option value="2018">2018</option>
 					<option value="2017">2017</option>
 				</select>
-				<select name="month" id="month">
+				<select name="month" id="month" style="height:30px">
 					<option value="01">01</option>
 					<option value="02">02</option>
 					<option value="03">03</option>
@@ -275,7 +276,7 @@
 					<option value="11">11</option>
 					<option value="12">12</option>
 				</select>
-				<button type="button" class="btn btn-outline-secondary btn-sm" onclick="drawChart()">검색</button>
+				<button type="button" class="btn btn-secondary" onclick="drawChart()">검색</button>
 			</form>
 			</div>
 		</div>
