@@ -66,27 +66,41 @@ $(function(){
 	<header class="float-left w-100">
 		<div class="small-top float-left w-100">
 			<div class="container-fluid">
-				<div class="row px-3">
-					<div class="col-lg-4 date-sec">
+				<div class="row px-1">
+					<div class="col-lg-2 date-sec">
 						<div id="Date" class="mt-1">
 							<script>
 								var today = new Date()
-								document.write(today.getFullYear(), "년 ", today
-										.getMonth() + 1, "월 ", today.getDate(),
-										"일")
+								document.write(today.getFullYear(), "년 ",
+										today.getMonth() + 1, "월 ",
+										today.getDate(), "일")
 							</script>
 						</div>
 					</div>
-					<div class="col-lg-3 ml-auto">
-            <div class="social-icon">
-              <a href="#" class=" fa fa-facebook"></a>
-              <a href="#" class=" fa fa-twitter"></a>
-              <a href="#" class=" fa fa-google-plus"></a>
-              <a href="#" class=" fa fa-linkedin"></a>
-              <a href="#" class=" fa fa-youtube"></a>
-              <a href="#" class=" fa fa-vimeo-square"></a>
-            </div>
-          </div>
+					<div class="col-lg-5 ml-auto lp-6">
+
+						<a href="http://www.sktt1.net/"><img src="img\skt.png"></a>
+						<a href="https://post.naver.com/teamgriffin"><img
+							src="img\griffin.png"></a> <a
+							href="http://kt-sports.co.kr/sports/site/esports/rolster/bi.do"><img
+							src="img\kt.png"></a> <a
+							href="https://www.facebook.com/GenGLOL"><img
+							src="img\geng.png"></a> <a
+							href="https://www.facebook.com/SandboxGamingNL"><img
+							src="img\sandbox.png"></a> <a
+							href="https://www.facebook.com/IMteam"><img
+							src="img\kingzone.png"></a> <a
+							href="https://www.facebook.com/HLE.lol"><img
+							src="img\hanwha.png"></a> <a
+							href="https://www.facebook.com/AfreecaFreecs"><img
+							src="img\afreeca.png"></a> <a
+							href="https://www.facebook.com/TeamAwesome001"><img
+							src="img\damwon.png"></a> <a
+							href="http://greenwings.jinair.com/Story/Notice.aspx"><img
+							src="img\jinair.png"></a>
+
+
+					</div>
 				</div>
 			</div>
 		</div>
@@ -94,24 +108,8 @@ $(function(){
 			<div class="container-fluid">
 				<div class="row px-3">
 					<div class="col-lg-12">
-						<h1 class="text-center">E-Sports토토유저메인</h1>
+						<h1 class="text-center" style="margin-top: 10px;">E-Sports토토유저메인</h1>
 					</div>
-					<!-- <div class="col-md-6 col-lg-5 admin-bar ml-auto mt-2">
-						<nav class="nav justify-content-end">
-							<form method="post" 
-								style="display: inline-block; margin-top: 0em;">
-								<div class="form-group"
-									style="margin-top: 5px; display: inline-block">
-								
-								
-								</div> 
-								<div class="form-group"
-									style="margin-top: 5px; display: inline-block">
-								<a href="logout">로그아웃</a>
-								</div> 
-							</form>
-						</nav>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -123,7 +121,7 @@ $(function(){
 	<!-- Top Navigation -->
 	<section class="top-nav">
 		<nav class="navbar navbar-expand-lg py-0">
-			<div class="container-fluid">
+			<div class="container-fluid" style="width:68%">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -131,6 +129,7 @@ $(function(){
 					<i class="fa fa-bars" aria-hidden="true"></i>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				
 					<ul class="navbar-nav Jua">
 						<li class="nav-item active"><a class="nav-link" href="./userMain">Home
 								<span class="sr-only">(current)</span>
@@ -169,17 +168,21 @@ $(function(){
 						<li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
 					</ul>
 					<div>
+						<div style="display:inline-flex; margin-left:180px; right: 100px; top: 10px; border-radius: 3px; font-size: 17px; margin-top: 4px" id="abc"></div>
+						<button style="display:inline-block"type="button" class="btn btn-outline-dark"	onclick="window.location.href='logout'">로그아웃</button>	
+					</div>
+					<!-- <div>
 						<div
 							style="position: absolute; right: 100px; top: 10px; border-radius: 3px; font-size: 17px; margin-top: 4px"
 							id="abc"></div>
 						<button style="margin-top: 10px; margin-right: 5px" type="button" class="btn btn-outline-dark"	onclick="window.location.href='logout'">로그아웃</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</nav>
 	</section>
 
-	<section class="container">
+	<section class="container" style="padding-top:240px;">
 		<div class="col-md-12">
 			<tiles:insertAttribute name="content" />
 		</div>
