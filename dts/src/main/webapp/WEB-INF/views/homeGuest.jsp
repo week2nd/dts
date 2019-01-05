@@ -164,7 +164,7 @@ $(function(){
 						<button type="submit" class="btn btn-outline-primary"
 							id="loginBtn">로그인</button>
 						<button type="button" class="btn btn-outline-primary"
-							onclick="window.location.href='insertMember'">회원가입</button>
+							onclick="window.location.href='insertContract'">회원가입</button>
 						<button type="button" class="btn btn-outline-secondary"
 							data-dismiss="modal">취소</button>
 						<button type="button" class="btn btn-link"
