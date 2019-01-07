@@ -122,7 +122,7 @@
 	   $('.analysis').css('display','');
 	   $('.suggestion').css('display','none');
    }
-   function change4(){
+   	function change4(){
 	   $('.notice').css('display','none');
 	   $('.free').css('display','none');
 	   $('.analysis').css('display','none');
@@ -145,6 +145,14 @@
       
       
    });
+   function goPreView(gameId){
+	   if(""=='${sessionScope.membersession.uId}'){
+		   alert("로그인하세요.");
+	   }else{
+		   location="getMatch?gameId="+gameId;
+	   }
+		 
+   }
 </script>
 </head>
 
@@ -167,7 +175,7 @@
 		                </div>
 		                <div style="margin-bottom:5px;">
 		         		
-		                <a href="getMatch?gameId=${match.gameId}"  class="btn btn-primary">
+		                <a href="#" onclick="goPreView('${match.gameId}')"  class="btn btn-primary">
 		                   경기미리보기</a>
 		                </div>
 		               
