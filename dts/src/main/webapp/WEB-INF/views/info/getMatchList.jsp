@@ -75,7 +75,8 @@ th {
 					<td align="center">${match.matchDate}&nbsp;17:00</td>
 					<td align="center">${match.matchInfo}</td>
 					<td align="right"><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
-					<td align="center">${match.blueTeamKillsum} : ${match.redTeamKillsum}</td>
+					<td align="center">${match.bluePick1Kill + match.bluePick2Kill + match.bluePick3Kill + match.bluePick4Kill + match.bluePick5Kill}
+						 : ${match.redPick1Kill + match.redPick2Kill + match.redPick3Kill + match.redPick4Kill + match.redPick5Kill}</td>
 					<td><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
 					<td align="center"><a href="preView?blueTeamName=${match.blueTeamName}&redTeamName=${match.redTeamName}">전적</a></td>
 					<td align="center">${match.gameStatus}</td>
