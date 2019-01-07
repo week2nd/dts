@@ -215,7 +215,7 @@
 		<tr style="border-radius:20px;">
 			<th>선택</th>
 			<th>아이디<a href="#" onclick="go_sort('u_id')">▲</a></th>
-			<th>비밀번호<a href="#" onclick="go_sort('u_pw')">▲</a></th>				
+			<!-- <th>비밀번호<a href="#" onclick="go_sort('u_pw')">▲</a></th>			 -->	
 			<th>이름<a href="#" onclick="go_sort('u_name')">▲</a></th>
 			<th>주소<a href="#" onclick="go_sort('u_address')">▲</a></th>
 			<th>폰번호<a href="#" onclick="go_sort('u_phone')">▲</a></th>
@@ -236,7 +236,7 @@
 					<label for="toggle${status.count}"><span class="hide"></span></label>
 				</td>
  				<td><a href="./getMember?uId=${member.uId }">${member.uId }</a></td>
-				<td>${member.uPw }</td>
+				<%-- <td>${member.uPw }</td> --%>
 				<td>${member.uName }</td>
 				<td>${member.uAddress }</td>
 				<td>${member.uPhone }</td>
