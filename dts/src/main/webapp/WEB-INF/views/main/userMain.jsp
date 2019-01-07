@@ -9,13 +9,6 @@
 <title>Insert title here</title>
 <style>
 	
-.img13 {
-    position: relative;
-    background-image: url(./img/food.jpg); 
-    height: 20vh;
-    background-size: cover;
-    width:350px;
-}
 /* .img-cover{
    height: 100%;
    width: 100%;
@@ -155,19 +148,19 @@
          			<div class="row" style="width:100%; magin-bottom:20px;">		
          		<div class="col-4 img${match.blueTeamName}" >
          		</div>
-         			<div class="col-4 content" style="text-align:center; margin:5px 0px; font-size:25px;">
+         			<div class="col-3 content card" style="text-align:center; margin:5px 30px; font-size:25px;">
 		         		<input type="hidden" id="matchDate${status.count}" name="matchDate" value="${match.matchDate}">
 		         		<div>경기번호 : ${match.gameId}<br></div>
 		         		<div>날짜 : <label id="temp${status.count}"></label></div>
-		         		<div>매치 : <a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a>
+		         		<div><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a>
 		         		vs
 		                <a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a>
 		                </div>
-		                <div>
-		         		<a href="buyMatchList" class="btn btn-outline-link btn-lg">
+		                <div style="margin-bottom:5px;">
+		         		<a href="buyMatchList" class="btn btn-outline-primary">
 		                	구매
 		                </a>
-		                <a href="getMatch?gameId=${match.gameId}"  class="btn btn-outline-link btn-lg">
+		                 <a href="getMatch?gameId=${match.gameId}"  class="btn btn-outline-primary">
 		                   경기미리보기</a>
 		                </div>
 		               

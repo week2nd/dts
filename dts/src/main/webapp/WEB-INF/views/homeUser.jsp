@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gothic+A1:100" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:500" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
-<link href="resources/style.css" rel="stylesheet">
+<!-- <link href="resources/style.css" rel="stylesheet"> -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
