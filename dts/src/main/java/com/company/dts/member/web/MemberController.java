@@ -187,11 +187,7 @@ public class MemberController {
 		return "redirect:getMemberList";		//목록요청
 	}
 	
-	// 도움
-	@RequestMapping("/helper")
-	public String helper() {
-		return "guest/member/helper";
-	}
+
 	
 	
 	// 비밀번호 찾기 폼

@@ -30,19 +30,67 @@
      color: white;
      text-align: center;
 }
+
+
 .imgSKT{
 	position: relative;
-	background-image: url(./img/skt2.png); 
+	background-image: url(./img/skt3.png); 
+	background-repeat: no-repeat;
 }
 .imgKT{
 	position: relative;
-	background-image: url(./img/kt2.png); 
+	background-image: url(./img/kt3.png); 
+	background-repeat: no-repeat;
+	
 }
 .Air{
 	position: relative;
-	background-image: url(./img/jinair2.png); 
+	background-image: url(./img/jinair3.png); 
+	background-repeat: no-repeat;
 }
 
+.G{
+	position: relative;
+	background-image: url(./img/geng3.png); 
+	background-repeat: no-repeat;
+}
+.imgAfreeca{
+	position: relative;
+	background-image: url(./img/afreeca3.png); 
+	background-repeat: no-repeat;
+	
+}
+.imgKZ{
+	position: relative;
+	background-image: url(./img/kingzone3.png); 
+	background-repeat: no-repeat;
+}
+
+.imgDWG{
+	position: relative;
+	background-image: url(./img/damwon3.png); 
+	background-repeat: no-repeat;
+}
+.imgSANDBOX{
+	position: relative;
+	background-image: url(./img/sandbox3.png); 
+	background-repeat: no-repeat;
+	
+}
+.imgFIN{
+	position: relative;
+	background-image: url(./img/griffin3.png); 
+	background-repeat: no-repeat;
+}
+
+.imgHLE{
+	position: relative;
+	background-image: url(./img/hanwha3.png); 
+	background-repeat: no-repeat;
+}
+.abc{
+	magin-bottom:50px;
+}
 	
 </style>
 <script>
@@ -106,7 +154,7 @@
          <div class="row">
          	
          		<c:forEach items="${matchList}" var="match" varStatus="status">
-         			<div class="row" style="width:100%">		
+         			<div class="row abc" style="width:100%;">
          		<div class="col-4 img${match.blueTeamName}">
          		</div>
          			<div class="col-4 content" style="text-align:center; margin:5px 0px; font-size:25px;">
@@ -122,7 +170,7 @@
 		                	구매
 		                </a>
 		                <a href="getMatch?gameId=${match.gameId}"  class="btn btn-outline-link btn-lg">
-		                   결과확인</a>
+		                   경기미리보기</a>
 		                </div>
 		               
 	                </div>
@@ -134,7 +182,7 @@
 			</div>
 		</div>
 		
-		<div class="container2" style="margin-top:10px">
+		<div class="container2" style="margin:50px 0px 50px 0px">
 		<div class="row">
 		<div class="col-6">
 		<ul class="nav nav-pills mb-3">
@@ -240,11 +288,12 @@
             </div>
          </div>
          </div>
-         <div class="col-4" style="margin-top:10px">
-	         <div>
+         <div class="col-4" style="margin:0px 0px 20px 0px">
+	         <div >
 	         	<a href="./helper"><img src="img\helper.PNG"></a>
 	         </div>
 	     </div>
+         </div>
          </div>
 </body>
 </html>
