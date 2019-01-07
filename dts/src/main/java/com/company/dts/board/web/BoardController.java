@@ -73,28 +73,43 @@ public class BoardController {
 
 	// 조회수 추가 처리
 	@RequestMapping("/updateBoardHits")
-	public String updateBoardHits(Model model, BoardVO vo) {
+	public String updateBoardHits(Model model, BoardVO vo, HttpSession session) {
 		boardService.updateBoardHits(vo); 							// 조회수추가작업
 		model.addAttribute("board", boardService.getBoard(vo));		// model에 단건조회 작업를 추가한다.
-		return "user/board/getBoard"; 								// getBoard 목록요청
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/board/getBoard";
+		} else {
+			return "user/board/getBoard";
+		}
 	}
 
 	// 좋아요 추가 처리
 	@RequestMapping("/insertLikecheck")
-	public String insertLikecheck(Model model, BoardVO vo, HttpServletRequest request) {	
+	public String insertLikecheck(Model model, BoardVO vo, HttpServletRequest request, HttpSession session) {	
 		boardService.insertLikecheck(vo); 							// 좋아요 버튼 클릭시 추가
 		model.addAttribute("board", boardService.getBoard(vo));		// model에 단건조회 작업를 추가한다.
-		return "user/board/getBoard"; 								// getBoard 목록요청
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/board/getBoard";
+		} else {
+			return "user/board/getBoard";
+		}
 	}
 
 	
 	// 좋아요 취소 처리
 	@RequestMapping("/deleteLikecheck")
-	public String deleteLikecheck(Model model, BoardVO vo, HttpServletRequest request) {
+	public String deleteLikecheck(Model model, BoardVO vo, HttpServletRequest request, HttpSession session) {
 		boardService.deleteLikecheck(vo);							// 삭제처리 진행
 		System.out.println(vo.getBoardType());						// Board
-		model.addAttribute("board", boardService.getBoard(vo));		// model에 단건조회 작업를 추가한다.												
-		return "user/board/getBoard";								// getBoard 목록요청
+		model.addAttribute("board", boardService.getBoard(vo));		// model에 단건조회 작업를 추가한다.	
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/board/getBoard";
+		} else {
+			return "user/board/getBoard";
+		}
 	}
 	
 
@@ -135,7 +150,7 @@ public class BoardController {
 
 	// 수정처리
 	@RequestMapping("/updateBoard")
-	public String updateBoard(Model model, BoardVO vo, HttpServletRequest request) throws IllegalStateException, IOException {
+	public String updateBoard(Model model, BoardVO vo, HttpServletRequest request, HttpSession session) throws IllegalStateException, IOException {
 		String path = request.getSession().getServletContext().getRealPath("/img");
 		System.out.println("path======" + path);
 		// ServletContext == 내장객체 Application과 동일하다.
@@ -148,7 +163,12 @@ public class BoardController {
 		}
 		boardService.updateBoard(vo); 								// 수정처리
 		model.addAttribute("board", boardService.getBoard(vo));		// model에 단건조회 작업를 추가한다.
-		return "user/board/getBoard"; 								// getBoard 목록요청
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "admin/board/getBoard";
+		} else {
+			return "user/board/getBoard";
+		}
 	}
 
 	// 단건 삭제처리
