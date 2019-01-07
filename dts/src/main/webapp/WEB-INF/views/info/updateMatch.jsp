@@ -80,9 +80,9 @@ $(function(){
 <div align="left">
 <b>경기번호</b> : <input style="border: 1px solid black" type="text" name="gameId" value="${match.gameId}" readonly="readonly">
 <select name="gameStatus">
-	<option value="전">전</option>
-	<option value="중">중</option>
-	<option value="후">후</option>
+	<option value="전" <c:if test="${match.gameStatus == '전'}"> selected </c:if>>전</option>
+	<option value="중" <c:if test="${match.gameStatus == '중'}"> selected </c:if>>중</option>
+	<option value="후" <c:if test="${match.gameStatus == '후'}"> selected </c:if>>후</option>
 </select>
 </div>
 	<div align="center">
@@ -122,19 +122,20 @@ $(function(){
 					</select></td>
 			</tr>
 			<tr>
-				<td>K</td>
-				<td><input type="text" name="blueTeamKillsum" value="${match.bluePick1Kill}" size="5" placeholder="블루팀 처치합계"></td>
-				<td>D</td>
-				<td><input type="text" name="blueTeamDeathsum" value="${match.bluePick1Death}" size="5" placeholder="블루팀 죽음합계"></td>
-				<td>A</td>
-				<td><input type="text" name="blueTeamAssistsum" value="${match.bluePick1Assist}" size="5" placeholder="블루팀 지원합계"></td>
+				<td colspan="2">K</td>
+				<%-- <td><input type="text" name="blueTeamKillsum" value="${match.bluePick1Kill}" size="5" placeholder="블루팀 처치합계"></td> --%>
+				
+				<td colspan="2">D</td>
+				<%-- <td><input type="text" name="blueTeamDeathsum" value="${match.bluePick1Death}" size="5" placeholder="블루팀 죽음합계"></td> --%>
+				<td colspan="2">A</td>
+				<%-- <td><input type="text" name="blueTeamAssistsum" value="${match.bluePick1Assist}" size="5" placeholder="블루팀 지원합계"></td> --%>
 				<td>Play Time</td>
-				<td>K</td>
-				<td><input type="text" name="redTeamKillsum" value="${match.redPick1Kill}" size="5" placeholder="레드팀 처치합계"></td>
-				<td>D</td>
-				<td><input type="text" name=redTeamDeathsum value="${match.redPick1Death}" size="5" placeholder="레드팀 죽음합계"></td>
-				<td>A</td>
-				<td><input type="text" name="redTeamAssistsum" value="${match.redPick1Assist}" size="5" placeholder="레드팀 지원합계"></td>
+				<td colspan="2">K</td>
+				<%-- <td><input type="text" name="redTeamKillsum" value="${match.redPick1Kill}" size="5" placeholder="레드팀 처치합계"></td> --%>
+				<td colspan="2">D</td>
+				<%-- <td><input type="text" name=redTeamDeathsum value="${match.redPick1Death}" size="5" placeholder="레드팀 죽음합계"></td> --%>
+				<td colspan="2">A</td>
+				<%-- <td><input type="text" name="redTeamAssistsum" value="${match.redPick1Assist}" size="5" placeholder="레드팀 지원합계"></td> --%>
 			</tr>
 			<tr>
 				<td align="center">BAN</td>

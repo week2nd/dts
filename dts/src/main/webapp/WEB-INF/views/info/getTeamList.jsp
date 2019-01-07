@@ -28,9 +28,9 @@ th, td {
 	<form name="teamFrm">
 		<table>
 			<tr>
-				<th style="border-bottom: 0px;"><input type="hidden" name="searchCondition" value="team_id" placeholder=""><b>팀 이름 &nbsp;</b>	</th> 
+				<th style="border-bottom: 0px;"><input type="hidden" name="searchCondition" value="team_id" placeholder=""><font size="4">팀 이름 &nbsp;</font>	</th> 
 				<td><input type="text" name="searchKeyword">	</td>
-				<td><button class="btn btn-outline-secondary">검색</button>	</td>		
+				<td><button class="btn btn-outline-secondary" style="line-height: 0.65">검색</button>	</td>		
 			</tr>
 		</table>
 	</form>
