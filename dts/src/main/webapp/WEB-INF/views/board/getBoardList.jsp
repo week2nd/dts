@@ -80,7 +80,7 @@
 		
 		<!-- 테이블시작 -->
 		  <div align="center" class="table-responsive table--no-card m-b-30">
-		<table style="width: 100%;" border="1" class = "table table-borderless table-data3">
+		<table style="width: 100%; border-left:none; border-right:none;" border="1" class = "table table-borderless table-data3">
 		<thead>
 			<tr>
 				<c:if test="${membersession.uGrant=='admin'}">

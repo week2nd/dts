@@ -34,15 +34,15 @@
 		div[0].comment = comment; //{id:1,.... }
 		var btn = "";
 		if (comment.uid == "${membersession.uId}") {
-			btn = "<button type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
-					+ "<button type=\"button\" class=\"btnDel\">삭제</button>"
+			btn = "<div style='text-align:right;'><button class = \"btn btn-outline-link\" type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
+					+ "<button type=\"button\" class=\"btnDel btn btn-outline-link\">삭제</button></div>"
 		}
 		var str =
-			"<div style='text-align:left;'> <div style='text-align:left; border: 1px solid black; margin-right: 0%; padding-left: 20px; border-bottom:0px;'>"
-			+"<strong class='uId'>" + comment.uid + "</strong> &nbsp;"  + btn
-			+"</div>"
-			+ "<div style='border: 1px solid black; margin-right: 0%; padding-left: 20px;'>"
-			+ "</strong>" + "<span class='commentContent'>"
+			"<div style='text-align:left;'> <div style='text-align:left; border-bottom: 1px solid gray; border-top: 1px solid black;  padding-left: 20px;'>"
+			+"<div><strong class='uId'>" + comment.uid + "</strong> &nbsp;"  + btn
+			+"</div></div>"
+			+ "<div style='border: 1px dotted white; margin-right: 0%; margin-left: 80px; height:100px;'>"
+			+ "</strong>" + "<span class='commentContent' style='font-weight: 100; font-size:20px; '>"
 			+ comment.commentsContent + "</span>"
 			+"</div></div>"
 			
@@ -321,12 +321,8 @@
 			<input type="hidden" name="commentsSeq"> 
 			<input type="hidden" style="margin-left: 10px; border: 1px solid black;" type="text" id="commentsName" name="commentsName" size="20" maxlength=15><br /> 
 			내용:<textarea style="margin-left: 10px; border: 1px solid black;" id="commentsContent" name="commentsContent" cols="120" rows="2"></textarea><br /> 
-			<div class="btn btn-outline-secondary">
 			<input type="button" value="등록" id="btnUpd" maxlength=120/> 
-			</div>
-			<div class="btn btn-outline-secondary">
 			<input type="button" value="취소" id="btnCancel" />
-			</div>
 		</form>
 	</div>
 	<!-- 댓글수정폼끝 -->
