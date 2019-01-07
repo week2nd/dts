@@ -32,7 +32,7 @@
 	</div>
 	
 	
-	<form name="frm">	
+	<form name="frm" style="margin-bottom:5px">	
 		<!-- 게시판 검색!! -->
 		<select name="searchCondition" style = "padding: 4px">
 			<option value="board_Title">제목
@@ -79,7 +79,7 @@
 		
 		<!-- 테이블시작 -->
 		  <div align="center" class="table-responsive table--no-card m-b-30">
-		<table style="width: 100%; border-left:none; border-right:none;" border="1" class = "table table-borderless table-data3">
+		<table style="border-bottom: groove; border-top: groove;" class = "table table-borderless table-data3">
 		<thead>
 			<tr>
 				<c:if test="${membersession.uGrant=='admin'}">
