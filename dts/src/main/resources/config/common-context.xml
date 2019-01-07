@@ -17,8 +17,7 @@
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy> <!-- @advice, @pointcut -->
 
 	<!-- static resources(spring dispatcherservlet 처리하지않고 넘겨줌. -->
-	<mvc:resources mapping="/resources/**"
-		location="/resources/" />
+	<mvc:resources mapping="/resources/**"	location="/resources/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/js/**" location="/js/" />
