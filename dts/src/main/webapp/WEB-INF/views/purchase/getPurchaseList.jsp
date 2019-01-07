@@ -11,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+	<h2>내 구매목록</h2>
     <form>
         <table class="table">
         <thead>
