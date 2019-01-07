@@ -50,13 +50,13 @@ p {
 		<div>
 		<table>
 			<tr>
-				<td><select name="searchCondition" class="custom-select">
+				<td><select name="searchCondition" class="custom-select" style="height:calc(2.25rem - 6px); line-height:1;">
 				<option value="nickname">소환사명		</option>
 				<option value="team_id">최근 소속팀	</option>
 				<option value="name">선수이름		</option>
 				</select>	</td>
 				<td><input type="text" name="searchKeyword">	</td>
-				<td><button class="btn btn-outline-secondary">검색	</button> </td>
+				<td><button class="btn btn-outline-secondary" style="line-height: 0.65" >검색	</button> </td>
 			</tr>
 		</table>
 			<!-- <select name="searchCondition" >

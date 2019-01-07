@@ -13,6 +13,7 @@ th {
 	text-align: center;
 	border-bottom: 1px solid black;
 }
+
 </style>
 <script>
 	function go_page(page) {
@@ -40,9 +41,9 @@ th {
 		<form name="matchFrm">
 			<table>
 				<tr>
-					<td><input type="hidden"name="searchCondition" value="blueteamname">팀명 : </td>
+					<td><input type="hidden"name="searchCondition" value="blueteamname"><font size="4">팀명 &nbsp;</font> </td>
 					<td style="margin-left: 10px; "><input	type="text" name="searchKeyword" value="${matchVO.searchKeyword}"></td>
-					<td><button class="btn btn-outline-secondary">검색</button></td>
+					<td><button style="line-height: 0.65" class="btn btn-outline-secondary">검색</button></td>
 					<input type="hidden" name="page">
 				</tr>
 			</table>
@@ -88,9 +89,11 @@ th {
 				</tr>
 			</c:forEach>
 		</table>
-	</div>
-	<div align="center">
+
+		<div align="center" style="margin-top: 50px">
 		<my:paging paging="${paging}" jsFunc="go_page" />
+		</div>
 	</div>
+	
 </body>
 </html>

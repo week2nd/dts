@@ -15,11 +15,23 @@
  .minitable td, th{
  	 padding-left: 10px;
  	 padding-right: 10px;
+ 	border-bottom: 1px solid gray;
  }
  .minitable {
  border:1px solid gray;
  text-align: center;
  }
+  .tdbot{
+ 	border-bottom: 1px solid gray;
+ }
+ .bordermiddle{
+ border-left:1px solid gray;
+ }
+ .leftright{
+ 	border-left:1px solid gray; 
+ 	border-right:1px solid gray;
+ }
+ 
 </style>
 <script>
 $(function() {
@@ -138,10 +150,10 @@ $(function() {
 						<!-- Pick1 -->
 						<tr>
 							<td>${match.bluePick1Spell1}</td>
-							<td rowspan="2">${match.bluePick1}</td>
+							<td rowspan="2" class="leftright">${match.bluePick1}</td>
 							<td colspan="4">${match.blueGamer1}</td>
-							<td align="right" colspan="4">${match.redGamer1}</td>
-							<td rowspan="2">${match.redPick1}</td>
+							<td  class="bordermiddle" align="" colspan="4">${match.redGamer1}</td>
+							<td rowspan="2" class="leftright">${match.redPick1}</td>
 							<td>${match.redPick1Spell1}</td>
 						</tr>
 						<tr>
@@ -154,7 +166,7 @@ $(function() {
 								</fmt:formatNumber></c:if>
 							 	<c:if test="${match.bluePick1Death == 0 }">0</c:if></td>
 							<!-- bluePick1Kda -->
-							<td>${match.redPick1Kill}</td>
+							<td class="bordermiddle">${match.redPick1Kill}</td>
 							<td>${match.redPick1Death}</td>
 							<td>${match.redPick1Assist}</td>
 							<td><c:if test="${match.redPick1Death != 0 }"><fmt:formatNumber value="${(match.redPick1Kill + match.redPick1Assist)/match.redPick1Death}" pattern=".##">
@@ -165,10 +177,10 @@ $(function() {
 						<!-- Pick2 -->
 						<tr>
 							<td>${match.bluePick2Spell1}</td>
-							<td rowspan="2">${match.bluePick2}</td>
+							<td rowspan="2" class="leftright">${match.bluePick2}</td>
 							<td colspan="4">${match.blueGamer2}</td>
-							<td colspan="4">${match.redGamer2}</td>
-							<td rowspan="2">${match.redPick2}</td>
+							<td class="bordermiddle" colspan="4">${match.redGamer2}</td>
+							<td rowspan="2" class="leftright">${match.redPick2}</td>
 							<td>${match.redPick2Spell1}</td>
 						</tr>
 						<tr>
@@ -181,7 +193,7 @@ $(function() {
 								</fmt:formatNumber></c:if>
 							 	<c:if test="${match.bluePick2Death == 0 }">0</c:if></td>
 							<!-- bluePick2Kda -->
-							<td>${match.redPick2Kill}</td>
+							<td class="bordermiddle">${match.redPick2Kill}</td>
 							<td>${match.redPick2Death}</td>
 							<td>${match.redPick2Assist}</td>
 							<td><c:if test="${match.redPick2Death != 0 }">
@@ -193,10 +205,10 @@ $(function() {
 						<!-- Pick3 -->
 						<tr>
 							<td>${match.bluePick3Spell1}</td>
-							<td rowspan="2">${match.bluePick3}</td>
+							<td rowspan="2" class="leftright">${match.bluePick3}</td>
 							<td colspan="4">${match.blueGamer3}</td>
-							<td colspan="4">${match.redGamer3}</td>
-							<td rowspan="2">${match.redPick3}</td>
+							<td class="bordermiddle" colspan="4">${match.redGamer3}</td>
+							<td rowspan="2" class="leftright">${match.redPick3}</td>
 							<td>${match.redPick3Spell1}</td>
 						</tr>
 						<tr>
@@ -209,7 +221,7 @@ $(function() {
 								</fmt:formatNumber></c:if>
 							 	<c:if test="${match.bluePick3Death == 0 }">0</c:if></td>
 							<!-- bluePick3Kda -->
-							<td>${match.redPick3Kill}</td>
+							<td class="bordermiddle">${match.redPick3Kill}</td>
 							<td>${match.redPick3Death}</td>
 							<td>${match.redPick3Assist}</td>
 							<td><c:if test="${match.redPick3Death != 0 }">
@@ -221,10 +233,10 @@ $(function() {
 						<!-- Pick4 -->
 						<tr>
 							<td>${match.bluePick4Spell1}</td>
-							<td rowspan="2">${match.bluePick4}</td>
+							<td rowspan="2" class="leftright">${match.bluePick4}</td>
 							<td colspan="4">${match.blueGamer4}</td>
-							<td colspan="4">${match.redGamer4}</td>
-							<td rowspan="2">${match.redPick4}</td>
+							<td class="bordermiddle" colspan="4">${match.redGamer4}</td>
+							<td rowspan="2" class="leftright">${match.redPick4}</td>
 							<td>${match.redPick4Spell1}</td>
 						</tr>
 						<tr>
@@ -237,7 +249,7 @@ $(function() {
 								</fmt:formatNumber></c:if>
 							 	<c:if test="${match.bluePick4Death == 0 }">0</c:if></td>
 							<!-- bluePick1Kda -->
-							<td>${match.redPick4Kill}</td>
+							<td class="bordermiddle">${match.redPick4Kill}</td>
 							<td>${match.redPick4Death}</td>
 							<td>${match.redPick4Assist}</td>
 							<td><c:if test="${match.redPick4Death != 0 }">
@@ -249,10 +261,10 @@ $(function() {
 						<!-- Pick5 -->
 						<tr>
 							<td>${match.bluePick5Spell1}</td>
-							<td rowspan="2">${match.bluePick5}</td>
+							<td rowspan="2" class="leftright">${match.bluePick5}</td>
 							<td colspan="4">${match.blueGamer5}</td>
-							<td colspan="4">${match.redGamer5}</td>
-							<td rowspan="2">${match.redPick5}</td>
+							<td class="bordermiddle" colspan="4">${match.redGamer5}</td>
+							<td rowspan="2" class="leftright">${match.redPick5}</td>
 							<td>${match.redPick5Spell1}</td>
 						</tr>
 						<tr>
@@ -265,7 +277,7 @@ $(function() {
 								</fmt:formatNumber></c:if>
 							 	<c:if test="${match.bluePick5Death == 0 }">0</c:if></td>
 							<!-- bluePick1Kda -->
-							<td>${match.redPick5Kill}</td>
+							<td class="bordermiddle">${match.redPick5Kill}</td>
 							<td>${match.redPick5Death}</td>
 							<td>${match.redPick5Assist}</td>
 							<td><c:if test="${match.redPick5Death != 0 }">

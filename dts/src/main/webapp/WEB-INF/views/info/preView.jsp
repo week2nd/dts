@@ -44,9 +44,9 @@
 		<div class="minitable">
 		<table class="table" border="1">
 			<tr>
-				<th align="center">${preView.blueTeamName}</th>
+				<th style="text-align : center;" align="center">${preView.blueTeamName}</th>
 				<th class="td-center td-top">팀명</th>
-				<th align="center">${preView.redTeamName}</th>
+				<th style="text-align : center;" align="center">${preView.redTeamName}</th>
 			</tr>
 			<tr>
 				<td align="center"><c:if test="${preView.win >= preView.lose }">

@@ -183,7 +183,7 @@ $(function(){
 	</section>
 
 	<section class="container" style="padding-top:240px;">
-		<div class="col-md-12">
+		<div class="col-md-12" style="min-height:800px;">
 			<tiles:insertAttribute name="content" />
 		</div>
 
