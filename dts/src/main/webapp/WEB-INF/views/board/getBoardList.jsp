@@ -32,19 +32,18 @@
 	</div>
 	
 	
-	<form name="frm">
-	<div style="border:1px solid black; width:28%; box-sizing:content-box;">
+	<form name="frm">	
 		<!-- 게시판 검색!! -->
-		<select name="searchCondition">
+		<select name="searchCondition" style = "padding: 4px">
 			<option value="board_Title">제목
 			<option value="board_Content">내용
-		</select> <input type="text" name="searchKeyword"
+		</select> 
+		<input type="text" name="searchKeyword"
 			value="${boardVO.searchKeyword}">
-		<button>검색</button>
+		<button class="btn btn-outline-secondary" style = "line-height:0.7;">검색</button>
 		<input type="hidden" name="sortCol" /> 
 		<input type="hidden" name="page" /> 
 			<input type="hidden" name="type" value="${type}" />
-	</div>
 	</form>
 	
 	<script>

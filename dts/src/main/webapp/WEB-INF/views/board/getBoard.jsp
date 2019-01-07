@@ -34,8 +34,10 @@
 		div[0].comment = comment; //{id:1,.... }
 		var btn = "";
 		if (comment.uid == "${membersession.uId}") {
-			btn = "<div style='text-align:right;'><button class = \"btn btn-outline-link\" type=\"button\" class=\"btnUpdFrm\" id=\"btnUpd\">수정</button>"
-					+ "<button type=\"button\" class=\"btnDel btn btn-outline-link\">삭제</button></div>"
+			btn = "<div style='text-align:right;'>"
+					+ "<button class=\"btnUpd btn btn-outline-primary\" type=\"button\">수정</button>"
+					+ "<button class=\"btnDel btn btn-outline-primary\">삭제</button>"
+					+ "</div>"
 		}
 		var str =
 			"<div style='text-align:left;'> <div style='text-align:left; border-bottom: 1px solid gray; border-top: 1px solid black;  padding-left: 20px;'>"
@@ -97,7 +99,8 @@
 				});
 			}
 		});
-
+	
+		
 		//댓글 수정 이벤트
 		$("#btnUpd").click(function() {
 			var params = $("[name=updateForm]").serialize();
@@ -114,12 +117,12 @@
 		});
 
 		//수정폼 이벤트(수정할 댓글밑에 수정폼 보이게 함)
-		$("#commentsList").on("click", ".btnUpdFrm", function() {
+		$("#commentsList").on("click", ".btnUpd", function() {
 			console.log("===============================")
 			console.log($(this).parent().children()[1].innerText)		
 			var commentsSeq = $(this).closest(".comment").attr("id").substr(1);
 			/* var commentsName = $(this).parent().children()[1].innerText; */ 
-			var commentsContent = $(this).parent().children()[2].innerText;
+			var commentsContent = $(this).closest(".comment").find(".commentContent").text();
 			
 			$("#commentUpdate").css("display", "inline")
 
@@ -302,9 +305,8 @@
 			<br>	
 			<input type="hidden" style="margin-left: 10px; border: 1px solid black;" type="text" id="commentsName" name="commentsName" size="82" maxlength=10><br />	
 			내용: <textarea style="margin-left: 10px; border: 1px solid black;" id="commentsContent" name="commentsContent" cols="120" rows="2" maxlength=120></textarea><br />	
-			<div class="btn btn-outline-secondary"> 	
-			<input type="button" value="등록" id="btnAdd" />
-			</div>
+			<button class="btn btn-outline-secondary" id="btnAdd">등록</button>	
+			<!-- <input type="button" value="등록" id="btnAdd" /> -->
 		</form>
 	</div>
 	<!-- 댓글등록끝 -->
