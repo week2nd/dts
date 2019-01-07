@@ -110,21 +110,28 @@ public class BoardController {
 		} else {
 			return "user/board/getBoard";
 		}
-	}
+		}
+	
 	
 
 	// 등록폼
 	@RequestMapping(value = "/insertBoardform", method = RequestMethod.GET)
-	public String insertBoardform(Model model, HttpServletRequest request) {
+	public String insertBoardform(Model model, HttpServletRequest request, HttpSession session) {
 		String type = request.getParameter("type");					// getBoard에서 입력을 눌렀을때의 type 을 request 로 받아온다.
 		model.addAttribute("type", type);							// model에 type 추가한다.
-		return "user/board/insertBoard";							// insertBoard 화면을 가져온다.
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+		return "admin/board/insertBoard";
+		} else {
+			return "user/board/insertBoard";
+		}
 	}
+	
 
 	// 등록처리
 	@RequestMapping(value = "/insertBoard", method = { RequestMethod.POST, RequestMethod.GET })
 	public String insertBoard(Model model, BoardVO vo, Paging paging, HttpServletRequest request,
-			HttpServletResponse response) throws IllegalStateException, IOException { // 커맨드 객체
+			HttpServletResponse response, HttpSession session) throws IllegalStateException, IOException { // 커맨드 객체
 
 		String path = request.getSession().getServletContext().getRealPath("/img");
 		System.out.println("path======" + path);
@@ -137,15 +144,26 @@ public class BoardController {
 			vo.setUploadFileName(filename);
 		}
 		boardService.insertBoard(vo); // 등록처리
-
-		return "redirect:getBoardList?type=" + vo.getBoardType();
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+			return "redirect:getBoardList?type=" + vo.getBoardType();
+		}
+			else {
+				return "redirect:getBoardList?type=" + vo.getBoardType();
+			}
 	}
 
 	// 수정
 	@RequestMapping("/updateBoardform")
-	public String updateBoardform(Model model, BoardVO vo) {
+	public String updateBoardform(Model model, BoardVO vo, HttpSession session) {
 		model.addAttribute("board", boardService.getBoard(vo));		// model에 단건조회 작업를 추가한다.
+		String grant = ((MemberVO) session.getAttribute("membersession")).getuGrant();
+		if (grant.equals("admin")) {
+		return "admin/board/updateBoard";
+		}
+		else {
 		return "user/board/updateBoard";
+	}
 	}
 
 	// 수정처리
