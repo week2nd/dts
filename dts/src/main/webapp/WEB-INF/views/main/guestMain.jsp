@@ -9,20 +9,20 @@
 <title>Insert title here</title>
 <style>
 	
-.img{
+.img13 {
     position: relative;
-    background-image: url(./img/SKT_T1.png);
+    background-image: url(./img/food.jpg); 
     height: 20vh;
     background-size: cover;
     width:350px;
 }
-.img-cover{
+/* .img-cover{
    height: 100%;
    width: 100%;
    background-color: rgba(0, 0, 0, 0.5);                                                                 
    z-index:1;
    border-radius: 2em;
-}
+} */
 .img .content{
      position: absolute;
      top:10%;
@@ -30,12 +30,67 @@
      color: white;
      text-align: center;
 }
-#all{
-	width: 10%;
-	height: 10%;
+
+
+.imgSKT{
+	position: relative;
+	background-image: url(./img/skt3.png); 
+	background-repeat: no-repeat;
+}
+.imgKT{
+	position: relative;
+	background-image: url(./img/kt3.png); 
+	background-repeat: no-repeat;
 	
 }
+.Air{
+	position: relative;
+	background-image: url(./img/jinair3.png); 
+	background-repeat: no-repeat;
+}
 
+.G{
+	position: relative;
+	background-image: url(./img/geng3.png); 
+	background-repeat: no-repeat;
+}
+.imgAfreeca{
+	position: relative;
+	background-image: url(./img/afreeca3.png); 
+	background-repeat: no-repeat;
+	
+}
+.imgKZ{
+	position: relative;
+	background-image: url(./img/kingzone3.png); 
+	background-repeat: no-repeat;
+}
+
+.imgDWG{
+	position: relative;
+	background-image: url(./img/damwon3.png); 
+	background-repeat: no-repeat;
+}
+.imgSANDBOX{
+	position: relative;
+	background-image: url(./img/sandbox3.png); 
+	background-repeat: no-repeat;
+	
+}
+.imgFIN{
+	position: relative;
+	background-image: url(./img/griffin3.png); 
+	background-repeat: no-repeat;
+}
+
+.imgHLE{
+	position: relative;
+	background-image: url(./img/hanwha3.png); 
+	background-repeat: no-repeat;
+}
+.abc{
+	magin-bottom:50px;
+}
 	
 </style>
 <script>
@@ -79,8 +134,6 @@
       var dateSplit2=$('#matchDate2').val().split('/');
       var dateSplit3=$('#matchDate3').val().split('/');
       var dateSplit4=$('#matchDate4').val().split('/');
-      var dateSplit5=$('#matchDate5').val().split('/');
-      var dateSplit6=$('#matchDate6').val().split('/');
       
       String.prototype.ltrimzero = function() { return this.replace(/(^0+)/, ""); };      // 숫자 0 제거
 
@@ -88,51 +141,48 @@
       $("#temp2").text(dateSplit2[1].ltrimzero() + "월 "+ dateSplit2[2].ltrimzero() + "일");
       $("#temp3").text(dateSplit3[1].ltrimzero() + "월 "+ dateSplit3[2].ltrimzero() + "일");
       $("#temp4").text(dateSplit4[1].ltrimzero() + "월 "+ dateSplit4[2].ltrimzero() + "일");
-      $("#temp5").text(dateSplit5[1].ltrimzero() + "월 "+ dateSplit5[2].ltrimzero() + "일");
-      $("#temp6").text(dateSplit6[1].ltrimzero() + "월 "+ dateSplit6[2].ltrimzero() + "일");
    
       
       
    });
 </script>
 </head>
-<body>
-	<div id="abc">
-   <h3 >게스트 메인페이지</h3>
+
+
 	
-   <form>
       <div class="container">
          <div class="row">
+         	
          		<c:forEach items="${matchList}" var="match" varStatus="status">
-         		<div class="col-4 img">
-         			<div class="content">
-		         		<input type="hidden" id="matchDate${status.count}" name="matchDate" value="${match.matchDate}"><br>
-		         		<h4>경기번호 : ${match.gameId}<br>
-		         		날짜 : <label id="temp${status.count}"></label><br>
-		         		매치 : <a href="getTeam?teamId=${match.blueTeamName}"><input type="button" class="btn btn-outline-primary" value="${match.blueTeamName}"></a>
+         			<div class="row abc" style="width:100%;">
+         		<div class="col-4 img${match.blueTeamName}">
+         		</div>
+         			<div class="col-4 content" style="text-align:center; margin:5px 0px; font-size:25px;">
+		         		<input type="hidden" id="matchDate${status.count}" name="matchDate" value="${match.matchDate}">
+		         		<div>경기번호 : ${match.gameId}<br></div>
+		         		<div>날짜 : <label id="temp${status.count}"></label></div>
+		         		<div>매치 : <a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a>
 		         		vs
-		                <a href="getTeam?teamId=${match.redTeamName}"><input type="button" class="btn btn-outline-primary" value="${match.redTeamName}"></a><br>
-		         		<c:if test="${membersession.uGrant!='admin'}">
-		         		<a href="buyMatchList">
-		                	<input type="button" value="구매" class="deleteBtn btn btn-primary" > 
+		                <a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a>
+		                </div>
+		                <div>
+		         		<a href="buyMatchList" class="btn btn-outline-link btn-lg">
+		                	구매
 		                </a>
-		                </c:if>
-		                <a href="getMatch?gameId=${match.gameId}">
-		                   <input type="button" value="결과확인" class="deleteBtn btn btn-primary" > 
-		                </a><br>
-		                <c:if test="${membersession.uGrant=='admin'}">
-		                   <td><a href="getMhistoryList">마일리지 관리</a></td>
-		                </c:if>
-		                </h4>
+		                <a href="getMatch?gameId=${match.gameId}"  class="btn btn-outline-link btn-lg">
+		                   경기미리보기</a>
+		                </div>
 		               
 	                </div>
-                 	<div class="img-cover"></div>
+                 	<!-- <div class="img-cover"></div> -->
+                <div class="col-4 img${match.redTeamName}">
+         		</div>
                 </div>
                 </c:forEach>
 			</div>
 		</div>
 		
-		<div class="container2" style="margin-top:10px">
+		<div class="container2" style="margin:50px 0px 50px 0px">
 		<div class="row">
 		<div class="col-6">
 		<ul class="nav nav-pills mb-3">
@@ -238,14 +288,12 @@
             </div>
          </div>
          </div>
-         <div class="col-4" style="margin-top:10px">
-	         <div>
+         <div class="col-4" style="margin:0px 0px 20px 0px">
+	         <div >
 	         	<a href="./helper"><img src="img\helper.PNG"></a>
 	         </div>
 	     </div>
          </div>
          </div>
-   </form>
-</div>
 </body>
 </html>

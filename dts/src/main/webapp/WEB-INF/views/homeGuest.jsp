@@ -66,26 +66,26 @@ $(function(){
 							</script>
 						</div>
 					</div>
-					<div class="col-lg-5 ml-auto lp-6">
+					<div class="col-lg-5 lp-6" style="margin-left:18%">
 
-						<a href="http://www.sktt1.net/"><img src="img\skt.png"></a>
-						<a href="https://post.naver.com/teamgriffin"><img
-							src="img\griffin.png"></a> <a
-							href="http://kt-sports.co.kr/sports/site/esports/rolster/bi.do"><img
-							src="img\kt.png"></a> <a
-							href="https://www.facebook.com/GenGLOL"><img
-							src="img\geng.png"></a> <a
-							href="https://www.facebook.com/SandboxGamingNL"><img
-							src="img\sandbox.png"></a> <a
-							href="https://www.facebook.com/IMteam"><img
-							src="img\kingzone.png"></a> <a
-							href="https://www.facebook.com/HLE.lol"><img
-							src="img\hanwha.png"></a> <a
-							href="https://www.facebook.com/AfreecaFreecs"><img
-							src="img\afreeca.png"></a> <a
-							href="https://www.facebook.com/TeamAwesome001"><img
-							src="img\damwon.png"></a> <a
-							href="http://greenwings.jinair.com/Story/Notice.aspx"><img
+						<a href="http://www.sktt1.net/" target="_blank"><img src="img\skt.png"></a>
+						<a href="https://post.naver.com/teamgriffin" target="_blank"><img
+							src="img\griffin.png"></a> 
+						<a href="http://kt-sports.co.kr/sports/site/esports/rolster/bi.do" target="_blank"><img
+							src="img\kt.png"></a> 
+						<a href="https://www.facebook.com/GenGLOL"  target="_blank"><img
+							src="img\geng.png"></a> 
+						<a href="https://www.facebook.com/SandboxGamingNL" target="_blank"><img
+							src="img\sandbox.png"></a> 
+						<a href="https://www.facebook.com/IMteam" target="_blank"><img
+							src="img\kingzone.png"></a> 
+						<a href="https://www.facebook.com/HLE.lol" target="_blank"><img
+							src="img\hanwha.png"></a> 
+						<a href="https://www.facebook.com/AfreecaFreecs" target="_blank"><img
+							src="img\afreeca.png"></a> 
+						<a href="https://www.facebook.com/TeamAwesome001" target="_blank"><img
+							src="img\damwon.png"></a> 
+						<a href="http://greenwings.jinair.com/Story/Notice.aspx"  target="_blank"><img
 							src="img\jinair.png"></a>
 
 
