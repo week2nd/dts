@@ -48,12 +48,24 @@ p {
 	<div class="top-campaign">
 		<form name="playerFrm">
 		<div>
-			<select name="searchCondition">
+		<table>
+			<tr>
+				<td><select name="searchCondition" class="custom-select">
 				<option value="nickname">소환사명		</option>
 				<option value="team_id">최근 소속팀	</option>
 				<option value="name">선수이름		</option>
-			</select> <input type="text" name="searchKeyword">
-			<button class="btn btn-outline-secondary">검색	</button>
+				</select>	</td>
+				<td><input type="text" name="searchKeyword">	</td>
+				<td><button class="btn btn-outline-secondary">검색	</button> </td>
+			</tr>
+		</table>
+			<!-- <select name="searchCondition" >
+				<option value="nickname">소환사명		</option>
+				<option value="team_id">최근 소속팀	</option>
+				<option value="name">선수이름		</option>
+			</select>
+			<td><input type="text" name="searchKeyword">	</td>
+			<button class="btn btn-outline-secondary">검색	</button> -->
 		</div>
 	</form>
 		

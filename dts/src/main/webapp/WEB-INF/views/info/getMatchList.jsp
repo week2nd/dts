@@ -40,8 +40,8 @@ th {
 		<form name="matchFrm">
 			<table>
 				<tr>
-					<td class="custom-select"><input type="hidden"name="searchCondition" value="blueteamname">팀</td>
-					<td style="margin-left: 10px; border-bottom: 1px solid black;"><input	type="text" name="searchKeyword" value="${matchVO.searchKeyword}"></td>
+					<td><input type="hidden"name="searchCondition" value="blueteamname">팀명 : </td>
+					<td style="margin-left: 10px; "><input	type="text" name="searchKeyword" value="${matchVO.searchKeyword}"></td>
 					<td><button class="btn btn-outline-secondary">검색</button></td>
 					<input type="hidden" name="page">
 				</tr>
@@ -81,7 +81,7 @@ th {
 					<td align="center">	<c:if test="${match.gameStatus == '후' || membersession.uGrant == 'admin'}">
 										<a href="getMatch?gameId=${match.gameId}">결과확인</a>		</c:if></td>
 					<c:if test="${membersession.uGrant=='admin'}">
-					<td align="center"><a href="getMhistoryList">마일리지 관리</a></td></c:if>
+					<td align="center"><!-- <a href="getMhistoryList">마일리지 관리</a> --></td></c:if>
 
 					<c:if test="${membersession.uGrant !='admin' && match.gameStatus == '전'}">
 					<td align="center"><a href="buyMatchList"> 구매 </a></td></c:if>

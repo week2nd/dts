@@ -11,7 +11,7 @@
 		WHERE 	${searchCondition} LIKE '%'||#{searchKeyword}||'%'
 		OR		REDTEAMNAME LIKE '%'||#{searchKeyword}||'%'
 		</if>
-		ORDER BY	MATCHDATE DESC, GAME_ID DESC
+		ORDER BY	 GAME_ID DESC,	MATCHDATE DESC
 	</select>
 
 	<!-- 경기 전체 보기 -->
@@ -24,9 +24,14 @@
 						WHERE 	${searchCondition} LIKE '%'||#{searchKeyword}||'%'
 						OR		REDTEAMNAME LIKE '%'||#{searchKeyword}||'%'
 						</if>
-						ORDER BY	MATCHDATE DESC, GAME_ID DESC) A
+						ORDER BY	GAME_ID DESC, MATCHDATE DESC) A
 				)
 		WHERE	rnum BETWEEN #{first} AND #{last}
+	</select>
+	
+	<select id="spellList" parameterType="match" resultType="match">
+		SELECT	*
+		FROM	SPELLDATA
 	</select>
 	
 	<select id="getMatch" parameterType="match" resultType="match">
@@ -224,7 +229,14 @@
 							REDRATE, BLUERATE
 )
 		VALUES(		#{gameId},
-					sysdate,
+					<choose>
+						<when test="matchDate == null or matchDate == ''">
+							sysdate,		
+						</when>
+						<when test="matchDate != null and matchDate != '' ">
+							#{matchDate},
+						</when>				
+					</choose>
 					#{matchName},
 					#{matchInfo},
 					#{playTime},				 
