@@ -67,13 +67,7 @@
 		});
 		
 		
-		//단일 게시판 내용 엔터키 가능
-		var text = $('#boardContent').value();
-		var result = text.replace(/(\n|\r\n)/g, '<br>');
-		$('#boardContent').value(result);
-	
-		loadCommentList();
-		
+		loadCommentList();		//댓글 불러오는것
 		
 		//댓글등록처리
 		$("#btnAdd").click(function() { //버튼 클릭시 btnAdd 작업 수행.
@@ -191,11 +185,12 @@
 							<label for="text-input" class=" form-control-label">내용</label> 
 						</div>
 						<div class="col-202 col-md-7">
-							<input type="text" name="boardContent" id="boardContent"
-								class="form-control"  value="${board.boardContent}" readonly>
+							<textarea name="boardContent" id="boardContent" rows="9"
+								class="form-control" readonly>${board.boardContent}</textarea>
 								<small class="form-text text-muted"></small>
 						</div>
 					</div>	
+
 										
 					
 					<div class="row form-group">
