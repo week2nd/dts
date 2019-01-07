@@ -276,7 +276,7 @@
 					<option value="11">11</option>
 					<option value="12">12</option>
 				</select>
-				<button type="button" class="btn btn-secondary" onclick="drawChart()">검색</button>
+				<button type="button" class="btn btn-secondary" onclick="drawChart()" style="padding:3px 10px">검색</button>
 			</form>
 			</div>
 		</div>

@@ -60,9 +60,9 @@
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
 		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
-		width: 7%;						/* 버튼 넓이 7% */
+		width: 10%;						/* 버튼 넓이 7% */
 	}
-	.deleteBtn:hover, #selectBtn:hover {					/* delete버튼 마우스 hover 시 */
+	.deleteBtn:hover{					/* delete버튼 마우스 hover 시 */
 		opacity: 0.8;					
 		background-color: #3e8e41;		/* 배경색깔 기존 색보다 좀 더 연하게 */
 		box-shadow: 3px 2px #666;		/* 아래로 그림자 생성 오른쪽 3px, 아래 2px */
@@ -74,7 +74,7 @@
 		padding: 8px 20px;				/* 버튼 크기 위아래 8px, 좌우 20px */
 		margin: 20px 0;					/* 상하 여백 20px, 좌우 여백 0px */
 		cursor: pointer;				/* 마우스 hover 시 마우시 포인터 손가락으로 변경 */
-		width: 5%;						/* 버튼 넓이 7% */
+		width: 10%;						/* 버튼 넓이 7% */
 	}
 	table tr:nth-child(1){
 		background-color: #000000;
@@ -109,7 +109,7 @@
 	 	size: 40px;
 	 	border: 1px solid #f2f2f2; 
 	 	padding: 8px 20px;
-	 	border: 1px solid #ff0000
+	 	border: 1px solid gray;
 	}	
 	#ab{
 	 	size: 40px;
@@ -194,7 +194,7 @@
 <hr>
 
 <h3>관리자 회원정보</h3>
-
+<div class="top-campaign">
 <form name="frm">
 	<select id="ab" name="searchCondition"  >
 			<option value="U_ID">아이디
@@ -209,9 +209,7 @@
 
  <form action="deleteMemberList" >	
 
-	<button onclick="deleteBtn()" class="deleteBtn">선택삭제</button>
-	<a href="getMemberListChart?year=${memberVO.year }"><input id="chartBtn" type="button" value="회원차트">
-				</a>
+	<button onclick="deleteBtn()" class="deleteBtn pull-right">선택삭제</button>
 	<!-- ?year=${member.year } -->
 	<table border="1">
 		<tr style="border-radius:20px;">
@@ -253,6 +251,9 @@
 		</c:forEach> 
 	</table>
 </form>	 
-<my:paging paging="${paging}" jsFunc="go_page"/>
+<div align="center">
+	<my:paging paging="${paging}" jsFunc="go_page"/>
+</div>
+</div>
 </body>
 </html>
