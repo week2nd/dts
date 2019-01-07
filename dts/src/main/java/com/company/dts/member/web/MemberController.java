@@ -151,7 +151,7 @@ public class MemberController {
 	@RequestMapping("/deleteMemberUser")
 	public String deleteMemberUser(MemberVO vo) {
 		memberService.deleteMember(vo);		//삭제처리
-		return "home";		//목록요청
+		return "redirect:guestMain";		//목록요청
 	}
 	
 	// 개인 맴버 비밀번호 수정폼   updateMemberform변경@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

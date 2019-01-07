@@ -34,6 +34,7 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
+
 	function go_page(page,type) {
 		
 		$("#mhistoryList").empty();
@@ -107,14 +108,6 @@
 		})
 	};
 	
-/* 	function hisBtn(){
-		var con = $("#searchCondition").val();
-		var key = $("#searchKeyword").val();
-		go_page("","",con,key);	
-		
-	} */
-	
-	
 	
 </script>
 </head>
@@ -163,6 +156,8 @@
 		<div id="pagination" class="pagination"></div>
 		</div>
 	</div>
-
+<script>
+	go_page(1,2);
+</script>
 </body>
 </html>

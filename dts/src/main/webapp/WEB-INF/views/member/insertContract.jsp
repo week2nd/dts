@@ -14,13 +14,13 @@
 		
 		$(".agreeBtn").click(function(){
 			if(!chk1){
-				alert("약관1에 동의해주세요");
+				alert("서비스를 위한 약관에 동의해주세요");
 				return false;
 			} else if(!chk2){
-				alert("약관2에 동의해주세요");
+				alert("개인정보처리에 동의해주세요");
 				return false;
 			} else if(!chk3){
-				alert("약관3에 동의해주세요");
+				alert("체육진흥투표권 구매 제한자가 아닌 것에 동의해주세요");
 				return false;
 			} else{
 				document.all.firstBox.checked=false;
@@ -100,9 +100,9 @@
 </head>
 <body>
 	<form action="insertMember" method="get">
-		<h2>약관</h2><br>
+		<h2>약관</h2><br> 
 		
-		<input type="checkbox" id="firstBox" oninput="chkBox()"><label>서비스 이용약관에 동의합니다.</label><br>
+		<input type="checkbox" id="firstBox" oninput="chkBox()" style="width:17px; height:17px;"><label>서비스 이용약관에 동의합니다.</label><br>
 		<textarea rows="10" cols="132" id="firstText">
 			 본 약관은 DTS 서비스를 위한 약관입니다.
 
@@ -355,7 +355,7 @@
 [시행일] 본 이용약관은 2015년 7월 1일부터 적용되며, 2014년 11월 4일부터 적용되던 종전약관은 본 약관으로 변경됩니다. 개정된 이용약관의 적용일자 이전 가입자 또한 개정된 이용약관의 적용을 받습니다.
 		</textarea><br><br>
 		
-		<input type="checkbox" id="secondBox" oninput="chkBox()"><label>개인정보처리에 동의합니다.</label><br>
+		<input type="checkbox" id="secondBox" oninput="chkBox()" style="width:17px; height:17px;"><label>개인정보처리에 동의합니다.</label><br>
 		<textarea rows="10" cols="132" id="secondText">
 			■ 처리하는 개인정보의 항목
 국민체육진흥공단은 기본적인 서비스 제공을 위한 필수 정보만을 수집 하고 있으며 회원 각각의 기호와 필요에 맞는 서비스를 제공하기 위하여 정보 수집 때 별도 동의를 얻고 있습니다. 선택 정보를 입력하지 않아도 서비스 이용에 제한은 없습니다. 
@@ -425,7 +425,7 @@
 	- 회원이 1년 이상 서비스 이용기록이 없는 경우 ’정보통신망 이용촉진 및 정보보호 등에 관한 법률 제 29조’에 근거하여 회원에게 사전 통지하고 개인정보를 별도 분리하여 저장합니다. 별도 분리 저장 후 ‘관계법령에 의한 정보보호 기간’이 경과한 경우 회원에게 사전 통지하고 개인정보를 파기합니다.
 		</textarea><br><br>
 		
-		<input type="checkbox" id="thirdBox" oninput="chkBox()"><label>체육진흥투표권 구매 제한자가 아닙니다.</label><br>
+		<input type="checkbox" id="thirdBox" oninput="chkBox()" style="width:17px; height:17px;"><label>체육진흥투표권 구매 제한자가 아닙니다.</label><br>
 		<textarea rows="10" cols="132" id="thirdText">
 (주)DTS는 국민체육진흥공단으로부터 체육진흥투표권 인터넷 발매 사업을 위탁받아 정보를 수집하며 이 외의 목적으로는 사용하지 않습니다. 이 내용을 춤분히 이해하였습니다.
 
@@ -436,8 +436,8 @@
 (체육진흥토표권 구매 제한자가 아닙니다.)	
 		</textarea><br><br>
 		
-		<div style="text-align:right;">
-			<input type="checkbox" id="allBox" oninput="chkBox()"><label>전체 동의하기</label>
+		<div style="text-align:right; margin-bottom:20px;">
+			<input type="checkbox" id="allBox" oninput="chkBox()" style="width:17px; height:17px;"><label>전체 동의하기</label>
 			<input type="submit" class="agreeBtn btn btn-outline-secondary btn-lg" value="동의" >
 		</div>
 	</form>

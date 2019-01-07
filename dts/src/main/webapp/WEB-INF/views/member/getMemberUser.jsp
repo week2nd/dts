@@ -134,7 +134,7 @@
 		width: 46%;
 		margin: 20px 0px;
 	}
-	label{
+	label, #point{
 		margin: 20px 0px;
 	}
 
