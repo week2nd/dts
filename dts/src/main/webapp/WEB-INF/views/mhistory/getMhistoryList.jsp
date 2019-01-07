@@ -70,6 +70,7 @@
 				alert("상태값 :" + status + "Http에러메시지 :" + msg);
 			},
 			success : function(data) {
+				console.log(data);
 				
 				for (i = 0; i < data.mhistoryList.length; i++) {
 					var tr = "<tr><td style='width:8%'>" + data.mhistoryList[i].num + 
@@ -82,7 +83,6 @@
 					"</td></tr>"
 					$(tr).appendTo("#mhistoryList");
 				}
-				console.log(data.uId+"aaaaaa");
 		
 					
 				var dd = "<a href='#' onclick='go_page(1)' >&laquo;</a>";

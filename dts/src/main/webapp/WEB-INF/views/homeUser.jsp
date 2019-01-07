@@ -108,7 +108,7 @@ $(function(){
 			<div class="container-fluid">
 				<div class="row px-3">
 					<div class="col-lg-12">
-						<h1 class="text-center" style="margin-top: 10px;">E-Sports토토유저메인</h1>
+						<h1 class="text-center">E-Sports 토토유저</h1>
 					</div>
 				</div>
 			</div>

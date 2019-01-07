@@ -131,8 +131,8 @@
                 </c:forEach>
 			</div>
 		</div>
-		<br><br>
-		<div class="container2">
+		
+		<div class="container2" style="margin-top:10px">
 		<div class="row">
 		<div class="col-6">
 		<ul class="nav nav-pills mb-3">
@@ -238,7 +238,7 @@
             </div>
          </div>
          </div>
-         <div class="col-4">
+         <div class="col-4" style="margin-top:10px">
 	         <div>
 	         	<a href="./helper"><img src="img\helper.PNG"></a>
 	         </div>

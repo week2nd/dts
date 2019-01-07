@@ -93,13 +93,13 @@ width : 50%;
 				<thead>
 					<tr>
 						<th style="text-align: center">충전일</th>
-						<th style="text-align: center">충전금액</th>
+						<th style="text-align: center">충전금액(원)</th>
 					</tr>
 				</thead>
 				<c:forEach items="${mhistoryList}" var="mhistory">
 					<tr>
 						<td>${mhistory.chargeDate }</td>
-						<td><fmt:formatNumber value="${mhistory.chargeMoney }" pattern="##,###,###"></fmt:formatNumber></td>
+						<td><fmt:formatNumber value="${mhistory.chargeMoney}" pattern="##,###,###"></fmt:formatNumber></td>
 					</tr>
 				</c:forEach>
 

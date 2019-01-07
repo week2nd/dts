@@ -30,6 +30,11 @@
      color: white;
      text-align: center;
 }
+#all{
+	width: 10%;
+	height: 10%;
+	
+}
 
 	
 </style>
@@ -126,7 +131,10 @@
                 </c:forEach>
 			</div>
 		</div>
-
+		
+		<div class="container2" style="margin-top:10px">
+		<div class="row">
+		<div class="col-6">
 		<ul class="nav nav-pills mb-3">
 			<li class="nav-item">
 				<a class="nav-link active show" onclick="change1()"
@@ -150,8 +158,8 @@
 				</li>
 		</ul>
 		
-         <div class="row">
-            <div class="col-4 notice">
+         <div class="row" style="width:150%";>
+            <div class="col-8 notice">
                <table border="0" class="table">
                   <tr>
                      <td>번호</td>
@@ -170,7 +178,7 @@
                   </c:forEach>
                </table>
             </div>
-            <div class="col-4 free" style="display: none;">
+            <div class="col-8 free" style="display: none;">
                <table border="0" class="table">
                   <tr>
                      <td>번호</td>
@@ -190,7 +198,7 @@
                </table>
             </div>
 
-            <div class="col-4 analysis" style="display: none;">
+            <div class="col-8 analysis" style="display: none;">
                <table border="0" class="table">
                   <tr>
                      <td>번호</td>
@@ -209,7 +217,7 @@
                   </c:forEach>
                </table>
             </div>
-            <div class="col-4 suggestion" style="display: none;">
+            <div class="col-8 suggestion" style="display: none;">
                <table border="0" class="table">
                   <tr>
                      <td>번호</td>
@@ -228,6 +236,14 @@
                   </c:forEach>
                </table>
             </div>
+         </div>
+         </div>
+         <div class="col-4 " style="margin-top:10px">
+	         <div>
+	         	<a href="./helper"><img src="img\helper.PNG"></a>
+	         </div>
+	     </div>
+         </div>
          </div>
    </form>
 
