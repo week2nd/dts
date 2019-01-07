@@ -11,6 +11,7 @@
 
 <form action="./insertBoard" method="post"
 			enctype="multipart/form-data">
+		<div class="top-campaign">
 		<div align="center">
 		<c:if test="${type=='notice'}">
 			<h3>공지게시판입력</h3>
@@ -42,18 +43,11 @@ $(function() {
 		}
 		
 	});
-	
-	//	var text = document.querySelector('textarea');
-	var text = $('#boardContent').html();
-	var result = text.replace(/(\n|\r\n)/g, '<br>');
-	$('#boardContent').html(result);
-	
 });
 
 </script>
 
 	<div class="col-lg-45" style="height: 700px;">
-		<div class="card">
 			<div class="card-body card-block">			
 					</div>
  					<div class="row form-group">
@@ -78,7 +72,7 @@ $(function() {
 					</div>					
 							<input type="hidden" id="uId" name="uId"
 							value="${membersession.uId}" readonly>		
-					</div>								
+													
 					<div class="row form-group">
 						<div class="col col-md-1" style="font-size:20px; margin-left:100px;">
 							<label for="file-input" class=" form-control-label"></label>
@@ -91,7 +85,7 @@ $(function() {
 				<button name="boardType" value="${type}" class="insertbo">저장</button>
 				<a href="./getBoardList?type=${type}"><input type="button" value="취소"  /></a>
 			</div>
-			
+			</div>
 			<!-- <input	type="file" name="uploadFile"><br> -->
 			
 	

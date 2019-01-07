@@ -10,6 +10,7 @@
 <body>
 	<form action="./updateBoard" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="boardNumber" value="${board.boardNumber}">
+	<div class="top-campaign">
 	<div align="center">
 
 			<h3>게시판수정</h3>
@@ -26,7 +27,6 @@ $(function() {
 </script>
 
 <div class="col-lg-45" style="height: 700px;">
-		<div class="card">
 			<div class="card-body card-block">			
 					</div>
 					<div class="row form-group">
@@ -53,7 +53,7 @@ $(function() {
 							
 							<input type="hidden" id="uId" name="uId"
 							value="${membersession.uId}" readonly>		
-					</div>									
+														
 					<div class="row form-group">
 						<div class="col col-md-1" style="font-size:20px;  margin-left:70px;">
 							<label for="file-input" class=" form-control-label"></label>
@@ -73,7 +73,7 @@ $(function() {
 			<!-- <input	type="file" name="uploadFile"><br> -->
 			
 
-
+			</div>
 			</div>
 			</form>
 </body>

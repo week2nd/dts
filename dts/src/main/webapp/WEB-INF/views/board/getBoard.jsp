@@ -57,10 +57,10 @@
 	
 	$(function() {
 	
-    	$(".like1").click(function(){		// 가입버튼 누르면 뜨는 alert
+    	$(".like1").click(function(){		
     		alert("추천하셨습니다.");
     	});
-		$(".likecancel1").click(function() {
+		$(".like11").click(function() {
 			alert("추천취소하셨습니다.");
 		});
 		$(".boarddelete").click(function() {
@@ -226,19 +226,6 @@
 
 	</div>	
 	
-<%-- 	<br> 게시판번호 : ${board.boardNumber }
-	<br> 게시판제목 : ${board.boardTitle}
-	<br> 게시판내용 : <span id="boardContent">${board.boardContent }</span>
-	<br> 작성일시 : ${board.postDate }
-	<br> 조회수 : ${board.boardHits }
-	<br> 추천수 : ${board.boardLike}
-	<br> 아이디 : ${board.uId }
-	<c:if test="${membersession.uGrant=='admin'}">
-	<br> 게시판타입 : ${board.boardType }
-	</c:if> 
-	
-	<br>--%>
-	
 <br><br>	
 	<c:if test="${not empty board.uploadFileName}">
 		<!-- 이미지 파일 보여주는것 -->
@@ -256,8 +243,8 @@
 	
 	
 	<c:if test="${membersession.uId == board.uId || membersession.uGrant=='admin'}">			<!-- 작성자 id로 로그인시 삭제 가능 -->
-	<div class="btn btn-outline-secondary">
-		<a href="deleteBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">삭제</a>
+	<div class="btn btn-outline-secondary" >
+		<a href="deleteBoard?boardNumber=${board.boardNumber}&uId=${board.uId}" class="boarddelete">삭제</a>
 		</div>
 	</c:if>
 	
@@ -269,17 +256,17 @@
 	
 	<c:if test="${board.likeCheck == 0}">					<!-- 유저 ID 비교후 좋아요 기록 없으면 좋아요 1 추가 -->
 	<div class="btn btn-outline-secondary">
-		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♥</a>
+		<a href="insertLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}" class="like1">♥</a>
 	</div>
 	</c:if>
 	
 	
 	<c:if test="${board.likeCheck == 1}">					<!-- 유저 ID 비교후 자신이 좋아요 한 기록 -1 -->
 	<div class="btn btn-outline-secondary">					
-		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}">♡</a>
+		<a href="deleteLikecheck?boardNumber=${board.boardNumber}&boardType=${board.boardType}&uId=${board.uId}" class="like11">♡</a>
 		</div>
 	</c:if>
-
+	
 	
 	
 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
