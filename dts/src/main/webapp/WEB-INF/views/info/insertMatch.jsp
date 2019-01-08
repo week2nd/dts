@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 
 <style>
-	body {
+	.body {
 	text-align: center;
 	}
 	
@@ -48,7 +48,7 @@ function teamCheck() {
 
 </head>
 <body>
-
+<div class="body">
 
 
 
@@ -336,6 +336,6 @@ function insert(){
 	</div>
 </form>
 
-
+</div>
 </body>
 </html>
