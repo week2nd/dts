@@ -62,11 +62,13 @@ $(function() {
 						<th align="right" colspan="2" name="matchInfo">${match.gameInfo}</th>
 					</tr>
 					<tr>
-						<td colspan="6"><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
+						<td colspan="5"><a href="getTeam?teamId=${match.blueTeamName}">${match.blueTeamName}</a></td>
 						<td align="center" colspan="2">${match.blueResult}</td>
-						<td align="center">${match.bluePick1Kill}:${match.redPick1Kill}</td>
+						<td></td>
+						<td align="center" colspan="1">${match.matchInfo}</td>
+						<td></td>
 						<td align="center" colspan="2">${match.redResult}</td>
-						<td align="right" colspan="6"><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
+						<td align="right" colspan="5"><a href="getTeam?teamId=${match.redTeamName}">${match.redTeamName}</a></td>
 					</tr>
 					<tr>
 						<td>K</td>
@@ -119,7 +121,7 @@ $(function() {
 						<td>${match.blueBan4}</td>
 						<td>${match.blueBan5}</td>
 						<td></td>
-						<td></td>
+						<td align="center">${match.bluePick1Kill} : ${match.redPick1Kill}</td>
 						<td></td>
 						<td>${match.redBan5}</td>
 						<td>${match.redBan4}</td>
