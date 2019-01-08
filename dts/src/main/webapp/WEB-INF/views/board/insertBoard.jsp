@@ -89,7 +89,7 @@ $(function() {
 				<button name="boardType" value="${type}" class="insertbo">저장</button>
 				</div>
 				<div class="btn btn-outline-secondary">
-				<a href="./getBoardList?type=${type}"><input type="button" value="취소"  /></a>
+				<a href="./getBoardList?type=${type}">취소</a>
 				</div>
 			</div>
 			</div>
