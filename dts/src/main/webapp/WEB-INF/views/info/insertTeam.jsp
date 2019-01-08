@@ -8,8 +8,11 @@
 <title>insertTeam.jsp</title>
 </head>
 <body>
+
+	
 	<form action="insertTeam" method="post" enctype="multipart/form-data">
 		<div class="top-campaign">
+		<p align="left" style="font-size: 30px;"> 팀 입력 </p>
 			<table class="table">
 				<tr>
 					<th>팀 약어	</th>

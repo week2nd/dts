@@ -9,14 +9,13 @@
 </head>
 <body>
 
-	<h3>선수 입력 화면</h3>
-	<br>
-
-	<form action="insertPlayer">
+	
+		<form action="insertPlayer">
 		<div align="right">
 			<input type="submit" class="btn btn-outline-secondary" value="선수 등록">
 		</div>
 		<div class="top-campaign">
+		<p align="left" style="font-size: 30px;"> 선수 입력 화면 </p>
 			<table class="table">
 				<tr>
 					<td>소환사명			</td>

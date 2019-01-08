@@ -75,7 +75,7 @@ function insert(){
 <form action="insertMatch">
 
 <input type="hidden" name="gameId" value="0" readonly="readonly">
-	<h3 align="left"> Pick / Ban </h3>
+	<p align="left" style="font-size: 30px;"> Pick / Ban </p>
 	<br>
 	<div class="top-campaign" align="center">
 		<table class="table">
