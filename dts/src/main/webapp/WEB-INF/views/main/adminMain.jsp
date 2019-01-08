@@ -279,20 +279,6 @@
 		<div class="row" style="margin-top:10px">
 			<div class="col-lg-6">
 				<div class="au-card recent-report">
-				<h3 class="title-2" style="margin-bottom:20px">일자별 판매차트</h3>
-					<div id="curve_chart" style="height: 500px"></div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
-				<h3 class="title-2" style="margin-bottom:20px">일자별 수익</h3>
-					<div id="columnchart_material" style="height: 500px;"></div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
 				<h3 class="title-2" style="margin-bottom:20px">경기별 판매/적중금액</h3>
 					<div id="chart_div" style="height: 500px;"></div>
 				</div>
@@ -301,6 +287,20 @@
 				<div class="au-card recent-report">
 				<h3 class="title-2" style="margin-bottom:20px">경기별 판매수</h3>
 					<div id="columnchart_material2" style="height: 500px;"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">일자별 판매차트</h3>
+					<div id="curve_chart" style="height: 500px"></div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">일자별 수익</h3>
+					<div id="columnchart_material" style="height: 500px;"></div>
 				</div>
 			</div>
 		</div>
