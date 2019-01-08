@@ -18,7 +18,7 @@ th, td {
 </head>
 <body>
 
-	<h3>팀 정보</h3>
+	<p style="font-size:30px; text-align:center">팀 정보</p>
 	
 
 	

@@ -115,7 +115,7 @@
 </head>
 <body>
 <div>
-	<h3>경기리스트</h3>
+	<p style="font-size:30px; text-align:center">경기리스트</p>
 	<form id="matchList">
 		<table class="table" style="text-align:center">
 			<thead>
@@ -156,8 +156,8 @@
 	</div>	
 	
 	<div>
-	<h3>구매</h3>
-	<button type="button" class="btn" id="buyPopBtn" data-toggle="modal" data-target="#buyModal" disabled>구매하기</button>
+	<!-- <p style="font-size:30px; text-align:center">구매</p> -->
+	<button type="button" class="btn" id="buyPopBtn" data-toggle="modal" data-target="#buyModal" disabled style="margin-bottom:5px">구매하기</button>
 		<table class="table">
 			<thead>
 				<tr>

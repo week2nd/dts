@@ -29,8 +29,7 @@ th {
 </head>
 <body>
 
-	<h3>경기 정보</h3>
-	<br>
+	<p style="font-size:30px; text-align:center">경기정보</p>
 
 	
 	

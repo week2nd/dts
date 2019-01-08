@@ -12,7 +12,7 @@
 <meta name="author" content="">
 <link rel="icon" href="">
 
-<title>E-SPORT토토게스트</title>
+<title>E-SPORT토토</title>
 <link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
 <!-- <link href="resources/style.css" rel="stylesheet"> -->
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -97,7 +97,7 @@ $(function(){
 			<div class="container-fluid">
 				<div class="row px-3">
 					<div class="col-lg-12">
-						<h1 class="text-center">E-Sports 토토게스트</h1>
+						<h1 class="text-center">E-Sports 토토</h1>
 					</div>
 				</div>
 			</div>

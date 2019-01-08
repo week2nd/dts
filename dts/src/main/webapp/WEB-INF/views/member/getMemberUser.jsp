@@ -151,7 +151,8 @@
 </head>
 <body>
 	
-	<h2 align="center">유저가 개인정보보기</h2><br>
+	<p style="font-size:30px; text-align:center">내 개인정보</p>
+	
 	<form action="updateMemberForm" method="post">
 	<input type="hidden" name="uId" value="${member.uId }" />
 	<input type="hidden" id="chkpw2" value="${member.uPw }">

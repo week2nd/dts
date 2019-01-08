@@ -37,8 +37,7 @@
 </head>
 <body>
 
-	<h3>맞대결 전적</h3>
-	<br>
+	<p style="font-size:30px; text-align:center">맞대결 전적</p>
 
 	<div class="top-campaign" >
 		<div class="minitable">

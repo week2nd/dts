@@ -18,16 +18,16 @@
 <div class="top-campaign">
 	<div align="center">
 	<c:if test="${type=='notice'}">
-	<h3>공지게시판</h3>
+	<p style="font-size:30px; text-align:center">공지사항</p>
 	</c:if>
 	<c:if test="${type=='free'}">
-	<h1>자유게시판</h1>
+	<p style="font-size:30px; text-align:center">자유게시판</p>
 	</c:if>
 	<c:if test="${type=='analysis'}">
-	<h3>분석게시판</h3>
+	<p style="font-size:30px; text-align:center">분석게시판</p>
 	</c:if>
 	<c:if test="${type=='suggestion'}">
-	<h3>건의게시판</h3>
+	<p style="font-size:30px; text-align:center">건의게시판</p>
 	</c:if>
 	</div>
 	

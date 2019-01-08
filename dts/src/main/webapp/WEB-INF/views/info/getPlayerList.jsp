@@ -40,10 +40,7 @@ p {
 </head>
 <body>
 
-	<h3>선수 정보</h3>
-
-	
-
+	<p style="font-size:30px; text-align:center">선수 정보</p>
 	
 	<div class="top-campaign">
 		<form name="playerFrm">

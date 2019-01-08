@@ -68,9 +68,10 @@ width : 50%;
 </style> -->
 </head>
 <body>
+	
 	<div align="center">
-		<div class="row" style="width: 20%;">
-			<select name="won">
+		<div class="row" style="width: 30%;">
+			<select name="won" style="margin-right: 5px">
 				<option value="100">100원</option>
 				<option value="10000">10,000원</option>
 				<option value="20000">20,000원</option>
@@ -84,10 +85,10 @@ width : 50%;
 				<option value="100000">100,000원</option>
 			</select> <input type="button" value="충전하기" id="payBtn" />
 		</div>
-		<div class="row" style="width: 45%">
-			<p style="font-size:30px">나의 충전내역</p>
+		<div class="row" style="width: 30%; margin-top: 10px;">
+			<p style="font-size: 30px">나의 충전내역</p>
 		</div>
-		<div class="row" style="width: 50%; margin-top: 10px;">
+		<div class="row" style="width: 50%;">
 
 			<table class="table t1" style="width: 70%; text-align: center;">
 				<thead>
@@ -99,7 +100,8 @@ width : 50%;
 				<c:forEach items="${mhistoryList}" var="mhistory">
 					<tr>
 						<td>${mhistory.chargeDate }</td>
-						<td><fmt:formatNumber value="${mhistory.chargeMoney}" pattern="##,###,###"></fmt:formatNumber></td>
+						<td><fmt:formatNumber value="${mhistory.chargeMoney}"
+								pattern="##,###,###"></fmt:formatNumber></td>
 					</tr>
 				</c:forEach>
 

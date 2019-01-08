@@ -48,8 +48,7 @@
 
 	<input type="hidden" name="line" value="${player.line}">
 
-	<h3>선수 정보</h3>
-	<br>
+	<p style="font-size:30px; text-align:center">선수정보</p>
 
 	<input type="hidden" name="playerId" value="${player.playerId}">
 	<div>

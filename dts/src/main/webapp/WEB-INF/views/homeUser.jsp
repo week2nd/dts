@@ -12,7 +12,7 @@
 <meta name="author" content="">
 <link rel="icon" href="">
 
-<title>E-SPORT토토유저메인</title>
+<title>E-SPORT토토</title>
 <link href="https://fonts.googleapis.com/css?family=Gothic+A1:100" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:500" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
@@ -108,7 +108,7 @@ $(function(){
 			<div class="container-fluid">
 				<div class="row px-3">
 					<div class="col-lg-12">
-						<h1 class="text-center">E-Sports 토토유저</h1>
+						<h1 class="text-center">E-Sports 토토</h1>
 					</div>
 				</div>
 			</div>

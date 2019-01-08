@@ -334,7 +334,8 @@
 
 </head>
 <body>
-		<h2 align="center">단일유저 정보 수정폼</h2><br>
+
+		<p style="font-size: 30px; text-align:center">내 정보수정</p>
 	<form action="updateMemberUser" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" /> 
 		<input type="hidden" id="uAddress" name="uAddress" value="${member.uAddress }">
@@ -445,8 +446,8 @@
 				<div class="col-12">
 					<div style="text-align: center">
 						<button class="updateBtn btn btn-primary btn-lg" id="button1">수정</button>
-						<a href="updatePwForm?uId=${member.uId }"><input type="button" class="pwBtn btn btn-outline-secondary btn-lg" value="비밀번호 변경" id="button2"></a> 
-						<a href="getMemberUser"><input type="button" class="cancelBtn btn btn-primary btn-lg" value="취소" id="button3"></a>
+						<a href="updatePwForm?uId=${member.uId }"><input type="button" class="pwBtn btn btn-primary btn-lg" value="비밀번호 변경" id="button2"></a> 
+						<a href="getMemberUser"><input type="button" class="cancelBtn btn btn-outline-secondary btn-lg" value="취소" id="button3"></a>
 					</div>
 				</div>
 			</div>

@@ -88,7 +88,9 @@ $(function (){
 	}
 </style>
 <body>
-	<h2 align="center">유저 비밀번호 수정</h2>	<br>			
+	<div align="center">
+		<p style="font-size: 30px;">유저 비밀번호 수정</p>
+	</div>
 	<form action="updatePw" method="post">
 	<input type="hidden" name="uId" value="${member.uId }" /> 
 	<input type="hidden" name="uPw" id="uPw" value="${member.uPw }" />

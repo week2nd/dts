@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-	<h2>내 구매목록</h2>
+	<p style="font-size:30px; text-align:center">내 구매목록</p>
     <form>
         <table class="table">
         <thead>

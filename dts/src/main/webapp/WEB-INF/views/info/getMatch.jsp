@@ -48,8 +48,7 @@ $(function() {
 </head>
 <body>
 <div class="aligncenter">
-	<h3>경기 결과 보기</h3>
-	<br>
+	<p style="font-size:30px; text-align:center">경기 결과</p>
 <div class="top-campaign">
 	<%-- <c:forEach items="${matchList}" var="match"> --%>
 		<form action="updateMatchForm">
