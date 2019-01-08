@@ -30,10 +30,15 @@ public class CommonController {
 	@Autowired
 	BoardService boardService;
 
-	// 도움
-	@RequestMapping("/helper")
-	public String helper() {
+	// 유저도움
+	@RequestMapping("/userHelper")
+	public String userHelper() {
 		return "user/common/helper";
+	}
+	// 게스트도움
+	@RequestMapping("/guestHelper")
+	public String guestHelper() {
+		return "guest/common/helper";
 	}
 	
 	

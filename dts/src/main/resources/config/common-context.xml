@@ -67,7 +67,7 @@
             <mvc:exclude-mapping path="/checkId*"/>
             <mvc:exclude-mapping path="/mailSend*"/>
             <mvc:exclude-mapping path="/insertContract"/>
-            <mvc:exclude-mapping path="/helper"/>
+            <mvc:exclude-mapping path="/guestHelper"/>
             
             <ref bean="authenticationInterceptor"/>
         </mvc:interceptor>

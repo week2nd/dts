@@ -296,7 +296,7 @@
          </div>
          <div class="col-4" style="margin:0px 0px 20px 0px">
 	         <div >
-	         	<a href="./helper"><img src="img\helper.PNG"></a>
+	         	<a href="./guestHelper"><img src="img\helper.PNG"></a>
 	         </div>
 	     </div>
          </div>
