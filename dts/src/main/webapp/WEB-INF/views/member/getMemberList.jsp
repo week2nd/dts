@@ -50,9 +50,7 @@
  	
 </script>
 <style>
-	body {								/* 글자 폰트 */
-		font-family: Arial, Helvetica, sans-serif;
-	}
+	
 
 	.deleteBtn {						/* delete 버튼 */
 		background-color: #aaaaaa;
@@ -176,12 +174,6 @@
 	  left: calc(100% - 30px);
 	  background: #1663c7;
 	}
-
-		
-		
-		
-		
-		
 </style>
 </head>
 <body>
@@ -193,8 +185,10 @@
 	onclick="location.href='./memberExcel'"/>
 <hr>
 
-<h3>관리자 회원정보</h3>
+
+
 <div class="top-campaign">
+<p style="font-size:30px; text-align:center">전체회원정보</p>
 <form name="frm">
 	<select id="ab" name="searchCondition"  >
 			<option value="U_ID">아이디
