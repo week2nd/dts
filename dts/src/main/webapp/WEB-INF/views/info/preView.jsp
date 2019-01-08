@@ -37,9 +37,10 @@
 </head>
 <body>
 
-	<p style="font-size:30px; text-align:center">맞대결 전적</p>
+	
 
 	<div class="top-campaign" >
+	<p style="font-size:30px; text-align:center">맞대결 전적</p>
 		<div class="minitable">
 		<table class="table" border="1">
 			<tr>

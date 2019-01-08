@@ -30,6 +30,7 @@
 </head>
 <body>
 	<div class="top-campaign">
+		<p style="font-size:30px; text-align:center; margin-bottom:15px">경기결과반영</p>
 		<form id="matchListAd">
 			<table class="table table-borderless table-data3" style="text-align: center">
 				<thead>

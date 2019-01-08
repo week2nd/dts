@@ -40,9 +40,10 @@ p {
 </head>
 <body>
 
-	<p style="font-size:30px; text-align:center">선수 정보</p>
+	
 	
 	<div class="top-campaign">
+	<p style="font-size:30px; text-align:center">선수 정보</p>
 		<form name="playerFrm">
 		<div>
 		<table>

@@ -113,6 +113,7 @@
 </head>
 <body>
 	<div class="top-campaign">
+		<p style="font-size:30px; text-align:center; margin-bottom:15px">마일리지관리</p>
 		<div style="margin-bottom: 10px; display: inline-flex; width:100%">
 			<form name="frm" id="frm" style="width:27%;">
 				<select name="searchCondition" id="searchCondition" class="custom-select" style="width:40%">

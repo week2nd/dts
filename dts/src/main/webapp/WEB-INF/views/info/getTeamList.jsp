@@ -18,13 +18,13 @@ th, td {
 </head>
 <body>
 
-	<p style="font-size:30px; text-align:center">팀 정보</p>
+	
 	
 
 	
 
 	<div class="top-campaign">
-	
+	<p style="font-size:30px; text-align:center">팀 정보</p>
 	<form name="teamFrm">
 		<table>
 			<tr>

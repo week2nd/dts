@@ -246,7 +246,7 @@
 		<div class="row" >
 			<div class="col-md-12">
 				<div class="overview-wrap" style="margin-bottom:10px;">
-					<p style="width: 100%; text-align: center;">OVER VIEW</p>
+					<p style="width: 100%; text-align: center; font-size:30px">OVER VIEW</p>
 				</div>
 			</div>
 		</div>

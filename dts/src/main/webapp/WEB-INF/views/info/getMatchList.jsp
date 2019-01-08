@@ -29,14 +29,8 @@ th {
 </head>
 <body>
 
-	<p style="font-size:30px; text-align:center">경기정보</p>
-
-	
-	
-
-
-
 	<div class="top-campaign">
+		<p style="font-size:30px; text-align:center">경기정보</p>
 		<form name="matchFrm">
 			<table>
 				<tr>
