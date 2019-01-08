@@ -118,11 +118,13 @@
 		
 	</form>
 	<div style="text-align:right;" >
-		<div class="btn btn-outline-secondary">
-		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">		
+		
+		<c:if test="${membersession.uGrant=='admin' || type!='notice' }">
+		<div class="btn btn-outline-secondary">		
 		<a href="${pageContext.request.contextPath}/insertBoardform?type=${type}">등록</a>
-		</c:if>
 		</div>
+		</c:if>
+
 	</div>
 	<%-- 삭제할때 type도 가져오는방법<a href="deleteBoard?boardNumber=${board.boardNumber}&boardType=${board.boardType }">삭제</a> --%>
 	<!-- a 태그에서 파라미터를 두개 가져오는 방법 -->
