@@ -152,10 +152,10 @@
 
 <style>
 	#all{
-		background-color: #606060;
+		background-color: #aaaaaa;
 		margin:auto;  
 		border-radius: 2em;
-		color: white;
+		color:white;
 	}
 	#uPw{
 		size: 40px;
@@ -214,7 +214,7 @@
 
 </head>
 <body>
-	<h2 align="center">관리자가 단일유저 정보보기</h2><br>
+	<h2 align="center">관리자 단일유저 정보</h2><br>
 	<form action="updateMember" method="post">
 		<input type="hidden" name="uId" value="${member.uId }" />
 		<div id="all" class="col-6">
