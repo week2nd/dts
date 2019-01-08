@@ -66,8 +66,12 @@ $(function() {
 						
 						</div>
 					</div>
+					<div class="btn btn-outline-secondary">
 				<button name="boardType" value="${type}" class="updatebo">저장</button>
+				</div>
+				<div class="btn btn-outline-secondary">
 				<a href="./getBoard?boardNumber=${board.boardNumber}&uId=${board.uId}">취소</a>
+				</div>
 			</div>
 			
 			<!-- <input	type="file" name="uploadFile"><br> -->
