@@ -208,17 +208,17 @@
 	<table border="1">
 		<tr style="border-radius:20px;">
 			<th>선택</th>
-			<th>아이디<a href="#" onclick="go_sort('u_id')">▲</a></th>
+			<th style="width:7%;">아이디<a href="#" onclick="go_sort('u_id')">▲</a></th>
 			<!-- <th>비밀번호<a href="#" onclick="go_sort('u_pw')">▲</a></th>			 -->	
-			<th>이름<a href="#" onclick="go_sort('u_name')">▲</a></th>
+			<th style="width:6%;">이름<a href="#" onclick="go_sort('u_name')">▲</a></th>
 			<th>주소<a href="#" onclick="go_sort('u_address')">▲</a></th>
 			<th>폰번호<a href="#" onclick="go_sort('u_phone')">▲</a></th>
 			<th>마일리지<a href="#" onclick="go_sort('u_mileage')">▲</a></th>
-			<th>권한<a href="#" onclick="go_sort('u_grant')">▲</a></th>
+			<th style="width:6%;">권한<a href="#" onclick="go_sort('u_grant')">▲</a></th>
 			<th>생년월일<a href="#" onclick="go_sort('u_birth')">▲</a></th>
 			<th>가입일<a href="#" onclick="go_sort('u_date')">▲</a></th>
-			<th>승리<a href="#" onclick="go_sort('u_win')">▲</a></th>
-			<th>패배<a href="#" onclick="go_sort('u_lose')">▲</a></th>
+			<th style="width:6%;">승리<a href="#" onclick="go_sort('u_win')">▲</a></th>
+			<th style="width:6%;">패배<a href="#" onclick="go_sort('u_lose')">▲</a></th>
 			<th>E-Mail<a href="#" onclick="go_sort('u_email')">▲</a></th>
 		</tr>
 		<c:forEach items="${memberList }" var="member" varStatus="status">
