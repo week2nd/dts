@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,14 +70,14 @@
 				<td align="center">${preView.playerMatch}</td>
 			</tr>
 			<tr>
-				<td align="center"> ${preView.blueRate} %</td>
+				<td align="center"><fmt:formatNumber value="${preView.blueRate}" pattern="0.##"> ${preView.blueRate} %</fmt:formatNumber> </td>
 				<td class="td-center">승률</td>
-				<td align="center">${preView.redRate} %</td>
+				<td align="center"><fmt:formatNumber value="${preView.redRate}" pattern="0.##">${preView.redRate} %</fmt:formatNumber></td>
 			</tr>
 			<tr>
-				<td align="center">${preView.blueDrate} %</td>
+				<td align="center"><fmt:formatNumber value="${preView.blueDrate}" pattern="0.##">${preView.blueDrate} %</fmt:formatNumber></td>
 				<td class="td-center">배당률</td>
-				<td align="center">${preView.redDrate} %</td>
+				<td align="center"><fmt:formatNumber value="${preView.redDrate}" pattern="0.##">${preView.redDrate} %</fmt:formatNumber></td>
 			</tr>
 		</table>
 		</div>
