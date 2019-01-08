@@ -70,14 +70,15 @@
 				<td align="center">${preView.playerMatch}</td>
 			</tr>
 			<tr>
-				<td align="center"><fmt:formatNumber value="${preView.blueRate}" pattern="0.##"> ${preView.blueRate} %</fmt:formatNumber> </td>
+				<td align="center"><fmt:formatNumber value="${preView.blueRate}" pattern="0.##"></fmt:formatNumber> %</td>
 				<td class="td-center">승률</td>
-				<td align="center"><fmt:formatNumber value="${preView.redRate}" pattern="0.##">${preView.redRate} %</fmt:formatNumber></td>
+				<td align="center"><fmt:formatNumber value="${preView.redRate}" pattern="0.##"></fmt:formatNumber> %</td>
 			</tr>
 			<tr>
-				<td align="center"><fmt:formatNumber value="${preView.blueDrate}" pattern="0.##">${preView.blueDrate} %</fmt:formatNumber></td>
+				<td align="center">
+				<fmt:formatNumber value="${preView.blueDrate}" pattern="0.##"></fmt:formatNumber> %</td>
 				<td class="td-center">배당률</td>
-				<td align="center"><fmt:formatNumber value="${preView.redDrate}" pattern="0.##">${preView.redDrate} %</fmt:formatNumber></td>
+				<td align="center"><fmt:formatNumber value="${preView.redDrate}" pattern="0.##"></fmt:formatNumber> %</td>
 			</tr>
 		</table>
 		</div>
