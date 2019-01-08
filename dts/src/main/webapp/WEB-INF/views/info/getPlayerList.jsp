@@ -86,7 +86,7 @@ p {
 					<th style="border-top : 1px solid black;" align="center">L	</th>
 					<th style="border-top : 1px solid black;" align="center">승률	</th>
 					<th style="border-top : 1px solid black;" align="center">TK	</th>
-					<th style="border-top : 1px solid black;" align="center">th	</th>
+					<th style="border-top : 1px solid black;" align="center">TD	</th>
 					<th style="border-top : 1px solid black;" align="center">TA	</th>
 					<th style="border-top : 1px solid black;" align="center">KDA	</th>
 				</tr>

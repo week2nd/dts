@@ -69,7 +69,7 @@
 				<td align="center">${preView.playerMatch}</td>
 			</tr>
 			<tr>
-				<td align="center">${preView.blueRate} %</td>
+				<td align="center"> ${preView.blueRate} %</td>
 				<td class="td-center">승률</td>
 				<td align="center">${preView.redRate} %</td>
 			</tr>

@@ -96,6 +96,7 @@ function insert(){
 				
 				<td align="center" colspan="2">
 					<select name = "blueResult">
+						<option value=""> </option>
 						<option value="win">W</option>
 						<option value="lose">L</option>
 					</select>
@@ -103,6 +104,7 @@ function insert(){
 				<td align="center">:</td>
 				<td align="center" colspan="2">
 					<select name = "redResult">
+						<option value=""> </option>
 						<option value="win">W</option>
 						<option value="lose">L</option>
 					</select>
