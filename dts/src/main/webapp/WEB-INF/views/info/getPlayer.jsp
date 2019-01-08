@@ -61,7 +61,7 @@
 		<div class="top-campaign">
 			<table class="table-head">
 				<tr>
-					<td rowspan="2" width="20%"><h3>${player.teamId} ${player.nickname }</h3></td>
+					<td rowspan="2" width="20%"><p style="font-size:30px">${player.teamId} ${player.nickname }</p></td>
 					<td rowspan="2" width="40%"><h3>${player.name}</h3></td>
 					<td>포지션</td>
 					<td rowspan="2" width="20%"><h3>${player.teamname }</h3></td>

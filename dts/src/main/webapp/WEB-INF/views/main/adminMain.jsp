@@ -233,9 +233,6 @@
 	
 </script>
 <style>
-	body { /* 글자 폰트 */
-		font-family: Arial, Helvetica, sans-serif;
-	}
 	# year{
 	 	size: 40px;
 	 	border: 1px solid #f2f2f2; 
@@ -249,7 +246,7 @@
 		<div class="row" >
 			<div class="col-md-12">
 				<div class="overview-wrap" style="margin-bottom:10px;">
-					<h2 class="title-1" style="width: 100%; text-align: center;">OVER VIEW</h2>
+					<p style="width: 100%; text-align: center;">OVER VIEW</p>
 				</div>
 			</div>
 		</div>

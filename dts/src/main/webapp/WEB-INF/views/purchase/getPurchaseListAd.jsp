@@ -24,6 +24,7 @@
 </head>
 <body>
 	<div class="top-campaign">
+	<p style="font-size:30px; text-align:center">전체구매목록</p>
 		<div style="margin-bottom: 10px; display: inline-flex; width:100%" >
 			<form name="frm" style="width:95%;">
 				<select name="searchCondition" class="custom-select" style="width:15%">
