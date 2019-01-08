@@ -53,7 +53,7 @@ p {
 				<option value="team_id">최근 소속팀	</option>
 				<option value="name">선수이름		</option>
 				</select>	</td>
-				<td><input type="text" name="searchKeyword">	</td>
+				<td><input style="border:none; border-bottom: 2px solid black;" type="text" name="searchKeyword">	</td>
 				<td><button class="btn btn-outline-secondary" style="line-height: 0.65" >검색	</button> </td>
 			</tr>
 		</table>
@@ -77,18 +77,18 @@ p {
 		<br>
 			<table class="table">
 				<tr>
-					<th>순위					</th>
-					<th>이름					</th>
-					<th>소환사명				</th>
-					<th>최근 소속				</th>
-					<th align="center">M	</th>
-					<th align="center">W	</th>
-					<th align="center">L	</th>
-					<th align="center">승률	</th>
-					<th align="center">TK	</th>
-					<th align="center">th	</th>
-					<th align="center">TA	</th>
-					<th align="center">KDA	</th>
+					<th style="border-top : 1px solid black;">순위					</th>
+					<th style="border-top : 1px solid black;">이름					</th>
+					<th style="border-top : 1px solid black;">소환사명				</th>
+					<th style="border-top : 1px solid black;">최근 소속				</th>
+					<th style="border-top : 1px solid black;" align="center">M	</th>
+					<th style="border-top : 1px solid black;" align="center">W	</th>
+					<th style="border-top : 1px solid black;" align="center">L	</th>
+					<th style="border-top : 1px solid black;" align="center">승률	</th>
+					<th style="border-top : 1px solid black;" align="center">TK	</th>
+					<th style="border-top : 1px solid black;" align="center">th	</th>
+					<th style="border-top : 1px solid black;" align="center">TA	</th>
+					<th style="border-top : 1px solid black;" align="center">KDA	</th>
 				</tr>
 				<c:forEach items="${playerList}" var="player">
 					<tr>

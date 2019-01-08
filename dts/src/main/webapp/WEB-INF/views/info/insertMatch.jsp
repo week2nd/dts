@@ -80,11 +80,11 @@ function insert(){
 	<div class="top-campaign" align="center">
 		<table class="table">
 			<tr>
-				<th colspan="1"><input type="text" name="matchDate" size="5" placeholder="경기일시"></th>
-				<th colspan="5">* 빈칸일 경우 오늘 날짜로 입력됩니다.</th>
-				<th><input type="text" name="matchName" size="5" value="LOL Champs"  placeholder="대회명"></th>
-				<th colspan="4"></th>
-				<th align="right" colspan="2"><input type="text" name="matchInfo" size="5" placeholder="경기 정보"></th>
+				<th colspan="2"><input style="width:80px;" type="text" name="matchDate" size="5" placeholder="경기일시"></th>
+				<th colspan="3">* 빈칸일 경우 오늘 날짜로 입력됩니다.</th>
+				<th colspan="3"><input style="width:120px;" type="text" name="matchName" size="5" value="LOL Champs"  placeholder="대회명"></th>
+				<th colspan="3"></th>
+				<th align="right" colspan="2"><input style="width:120px; type="text" name="matchInfo" size="5" placeholder="경기 정보"></th>
 			</tr>
 			<tr>
 				<td colspan="4"><select id="blueTeamId" name="blueTeamName" onchange="teamCheck()">
@@ -115,34 +115,28 @@ function insert(){
 					</select></td>
 			</tr>
 			<tr>
-				<td align="center">K</td>
-				<td><input type="text" name="blueTeamKillsum" value="0" size="5" placeholder="블루팀 처치합계"></td>
-				<td>D</td>
-				<td><input type="text" name="blueTeamDeathsum" value="0" size="5" placeholder="블루팀 죽음합계"></td>
-				<td>A</td>
-				<td><input type="text" name="blueTeamAssistsum" value="0" size="5" placeholder="블루팀 지원합계"></td>
+				<td colspan="2">K</td>
+				<td colspan="2">D</td>
+				<td colspan="2">A</td>
 				<td>Play Time</td>
-				<td>K</td>
-				<td><input type="text" name="redTeamKillsum" value="0" size="5" placeholder="레드팀 처치합계"></td>
-				<td>D</td>
-				<td><input type="text" name="redTeamDeathsum" value="0" size="5" placeholder="레드팀 죽음합계"></td>
-				<td>A</td>
-				<td><input type="text" name="redTeamAssistsum" value="0" size="5" placeholder="레드팀 지원합계"></td>
+				<td colspan="2">K</td>
+				<td colspan="2">D</td>
+				<td colspan="2">A</td>
 			</tr>
 			
 			<tr>
 				<td align="center">BAN</td>
-				<td><input type="text" name="blueBan1" size="5" placeholder="블루 벤1"></td>
-				<td><input type="text" name="blueBan2" size="5" placeholder="블루 벤2"></td>
-				<td><input type="text" name="blueBan3" size="5" placeholder="블루 벤3"></td>
-				<td><input type="text" name="blueBan4" size="5" placeholder="블루 벤4"></td>
-				<td><input type="text" name="blueBan5" size="5" placeholder="블루 벤5"></td>
-				<td><input type="text" name="playTime" value="15:00" size="5" placeholder="##:##"></td>
-				<td><input type="text" name="redBan5" size="5" placeholder="레드 벤1"></td>
-				<td><input type="text" name="redBan4"  size="5" placeholder="레드 벤2"></td>
-				<td><input type="text" name="redBan3"  size="5" placeholder="레드 벤3"></td>
-				<td><input type="text" name="redBan2"  size="5" placeholder="레드 벤4"></td>
-				<td><input type="text" name="redBan1" size="5" placeholder="레드 벤5"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="blueBan1" size="5" placeholder="블루 벤1"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="blueBan2" size="5" placeholder="블루 벤2"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="blueBan3" size="5" placeholder="블루 벤3"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="blueBan4" size="5" placeholder="블루 벤4"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="blueBan5" size="5" placeholder="블루 벤5"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="playTime" value="15:00" size="5" placeholder="##:##"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="redBan5" size="5" placeholder="레드 벤1"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="redBan4"  size="5" placeholder="레드 벤2"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="redBan3"  size="5" placeholder="레드 벤3"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="redBan2"  size="5" placeholder="레드 벤4"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="redBan1" size="5" placeholder="레드 벤5"></td>
 				<td align="center">BAN</td>
 			</tr>
 		</table>

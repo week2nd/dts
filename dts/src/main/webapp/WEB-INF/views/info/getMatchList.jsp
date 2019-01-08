@@ -13,7 +13,6 @@ th {
 	text-align: center;
 	border-bottom: 1px solid black;
 }
-
 </style>
 <script>
 	function go_page(page) {
@@ -35,7 +34,7 @@ th {
 			<table>
 				<tr>
 					<td><input type="hidden"name="searchCondition" value="blueteamname"><font size="4">팀명 &nbsp;</font> </td>
-					<td style="margin-left: 10px; "><input	type="text" name="searchKeyword" value="${matchVO.searchKeyword}"></td>
+					<td style="margin-left: 10px; "><input style="border:none; border-bottom: 2px solid black;"	type="text" name="searchKeyword" value="${matchVO.searchKeyword}"></td>
 					<td><button style="line-height: 0.65" class="btn btn-outline-secondary">검색</button></td>
 					<input type="hidden" name="page">
 				</tr>
@@ -49,17 +48,17 @@ th {
 		<br>
 		<table class="table">
 			<tr>
-				<th>경기번호	</th>
-				<th>날짜		</th>
-				<th>경기제목	</th>
-				<th></th>
-				<th>맞대결 전적</th>
-				<th></th>
-				<th>세부정보	</th>
+				<th style="border-top : 1px solid black;">경기번호	</th>
+				<th style="border-top : 1px solid black;">날짜		</th>
+				<th style="border-top : 1px solid black;">경기제목	</th>
+				<th style="border-top : 1px solid black;"></th>
+				<th style="border-top : 1px solid black;">맞대결 전적</th>
+				<th style="border-top : 1px solid black;"></th>
+				<th style="border-top : 1px solid black;">세부정보	</th>
 				<!-- 경기 일시 -->
-				<th>경기 상태	</th>
-				<th>결과확인	</th>
-				<th>게임 구매	</th>
+				<th style="border-top : 1px solid black;">경기 상태	</th>
+				<th style="border-top : 1px solid black;">결과확인	</th>
+				<th style="border-top : 1px solid black;">게임 구매	</th>
 
 			</tr>
 			<c:forEach items="${matchList}" var="match">

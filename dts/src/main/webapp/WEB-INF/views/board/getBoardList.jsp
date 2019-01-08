@@ -38,7 +38,7 @@
 			<option value="board_Title">제목
 			<option value="board_Content">내용
 		</select> 
-		<input type="text" name="searchKeyword"
+		<input type="text" style="border:none; border-bottom: 2px solid black;" name="searchKeyword"
 			value="${boardVO.searchKeyword}">
 		<button class="btn btn-outline-secondary" style = "line-height:0.7;">검색</button>
 		<input type="hidden" name="sortCol" /> 

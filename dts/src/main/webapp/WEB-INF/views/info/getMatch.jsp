@@ -76,10 +76,11 @@ $(function() {
 						<td>A</td>
 						<td>${match.bluePick1Assist + match.bluePick2Assist + match.bluePick3Assist + match.bluePick4Assist + match.bluePick5Assist}</td>
 						<td>KDA</td>
-						<td>${(match.bluePick1Kill + match.bluePick2Kill + match.bluePick3Kill + match.bluePick4Kill + match.bluePick5Kill
+						<td><%-- <fmt:formatNumber	value=" --%>
+							${(match.bluePick1Kill + match.bluePick2Kill + match.bluePick3Kill + match.bluePick4Kill + match.bluePick5Kill
 							+ match.bluePick1Assist + match.bluePick2Assist + match.bluePick3Assist + match.bluePick4Assist + match.bluePick5Assist)
 							/ match.bluePick1Death + match.bluePick2Death + match.bluePick3Death + match.bluePick4Death + match.bluePick5Death 
-							}</td>
+							}<%-- " pattern=".##" ></fmt:formatNumber> --%></td>
 						<td align="center">Play Time</td>
 						<td>K</td>
 						<td>${match.redPick1Kill + match.redPick2Kill + match.redPick3Kill + match.redPick4Kill + match.redPick5Kill}</td>

@@ -88,11 +88,11 @@ $(function(){
 	<div align="center">
 		<table class="table">
 			<tr>
-				<th><input type="text" name="matchDate" value="${match.matchDate}" size="5" placeholder="경기일시"></th>
-				<th colspan="5">* 빈칸일 경우 오늘 날짜로 입력됩니다.</th>
-				<th><input type="text" name="matchName" value="${match.matchName}" size="5" placeholder="대회명"></th>
-				<th colspan="4"></th>
-				<th align="right" colspan="2"><input type="text" name="matchInfo" value="${match.matchInfo}" size="5" placeholder="경기 정보"></th>
+				<th colspan="2"><input style="width:80px;" type="text" name="matchDate" value="${match.matchDate}" size="5" placeholder="경기일시"></th>
+				<th colspan="3">* 빈칸일 경우 오늘 날짜로 입력됩니다.</th>
+				<th colspan="3"><input style="width:120px;" type="text" name="matchName" value="${match.matchName}" size="5" placeholder="대회명"></th>
+				<th colspan="3"></th>
+				<th align="right" colspan="2"><input style="width:120px; type="text" name="matchInfo" value="${match.matchInfo}" size="5" placeholder="경기 정보"></th>
 			</tr>
 			<tr>
 				<td colspan="4"><select id="blueTeamId" name="blueTeamName" onchange="teamCheck()">
@@ -139,17 +139,17 @@ $(function(){
 			</tr>
 			<tr>
 				<td align="center">BAN</td>
-				<td><input type="text" name="blueBan1" value="${match.blueBan1}" size="5" placeholder="블루 벤1"></td>
-				<td><input type="text" name="blueBan2" value="${match.blueBan2}" size="5" placeholder="블루 벤2"></td>
-				<td><input type="text" name="blueBan3" value="${match.blueBan3}" size="5" placeholder="블루 벤3"></td>
-				<td><input type="text" name="blueBan4" value="${match.blueBan4}" size="5" placeholder="블루 벤4"></td>
-				<td><input type="text" name="blueBan5" value="${match.blueBan5}" size="5" placeholder="블루 벤5"></td>
-				<td><input type="text" name="playTime" value="${match.playTime}" size="5" placeholder="##:##"></td>
-				<td><input type="text" name="redBan5" value="${match.redBan5}" size="5" placeholder="레드 벤1"></td>
-				<td><input type="text" name="redBan4" value="${match.redBan4}" size="5" placeholder="레드 벤2"></td>
-				<td><input type="text" name="redBan3" value="${match.redBan3}" size="5" placeholder="레드 벤3"></td>
-				<td><input type="text" name="redBan2" value="${match.redBan2}" size="5" placeholder="레드 벤4"></td>
-				<td><input type="text" name="redBan1" value="${match.redBan1}" size="5" placeholder="레드 벤5"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="blueBan1" value="${match.blueBan1}" size="5" placeholder="블루 벤1"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" type="text" name="blueBan2" value="${match.blueBan2}" size="5" placeholder="블루 벤2"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="blueBan3" value="${match.blueBan3}" size="5" placeholder="블루 벤3"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="blueBan4" value="${match.blueBan4}" size="5" placeholder="블루 벤4"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="blueBan5" value="${match.blueBan5}" size="5" placeholder="블루 벤5"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="playTime" value="${match.playTime}" size="5" placeholder="##:##"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="redBan5" value="${match.redBan5}" size="5" placeholder="레드 벤1"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="redBan4" value="${match.redBan4}" size="5" placeholder="레드 벤2"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="redBan3" value="${match.redBan3}" size="5" placeholder="레드 벤3"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="redBan2" value="${match.redBan2}" size="5" placeholder="레드 벤4"></td>
+				<td style="padding-left : 0px; padding-right : 0px;"><input style="width:80px;" name="redBan1" value="${match.redBan1}" size="5" placeholder="레드 벤5"></td>
 				<td align="center">BAN</td>
 			</tr>
 		</table>
@@ -176,12 +176,12 @@ $(function(){
 					<td rowspan="2"><input type="text" name="bluePick1" value="${match.bluePick1}" size="7" placeholder="블루 탑픽"></td>
 					<td colspan="3"><select name="blueGamer1">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.blueGamer1}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td colspan="3"><select name="redGamer1">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.redGamer1}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td rowspan="2"><input type="text" name="redPick1" value="${match.redPick1}" size="7" placeholder="레드 탑픽 "></td>
@@ -204,12 +204,12 @@ $(function(){
 					<td rowspan="2"><input type="text" name="bluePick2" value="${match.bluePick2}" size="7" placeholder="블루 정글픽"></td>
 					<td colspan="3"><select name="blueGamer2">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.blueGamer2}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td colspan="3"><select name="redGamer2">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.redGamer2}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td rowspan="2"><input type="text" name="redPick2" value="${match.redPick2}" size="7" placeholder="레드 정글픽"></td>
@@ -233,12 +233,12 @@ $(function(){
 					<td rowspan="2"><input type="text" name="bluePick3" value="${match.bluePick3}" size="7" placeholder="블루 미드픽"></td>
 					<td colspan="3"><select name="blueGamer3">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.blueGamer3}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td colspan="3"><select name="redGamer3">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.redGamer3}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td rowspan="2"><input type="text" name="redPick3" value="${match.redPick3}" size="7" placeholder="레드 미드픽"></td>
@@ -261,12 +261,12 @@ $(function(){
 					<td rowspan="2"><input type="text" name="bluePick4" value="${match.bluePick4}" size="7" placeholder="블루 원딜픽"></td>
 					<td colspan="3"><select name="blueGamer4">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.blueGamer4}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td colspan="3"><select name="redGamer4">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.redGamer4}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td rowspan="2"><input type="text" name="redPick4" value="${match.redPick4}" size="7" placeholder="레드 원딜픽"></td>
@@ -289,12 +289,12 @@ $(function(){
 					<td rowspan="2"><input type="text" name="bluePick5" value="${match.bluePick5}" size="7" placeholder="블루 서포터픽"></td>
 					<td colspan="3"><select name="blueGamer5">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.blueGamer5}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td colspan="3"><select name="redGamer5">
 						<c:forEach items="${playerList}" var="player">
-							<option value="${player.nickname}">${player.nickname} </option>
+							<option value="${player.nickname}" <c:if test="${player.nickname == match.redGamer5}"> selected="selected" </c:if>>${player.nickname} </option>
 						</c:forEach>
 					</select></td>
 					<td rowspan="2"><input type="text" name="redPick5" value="${match.redPick5}" size="7" placeholder="레드 서포터픽"></td>

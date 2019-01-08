@@ -11,6 +11,7 @@ th {
 	border-bottom: 1px solid black;
 }
 
+
 th, td {
 	text-align: center;
 }
@@ -29,7 +30,7 @@ th, td {
 		<table>
 			<tr>
 				<th style="border-bottom: 0px;"><input type="hidden" name="searchCondition" value="team_id" placeholder=""><font size="4">팀 이름 &nbsp;</font>	</th> 
-				<td><input type="text" name="searchKeyword">	</td>
+				<td ><input style="border:none; border-bottom: 2px solid black;" type="text" name="searchKeyword">	</td>
 				<td><button class="btn btn-outline-secondary" style="line-height: 0.65">검색</button>	</td>		
 			</tr>
 		</table>
@@ -46,15 +47,15 @@ th, td {
 	<br>
 		<table class="table">
 			<tr>
-				<th>순위		</th>
-				<th>팀명		</th>
-				<th>감독		</th>
-				<th>헤드코치	</th>
-				<th>팀 이름	</th>
-				<th>경기수	</th>
-				<th>승		</th>
-				<th>패		</th>
-				<th>승률		</th>
+				<th style="border-top : 1px solid black;">순위		</th>
+				<th style="border-top : 1px solid black;">팀명		</th>
+				<th style="border-top : 1px solid black;">감독		</th>
+				<th style="border-top : 1px solid black;">헤드코치	</th>
+				<th style="border-top : 1px solid black;">팀 이름	</th>
+				<th style="border-top : 1px solid black;">경기수	</th>
+				<th style="border-top : 1px solid black;">승		</th>
+				<th style="border-top : 1px solid black;">패		</th>
+				<th style="border-top : 1px solid black;">승률		</th>
 			</tr>
 			<c:forEach items="${teamList}" var="team">
 				<tr>
