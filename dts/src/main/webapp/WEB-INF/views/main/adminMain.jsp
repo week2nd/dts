@@ -291,22 +291,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
-				<h3 class="title-2" style="margin-bottom:20px">일자별 판매차트</h3>
-					<div id="curve_chart" style="height: 500px"></div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="au-card recent-report">
-				<h3 class="title-2" style="margin-bottom:20px">일자별 수익</h3>
-					<div id="columnchart_material" style="height: 500px;"></div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-6">
+		<div class="col-lg-6">
 				<div class="au-card recent-report">
 				<h3 class="title-2" style="margin-bottom:20px">팀선택 비율</h3>
 					<div id="donutchart" style="height: 500px;"></div>
@@ -317,6 +302,23 @@
 				<div class="au-card recent-report">
 				<h3 class="title-2" style="margin-bottom:20px">월별 가입자수</h3>
 					<div id="columnchart_material1" style="height: 500px;"></div>
+				</div>
+			</div>	
+			
+			
+		</div>
+		<div class="row">
+			
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">일자별 판매차트</h3>
+					<div id="curve_chart" style="height: 500px"></div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="au-card recent-report">
+				<h3 class="title-2" style="margin-bottom:20px">일자별 수익</h3>
+					<div id="columnchart_material" style="height: 500px;"></div>
 				</div>
 			</div>
 		</div>
