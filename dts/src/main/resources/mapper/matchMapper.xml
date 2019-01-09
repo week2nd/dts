@@ -137,8 +137,8 @@
                 PLAYERMATCH playerMatch,
                 WIN win,
                 LOSE lose, 
-				100*WIN/REPLACE((WIN+LOSE),0) blueRate,
-				100*LOSE/REPLACE((WIN+LOSE),0) redRate,  
+				100*WIN/(WIN+LOSE) blueRate,
+				100*LOSE/(WIN+LOSE) redRate,  
 				FUNC_BETRATE(BLUETEAMNAME, REDTEAMNAME) blueDrate,
 				FUNC_BETRATE(REDTEAMNAME, BLUETEAMNAME) redDrate
 		FROM	(SELECT BLUETEAMNAME,
